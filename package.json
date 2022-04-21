@@ -1,7 +1,7 @@
 {
-  "name": "my-vue-app",
+  "name": "nukaui-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.99.0",
   "scripts": {
     "build": "vite build",
     "storybook": "start-storybook -p 6006",
