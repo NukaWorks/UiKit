@@ -24,7 +24,7 @@ export const AppHeader = ({ user, onLogin, onLogout, onCreateAccount }) => (
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1>NukaUI</h1>
       </div>
       <div>
         {user ? (
