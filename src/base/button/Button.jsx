@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.css';
+import './Button.scss';
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'nukaui-button--primary' : 'nukaui-button--secondary';
+  const mode = primary ? 'base--button__primary' : 'base--button__secondary';
   return (
     <button
       type="button"
-      className={['nukaui-button', `nukaui-button--${size}`, mode].join(' ')}
+      className={['base--button', `base--button--${size}`, mode].join(' ')}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
