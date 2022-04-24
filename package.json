@@ -1,6 +1,5 @@
 {
-  "name": "nukaui-react",
-  "private": true,
+  "name": "@nukaworks/uikit",
   "version": "0.99.0",
   "scripts": {
     "build": "vite build",
