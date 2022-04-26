@@ -1,30 +1,14 @@
-.base--button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-}
-.base--button__primary {
-  color: white;
-  background-color: #1ea7fd;
-}
-.base--button__secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-.base--button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.base--button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.base--button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+.base {
+  &--button {
+    outline: none;
+    user-select: none;
+    background-color: #d4d0c8;
+    padding: 2px 5px;
+    border-color: #f6f6f6 #939393 #939393 #f6f6f6 !important;
+    border: 2px solid;
+
+    &:active {
+      border-color: #939393 #f6f6f6 #f6f6f6 #939393 !important;
+    }
+  }
 }
