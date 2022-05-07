@@ -2,13 +2,6 @@
   &--button {
     outline: none;
     user-select: none;
-    background-color: #d4d0c8;
     padding: 2px 5px;
-    border-color: #f6f6f6 #939393 #939393 #f6f6f6 !important;
-    border: 2px solid;
-
-    &:active {
-      border-color: #939393 #f6f6f6 #f6f6f6 #939393 !important;
-    }
   }
 }
