@@ -3,11 +3,19 @@
 .base {
   &--button {
     background-color: $default-background;
-    border-color: #f6f6f6 #939393 #939393 #f6f6f6 !important;
-    border: 2px solid;
+    border-radius: 20px;
+    border: none;
 
-    &:active {
-      border-color: #939393 #f6f6f6 #f6f6f6 #939393 !important;
+    &--small {
+      font-size: 9pt;
+    }
+
+    &--medium {
+      font-size: 13pt;
+    }
+
+    &--large {
+      font-size: 20pt;
     }
   }
 }
