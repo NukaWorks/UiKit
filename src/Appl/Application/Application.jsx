@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import "../../Assets/Themes/Default/index.scss";
 
-
-export class AppHeader extends Component {
+export class Application extends Component {
     constructor(props) {
         super(props);
 
@@ -21,6 +21,6 @@ export class AppHeader extends Component {
     }
 }
 
-AppHeader.propTypes = {};
+Application.propTypes = {};
 
-AppHeader.defaultProps = {};
+Application.defaultProps = {};
