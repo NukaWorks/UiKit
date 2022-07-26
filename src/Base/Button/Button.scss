@@ -21,23 +21,31 @@
       background-color: $action-background;
     }
 
-    &:focus-within {
-      box-shadow: $active-outline 0 0 0 2.5px;
-    }
-
     &--small {
       padding: 5px 10px;
       font-size: 9pt;
+
+      &:focus-within {
+        box-shadow: $active-outline 0 0 0 2.5px;
+      }
     }
 
     &--medium {
       padding: 8px 15px;
       font-size: 13pt;
+
+      &:focus-within {
+        box-shadow: $active-outline 0 0 0 3px;
+      }
     }
 
     &--large {
       padding: 8px 20px;
       font-size: 20pt;
+
+      &:focus-within {
+        box-shadow: $active-outline 0 0 0 3.5px;
+      }
     }
   }
 }
