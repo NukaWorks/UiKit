@@ -1,32 +1,25 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import "./TextField.scss";
+import React from 'react'
+import PropTypes, { InferProps } from 'prop-types'
+import './TextField.scss'
 
-export class TextField extends Component {
-    constructor(props) {
-        super(props);
-
-        ({
-            placeholder: this.placeholder,
-            className: this.className
-        } = this.props);
-    }
-
-    render() {
-        return (
-            <input
-                type={"text"}
-                placeholder={this.placeholder}
-                className={
-                        ["base--textfield",
-                        this.className].join(' ')}
-            />
-        );
-    }
+export function TextField ({ type, placeholder, className } :InferProps<typeof TextField.propTypes>) {
+  return (
+    <input
+        type={'text'}
+        placeholder={placeholder || ''}
+        className={
+            ['base--textfield',
+              className].join(' ')}
+    />
+  )
 }
 
 TextField.propTypes = {
-    placeholder: PropTypes.string
-};
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  className: PropTypes.string
+}
 
-TextField.defaultProps = {}
+TextField.defaultProps = {
+  type: 'text'
+}
