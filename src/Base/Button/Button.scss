@@ -10,6 +10,21 @@
     background-color: $default-background;
     border-radius: 300px;
     border: none;
+    transition: background-color 0.1s ease-in-out;
+    box-shadow: #000 0 0.5px 0;
+    color: whitesmoke;
+
+    &:hover {
+      background-color: $hover-background;
+    }
+
+    &:active {
+      background-color: $action-background;
+    }
+
+    &:focus-within {
+      box-shadow: $active-outline 0 0 0 2.5px;
+    }
 
     &--small {
       font-size: 9pt;
