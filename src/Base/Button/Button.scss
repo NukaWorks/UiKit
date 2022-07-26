@@ -4,7 +4,6 @@
   &--button {
     outline: none;
     user-select: none;
-    padding: 5px 10px;
     font-family: "Outfit Regular", sans-serif;
     text-align: center;
     background-color: $default-background;
@@ -27,10 +26,12 @@
     }
 
     &--small {
+      padding: 5px 10px;
       font-size: 9pt;
     }
 
     &--medium {
+      padding: 8px 15px;
       font-size: 13pt;
     }
 
