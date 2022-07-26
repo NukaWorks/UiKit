@@ -2,7 +2,7 @@ import React from 'react'
 import '../../Assets/Themes/Default/index.scss'
 import PropTypes, { InferProps } from 'prop-types'
 
-function Application ({ children, className } :InferProps<typeof Application.propTypes>) {
+export function Application ({ children, className } :InferProps<typeof Application.propTypes>) {
   return (
     <div className={['appl--application', className].join(' ')}>
         {children}
