@@ -1,26 +1,18 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import "../../Assets/Themes/Default/index.scss";
+import React from 'react'
+import '../../Assets/Themes/Default/index.scss'
+import PropTypes, { InferProps } from 'prop-types'
 
-export class Application extends Component {
-    constructor(props) {
-        super(props);
-
-        ({
-            className: this.className,
-            children: this.children
-        } = this.props);
-    }
-
-    render() {
-        return (
-            <div className={["appl--application", this.className].join(' ')}>
-                {this.children}
-            </div>
-        );
-    }
+function Application ({ children, className } :InferProps<typeof Application.propTypes>) {
+  return (
+    <div className={['appl--application', className].join(' ')}>
+        {children}
+    </div>
+  )
 }
 
-Application.propTypes = {};
+Application.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any
+}
 
-Application.defaultProps = {};
+Application.defaultProps = {}
