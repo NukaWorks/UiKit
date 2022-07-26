@@ -5,10 +5,7 @@ import { Application } from '../../Appl/Application/Application'
 
 export default {
   title: 'Base/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  component: Button
 }
 
 const Template = (args :any) =>
