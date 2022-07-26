@@ -2,50 +2,49 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="README.md" />
 
-# Introducing NukaUI for React
+# Introducing MouseUI for React
 
 ## Component Template
 
 ```jsx
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes, { InferProps } from 'prop-types'
 
-
-export class AppHeader extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <header className={["appl--header", this.props.className].join(' ')}>
-                <h1>Hello World !</h1>
-            </header>
-        );
-    }
+export function HelloWorld({title, color} :InferProps<typeof HelloWorld.propTypes>) {
+    return (
+        <h1 color={color}>{{ title }}</h1>
+    );
 }
 
-AppHeader.propTypes = {};
+HelloWorld.propTypes = {
+  title: PropTypes.string.isRequired,
+  color: PropTypes.string
+};
 
-AppHeader.defaultProps = {}
+HelloWorld.defaultProps = {
+  title: "HelloWorld !",
+  color: "blue"
+}
 ```
 
 # Component Stories Template
 ```jsx
 import React from 'react';
 
-import { AppHeader } from './AppHeader';
+import { HelloWorld } from './HelloWorld';
 
 export default {
-  title: 'Appl/AppHeader',
-  component: AppHeader,
+  title: 'Misc/HelloWorld',
+  component: HelloWorld,
   parameters: {
     layout: 'fullscreen',
   },
 };
 
-const Template = (args) => <AppHeader {...args} />;
+const Template = (args) => <HelloWorld {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  title: "Hello !"
+};
 ```
