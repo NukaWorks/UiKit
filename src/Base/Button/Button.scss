@@ -4,7 +4,7 @@
   &--button {
     outline: none;
     user-select: none;
-    padding: 3px 8px;
+    padding: 5px 10px;
     font-family: "Outfit Regular", sans-serif;
     background-color: $default-background;
     border-radius: 20px;
@@ -19,6 +19,7 @@
     }
 
     &--large {
+      padding: 8px 20px;
       font-size: 20pt;
     }
   }
