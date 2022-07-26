@@ -1,8 +1,25 @@
+@import "../../Assets/Themes/Default/colors";
+
 .base {
   &--button {
     outline: none;
     user-select: none;
     padding: 3px 8px;
     font-family: "Outfit Regular", sans-serif;
+    background-color: $default-background;
+    border-radius: 20px;
+    border: none;
+
+    &--small {
+      font-size: 9pt;
+    }
+
+    &--medium {
+      font-size: 13pt;
+    }
+
+    &--large {
+      font-size: 20pt;
+    }
   }
 }
