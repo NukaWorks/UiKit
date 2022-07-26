@@ -1,41 +1,45 @@
-import React from 'react';
+import React from 'react'
 
-import {Button} from './Button';
-import {Application} from "../../Appl/Application/Application";
+import { Button } from './Button'
+import { Application } from '../../Appl/Application/Application'
 
 export default {
-    title: 'Base/Button',
-    component: Button,
-    argTypes: {
-        backgroundColor: {control: 'color'},
-    },
-};
+  title: 'Base/Button',
+  component: Button,
+  argTypes: {
+    backgroundColor: { control: 'color' }
+  }
+}
 
-const Template = (args) =>
+const Template = (args :any) =>
     <Application>
         <Button {...args} />
-    </Application>;
+    </Application>
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
+// @ts-ignore
 Primary.args = {
-    primary: true,
-    label: 'Button',
-    size: 'small',
-};
+  primary: true,
+  label: 'Button',
+  size: 'small'
+}
 
-export const Secondary = Template.bind({});
+export const Secondary = Template.bind({})
+// @ts-ignore
 Secondary.args = {
-    label: 'Button',
-};
+  label: 'Button'
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
+// @ts-ignore
 Large.args = {
-    size: 'large',
-    label: 'Button',
-};
+  size: 'large',
+  label: 'Button'
+}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
+// @ts-ignore
 Small.args = {
-    size: 'small',
-    label: 'Button',
-};
+  size: 'small',
+  label: 'Button'
+}
