@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Button.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import './Button.scss'
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'base--button__primary' : 'base--button__secondary';
+export const Button = ({ primary, backgroundColor, size, label, ...props } :any) => {
+  const mode = primary ? 'base--button__primary' : 'base--button__secondary'
   return (
     <button
       type="button"
@@ -16,8 +16,8 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
     >
       {label}
     </button>
-  );
-};
+  )
+}
 
 Button.propTypes = {
   /**
@@ -39,12 +39,12 @@ Button.propTypes = {
   /**
    * Optional click handler
    */
-  onClick: PropTypes.func,
-};
+  onClick: PropTypes.func
+}
 
 Button.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: 'small',
-  onClick: undefined,
-};
+  onClick: undefined
+}
