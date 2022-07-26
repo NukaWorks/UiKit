@@ -43,3 +43,10 @@ Small.args = {
   size: 'small',
   label: 'Button'
 }
+
+export const Medium = Template.bind({})
+// @ts-ignore
+Medium.args = {
+  size: 'medium',
+  label: 'Button'
+}
