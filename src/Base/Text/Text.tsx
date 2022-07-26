@@ -1,30 +1,18 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import "./Text.scss";
+import React from 'react'
+import PropTypes, { InferProps } from 'prop-types'
+import './Text.scss'
 
-export class Text extends Component {
-    constructor(props) {
-        super(props);
-
-        ({
-            text : this.text,
-            className : this.className,
-        } = this.props);
-
-
-    }
-
-    render() {
-        return (
-            <div className={["base--text", this.className].join(' ')} {...this.props}>
-                { this.text }
-            </div>
-        );
-    }
+export default function Text ({ className, text } :InferProps<typeof Text.propTypes>) {
+  return (
+    <div className={['base--text', className].join(' ')}>
+        { text }
+    </div>
+  )
 }
 
 Text.propTypes = {
-    text: PropTypes.string.isRequired
-};
+  text: PropTypes.string.isRequired,
+  className: PropTypes.string
+}
 
 Text.defaultProps = {}
