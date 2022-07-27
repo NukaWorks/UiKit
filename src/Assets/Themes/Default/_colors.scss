@@ -1,7 +1,25 @@
-// Colors
+/* Colors */
 
-$default-background: #2f2f33;
-$hover-background: #18181a;
-$action-background: #000000;
+// Default
+$btn-default-bg: #2f2f33;
+$btn-default-hover-bg: #18181a;
+$btn-default-active-bg: #000000;
+$btn-default-outline-color: rgba(154, 152, 152, 0.5);
 
-$active-outline: rgba(154, 152, 152, 0.5);
+// Alert colors
+$btn-alert-bg: #2f2f33;
+$btn-alert-hover-bg: #18181a;
+$btn-alert-active-bg: #000000;
+$btn-alert-outline-color: rgba(154, 152, 152, 0.5);
+
+// Success colors
+$btn-success-bg: #2f2f33;
+$btn-success-hover-bg: #18181a;
+$btn-success-active-bg: #000000;
+$btn-success-outline-color: rgba(154, 152, 152, 0.5);
+
+// Warning colors
+$btn-warning-bg: #2f2f33;
+$btn-warning-hover-bg: #18181a;
+$btn-warning-active-bg: #000000;
+$btn-warning-outline-color: rgba(154, 152, 152, 0.5);
