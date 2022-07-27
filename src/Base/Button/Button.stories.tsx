@@ -17,7 +17,7 @@ export default {
     },
     theme: {
       options: ['light', 'dark'],
-      control: { type: 'boolean' }
+      control: { type: 'radio' }
     }
   }
 }
