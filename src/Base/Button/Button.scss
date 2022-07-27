@@ -2,24 +2,26 @@
 
 .base {
   &--theme {
-    // Dark mode
-    &--button {
-      box-shadow: $btn-default-dark-border-color;
-      color: whitesmoke;
+    &__dark {
+      // Dark mode
+      &.base--button {
+        box-shadow: $btn-default-dark-border-color;
+        color: whitesmoke;
 
-      &__default {
-        background-color: $btn-default-dark-bg;
+        &__default {
+          background-color: $btn-default-dark-bg;
 
-        &:hover {
-          background-color: $btn-default-dark-hover-bg;
-        }
+          &:hover {
+            background-color: $btn-default-dark-hover-bg;
+          }
 
-        &:active {
-          background-color: $btn-default-dark-active-bg;
-        }
+          &:active {
+            background-color: $btn-default-dark-active-bg;
+          }
 
-        &:focus-within {
-          box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
+          &:focus-within {
+            box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
+          }
         }
       }
     }
@@ -32,7 +34,7 @@
     text-align: center;
     border-radius: 300px;
     border: none;
-    transition: background-color 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     color: black;
     box-shadow: $btn-default-light-border-color 0 0.5px 0;
     text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
