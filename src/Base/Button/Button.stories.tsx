@@ -10,6 +10,10 @@ export default {
     color: {
       options: ['default', 'success', 'warning', 'alert'],
       control: { type: 'select' }
+    },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' }
     }
   }
 }
