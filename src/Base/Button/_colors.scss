@@ -1,11 +1,18 @@
 /* Button Colors */
 
-// Default
-$btn-default-bg: #2f2f33;
-$btn-default-hover-bg: #1f1f21;
-$btn-default-active-bg: #000000;
-$btn-default-outline-color: rgba(154, 152, 152, 0.5);
-$btn-default-border-color: #000000;
+// Dark - Default
+$btn-default-dark-bg: #2f2f33;
+$btn-default-dark-hover-bg: #1f1f21;
+$btn-default-dark-active-bg: #000000;
+$btn-default-dark-outline-color: rgba(154, 152, 152, 0.5);
+$btn-default-dark-border-color: #000000;
+
+// Light - Default
+$btn-default-light-bg: #f0f0f0;
+$btn-default-light-hover-bg: #d8d7d7;
+$btn-default-light-active-bg: #bebebe;
+$btn-default-light-outline-color: rgba(255, 255, 255, 0.5);
+$btn-default-light-border-color: rgba(110, 110, 110, 0.25);
 
 // Alert colors
 $btn-alert-bg: #ff5724;
@@ -15,9 +22,9 @@ $btn-alert-outline-color: rgba(255, 120, 79, 0.5);
 $btn-alert-border-color: #c72f00;
 
 // Success colors
-$btn-success-bg: #38dc2c;
-$btn-success-hover-bg: #2ac537;
-$btn-success-active-bg: #27b233;
+$btn-success-bg: #12c421;
+$btn-success-hover-bg: #10b01d;
+$btn-success-active-bg: #1fa82b;
 $btn-success-outline-color: rgba(73, 252, 89, 0.5);
 $btn-success-border-color: #000000;
 
