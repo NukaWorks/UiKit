@@ -1,8 +1,8 @@
 import React from 'react'
-import '../../Assets/Themes/Default/index.scss'
 import PropTypes, { InferProps } from 'prop-types'
+import '../../Assets/Themes/Default/index.scss'
 
-export function Application ({ children, className } :InferProps<typeof Application.propTypes>) {
+export function BaseLayout ({ children, className } :InferProps<typeof BaseLayout.propTypes>) {
   return (
     <div className={['appl--application', className].join(' ')}>
         {children}
@@ -10,9 +10,9 @@ export function Application ({ children, className } :InferProps<typeof Applicat
   )
 }
 
-Application.propTypes = {
+BaseLayout.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any
 }
 
-Application.defaultProps = {}
+BaseLayout.defaultProps = {}
