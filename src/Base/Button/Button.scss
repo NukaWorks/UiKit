@@ -1,6 +1,30 @@
 @import "src/Base/Button/colors";
 
 .base {
+  &--theme {
+    // Dark mode
+    &--button {
+      box-shadow: $btn-default-dark-border-color;
+      color: whitesmoke;
+
+      &__default {
+        background-color: $btn-default-dark-bg;
+
+        &:hover {
+          background-color: $btn-default-dark-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-default-dark-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
+        }
+      }
+    }
+  }
+
   &--button {
     outline: none;
     user-select: none;
@@ -9,28 +33,27 @@
     border-radius: 300px;
     border: none;
     transition: background-color 0.1s ease-in-out;
-    color: whitesmoke;
-    box-shadow: $btn-default-border-color 0 0.5px 0;
+    color: black;
+    box-shadow: $btn-default-light-border-color 0 0.5px 0;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
 
     &__default {
-      color: whitesmoke;
-      background-color: $btn-default-bg;
+      background-color: $btn-default-light-bg;
 
       &:hover {
-        background-color: $btn-default-hover-bg;
+        background-color: $btn-default-light-hover-bg;
       }
 
       &:active {
-        background-color: $btn-default-active-bg;
+        background-color: $btn-default-light-active-bg;
       }
 
       &:focus-within {
-        box-shadow: $btn-default-outline-color 0 0 0 0.2em;
+        box-shadow: $btn-default-light-outline-color 0 0 0 0.2em;
       }
     }
 
     &__success {
-      color: whitesmoke;
       background-color: $btn-success-bg;
 
       &:hover {
@@ -47,7 +70,6 @@
     }
 
     &__warning {
-      color: whitesmoke;
       background-color: $btn-warning-bg;
       box-shadow: #000 0 0.5px 0;
 
@@ -66,7 +88,6 @@
 
 
     &__alert {
-      color: whitesmoke;
       background-color: $btn-alert-bg;
 
       &:hover {
