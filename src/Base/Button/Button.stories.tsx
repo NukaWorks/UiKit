@@ -5,7 +5,13 @@ import { Application } from '../../Appl/Application/Application'
 
 export default {
   title: 'Base/Button',
-  component: Button
+  component: Button,
+  argTypes: {
+    color: {
+      options: ['default', 'success', 'warning', 'alert'],
+      control: { type: 'select' }
+    }
+  }
 }
 
 const Template = (args :any) =>
