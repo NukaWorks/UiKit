@@ -1,13 +1,13 @@
-// Default config
-body {
-  // Default Display font
-  font-family: "Outfit Regular", sans-serif;
-  font-size: 9pt;
-}
-
 // Import fonts here
 @import "../../Fonts/Outfit/Outfit";
 @import "../../Fonts/Monaco/Monaco";
 
 // Import Base here
 @import './Components/base';
+
+// Default config
+body {
+  // Default Display font
+  font-family: "Outfit Regular", sans-serif;
+  font-size: 9pt;
+}
