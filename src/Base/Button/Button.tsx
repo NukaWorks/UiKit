@@ -6,7 +6,7 @@ export function Button ({ color, theme, size, label } :InferProps<typeof Button.
   return (
     <button
       type="button"
-      className={['base--theme', 'base--button', `base--button__${size}`, `base--button__${color}`].join(' ')}
+      className={[`base--theme__${theme}`, 'base--button', `base--button__${size}`, `base--button__${color}`].join(' ')}
     >
       {label}
     </button>
