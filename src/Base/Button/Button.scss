@@ -1,4 +1,4 @@
-@import "../../Assets/Themes/Default/colors";
+@import "src/Base/Button/colors";
 
 .base {
   &--button {
@@ -6,19 +6,65 @@
     user-select: none;
     font-family: "Outfit Regular", sans-serif;
     text-align: center;
-    background-color: $btn-default-bg;
     border-radius: 300px;
     border: none;
     transition: background-color 0.1s ease-in-out;
-    box-shadow: #000 0 0.5px 0;
     color: whitesmoke;
 
-    &:hover {
-      background-color: $btn-default-hover-bg;
+    &__default {
+      color: whitesmoke;
+      background-color: $btn-default-bg;
+      box-shadow: $btn-default-border-color 0 0.5px 0;
+
+      &:hover {
+        background-color: $btn-default-hover-bg;
+      }
+
+      &:active {
+        background-color: $btn-default-active-bg;
+      }
     }
 
-    &:active {
-      background-color: $btn-default-active-bg;
+    &__success {
+    color: black;
+    background-color: $btn-success-bg;
+      box-shadow: $btn-default-border-color 0 0.5px 0;
+
+      &:hover {
+        background-color: $btn-success-hover-bg;
+      }
+
+      &:active {
+        background-color: $btn-success-active-bg;
+      }
+    }
+
+    &__warning {
+      color: whitesmoke;
+      background-color: $btn-warning-bg;
+      box-shadow: #000 0 0.5px 0;
+
+      &:hover {
+        background-color: $btn-warning-hover-bg;
+      }
+
+      &:active {
+        background-color: $btn-warning-active-bg;
+      }
+    }
+
+    &__alert {
+      color: whitesmoke;
+      background-color: $btn-alert-bg;
+      box-shadow: #000 0 0.5px 0;
+
+      &:hover {
+        background-color: $btn-alert-hover-bg;
+      }
+
+      &:active {
+        background-color: $btn-alert-active-bg;
+      }
     }
 
     &__small {
