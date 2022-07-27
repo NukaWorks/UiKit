@@ -26,24 +26,3 @@ export const Secondary = Template.bind({})
 Secondary.args = {
   label: 'Button'
 }
-
-export const Large = Template.bind({})
-// @ts-ignore
-Large.args = {
-  size: 'large',
-  label: 'Button'
-}
-
-export const Small = Template.bind({})
-// @ts-ignore
-Small.args = {
-  size: 'small',
-  label: 'Button'
-}
-
-export const Medium = Template.bind({})
-// @ts-ignore
-Medium.args = {
-  size: 'medium',
-  label: 'Button'
-}
