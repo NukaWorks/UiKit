@@ -5,7 +5,7 @@
     &__dark {
       // Dark mode
       &.base--button {
-        box-shadow: $btn-default-dark-border-color;
+        box-shadow: $btn-default-dark-border-color 0 0.5px 0;
         color: whitesmoke;
 
         &__default {
@@ -56,6 +56,7 @@
     }
 
     &__success {
+      color: white;
       background-color: $btn-success-bg;
 
       &:hover {
@@ -72,8 +73,8 @@
     }
 
     &__warning {
+      color: white;
       background-color: $btn-warning-bg;
-      box-shadow: #000 0 0.5px 0;
 
       &:hover {
         background-color: $btn-warning-hover-bg;
@@ -90,6 +91,7 @@
 
 
     &__alert {
+      color: white;
       background-color: $btn-alert-bg;
 
       &:hover {
