@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './Button.scss'
 
 export function Button ({ color, theme, size, label } :InferProps<typeof Button.propTypes>) {
   return (
