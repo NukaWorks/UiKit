@@ -2,12 +2,11 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Button.scss'
 
-export function Button ({ primary, size, label } :InferProps<typeof Button.propTypes>) {
-  const mode = primary ? 'base--button__primary' : 'base--button__secondary'
+export function Button ({ color, size, label } :InferProps<typeof Button.propTypes>) {
   return (
     <button
       type="button"
-      className={['base--button', `base--button--${size}`, mode].join(' ')}
+      className={['base--button', `base--button__${size}`, `base--button__${color}`].join(' ')}
     >
       {label}
     </button>
@@ -15,7 +14,7 @@ export function Button ({ primary, size, label } :InferProps<typeof Button.propT
 }
 
 Button.propTypes = {
-  primary: PropTypes.bool,
+  color: PropTypes.oneOf(['default', 'alert', 'success', 'warning']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
