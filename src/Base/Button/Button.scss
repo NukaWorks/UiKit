@@ -21,7 +21,7 @@
       background-color: $action-background;
     }
 
-    &--small {
+    &__small {
       padding: 5px 10px;
       font-size: 9pt;
 
@@ -30,7 +30,7 @@
       }
     }
 
-    &--medium {
+    &__medium {
       padding: 8px 15px;
       font-size: 13pt;
 
@@ -39,7 +39,7 @@
       }
     }
 
-    &--large {
+    &__large {
       padding: 8px 20px;
       font-size: 20pt;
 
