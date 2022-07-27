@@ -13,16 +13,34 @@ const Template = (args :any) =>
         <Button {...args} />
     </Application>
 
-export const Primary = Template.bind({})
+export const Default = Template.bind({})
 // @ts-ignore
-Primary.args = {
-  primary: true,
-  label: 'Button',
+Default.args = {
+  color: 'default',
+  label: 'Default',
   size: 'small'
 }
 
-export const Secondary = Template.bind({})
+export const Success = Template.bind({})
 // @ts-ignore
-Secondary.args = {
-  label: 'Button'
+Success.args = {
+  color: 'success',
+  label: 'Success',
+  size: 'small'
+}
+
+export const Alert = Template.bind({})
+// @ts-ignore
+Alert.args = {
+  color: 'alert',
+  label: 'Alert',
+  size: 'small'
+}
+
+export const Warning = Template.bind({})
+// @ts-ignore
+Warning.args = {
+  color: 'warning',
+  label: 'Warning',
+  size: 'small'
 }
