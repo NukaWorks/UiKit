@@ -6,7 +6,7 @@
     user-select: none;
     font-family: "Outfit Regular", sans-serif;
     text-align: center;
-    background-color: $default-background;
+    background-color: $btn-default-bg;
     border-radius: 300px;
     border: none;
     transition: background-color 0.1s ease-in-out;
@@ -14,11 +14,11 @@
     color: whitesmoke;
 
     &:hover {
-      background-color: $hover-background;
+      background-color: $btn-default-hover-bg;
     }
 
     &:active {
-      background-color: $action-background;
+      background-color: $btn-default-active-bg;
     }
 
     &__small {
@@ -26,7 +26,7 @@
       font-size: 9pt;
 
       &:focus-within {
-        box-shadow: $active-outline 0 0 0 2.5px;
+        box-shadow: $btn-default-outline-color 0 0 0 2.5px;
       }
     }
 
@@ -35,7 +35,7 @@
       font-size: 13pt;
 
       &:focus-within {
-        box-shadow: $active-outline 0 0 0 3px;
+        box-shadow: $btn-default-outline-color 0 0 0 3px;
       }
     }
 
@@ -44,7 +44,7 @@
       font-size: 20pt;
 
       &:focus-within {
-        box-shadow: $active-outline 0 0 0 3.5px;
+        box-shadow: $btn-default-outline-color 0 0 0 3.5px;
       }
     }
   }
