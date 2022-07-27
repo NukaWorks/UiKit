@@ -14,7 +14,7 @@ export function Button ({ color, size, label } :InferProps<typeof Button.propTyp
 }
 
 Button.propTypes = {
-  color: PropTypes.oneOf(['default', 'alert', 'success', 'warning']),
+  color: PropTypes.oneOf(['default', 'success', 'warning', 'alert']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
