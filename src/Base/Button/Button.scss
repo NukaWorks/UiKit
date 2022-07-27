@@ -30,7 +30,7 @@
     }
 
     &__success {
-      color: black;
+      color: whitesmoke;
       background-color: $btn-success-bg;
 
       &:hover {
@@ -47,7 +47,7 @@
     }
 
     &__warning {
-      color: black;
+      color: whitesmoke;
       background-color: $btn-warning-bg;
       box-shadow: #000 0 0.5px 0;
 
