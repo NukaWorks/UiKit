@@ -1,19 +1,15 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes, { InferProps } from 'prop-types'
 
-
-export class AppHeader extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <header className={["appl--header", this.props.className].join(' ')}>
-                <h1>Hello World !</h1>
-            </header>
-        );
-    }
+export function AppHeader ({ children, className }: InferProps<typeof AppHeader.propTypes>) {
+  return (
+    <header className={['appl--header', className].join(' ')}>
+        <h1>Hello World !</h1>
+    </header>
+  )
 }
 
-AppHeader.propTypes = {};
+AppHeader.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any
+}
