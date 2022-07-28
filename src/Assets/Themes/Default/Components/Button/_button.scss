@@ -10,7 +10,7 @@
   border-radius: 300px;
   border: none;
   transition: all 0.1s ease-in-out;
-  color: black;
+  color: white;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
   padding: 5px 10px;
   font-size: 9pt;
@@ -23,7 +23,6 @@
 
       &__default {
         background-color: $btn-default-light-bg;
-        color: black;
 
         &:hover {
           background-color: $btn-default-light-hover-bg;
