@@ -2,7 +2,8 @@
   "name": "@nukaworks/uikit",
   "version": "0.99.0",
   "scripts": {
-    "build": "tsc && vite build",
+    "clean" : "rm -rf dist/ node_modules/.cache/ ",
+    "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
