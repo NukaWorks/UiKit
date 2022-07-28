@@ -1,15 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import {TextField} from "./TextField";
+import { TextField } from './TextField'
 
 export default {
   title: 'Base/TextField',
   component: TextField
-};
+}
 
-const Template = (args) => <TextField {...args} />;
+const Template = (args :any) => <TextField {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
+// @ts-ignore
 Default.args = {
-  placeholder: "Hello World !"
-};
+  placeholder: 'Hello World !'
+}
