@@ -1,125 +1,197 @@
 @import "./colors";
 
-.base {
-  &--theme {
-    &__dark {
-      // Dark mode
-      &.base--button {
-        box-shadow: $btn-default-dark-border-color 0 0.5px 0;
-        color: whitesmoke;
 
-        &__default {
-          background-color: $btn-default-dark-bg;
+.base--button {
+  // Common
+  outline: none;
+  user-select: none;
+  font-family: "Outfit SemiBold", sans-serif;
+  text-align: center;
+  border-radius: 300px;
+  border: none;
+  transition: all 0.1s ease-in-out;
+  color: black;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
+  padding: 5px 10px;
+  font-size: 9pt;
+}
 
-          &:hover {
-            background-color: $btn-default-dark-hover-bg;
-          }
+.app {
+  &--light {
+    &.base--button {
+      box-shadow: $btn-default-light-border-color 0 0.5px 0;
 
-          &:active {
-            background-color: $btn-default-dark-active-bg;
-          }
+      &__default {
+        background-color: $btn-default-light-bg;
+        color: black;
 
-          &:focus-within {
-            box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
-          }
+        &:hover {
+          background-color: $btn-default-light-hover-bg;
         }
+
+        &:active {
+          background-color: $btn-default-light-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-default-light-outline-color 0 0 0 0.2em;
+        }
+      }
+
+      &__success {
+        color: white;
+        background-color: $btn-success-bg;
+
+        &:hover {
+          background-color: $btn-success-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-success-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-success-outline-color 0 0 0 0.2em;
+        }
+      }
+
+      &__warning {
+        color: white;
+        background-color: $btn-warning-bg;
+
+        &:hover {
+          background-color: $btn-warning-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-warning-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-warning-outline-color 0 0 0 0.2em;
+        }
+      }
+
+      &__alert {
+        color: white;
+        background-color: $btn-alert-bg;
+
+        &:hover {
+          background-color: $btn-alert-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-alert-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-alert-outline-color 0 0 0 0.2em;
+        }
+      }
+
+      &__small {
+        padding: 5px 10px;
+        font-size: 9pt;
+      }
+
+      &__medium {
+        padding: 8px 15px;
+        font-size: 13pt;
+      }
+
+      &__large {
+        padding: 8px 20px;
+        font-size: 20pt;
       }
     }
   }
 
-  &--button {
-    outline: none;
-    user-select: none;
-    font-family: "Outfit SemiBold", sans-serif;
-    text-align: center;
-    border-radius: 300px;
-    border: none;
-    transition: all 0.1s ease-in-out;
-    color: black;
-    box-shadow: $btn-default-light-border-color 0 0.5px 0;
-    text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
+  &--dark {
+    &.base--button {
+      box-shadow: $btn-default-dark-border-color 0 0.5px 0;
+      color: whitesmoke;
 
-    &__default {
-      background-color: $btn-default-light-bg;
+      &__default {
+        background-color: $btn-default-dark-bg;
 
-      &:hover {
-        background-color: $btn-default-light-hover-bg;
+        &:hover {
+          background-color: $btn-default-dark-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-default-dark-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
+        }
       }
 
-      &:active {
-        background-color: $btn-default-light-active-bg;
+      &__success {
+        color: white;
+        background-color: $btn-success-bg;
+
+        &:hover {
+          background-color: $btn-success-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-success-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-success-outline-color 0 0 0 0.2em;
+        }
       }
 
-      &:focus-within {
-        box-shadow: $btn-default-light-outline-color 0 0 0 0.2em;
-      }
-    }
+      &__warning {
+        color: white;
+        background-color: $btn-warning-bg;
 
-    &__success {
-      color: white;
-      background-color: $btn-success-bg;
+        &:hover {
+          background-color: $btn-warning-hover-bg;
+        }
 
-      &:hover {
-        background-color: $btn-success-hover-bg;
-      }
+        &:active {
+          background-color: $btn-warning-active-bg;
+        }
 
-      &:active {
-        background-color: $btn-success-active-bg;
-      }
-
-      &:focus-within {
-        box-shadow: $btn-success-outline-color 0 0 0 0.2em;
-      }
-    }
-
-    &__warning {
-      color: white;
-      background-color: $btn-warning-bg;
-
-      &:hover {
-        background-color: $btn-warning-hover-bg;
+        &:focus-within {
+          box-shadow: $btn-warning-outline-color 0 0 0 0.2em;
+        }
       }
 
-      &:active {
-        background-color: $btn-warning-active-bg;
+      &__alert {
+        color: white;
+        background-color: $btn-alert-bg;
+
+        &:hover {
+          background-color: $btn-alert-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-alert-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-alert-outline-color 0 0 0 0.2em;
+        }
       }
 
-      &:focus-within {
-        box-shadow: $btn-warning-outline-color 0 0 0 0.2em;
-      }
-    }
-
-
-    &__alert {
-      color: white;
-      background-color: $btn-alert-bg;
-
-      &:hover {
-        background-color: $btn-alert-hover-bg;
+      &__small {
+        padding: 5px 10px;
+        font-size: 9pt;
       }
 
-      &:active {
-        background-color: $btn-alert-active-bg;
+      &__medium {
+        padding: 8px 15px;
+        font-size: 13pt;
       }
 
-      &:focus-within {
-        box-shadow: $btn-alert-outline-color 0 0 0 0.2em;
+      &__large {
+        padding: 8px 20px;
+        font-size: 20pt;
       }
-    }
-
-    &__small {
-      padding: 5px 10px;
-      font-size: 9pt;
-    }
-
-    &__medium {
-      padding: 8px 15px;
-      font-size: 13pt;
-    }
-
-    &__large {
-      padding: 8px 20px;
-      font-size: 20pt;
     }
   }
 }
