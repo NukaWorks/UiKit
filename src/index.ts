@@ -4,11 +4,11 @@ import { Text } from './Base/Text/Text'
 import { TextField } from './Base/TextField/TextField'
 
 // Layouts
-import { BaseLayout } from './Appl/Layouts/BaseLayout'
+import { UiApp } from './Appl/Layouts/UiApp'
 
 export {
   Button,
   Text,
   TextField,
-  BaseLayout
+  UiApp
 }
