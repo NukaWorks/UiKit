@@ -1,8 +1,8 @@
 {
-  "name": "@nukaworks/uikit",
+  "name": "@powerws/uikit",
   "version": "0.99.0",
   "scripts": {
-    "clean" : "rm -rf dist/ node_modules/.cache/ ",
+    "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -40,6 +40,7 @@
     "sass-loader": "10.2.1",
     "typescript": "^4.7.4",
     "vite": "^3.0.2",
+    "vite-plugin-css-injected-by-js": "^2.0.2",
     "vite-plugin-dts": "^1.4.0"
   },
   "main": "./dist/uikit.umd.js",
@@ -52,6 +53,10 @@
     ".": {
       "import": "./dist/uikit.es.js",
       "require": "./dist/uikit.umd.js"
+    },
+    "./styling": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   }
 }
