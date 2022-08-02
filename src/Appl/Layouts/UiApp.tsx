@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
+/**
+ * Only work on development mode
+ * use "import '@powerws/uikit/styling'" to import css in production environment.
+ */
 import '../../Assets/Themes/Default/index.scss'
 
-export function BaseLayout ({ children, className } :InferProps<typeof BaseLayout.propTypes>) {
+export function UiApp ({ children, className } :InferProps<typeof UiApp.propTypes>) {
   return (
     <div className={['appl--application', className].join(' ')}>
         {children}
@@ -10,9 +14,9 @@ export function BaseLayout ({ children, className } :InferProps<typeof BaseLayou
   )
 }
 
-BaseLayout.propTypes = {
+UiApp.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any
 }
 
-BaseLayout.defaultProps = {}
+UiApp.defaultProps = {}

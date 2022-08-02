@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Button } from './Button'
-import { BaseLayout } from '../../Appl/Layouts/BaseLayout'
+import { UiApp } from '../../Appl/Layouts/UiApp'
 
 export default {
   title: 'Base/Button',
@@ -23,9 +23,9 @@ export default {
 }
 
 const Template = (args :any) =>
-    <BaseLayout>
+    <UiApp>
         <Button {...args} />
-    </BaseLayout>
+    </UiApp>
 
 export const Default = Template.bind({})
 // @ts-ignore
