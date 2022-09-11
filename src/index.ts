@@ -4,7 +4,7 @@ import { Text } from './Base/Text/Text'
 import { TextField } from './Base/TextField/TextField'
 
 // Layouts
-import { UiApp } from './Appl/Layouts/UiApp'
+import { UiApp } from './Layouts/UiApp'
 
 export {
   Button,
