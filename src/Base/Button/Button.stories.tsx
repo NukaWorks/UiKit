@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Button } from './Button'
-import { UiApp } from '../../Appl/Layouts/UiApp'
+import { UiApp } from '../../Layouts/UiApp'
 
 export default {
   title: 'Base/Button',
