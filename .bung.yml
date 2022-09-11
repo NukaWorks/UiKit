@@ -1,0 +1,10 @@
+---
+proj_dir: "./"
+dirs:
+  base:
+    - "./src/Base"
+    - "./src/Assets/Themes/Default/Components/Base" # Change Directory if custom theme.
+
+  appl:
+    - "./src/Appl"
+    - "./src/Assets/Themes/Default/Components/Appl" # Change Directory if custom theme.
