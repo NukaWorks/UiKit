@@ -20,6 +20,7 @@
   &--light {
     &.base--button {
       box-shadow: $btn-default-light-border-color 0 0.5px 0;
+      color: black;
 
       &__default {
         background-color: $btn-default-light-bg;
