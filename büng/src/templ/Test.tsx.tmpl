@@ -1,0 +1,15 @@
+import React from 'react'
+import PropTypes, { InferProps } from 'prop-types'
+
+export function Test ({ children, className }: InferProps<typeof Test.propTypes>) {
+  return (
+    <div className={['type--test', className].join(' ')}>
+        Hello World !
+    </div>
+  )
+}
+
+Test.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any
+}
