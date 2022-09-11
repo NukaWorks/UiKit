@@ -1,11 +1,16 @@
 {
   "name": "bung",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/bung.ts",
   "license": "MIT",
-
   "dependencies": {
     "chalk": "^5.0.1",
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "yaml": "^2.1.1"
+  },
+  "exports": {
+    ".": {
+      "require": "./src/bung.ts"
+    }
   }
 }
