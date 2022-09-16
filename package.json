@@ -12,7 +12,6 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "bung": "file:./büng/",
     "@babel/core": "^7.17.9",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
@@ -29,6 +28,7 @@
     "@typescript-eslint/parser": "^5.31.0",
     "@vitejs/plugin-react": "^1.3.0",
     "babel-loader": "^8.2.4",
+    "bung": "file:./büng/",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
@@ -60,5 +60,6 @@
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
