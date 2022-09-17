@@ -11,12 +11,10 @@ function cli () {
 
   program.command('add <name> <category>').description('Add a component')
     .action((name, category) => {
-      console.log({ name, category })
       addComponent(name, category)
     })
   program.command('delete <name> <category>').description('Delete a component')
     .action((name, category) => {
-      console.log({ name, category })
       deleteComponent(name, category)
     })
 
