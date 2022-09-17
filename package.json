@@ -5,7 +5,8 @@
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "bung": "node büng/src/bung.js"
   },
   "dependencies": {
     "react": "^17.0.2",
