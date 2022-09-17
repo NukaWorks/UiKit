@@ -4,6 +4,7 @@
   "main": "src/bung.js",
   "license": "MIT",
   "dependencies": {
+    "@zerodep/string": "^1.1.0",
     "chalk": "^4.1.2",
     "commander": "^9.4.0",
     "yaml": "^2.1.1"
