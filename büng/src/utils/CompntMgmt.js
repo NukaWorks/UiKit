@@ -4,8 +4,10 @@ const chalk = require('chalk')
 const { getBungFile, getTemplDir } = require('./Config')
 const { stringUpperFirst } = require('@zerodep/string')
 
+const bungDirs = new Map()
+
 function addComponent (name, category) {
-  console.log(searchCategory(category))
+  searchCategory(category)
   name = stringUpperFirst(name)
   category = stringUpperFirst(category)
 
@@ -20,14 +22,9 @@ function deleteComponent (name, category) {
 
 function searchCategory (category) {
   Object.entries(getBungFile.dirs).forEach(dir => {
-    if (dir[0].includes(category)) {
-      console.log(dir[1])
-      return true
-    } else {
-      console.error(chalk.red(`Category ${category} not found`))
-      return false
-    }
+    if (!bungDirs.has(category)) bungDirs.set(dir[0], dir[1])
   })
+  console.log(bungDirs)
 }
 
 module.exports = { addComponent, deleteComponent }
