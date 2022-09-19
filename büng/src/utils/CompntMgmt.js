@@ -18,13 +18,17 @@ function deleteComponent (name, category) {
   console.log(chalk.red(`Deleting ${chalk.bold(name)} on ${chalk.bold(category)}...`))
 }
 
-// TODO: CHANGER STRUCTURE DE DATA, DU GENRE VOIR POUR UNE HASHMAP MAIS EN JS xD
-
 function searchCategory (category) {
   Object.entries(getBungFile.dirs).forEach(dir => {
     if (!bungDirs.has(category)) bungDirs.set(dir[0], dir[1])
   })
-  console.log(bungDirs)
+
+  if (bungDirs.has(category)) {
+    console.log(chalk.green(`Found ${chalk.bold(category)} on ${chalk.bold(bungDirs.get(category))}`))
+    return bungDirs.get(category)
+  } else {
+    console.error(chalk.red(`Category ${chalk.bold(category)} not found`))
+  }
 }
 
 module.exports = { addComponent, deleteComponent }
