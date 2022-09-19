@@ -15,6 +15,10 @@ function addComponent (name, category) {
 }
 
 function deleteComponent (name, category) {
+  searchCategory(category)
+  name = stringUpperFirst(name)
+  category = stringUpperFirst(category)
+
   console.log(chalk.red(`Deleting ${chalk.bold(name)} on ${chalk.bold(category)}...`))
 }
 
@@ -24,7 +28,7 @@ function searchCategory (category) {
   })
 
   if (bungDirs.has(category)) {
-    console.log(chalk.green(`Found ${chalk.bold(category)} on ${chalk.bold(bungDirs.get(category))}`))
+    console.log(chalk.green(`Found ${chalk.bold(category)} for ${chalk.bold(bungDirs.get(category))}`))
     return bungDirs.get(category)
   } else {
     console.error(chalk.red(`Category ${chalk.bold(category)} not found`))
