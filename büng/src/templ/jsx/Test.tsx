@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
+import './Test.scss'
 
 export function Test ({ children, className }: InferProps<typeof Test.propTypes>) {
   return (
