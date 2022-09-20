@@ -1,5 +1,4 @@
 const fs = require('fs')
-const YAML = require('yaml')
 const chalk = require('chalk')
 const { getBungFile, getTemplDir } = require('./Config')
 const { stringUpperFirst } = require('@zerodep/string')
