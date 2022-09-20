@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
+import './AppHeader.css'
 
 export function AppHeader ({ children, className }: InferProps<typeof AppHeader.propTypes>) {
   return (
