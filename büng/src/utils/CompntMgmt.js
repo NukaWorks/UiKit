@@ -3,15 +3,25 @@ const YAML = require('yaml')
 const chalk = require('chalk')
 const { getBungFile, getTemplDir } = require('./Config')
 const { stringUpperFirst } = require('@zerodep/string')
-
+const { copySync } = require('fs-extra')
 const bungDirs = new Map()
 
 function addComponent (name, category) {
-  searchCategory(category)
-  name = stringUpperFirst(name)
-  category = stringUpperFirst(category)
+  const dirs = searchCategory(category)
+  if (dirs) {
+    name = stringUpperFirst(name)
+    category = stringUpperFirst(category)
 
-  console.log(chalk.cyan(`Creating ${chalk.bold(name)} on ${chalk.bold(category)}...`))
+    console.log(chalk.cyan(`Creating ${chalk.bold(name)} on ${chalk.bold(category)}...`))
+
+    Array.from(dirs).forEach(dir => {
+      if (!fs.existsSync(dir + `/${name}`)) {
+        fs.mkdirSync(dir + `/${name}`, { recursive: true })
+        copySync(getTemplDir + '/jsx/', dir + `/${name}`)
+        copySync(getTemplDir + '/scss/', dir + `/${name}`)
+      }
+    })
+  }
 }
 
 function deleteComponent (name, category) {
@@ -32,6 +42,7 @@ function searchCategory (category) {
     return bungDirs.get(category)
   } else {
     console.error(chalk.red(`Category ${chalk.bold(category)} not found`))
+    return false
   }
 }
 
