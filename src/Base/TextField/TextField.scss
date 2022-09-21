@@ -2,11 +2,16 @@
 
 .base {
   &--textfield {
+    transition: all 0.1s ease-in-out;
     padding: 2px 5px;
     outline: none;
     font-family: "Outfit Regular", sans-serif;
     font-size: 9pt;
-    border: $textfield-default-dark-border-color solid 2px;
+    border: $textfield-default-dark-border-color solid 1.3px;
     border-radius: 300px;
+
+    &:focus-within {
+      box-shadow: $textfield-default-dark-outline-color 0 0 0 0.2em;
+    }
   }
 }
