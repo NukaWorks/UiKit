@@ -3,7 +3,7 @@ import React from 'react'
 import { Test } from './Test'
 
 export default {
-  title: 'CATEGORY/Test',
+  title: 'Category/Test',
   component: Test
 }
 
