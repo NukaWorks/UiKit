@@ -4,6 +4,7 @@ const { getBungFile, getTemplDir } = require('./Config')
 const { stringUpperFirst } = require('@zerodep/string')
 const { copySync, removeSync } = require('fs-extra')
 const bungDirs = new Map()
+const path = require('path')
 
 function addComponent (name, category) {
   const dirs = searchCategory(category)
@@ -17,6 +18,15 @@ function addComponent (name, category) {
         fs.mkdirSync(dir + `/${name}`, { recursive: true })
         copySync(getTemplDir + '/jsx/', dir + `/${name}`)
         copySync(getTemplDir + '/scss/', dir + `/${name}`)
+
+        fs.readdir(dir + `/${name}`, (err, files) => {
+          if (err) throw err
+          files.forEach(file => {
+            file = path.join(dir + `/${name}`, file)
+            console.log(file)
+            regexFile(file, name, category)
+          })
+        })
       } else {
         console.log(chalk.red(`${chalk.bold('[project]')} ${chalk.bold(name)} already exists on ${chalk.bold(category)}`))
       }
@@ -52,6 +62,22 @@ function searchCategory (category) {
   } else {
     console.error(chalk.red(`${chalk.bold('[config]')} Category ${chalk.bold(category)} not found`))
     return false
+  }
+}
+
+function regexFile (file, name, category) {
+  try {
+    fs.readFile(file, 'utf8', (err, data) => {
+      if (err) throw err
+      let patchedFile = data
+
+      patchedFile = patchedFile.replaceAll(/test/ig, name)
+      patchedFile = patchedFile.replaceAll(/CATEGORY/g, category)
+      console.log(chalk.bold.yellow('Patched file: ' + file))
+      console.log(chalk.yellow(patchedFile))
+    })
+  } catch (e) {
+    console.error(e)
   }
 }
 
