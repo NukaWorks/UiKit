@@ -73,8 +73,11 @@ function regexFile (file, name, category) {
 
       patchedFile = patchedFile.replaceAll(/test/ig, name)
       patchedFile = patchedFile.replaceAll(/CATEGORY/g, category)
-      console.log(chalk.bold.yellow('Patched file: ' + file))
-      console.log(chalk.yellow(patchedFile))
+
+      fs.writeFile(file, patchedFile, 'utf8', (err) => {
+        if (err) throw err
+        fs.renameSync(file, file.replace(/test/ig, name))
+      })
     })
   } catch (e) {
     console.error(e)
