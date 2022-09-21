@@ -4,7 +4,10 @@ import { TextField } from './TextField'
 
 export default {
   title: 'Base/TextField',
-  component: TextField
+  component: TextField,
+  argTypes: {
+    placeholder: { type: 'string' }
+  }
 }
 
 const Template = (args :any) => <TextField {...args} />
