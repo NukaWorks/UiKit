@@ -23,7 +23,6 @@ function addComponent (name, category) {
           if (err) throw err
           files.forEach(file => {
             file = path.join(dir + `/${name}`, file)
-            console.log(file)
             regexFile(file, name, category)
           })
         })
