@@ -71,7 +71,7 @@ function regexFile (file, name, category) {
       let patchedFile = data
 
       patchedFile = patchedFile.replaceAll(/test/ig, name)
-      patchedFile = patchedFile.replaceAll(/CATEGORY/g, category)
+      patchedFile = patchedFile.replaceAll(/CATEGORY/ig, category)
 
       fs.writeFile(file, patchedFile, 'utf8', (err) => {
         if (err) throw err
