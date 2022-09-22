@@ -3,7 +3,7 @@ import React from 'react'
 import { MenuList } from './MenuList'
 
 export default {
-  title: 'Category/MenuList',
+  title: 'Base/MenuList',
   component: MenuList
 }
 
