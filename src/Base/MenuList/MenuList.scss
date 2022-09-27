@@ -2,8 +2,15 @@
 // MenuList Component Stylesheet
 // ------------------------------------
 
+@import "colors";
+
 .Base {
   &--MenuList {
-    color: red;
+    display: flex;
+    width: fit-content;
+    color: black;
+    padding: 0.5em;
+    border: 2px solid $item-default-dark-border-color;
+    border-radius: 10px;
   }
 }
