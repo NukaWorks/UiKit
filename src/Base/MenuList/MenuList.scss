@@ -6,11 +6,29 @@
 
 .Base {
   &--MenuList {
+    min-width: 8em;
     display: flex;
+    flex-direction: column;
+    gap: 0.5em;
     width: fit-content;
     color: black;
-    padding: 0.5em;
-    border: 2px solid $item-default-dark-border-color;
-    border-radius: 10px;
+
+
+
+    &__ListContainer, &__Title {
+      border: 1.5px solid $item-default-dark-border-color;
+      border-radius: 5px;
+      padding: 0.5em;
+    }
+
+    &__Title {
+      padding: 0.2em;
+    }
+
+    &__ListContainer {
+      display: flex;
+      flex-direction: column;
+      z-index: 3;
+    }
   }
 }
