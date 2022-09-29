@@ -2,20 +2,24 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './MenuList.scss'
 
-export function MenuList ({ children, className, items }: InferProps<typeof MenuList.propTypes>) {
+export function MenuList ({ children, className, items, title }: InferProps<typeof MenuList.propTypes>) {
   const list = items.map((item: any) => {
-    return (<div key={item} className={'--ItemContainer'}>{ item }</div>)
+    return (<div key={item} className={'Base--MenuList__ItemContainer'}>{ item }</div>)
   })
 
   return (
     <div className={['Base--MenuList', className].join(' ')}>
-      <>{ list }</>
+      <div className={'Base--MenuList__Title'}>
+        <div className={'Base--MenuList__ItemContainer'}>{ title }</div>
+      </div>
+      <div className={'Base--MenuList__ListContainer'}>{ list }</div>
     </div>
   )
 }
 
 MenuList.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.any,
+  items: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
   children: PropTypes.any
 }
