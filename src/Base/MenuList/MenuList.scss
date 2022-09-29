@@ -13,11 +13,12 @@
     width: fit-content;
     color: black;
 
-
+    &__ListContainer, &__Title, &__ItemContainer {
+      border-radius: 5px;
+    }
 
     &__ListContainer, &__Title {
       border: 1.5px solid $item-default-dark-border-color;
-      border-radius: 5px;
       padding: 0.5em 0.2em;
     }
 
@@ -29,6 +30,15 @@
       display: flex;
       flex-direction: column;
       z-index: 3;
+    }
+
+    &__ItemContainer {
+      padding-inline: 0.2em;
+
+      &:hover {
+        background-color: $item-warning-hover-bg;
+        color: white;
+      }
     }
   }
 }
