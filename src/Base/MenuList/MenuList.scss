@@ -33,7 +33,7 @@
     }
 
     &__ItemContainer {
-      padding-inline: 0.2em;
+      padding: 0.2em 0.25em;
 
       &:hover {
         background-color: $item-warning-hover-bg;
