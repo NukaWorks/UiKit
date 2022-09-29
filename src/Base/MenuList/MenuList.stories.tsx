@@ -12,5 +12,6 @@ const Template = (args :any) => <MenuList {...args} />
 export const Default = Template.bind({})
 // @ts-ignore
 Default.args = {
-  items: ['test', 'hello']
+  title: 'DevTools',
+  items: ['Reload', 'Inspect', 'About']
 }
