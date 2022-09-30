@@ -6,9 +6,9 @@ import PropTypes, { InferProps } from 'prop-types'
  */
 import '../Assets/Themes/index.scss'
 
-export function UiApp ({ children, className } :InferProps<typeof UiApp.propTypes>) {
+export function UiApp ({ children, className, theme } :InferProps<typeof UiApp.propTypes>) {
   return (
-    <div className={['appl--application', className].join(' ')}>
+    <div className={[`app--${theme}`, 'appl--application', className].join(' ')}>
         {children}
     </div>
   )
@@ -16,7 +16,10 @@ export function UiApp ({ children, className } :InferProps<typeof UiApp.propType
 
 UiApp.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  theme: PropTypes.oneOf(['light', 'dark'])
 }
 
-UiApp.defaultProps = {}
+UiApp.defaultProps = {
+  theme: 'light'
+}
