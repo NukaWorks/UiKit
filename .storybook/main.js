@@ -10,6 +10,5 @@ module.exports = {
     "@storybook/addon-postcss",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/react",
-  staticDirs: [{from: '../public/Fonts', to: "/fonts"}],
+  "framework": "@storybook/react"
 }
