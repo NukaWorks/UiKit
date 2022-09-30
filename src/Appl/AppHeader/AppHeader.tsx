@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './AppHeader.scss'
+import { Text } from '../../Base/Text/Text'
 
 export function AppHeader ({ children, className, title }: InferProps<typeof AppHeader.propTypes>) {
   return (
     <header className={['appl--header', className].join(' ')}>
-        <h1>{ title }</h1>
+        <Text>{ title }</Text>
     </header>
   )
 }
