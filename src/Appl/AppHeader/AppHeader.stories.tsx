@@ -7,6 +7,9 @@ export default {
   component: AppHeader,
   parameters: {
     layout: 'fullscreen'
+  },
+  argTypes: {
+    title: { type: 'string' }
   }
 }
 
@@ -14,4 +17,6 @@ const Template = (args :any) => <AppHeader {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore
-Default.args = {}
+Default.args = {
+  title: 'Hello World !'
+}
