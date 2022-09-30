@@ -4,7 +4,10 @@ import { Text } from './Text'
 
 export default {
   title: 'Base/Text',
-  component: Text
+  component: Text,
+  argTypes: {
+    text: { type: 'string' }
+  }
 }
 
 const Template = (args :any) => <Text {...args} />
