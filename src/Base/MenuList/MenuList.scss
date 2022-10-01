@@ -4,6 +4,17 @@
 
 @import "colors";
 
+// Keyframes
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .Base {
   &--MenuList {
     min-width: 8em;
@@ -12,6 +23,11 @@
     gap: 0.5em;
     width: fit-content;
     color: black;
+    font-family: "Outfit", sans-serif;
+
+    &__Title, &__ItemContainer {
+      transition: all 0.065s ease-in-out;
+    }
 
     &__ListContainer, &__Title, &__ItemContainer {
       border-radius: 5px;
@@ -23,13 +39,22 @@
     }
 
     &__Title {
-      padding: 0.2em;
+      padding: 0.4em;
+
+      &:hover {
+        background-color: $item-warning-hover-bg;
+        color: white;
+      }
+    }
+
+    &:hover &__ListContainer {
+      display: flex;
     }
 
     &__ListContainer {
-      display: flex;
+      display: none;
       flex-direction: column;
-      z-index: 3;
+      animation: 0.065s ease-in-out fade;
     }
 
     &__ItemContainer {
