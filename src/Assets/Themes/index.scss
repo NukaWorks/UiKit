@@ -5,6 +5,9 @@
 
 // Default config
 body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   // Default Display font
   font-family: "Outfit", sans-serif;
   font-size: 9pt;
@@ -12,13 +15,15 @@ body {
 
 .appl {
   &--application {
-    background-color: #d9d9d9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
 
 .app {
   &--light {
-    background-color: #d9d9d9;
+    background-color: #efefef;
     color: black;
   }
 
