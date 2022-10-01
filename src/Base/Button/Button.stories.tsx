@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { Button } from './Button'
-import { UiApp } from '../../Layouts/UiApp'
 
 export default {
   title: 'Base/Button',
@@ -22,10 +20,7 @@ export default {
   }
 }
 
-const Template = (args :any) =>
-    <UiApp>
-        <Button {...args} />
-    </UiApp>
+const Template = (args :any) => <Button {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore
