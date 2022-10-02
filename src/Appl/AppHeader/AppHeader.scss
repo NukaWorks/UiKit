@@ -4,6 +4,7 @@
   &--header {
     font-family: "Outfit", sans-serif;
     background-color: $appheader-bg;
+    display: flex;
 
     &__title {
       font-weight: 900;
