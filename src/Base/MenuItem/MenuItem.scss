@@ -5,8 +5,22 @@
 // Reuse the colors stylesheet of the MenuList component.
 @import "../MenuList/colors";
 
+/* Keyframes */
+// Blink effect while the element is active.
+@keyframes blink {
+  0% {
+    background-color: initial;
+  }
+
+  100% {
+    background-color: transparent;
+    color: black
+  }
+}
+
 .Base {
   &--MenuItem {
+    user-select: none;
     font-family: "Outfit", sans-serif;
     padding: 0.2em 0.25em;
     border-radius: 5px;
@@ -14,6 +28,11 @@
     &:hover {
       background-color: $item-warning-hover-bg;
       color: white;
+    }
+
+    &:active {
+      background-color: $item-warning-active-bg;
+      animation: 0.050s blink;
     }
   }
 }
