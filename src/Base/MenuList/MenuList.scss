@@ -17,11 +17,11 @@
 
 .Base {
   &--MenuList {
-    min-width: 8em;
+    user-select: none;
+    min-width: 5em;
+    width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
-    width: fit-content;
     color: black;
     font-family: "Outfit", sans-serif;
 
@@ -29,11 +29,11 @@
       transition: all 0.065s ease-in-out;
     }
 
-    &__ListContainer, &__Title, &__ItemContainer {
+    &__ListContainer__C, &__Title, &__ItemContainer {
       border-radius: 5px;
     }
 
-    &__ListContainer, &__Title {
+    &__ListContainer__C, &__Title {
       border: 1.5px solid $item-default-dark-border-color;
       padding: 0.5em 0.2em;
     }
@@ -52,9 +52,17 @@
     }
 
     &__ListContainer {
+      position: absolute;
       display: none;
       flex-direction: column;
       animation: 0.065s ease-in-out fade;
+      min-width: 5em;
+      width: fit-content;
+      top: 3.2em;
+
+      &__C {
+        margin-top: 5px;
+      }
     }
 
     &__ItemContainer {
