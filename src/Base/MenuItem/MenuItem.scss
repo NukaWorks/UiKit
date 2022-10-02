@@ -1,0 +1,18 @@
+// ------------------------------------
+// MenuItem Component Stylesheet
+// ------------------------------------
+
+@import "../MenuList/colors";
+
+.Base {
+  &--MenuItem {
+    font-family: "Outfit", sans-serif;
+    padding: 0.2em 0.25em;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $item-warning-hover-bg;
+      color: white;
+    }
+  }
+}
