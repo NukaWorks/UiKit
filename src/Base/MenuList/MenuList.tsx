@@ -12,7 +12,9 @@ export function MenuList ({ children, className, items, title }: InferProps<type
       <div className={'Base--MenuList__Title'}>
         { title }
       </div>
-      <div className={'Base--MenuList__ListContainer'}>{ list }</div>
+      <div className={'Base--MenuList__ListContainer'}>
+        <div className={'Base--MenuList__ListContainer__C'}> { list } </div>
+      </div>
     </div>
   )
 }
