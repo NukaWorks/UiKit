@@ -1,0 +1,22 @@
+// ------------------------------------
+// Menu Component Stylesheet
+// ------------------------------------
+
+@import "../../Assets/Themes/colors";
+
+.Base {
+  &--Menu {
+    font-family: "Outfit", sans-serif;
+
+    &__Title {
+      border-radius: 5px;
+      user-select: none;
+      padding: 0.4em;
+      width: fit-content;
+
+      &:hover {
+        background-color: $default-light-bg;
+      }
+    }
+  }
+}
