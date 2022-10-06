@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Menu.scss'
 import { useDetectClickOutside } from 'react-detect-click-outside'
@@ -10,17 +10,24 @@ function menuDrop (displayMenu: boolean, children: any) {
 export function Menu ({ children, className, title }: InferProps<typeof Menu.propTypes>) {
   const [displayMenu, setDisplayMenu] = useState(false)
   const ref = useDetectClickOutside({ onTriggered: () => setDisplayMenu(false) })
+  const menuTitle = useRef(null)
+
+  useEffect(() => {
+    if (displayMenu) { // @ts-ignore
+      menuTitle.current.classList.add('active')
+    } else { // @ts-ignore
+      menuTitle.current.classList.remove('active')
+    }
+  })
 
   return (
-    <div className={['Base--Menu', className].join(' ')} ref={ref} onClick={e => {
-      setDisplayMenu(!displayMenu)
-      e.preventDefault()
-    }}>
+    <div className={['Base--Menu', className].join(' ')} ref={ref}
+         onClick={e => {
+           setDisplayMenu(!displayMenu)
+           e.preventDefault()
+         }}>
 
-      <div className={'Base--Menu__Title'}>
-        { title }
-      </div>
-
+      <div className={'Base--Menu__Title'} ref={menuTitle}>{ title }</div>
       { menuDrop(displayMenu, children) }
     </div>
   )
