@@ -4,6 +4,10 @@
 
 @import "../../Assets/Themes/colors";
 
+.active {
+  background-color: $default-light-bg !important;
+}
+
 .Base {
   &--Menu {
     font-family: "Outfit", sans-serif;
