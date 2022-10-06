@@ -17,46 +17,20 @@
 
 .Base {
   &--MenuList {
-    position: absolute;
     user-select: none;
     flex-direction: column;
     color: black;
     font-family: "Outfit", sans-serif;
     font-size: 9pt;
-
-    &__Title, &__ItemContainer {
-      transition: all 0.065s ease-in-out;
-    }
-
-    &__ListContainer, &__Title {
-      border-radius: 5px;
-    }
-
-    &__ListContainer, &__Title {
-      border: 1.5px solid $item-default-dark-border-color;
-      padding: 0.5em 0.2em;
-    }
-
-    &__Title {
-      padding: 0.4em;
-      width: fit-content;
-      margin-bottom: 5px;
-
-      &:hover {
-        background-color: $default-light-bg;
-      }
-    }
-
-    &:hover &__ListContainer {
-      display: block;
-    }
-
-    &__ListContainer {
-      display: none;
-      flex-direction: column;
-      animation: 0.065s ease-in-out fade;
-      width: fit-content;
-      background-color: $default-light-bg;
-    }
+    position: absolute;
+    margin-top: 3px;
+    display: block;
+    animation: 0.065s ease-in-out fade;
+    width: fit-content;
+    background-color: $default-light-bg;
+    border: 1.5px solid $item-default-dark-border-color;
+    padding: 0.5em 0.2em;
+    border-radius: 5px;
+    transition: all 0.065s ease-in-out;
   }
 }
