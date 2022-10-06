@@ -1,0 +1,10 @@
+// ------------------------------------
+// MenuBar Component Stylesheet
+// ------------------------------------
+
+.Base {
+  &--MenuBar {
+    display: flex;
+    gap: 1px;
+  }
+}
