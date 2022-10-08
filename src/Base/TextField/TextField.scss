@@ -7,8 +7,9 @@
     outline: none;
     font-family: "Outfit", sans-serif;
     font-size: 9pt;
-    border: $textfield-default-dark-border-color solid 1.3px;
+    border: $textfield-default-dark-border-color solid 1.5px;
     border-radius: 300px;
+    background-color: $textfield-default-background-color;
 
     &:focus-within {
       box-shadow: $textfield-default-dark-outline-color 0 0 0 0.2em;
