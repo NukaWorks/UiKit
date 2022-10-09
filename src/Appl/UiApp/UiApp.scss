@@ -1,9 +1,10 @@
 // ------------------------------------
-// AppActivity Component Stylesheet
+// UiApp Component Stylesheet
 // ------------------------------------
 
 .Appl {
   &--AppActivity {
-    color: red;
+    display: flex;
+    flex-direction: column;
   }
 }
