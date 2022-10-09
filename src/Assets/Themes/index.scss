@@ -13,21 +13,21 @@ body {
   font-size: 9pt;
 }
 
-.appl {
-  &--application {
+.Appl {
+  &--Application {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 }
 
-.app {
-  &--light {
+.App {
+  &--Light {
     background-color: $default-light-bg;
     color: black;
   }
 
-  &--dark {
+  &--Dark {
     background-color: $default-dark-bg;
     color: white;
   }
