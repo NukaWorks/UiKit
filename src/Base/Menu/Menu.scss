@@ -5,7 +5,7 @@
 @import "../../Assets/Themes/colors";
 
 .active {
-  background-color: $default-light-bg !important;
+  background-color: rgba(208, 208, 208, 0.4) !important;
 }
 
 .Base {
@@ -20,7 +20,7 @@
       width: fit-content;
 
       &:hover {
-        background-color: $default-light-bg;
+        background-color: rgba(234, 234, 234, 0.4);
       }
     }
   }
