@@ -10,9 +10,11 @@
     cursor: pointer;
     padding-inline: 5px;
     border-radius: 5px;
+    text-decoration: none;
 
     &:hover {
       background-color: rgba(234, 234, 234, 0.4);
+      color: #008ee3;
     }
 
     &:active {
