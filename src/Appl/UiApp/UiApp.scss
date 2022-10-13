@@ -4,6 +4,7 @@
 
 .Appl {
   &--UiApp {
+    overflow: hidden;
     background-color: #FFFEFE;
     display: flex;
     flex-direction: column;
