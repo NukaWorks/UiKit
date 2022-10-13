@@ -7,7 +7,7 @@ export default {
   component: Link
 }
 
-const Template = (args :any) => <Link {...args} />
+const Template = (args :any) => <Link {...args} href={'#'}>Hello World !</Link>
 
 export const Default = Template.bind({})
 // @ts-ignore
