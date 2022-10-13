@@ -3,8 +3,17 @@
 // ------------------------------------
 
 .Appl {
-  &--AppActivity {
+  &--UiApp {
+    background-color: #FFFEFE;
     display: flex;
     flex-direction: column;
+    flex: auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    &__Rounded {
+      border-radius: 20px;
+      margin: 10px;
+      padding-inline: 1em;
+    }
   }
 }
