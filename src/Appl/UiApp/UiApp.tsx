@@ -4,7 +4,7 @@ import './UiApp.scss'
 
 export function UiApp ({ children, className, rounded }: InferProps<typeof UiApp.propTypes>) {
   return (
-    <div className={['Appl--UiApp', rounded ? 'Appl--UiApp__Rounded' : '', className].join(' ')}>
+    <div className={['Appl__UiApp', rounded ? 'Appl__UiApp--Rounded' : '', className].join(' ')}>
       { children }
     </div>
   )

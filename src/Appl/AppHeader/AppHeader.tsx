@@ -5,9 +5,9 @@ import { Text } from '../../Base/Text/Text'
 
 export function AppHeader ({ children, className, title }: InferProps<typeof AppHeader.propTypes>) {
   return (
-    <header className={['appl--header', className].join(' ')}>
-        <Text className={'appl--header__title'}>{ title }</Text>
-        <div className={'appl--header__content'}>{ children }</div>
+    <header className={['Appl__Header', className].join(' ')}>
+        <Text className={'Appl__Header--Title'}>{ title }</Text>
+        <div className={'Appl__Header--Content'}>{ children }</div>
     </header>
   )
 }

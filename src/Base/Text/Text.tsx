@@ -4,7 +4,7 @@ import './Text.scss'
 
 export function Text ({ className, text, children } :InferProps<typeof Text.propTypes>) {
   return (
-    <div className={['base--text', className].join(' ')}>
+    <div className={['Base__Text', className].join(' ')}>
         { text || children }
     </div>
   )

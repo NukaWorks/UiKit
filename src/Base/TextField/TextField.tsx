@@ -7,9 +7,7 @@ export function TextField ({ type, placeholder, className } :InferProps<typeof T
     <input
         type={'text'}
         placeholder={placeholder || ''}
-        className={
-            ['base--textfield',
-              className].join(' ')}
+        className={['Base__TextField', className].join(' ')}
     />
   )
 }

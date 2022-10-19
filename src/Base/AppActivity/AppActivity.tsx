@@ -8,7 +8,7 @@ import '../../Assets/Themes/index.scss'
 
 export function AppActivity ({ children, className, theme } :InferProps<typeof AppActivity.propTypes>) {
   return (
-    <div className={[`App--${theme}`, 'Appl--Application', className].join(' ')}>
+    <div className={[`App__${theme}`, 'Appl__Application', className].join(' ')}>
         { children }
     </div>
   )

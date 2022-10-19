@@ -4,7 +4,7 @@ import './Test.scss'
 
 export function Test ({ children, className }: InferProps<typeof Test.propTypes>) {
   return (
-    <div className={['CATEGORY--test', className].join(' ')}>
+    <div className={['CATEGORY__test', className].join(' ')}>
         Hello World !
     </div>
   )

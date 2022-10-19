@@ -4,7 +4,7 @@ import './Link.scss'
 
 export function Link ({ children, className, href }: InferProps<typeof Link.propTypes>) {
   return (
-    <a className={['Base--Link', className].join(' ')} href={href || ''}>
+    <a className={['Base__Link', className].join(' ')} href={href || ''}>
       { children }
     </a>
   )

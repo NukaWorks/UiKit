@@ -21,13 +21,13 @@ export function Menu ({ children, className, title }: InferProps<typeof Menu.pro
   })
 
   return (
-    <div className={['Base--Menu', className].join(' ')} ref={ref}
+    <div className={['Base__Menu', className].join(' ')} ref={ref}
          onClick={e => {
            setDisplayMenu(!displayMenu)
            e.preventDefault()
          }}>
 
-      <div className={'Base--Menu__Title'} ref={menuTitle}>{ title }</div>
+      <div className={'Base__Menu--Title'} ref={menuTitle}>{ title }</div>
       { menuDrop(displayMenu, children) }
     </div>
   )

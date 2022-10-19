@@ -6,7 +6,7 @@ export function Button ({ color, theme, size, label } :InferProps<typeof Button.
   return (
     <button
       type="button"
-      className={[`app--${theme}`, 'base--button', `base--button__${size}`, `base--button__${color}`].join(' ')}
+      className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${color}`].join(' ')}
     >
       {label}
     </button>
@@ -14,15 +14,15 @@ export function Button ({ color, theme, size, label } :InferProps<typeof Button.
 }
 
 Button.propTypes = {
-  color: PropTypes.oneOf(['default', 'success', 'warning', 'alert']),
-  theme: PropTypes.oneOf(['light', 'dark']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  color: PropTypes.oneOf(['Default', 'Success', 'Warning', 'Alert']),
+  theme: PropTypes.oneOf(['Light', 'Dark']),
+  size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
 }
 
 Button.defaultProps = {
-  color: 'default',
-  theme: 'light',
-  size: 'small'
+  color: 'Default',
+  theme: 'Light',
+  size: 'Small'
 }
