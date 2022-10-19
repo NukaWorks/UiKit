@@ -1,7 +1,7 @@
 @import 'colors';
 
-.base {
-  &--textfield {
+.Base {
+  &__TextField {
     transition: all 0.1s ease-in-out;
     padding: 2px 5px;
     outline: none;

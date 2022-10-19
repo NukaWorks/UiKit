@@ -15,7 +15,7 @@ body {
 }
 
 .Appl {
-  &--Application {
+  &__Application {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -23,12 +23,12 @@ body {
 }
 
 .App {
-  &--Light {
+  &__Light {
     background-color: $default-light-bg;
     color: black;
   }
 
-  &--Dark {
+  &__Dark {
     background-color: $default-dark-bg;
     color: white;
   }

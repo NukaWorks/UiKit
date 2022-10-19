@@ -1,7 +1,7 @@
 @import "colors";
 
-.appl {
-  &--header {
+.Appl {
+  &__Header {
     font-family: "Outfit", sans-serif;
     background-color: $appheader-bg;
     display: flex;
@@ -11,7 +11,7 @@
     padding: 5px 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-    &__title {
+    &--Title {
       font-weight: 900;
       font-size: 20px;
       line-height: 1;
@@ -19,7 +19,7 @@
       vertical-align: top;
     }
 
-    &__content {
+    &--Content {
       display: flex;
       flex-direction: row;
       gap: 5px;
