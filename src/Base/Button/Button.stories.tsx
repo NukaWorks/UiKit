@@ -6,15 +6,15 @@ export default {
   component: Button,
   argTypes: {
     color: {
-      options: ['default', 'success', 'warning', 'alert'],
+      options: ['Default', 'Success', 'Warning', 'Alert'],
       control: { type: 'select' }
     },
     size: {
-      options: ['small', 'medium', 'large'],
+      options: ['Small', 'Medium', 'Large'],
       control: { type: 'select' }
     },
     theme: {
-      options: ['light', 'dark'],
+      options: ['Light', 'Dark'],
       control: { type: 'radio' }
     }
   }
@@ -25,35 +25,35 @@ const Template = (args :any) => <Button {...args} />
 export const Default = Template.bind({})
 // @ts-ignore
 Default.args = {
-  color: 'default',
-  theme: 'light',
+  color: 'Default',
+  theme: 'Light',
   label: 'Default',
-  size: 'small'
+  size: 'Small'
 }
 
 export const Success = Template.bind({})
 // @ts-ignore
 Success.args = {
-  color: 'success',
-  theme: 'light',
+  color: 'Success',
+  theme: 'Light',
   label: 'Success',
-  size: 'small'
+  size: 'Small'
 }
 
 export const Warning = Template.bind({})
 // @ts-ignore
 Warning.args = {
-  color: 'warning',
-  theme: 'light',
+  color: 'Warning',
+  theme: 'Light',
   label: 'Warning',
-  size: 'small'
+  size: 'Small'
 }
 
 export const Alert = Template.bind({})
 // @ts-ignore
 Alert.args = {
-  color: 'alert',
-  theme: 'light',
+  color: 'Alert',
+  theme: 'Light',
   label: 'Alert',
-  size: 'small'
+  size: 'Small'
 }
