@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './MenuItem.scss'
 
-export function MenuItem ({ children, className }: InferProps<typeof MenuItem.propTypes>) {
+export function MenuItem ({ children, className, onClick }: InferProps<typeof MenuItem.propTypes>) {
   return (
-    <div className={['Base__MenuItem', className].join(' ')}>
+    <div className={['Base__MenuItem', className].join(' ')} onClick={() => onClick ? onClick() : undefined}>
       { children || 'MenuItem empty'}
     </div>
   )
@@ -12,5 +12,6 @@ export function MenuItem ({ children, className }: InferProps<typeof MenuItem.pr
 
 MenuItem.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  onClick: PropTypes.func
 }
