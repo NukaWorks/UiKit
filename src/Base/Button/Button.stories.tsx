@@ -32,6 +32,15 @@ Default.args = {
   size: 'Small'
 }
 
+export const Primary = Template.bind({})
+// @ts-ignore
+Primary.args = {
+  color: 'Primary',
+  theme: 'Light',
+  label: 'Primary',
+  size: 'Small'
+}
+
 export const Success = Template.bind({})
 // @ts-ignore
 Success.args = {
