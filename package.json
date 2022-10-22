@@ -1,6 +1,8 @@
 {
   "name": "@powerws/uikit",
   "version": "1.0.0",
+  "repository": "https://github.com/PowerWorkspace/UiKit",
+  "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
