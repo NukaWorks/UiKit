@@ -5,3 +5,6 @@ dirs:
 
   appl:
     - "./src/Appl"
+
+  misc:
+    - "./src/Misc"
