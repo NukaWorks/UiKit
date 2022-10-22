@@ -6,7 +6,11 @@ export default {
   title: 'Base/TextField',
   component: TextField,
   argTypes: {
-    placeholder: { type: 'string' }
+    placeholder: { type: 'string' },
+    type: {
+      options: ['text', 'password', 'email', 'number', 'tel', 'url'],
+      control: { type: 'select' }
+    }
   }
 }
 
