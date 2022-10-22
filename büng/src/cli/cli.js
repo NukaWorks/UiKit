@@ -3,7 +3,7 @@ const { version } = require('../../package.json')
 const { addComponent, deleteComponent } = require('../utils/CompntMgmt')
 const program = new Command()
 
-function cli () {
+function cli (argv) {
   program
     .name('büng')
     .description('Büng, the component maker.')
@@ -18,7 +18,7 @@ function cli () {
       deleteComponent(name, category)
     })
 
-  program.parse()
+  program.parse(argv)
 }
 
 module.exports = { cli }
