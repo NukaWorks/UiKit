@@ -1,6 +1,6 @@
 {
   "name": "@powerws/uikit",
-  "version": "0.99.0",
+  "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
