@@ -16,7 +16,8 @@ export default {
     theme: {
       options: ['Light', 'Dark'],
       control: { type: 'radio' }
-    }
+    },
+    label: { type: 'string' }
   }
 }
 
