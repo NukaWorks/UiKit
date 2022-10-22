@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Button.scss'
 
-export function Button ({ color, theme, size, label } :InferProps<typeof Button.propTypes>) {
+export function Button ({children, color, theme, size, label } :InferProps<typeof Button.propTypes>) {
   return (
     <button
       type="button"
       className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${color}`].join(' ')}
     >
-      {label}
+      {label || children}
     </button>
   )
 }
@@ -18,6 +18,7 @@ Button.propTypes = {
   theme: PropTypes.oneOf(['Light', 'Dark']),
   size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
   label: PropTypes.string.isRequired,
+  children: PropTypes.any,
   onClick: PropTypes.func
 }
 
