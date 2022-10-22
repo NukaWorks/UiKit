@@ -14,7 +14,7 @@ export function Button ({ children, color, theme, size, label } :InferProps<type
 }
 
 Button.propTypes = {
-  color: PropTypes.oneOf(['Default', 'Success', 'Warning', 'Alert']),
+  color: PropTypes.oneOf(['Default', 'Primary', 'Success', 'Warning', 'Alert']),
   theme: PropTypes.oneOf(['Light', 'Dark']),
   size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
   label: PropTypes.string,

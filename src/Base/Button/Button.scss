@@ -40,6 +40,23 @@
         }
       }
 
+      &--Primary {
+        color: white;
+        background-color: $btn-primary-bg;
+
+        &:hover {
+          background-color: $btn-primary-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-primary-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-primary-outline-color 0 0 0 0.2em;
+        }
+      }
+
       &--Success {
         color: white;
         background-color: $btn-success-bg;
@@ -126,6 +143,23 @@
 
         &:focus-within {
           box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
+        }
+      }
+
+      &--Primary {
+        color: white;
+        background-color: $btn-primary-bg;
+
+        &:hover {
+          background-color: $btn-primary-hover-bg;
+        }
+
+        &:active {
+          background-color: $btn-primary-active-bg;
+        }
+
+        &:focus-within {
+          box-shadow: $btn-primary-outline-color 0 0 0 0.2em;
         }
       }
 

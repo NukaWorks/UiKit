@@ -6,7 +6,7 @@ export default {
   component: Button,
   argTypes: {
     color: {
-      options: ['Default', 'Success', 'Warning', 'Alert'],
+      options: ['Default', 'Primary', 'Success', 'Warning', 'Alert'],
       control: { type: 'select' }
     },
     size: {
