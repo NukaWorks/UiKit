@@ -21,6 +21,7 @@
 .Base {
   &__MenuItem {
     user-select: none;
+    -webkit-user-select: none;
     font-family: "Outfit", sans-serif;
     padding: 0.2em 0.25em;
     border-radius: 5px;
