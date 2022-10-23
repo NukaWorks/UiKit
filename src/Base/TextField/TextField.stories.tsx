@@ -10,6 +10,10 @@ export default {
     type: {
       options: ['text', 'password', 'email', 'number', 'tel', 'url'],
       control: { type: 'select' }
+    },
+    disabled: {
+      options: [true, false],
+      control: { type: 'toggle' }
     }
   }
 }
@@ -19,5 +23,7 @@ const Template = (args :any) => <TextField {...args} />
 export const Default = Template.bind({})
 // @ts-ignore
 Default.args = {
-  placeholder: 'Hello World !'
+  placeholder: 'Hello World !',
+  type: 'text',
+  disabled: false
 }
