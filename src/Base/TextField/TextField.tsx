@@ -14,7 +14,7 @@ import './TextField.scss'
 } */
 
 // eslint-disable-next-line react/display-name
-export const TextField :any = forwardRef((
+export const TextField :any = forwardRef<HTMLInputElement>((
   { type, placeholder, className, disabled, ...props } :InferProps<typeof TextField.propTypes>,
   ref) => (
     <input
@@ -22,6 +22,7 @@ export const TextField :any = forwardRef((
         placeholder={placeholder || ''}
         className={['Base__TextField', className].join(' ')}
         disabled={disabled || false}
+        ref={ref}
     />
 ))
 
