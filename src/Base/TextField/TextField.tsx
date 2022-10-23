@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './TextField.scss'
 
-export function TextField ({ type, placeholder, className, disabled, ref} :InferProps<typeof TextField.propTypes>) {
+export function TextField ({ type, placeholder, className, disabled, ref } :InferProps<typeof TextField.propTypes>) {
   return (
     <input
         type={type || ''}
