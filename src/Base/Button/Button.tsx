@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Button.scss'
 
-export function Button ({ children, color, theme, size, label, ...props } :InferProps<typeof Button.propTypes>) {
-  return (
+// eslint-disable-next-line react/display-name
+export const Button :any = forwardRef<HTMLButtonElement>((
+  { children, color, theme, size, label, ...props } :InferProps<typeof Button.propTypes>, ref) => (
     <button
       type="button"
       className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${color}`].join(' ')}
+      ref={ref}
+      {...props}
     >
       {label || children}
     </button>
-  )
-}
+))
 
 Button.propTypes = {
   color: PropTypes.oneOf(['Default', 'Primary', 'Success', 'Warning', 'Alert']),
