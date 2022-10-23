@@ -1,12 +1,12 @@
 {
   "name": "@powerws/uikit",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "repository": "https://github.com/PowerWorkspace/UiKit",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
-    "publish": "npm version patch --force && npm run build && npm publish --access public",
+    "deploy": "npm version patch --force && npm run build && npm publish --access public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "bung": "node büng/src/bung.js"
