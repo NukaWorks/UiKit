@@ -18,6 +18,7 @@
 .Base {
   &__MenuList {
     user-select: none;
+    -webkit-user-select: none;
     flex-direction: column;
     color: black;
     font-family: "Outfit", sans-serif;
@@ -29,6 +30,7 @@
     width: fit-content;
     background-color: rgba(234, 234, 234, 0.4);
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 1px solid $item-default-dark-border-color;
     padding: 0.5em 0.2em;
     border-radius: 5px;
