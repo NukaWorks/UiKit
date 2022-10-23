@@ -7,7 +7,7 @@ function menuDrop (displayMenu: boolean, children: any) {
   if (displayMenu) return children
 }
 
-export function Menu ({ children, className, title }: InferProps<typeof Menu.propTypes>) {
+export function Menu ({ children, className, title, ...props }: InferProps<typeof Menu.propTypes>) {
   const [displayMenu, setDisplayMenu] = useState(false)
   const ref = useDetectClickOutside({ onTriggered: () => setDisplayMenu(false) })
   const menuTitle = useRef(null)
@@ -36,5 +36,6 @@ export function Menu ({ children, className, title }: InferProps<typeof Menu.pro
 Menu.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }

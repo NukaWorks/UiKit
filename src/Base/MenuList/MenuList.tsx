@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import './MenuList.scss'
 import { MenuItem } from '../MenuItem/MenuItem'
 
-export function MenuList ({ className, children }: InferProps<typeof MenuList.propTypes>) {
+export function MenuList ({ className, children, ...props }: InferProps<typeof MenuList.propTypes>) {
   return (
     <div className={['Base__MenuList', className].join(' ')}>
       { children || <MenuItem />}
@@ -13,5 +13,6 @@ export function MenuList ({ className, children }: InferProps<typeof MenuList.pr
 
 MenuList.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Sidebar.scss'
 
-export function Sidebar ({ children, className }: InferProps<typeof Sidebar.propTypes>) {
+export function Sidebar ({ children, className, ...props }: InferProps<typeof Sidebar.propTypes>) {
   return (
     <div className={['Base__Sidebar', className].join(' ')}>
         Hello World !
@@ -12,5 +12,6 @@ export function Sidebar ({ children, className }: InferProps<typeof Sidebar.prop
 
 Sidebar.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }

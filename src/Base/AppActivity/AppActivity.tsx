@@ -6,7 +6,7 @@ import PropTypes, { InferProps } from 'prop-types'
  */
 import '../../Assets/Themes/index.scss'
 
-export function AppActivity ({ children, className, theme } :InferProps<typeof AppActivity.propTypes>) {
+export function AppActivity ({ children, className, theme, ...props } :InferProps<typeof AppActivity.propTypes>) {
   return (
     <div className={[`App__${theme}`, 'Appl__Application', className].join(' ')}>
         { children }
@@ -17,7 +17,8 @@ export function AppActivity ({ children, className, theme } :InferProps<typeof A
 AppActivity.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  theme: PropTypes.oneOf(['Light', 'Dark'])
+  theme: PropTypes.oneOf(['Light', 'Dark']),
+  props: PropTypes.any
 }
 
 AppActivity.defaultProps = {

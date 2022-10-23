@@ -4,7 +4,7 @@ import './MenuBar.scss'
 
 export const HoverContext = React.createContext('false')
 
-export function MenuBar ({ children, className }: InferProps<typeof MenuBar.propTypes>) {
+export function MenuBar ({ children, className, ...props }: InferProps<typeof MenuBar.propTypes>) {
   return (
       <HoverContext.Provider value={'false'}>
         <div className={['Base__MenuBar', className].join(' ')}>
@@ -16,5 +16,6 @@ export function MenuBar ({ children, className }: InferProps<typeof MenuBar.prop
 
 MenuBar.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }

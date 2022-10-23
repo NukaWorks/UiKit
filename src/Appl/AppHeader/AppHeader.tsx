@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import './AppHeader.scss'
 import { Text } from '../../Base/Text/Text'
 
-export function AppHeader ({ children, className, title }: InferProps<typeof AppHeader.propTypes>) {
+export function AppHeader ({ children, className, title, ...props }: InferProps<typeof AppHeader.propTypes>) {
   return (
     <header className={['Appl__Header', className].join(' ')}>
         <Text className={'Appl__Header--Title'}>{ title }</Text>
@@ -15,7 +15,8 @@ export function AppHeader ({ children, className, title }: InferProps<typeof App
 AppHeader.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }
 
 AppHeader.defaultProps = {

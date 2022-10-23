@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Spinner.scss'
 
-export function Spinner ({ className, size, color }: InferProps<typeof Spinner.propTypes>) {
+export function Spinner ({ className, size, color, ...props }: InferProps<typeof Spinner.propTypes>) {
   return (
       <div className={['Misc__Spinner', `Misc__Spinner--${color}`, `Misc__Spinner--${size}`, className].join(' ')}>
         <svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,8 @@ export function Spinner ({ className, size, color }: InferProps<typeof Spinner.p
 Spinner.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['Default', 'Blue']),
-  size: PropTypes.oneOf(['Small', 'Medium', 'Large'])
+  size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
+  props: PropTypes.any
 }
 
 Spinner.defaultProps = {
