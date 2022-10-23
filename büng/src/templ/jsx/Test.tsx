@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Test.scss'
 
-export function Test ({ children, className }: InferProps<typeof Test.propTypes>) {
+export function Test ({ children, className, ...props }: InferProps<typeof Test.propTypes>) {
   return (
     <div className={['CATEGORY__test', className].join(' ')}>
         Hello World !
@@ -12,5 +12,6 @@ export function Test ({ children, className }: InferProps<typeof Test.propTypes>
 
 Test.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
+  props: PropTypes.any
 }
