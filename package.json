@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
-    "publish": "npm run build && npm version patch --force && npm publish --access public && git commit package.json -m ':bookmark: publish' && git push",
+    "publish": "npm version patch --force && npm run build && npm publish --access public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "bung": "node büng/src/bung.js"
