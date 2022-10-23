@@ -12,8 +12,7 @@ export default {
       control: { type: 'select' }
     },
     disabled: {
-      options: [true, false],
-      control: { type: 'toggle' }
+      control: 'boolean'
     }
   }
 }
