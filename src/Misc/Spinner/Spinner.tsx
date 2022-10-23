@@ -4,7 +4,10 @@ import './Spinner.scss'
 
 export function Spinner ({ className, size, color, ...props }: InferProps<typeof Spinner.propTypes>) {
   return (
-      <div className={['Misc__Spinner', `Misc__Spinner--${color}`, `Misc__Spinner--${size}`, className].join(' ')}>
+      <div
+          className={['Misc__Spinner', `Misc__Spinner--${color}`, `Misc__Spinner--${size}`, className].join(' ')}
+          {...props}
+      >
         <svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlnsXlink="http://www.w3.org/1999/xlink">
           <defs>

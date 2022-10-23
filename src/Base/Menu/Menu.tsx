@@ -21,11 +21,15 @@ export function Menu ({ children, className, title, ...props }: InferProps<typeo
   })
 
   return (
-    <div className={['Base__Menu', className].join(' ')} ref={ref}
-         onClick={e => {
-           setDisplayMenu(!displayMenu)
-           e.preventDefault()
-         }}>
+    <div
+      className={['Base__Menu', className].join(' ')}
+      ref={ref}
+      onClick={e => {
+        setDisplayMenu(!displayMenu)
+        e.preventDefault()
+      }}
+      {...props}
+    >
 
       <div className={'Base__Menu--Title'} ref={menuTitle}>{ title }</div>
       { menuDrop(displayMenu, children) }

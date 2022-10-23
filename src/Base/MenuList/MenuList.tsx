@@ -5,7 +5,10 @@ import { MenuItem } from '../MenuItem/MenuItem'
 
 export function MenuList ({ className, children, ...props }: InferProps<typeof MenuList.propTypes>) {
   return (
-    <div className={['Base__MenuList', className].join(' ')}>
+    <div
+        className={['Base__MenuList', className].join(' ')}
+        {...props}
+    >
       { children || <MenuItem />}
     </div>
   )

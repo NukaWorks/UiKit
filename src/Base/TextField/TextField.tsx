@@ -12,6 +12,7 @@ export const TextField :any = forwardRef<HTMLInputElement>((
         className={['Base__TextField', className].join(' ')}
         disabled={disabled || false}
         ref={ref}
+        {...props}
     />
 ))
 

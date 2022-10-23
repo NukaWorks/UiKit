@@ -4,7 +4,10 @@ import './Sidebar.scss'
 
 export function Sidebar ({ children, className, ...props }: InferProps<typeof Sidebar.propTypes>) {
   return (
-    <div className={['Base__Sidebar', className].join(' ')}>
+    <div
+        className={['Base__Sidebar', className].join(' ')}
+        {...props}
+    >
         Hello World !
     </div>
   )

@@ -4,7 +4,11 @@ import './MenuItem.scss'
 
 export function MenuItem ({ children, className, onClick, ...props }: InferProps<typeof MenuItem.propTypes>) {
   return (
-    <div className={['Base__MenuItem', className].join(' ')} onClick={() => onClick ? onClick() : undefined}>
+    <div
+        className={['Base__MenuItem', className].join(' ')}
+        onClick={() => onClick ? onClick() : undefined}
+        {...props}
+    >
       { children || 'MenuItem empty'}
     </div>
   )
