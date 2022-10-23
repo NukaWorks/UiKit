@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './TextField.scss'
 
-export function TextField ({ type, placeholder, className, disabled, ...props } :InferProps<typeof TextField.propTypes>) {
+export function TextField ({ type, placeholder, className, disabled, ref} :InferProps<typeof TextField.propTypes>) {
   return (
     <input
         type={type || ''}
@@ -17,7 +17,7 @@ TextField.propTypes = {
   type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'tel', 'url']),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
-  props: PropTypes.any,
+  ref: PropTypes.any,
   className: PropTypes.string
 }
 
