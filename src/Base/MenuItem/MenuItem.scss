@@ -25,6 +25,7 @@
     font-family: "Outfit", sans-serif;
     padding: 0.2em 0.25em;
     border-radius: 5px;
+    white-space: nowrap;
 
     &:hover {
       background-color: $item-warning-hover-bg;
