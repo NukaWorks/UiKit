@@ -39,7 +39,7 @@ export function Menu ({ children, className, title, ...props }: InferProps<typeo
 
 Menu.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
   children: PropTypes.any,
   props: PropTypes.any
 }
