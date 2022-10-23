@@ -2,17 +2,6 @@ import React, { forwardRef } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './TextField.scss'
 
-/* export function TextField ({ type, placeholder, className, disabled, ...props } :InferProps<typeof TextField.propTypes>) {
-  return (
-    <input
-        type={type || ''}
-        placeholder={placeholder || ''}
-        className={['Base__TextField', className].join(' ')}
-        disabled={disabled || false}
-    />
-  )
-} */
-
 // eslint-disable-next-line react/display-name
 export const TextField :any = forwardRef<HTMLInputElement>((
   { type, placeholder, className, disabled, ...props } :InferProps<typeof TextField.propTypes>,
