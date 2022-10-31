@@ -34,6 +34,7 @@
     border: 1px solid $item-default-dark-border-color;
     padding: 0.5em 0.2em;
     border-radius: 5px;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.065s ease-in-out;
   }
 }
