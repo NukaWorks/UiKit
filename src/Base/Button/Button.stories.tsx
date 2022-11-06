@@ -6,7 +6,7 @@ export default {
   component: Button,
   argTypes: {
     color: {
-      options: ['Default', 'Primary', 'Success', 'Warning', 'Alert'],
+      options: ['Default', 'Primary', 'Success', 'Warning', 'Alert', 'Disabled'],
       control: { type: 'select' }
     },
     size: {
@@ -17,7 +17,8 @@ export default {
       options: ['Light', 'Dark'],
       control: { type: 'radio' }
     },
-    label: { type: 'string' }
+    label: { type: 'string' },
+    disabled: { type: 'boolean' }
   }
 }
 
@@ -29,6 +30,7 @@ Default.args = {
   color: 'Default',
   theme: 'Light',
   label: 'Default',
+  disabled: false,
   size: 'Small'
 }
 
@@ -38,6 +40,7 @@ Primary.args = {
   color: 'Primary',
   theme: 'Light',
   label: 'Primary',
+  disabled: false,
   size: 'Small'
 }
 
@@ -47,6 +50,7 @@ Success.args = {
   color: 'Success',
   theme: 'Light',
   label: 'Success',
+  disabled: false,
   size: 'Small'
 }
 
@@ -56,6 +60,7 @@ Warning.args = {
   color: 'Warning',
   theme: 'Light',
   label: 'Warning',
+  disabled: false,
   size: 'Small'
 }
 
@@ -65,5 +70,16 @@ Alert.args = {
   color: 'Alert',
   theme: 'Light',
   label: 'Alert',
+  disabled: false,
+  size: 'Small'
+}
+
+export const Disabled = Template.bind({})
+// @ts-ignore
+Disabled.args = {
+  color: 'Disabled',
+  theme: 'Light',
+  label: 'Disabled',
+  disabled: true,
   size: 'Small'
 }
