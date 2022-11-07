@@ -7,7 +7,7 @@ export const Button :any = forwardRef<HTMLButtonElement>((
   { children, color, theme, size, disabled, label, ...props } :InferProps<typeof Button.propTypes>, ref) => (
     <button
       type="button"
-      className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${color}`].join(' ')}
+      className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
       ref={ref}
       disabled={disabled}
       {...props}
