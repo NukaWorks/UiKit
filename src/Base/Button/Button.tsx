@@ -10,6 +10,7 @@ export const Button: any = forwardRef<HTMLButtonElement>((
     theme,
     size,
     disabled,
+    autofocus,
     label,
     ...props
   }: InferProps<typeof Button.propTypes>, ref) => {
@@ -26,6 +27,7 @@ export const Button: any = forwardRef<HTMLButtonElement>((
           type="button"
           className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
           ref={ref}
+          autoFocus={autofocus}
           disabled={disable}
           {...props}
       >
@@ -39,6 +41,7 @@ Button.propTypes = {
   theme: PropTypes.oneOf(['Light', 'Dark']),
   size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
   disabled: PropTypes.bool,
+  autofocus: PropTypes.bool,
   label: PropTypes.string,
   props: PropTypes.any,
   children: PropTypes.any,
