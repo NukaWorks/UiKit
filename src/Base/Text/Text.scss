@@ -2,5 +2,12 @@
   &__Text {
     font-family: "Outfit", sans-serif;
     font-size: 9pt;
+
+    /* TODO Need to be optimized. */
+    &--Disabled {
+      font-family: "Outfit", sans-serif;
+      font-size: 9pt;
+      color: #bababa;
+    }
   }
 }

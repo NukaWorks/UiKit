@@ -11,9 +11,7 @@ export default {
       options: ['text', 'password', 'email', 'number', 'tel', 'url'],
       control: { type: 'select' }
     },
-    disabled: {
-      control: 'boolean'
-    }
+    disabled: { control: 'boolean' }
   }
 }
 

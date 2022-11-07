@@ -12,6 +12,15 @@
     border-radius: 5px;
     text-decoration: none;
 
+    /* TODO Need to be optimized. */
+    &--Disabled {
+      color: #bababa;
+      font-family: "Outfit", sans-serif;
+      font-weight: 500;
+      padding-inline: 5px;
+      text-decoration: none;
+    }
+
     &:hover {
       background-color: rgba(234, 234, 234, 0.4);
       color: #008ee3;

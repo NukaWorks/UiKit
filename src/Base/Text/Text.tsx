@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Text.scss'
 
-export function Text ({ className, text, children, ...props } :InferProps<typeof Text.propTypes>) {
+export function Text ({ className, text, disabled, children, ...props } :InferProps<typeof Text.propTypes>) {
+  const [disable, setDisable] = React.useState(false)
+
+  useEffect(() => {
+    if (disabled) {
+      setDisable(true)
+    } else setDisable(false)
+  }, [disable])
+
   return (
     <div
-        className={['Base__Text', className].join(' ')}
+        className={['Base__Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
         {...props}
     >
         { text || children }
@@ -15,8 +23,11 @@ export function Text ({ className, text, children, ...props } :InferProps<typeof
 
 Text.propTypes = {
   text: PropTypes.string,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.any
 }
 
-Text.defaultProps = {}
+Text.defaultProps = {
+  disabled: false
+}
