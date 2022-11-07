@@ -9,7 +9,7 @@ export function Link ({ children, className, disabled, href, ...props }: InferPr
     if (disabled) {
       setDisable(true)
     } else setDisable(false)
-  }, [disable])
+  }, [disabled])
 
   return (
     <a

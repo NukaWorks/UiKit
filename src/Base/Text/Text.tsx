@@ -9,7 +9,7 @@ export function Text ({ className, text, disabled, children, ...props } :InferPr
     if (disabled) {
       setDisable(true)
     } else setDisable(false)
-  }, [disable])
+  }, [disabled])
 
   return (
     <div

@@ -19,7 +19,7 @@ export const Button: any = forwardRef<HTMLButtonElement>((
     if (disabled) {
       setDisable(true)
     } else setDisable(false)
-  }, [disable])
+  }, [disabled])
 
   return (
       <button
