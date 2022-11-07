@@ -1,20 +1,38 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Button.scss'
 
 // eslint-disable-next-line react/display-name
-export const Button :any = forwardRef<HTMLButtonElement>((
-  { children, color, theme, size, disabled, label, ...props } :InferProps<typeof Button.propTypes>, ref) => (
-    <button
-      type="button"
-      className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
-      ref={ref}
-      disabled={disabled}
-      {...props}
-    >
-      {label || children}
-    </button>
-))
+export const Button: any = forwardRef<HTMLButtonElement>((
+  {
+    children,
+    color,
+    theme,
+    size,
+    disabled,
+    label,
+    ...props
+  }: InferProps<typeof Button.propTypes>, ref) => {
+  const [disable, setDisable] = useState(false)
+
+  useEffect(() => {
+    if (disabled) {
+      setDisable(true)
+    } else setDisable(false)
+  }, [disable])
+
+  return (
+      <button
+          type="button"
+          className={[`App__${theme}`, 'Base__Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
+          ref={ref}
+          disabled={disable}
+          {...props}
+      >
+        {label || children}
+      </button>
+  )
+})
 
 Button.propTypes = {
   color: PropTypes.oneOf(['Default', 'Primary', 'Success', 'Warning', 'Alert', 'Disabled']),
