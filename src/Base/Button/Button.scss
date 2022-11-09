@@ -41,6 +41,12 @@
         }
       }
 
+      &--Disabled {
+        background-color: $btn-default-light-bg;
+        color: #bfbfbf;
+        text-shadow: none !important;
+      }
+
       &--Primary {
         color: white;
         background-color: $btn-primary-bg;
@@ -145,6 +151,12 @@
         &:focus-within {
           box-shadow: $btn-default-dark-outline-color 0 0 0 0.2em;
         }
+      }
+
+      &--Disabled {
+        background-color: $btn-default-light-bg;
+        color: #bababa;
+        text-shadow: none !important;
       }
 
       &--Primary {
