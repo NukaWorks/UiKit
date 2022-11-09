@@ -17,6 +17,7 @@
 
 .Base {
   &__MenuList {
+    z-index: 5;
     user-select: none;
     -webkit-user-select: none;
     flex-direction: column;
