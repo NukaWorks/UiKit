@@ -2,7 +2,13 @@ import React, { useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Link.scss'
 
-export function Link ({ children, className, disabled, href, ...props }: InferProps<typeof Link.propTypes>) {
+export function Link ({
+  children,
+  className,
+  disabled,
+  href,
+  ...props
+}: InferProps<typeof Link.propTypes>) {
   const [disable, setDisable] = React.useState(false)
 
   useEffect(() => {
@@ -11,15 +17,26 @@ export function Link ({ children, className, disabled, href, ...props }: InferPr
     } else setDisable(false)
   }, [disabled])
 
-  return (
-    <a
-        className={[`Base__Link${disable ? '--Disabled' : ''}`, className].join(' ')}
-        href={disable ? '' : (href || '')}
-        {...props}
-    >
-      { children }
-    </a>
-  )
+  if (disable) {
+    return (
+        <a
+            className={['Base__Link', className].join(' ')}
+            href={href || ''}
+            {...props}
+        >
+          {children}
+        </a>
+    )
+  } else {
+    return (
+        <a
+            className={['Base__Link--Disabled', className].join(' ')}
+            {...props}
+        >
+          {children}
+        </a>
+    )
+  }
 }
 
 Link.propTypes = {
