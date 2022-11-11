@@ -15,9 +15,9 @@ export function Link ({
     if (disabled) {
       setDisable(true)
     } else setDisable(false)
-  }, [disabled])
+  }, [disabled, disable])
 
-  if (disable) {
+  if (!disable) {
     return (
         <a
             className={['Base__Link', className].join(' ')}
