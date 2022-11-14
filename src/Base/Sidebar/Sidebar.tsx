@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Sidebar.scss'
+import '../../Assets/Themes/index.scss'
 
 export function Sidebar ({ children, className, ...props }: InferProps<typeof Sidebar.propTypes>) {
   return (
@@ -8,7 +9,13 @@ export function Sidebar ({ children, className, ...props }: InferProps<typeof Si
         className={['Base__Sidebar', className].join(' ')}
         {...props}
     >
-        Hello World !
+      <span className="material-symbols-rounded">
+        menu
+      </span>
+
+      <div className={'Base__Sidebar--Content'}>
+        {children}
+      </div>
     </div>
   )
 }

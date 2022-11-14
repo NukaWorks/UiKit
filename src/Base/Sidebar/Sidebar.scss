@@ -4,7 +4,15 @@
 
 .Base {
   &__Sidebar {
+    display: flex;
+    flex-direction: column;
     font-family: "Outfit", sans-serif;
     color: black;
+    width: fit-content;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: lightpink;
+    -webkit-user-select: none;
+    user-select: none;
   }
 }
