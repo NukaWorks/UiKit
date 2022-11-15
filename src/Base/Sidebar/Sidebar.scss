@@ -2,6 +2,8 @@
 // Sidebar Component Stylesheet
 // ------------------------------------
 
+@import "colors";
+
 .Base {
   &__Sidebar {
     display: flex;
@@ -9,10 +11,17 @@
     font-family: "Outfit", sans-serif;
     color: black;
     width: fit-content;
+    gap: 0.3em;
+    min-width: 20em;
     padding: 1em;
     border-radius: 15px;
-    background-color: lightpink;
+    background-color: white;
+    border: 1px solid $item-default-dark-border-color;
     -webkit-user-select: none;
     user-select: none;
+
+    &--MenuBtn {
+      width: fit-content;
+    }
   }
 }
