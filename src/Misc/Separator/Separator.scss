@@ -1,0 +1,11 @@
+// ------------------------------------
+// Separator Component Stylesheet
+// ------------------------------------
+
+.Misc {
+  &__Separator {
+    background-color: rgba(84, 84, 84, 0.2);
+    height: 2px;
+    border-radius: 300px;
+  }
+}
