@@ -1,0 +1,19 @@
+// ------------------------------------
+// SidebarItem Component Stylesheet
+// ------------------------------------
+
+.Base {
+  &__SidebarItem {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    gap: 5px;
+    border-radius: 10px;
+    font-size: 13pt;
+    padding: 0.5em;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
