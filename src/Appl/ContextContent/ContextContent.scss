@@ -1,0 +1,12 @@
+// ------------------------------------
+// ContextContent Component Stylesheet
+// ------------------------------------
+
+.Appl {
+  &__ContextContent {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    overflow: hidden;
+  }
+}
