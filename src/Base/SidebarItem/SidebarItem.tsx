@@ -2,7 +2,16 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './SidebarItem.scss'
 
-export function SidebarItem ({ text, children, disableText, icon, className, onClick, ...props }: InferProps<typeof SidebarItem.propTypes>) {
+export function SidebarItem ({
+  text,
+  children,
+  active,
+  disableText,
+  icon,
+  className,
+  onClick,
+  ...props
+}: InferProps<typeof SidebarItem.propTypes>) {
   return (
     <div
         className={['Base__SidebarItem', className].join(' ')}
@@ -26,6 +35,7 @@ export function SidebarItem ({ text, children, disableText, icon, className, onC
 SidebarItem.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string,
+  active: PropTypes.bool,
   children: PropTypes.any,
   disableText: PropTypes.bool,
   onClick: PropTypes.any,
