@@ -3,10 +3,10 @@ import PropTypes, { InferProps } from 'prop-types'
 import './HBox.scss'
 import { Box } from '../Box/Box'
 
-export function VBox ({ children, className, ...props }: InferProps<typeof VBox.propTypes>) {
+export function HBox ({ children, className, ...props }: InferProps<typeof HBox.propTypes>) {
   return (
       <Box
-          className={['App__HBox', className].join(' ')}
+          className={['Layouts__HBox', className].join(' ')}
           {...props}
       >
         {children}
@@ -14,7 +14,7 @@ export function VBox ({ children, className, ...props }: InferProps<typeof VBox.
   )
 }
 
-VBox.propTypes = {
+HBox.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   props: PropTypes.any

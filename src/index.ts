@@ -17,6 +17,7 @@ import { UiApp } from './Appl/UiApp/UiApp'
 // Layouts Components
 import { VBox } from './Layouts/VBox/VBox'
 import { HBox } from './Layouts/HBox/HBox'
+import { Box } from './Layouts/Box/Box'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner/Spinner'
@@ -42,5 +43,6 @@ export {
   Sidebar,
   SidebarItem,
   VBox,
-  HBox
+  HBox,
+  Box
 }

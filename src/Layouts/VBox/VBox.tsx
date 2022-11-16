@@ -6,7 +6,7 @@ import { Box } from '../Box/Box'
 export function VBox ({ children, className, ...props }: InferProps<typeof VBox.propTypes>) {
   return (
     <Box
-      className={['App__Vbox', className].join(' ')}
+      className={['Layouts__Vbox', className].join(' ')}
       {...props}
     >
       {children}

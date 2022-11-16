@@ -5,7 +5,7 @@ import './Box.scss'
 export function Box ({ children, className, ...props }: InferProps<typeof Box.propTypes>) {
   return (
     <div
-        className={['Appl__Box', className].join(' ')}
+        className={['Layouts__Box', className].join(' ')}
         {...props}
     >
       {children}
