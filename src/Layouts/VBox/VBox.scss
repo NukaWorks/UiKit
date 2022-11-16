@@ -3,10 +3,7 @@
 // ------------------------------------
 
 .Appl {
-  &__ContextContent {
-    display: flex;
+  &__VBox {
     flex-direction: row;
-    flex: 1;
-    overflow: hidden;
   }
 }
