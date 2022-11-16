@@ -6,7 +6,7 @@
 
 @keyframes closeAnim {
   from {
-    transform: translateX(10px);
+    transform: translateX(12px);
   }
 
   to {
@@ -36,7 +36,7 @@
 
       .Base__SidebarItem {
         width: fit-content;
-        animation: closeAnim 0.1s ease-in-out forwards;
+        animation: closeAnim 0.1s cubic-bezier(.77,0,.18,1) forwards;
 
         &--Text {
           display: none;
