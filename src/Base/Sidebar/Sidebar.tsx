@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Sidebar.scss'
 import '../../Assets/Themes/index.scss'
