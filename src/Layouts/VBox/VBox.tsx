@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './ContextContent.scss'
+import './VBox.scss'
 
-export function ContextContent ({ children, className, ...props }: InferProps<typeof ContextContent.propTypes>) {
+export function VBox ({ children, className, ...props }: InferProps<typeof VBox.propTypes>) {
   return (
     <div
         className={['Appl__ContextContent', className].join(' ')}
@@ -13,7 +13,7 @@ export function ContextContent ({ children, className, ...props }: InferProps<ty
   )
 }
 
-ContextContent.propTypes = {
+VBox.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   props: PropTypes.any
