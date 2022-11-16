@@ -5,6 +5,7 @@
 .Base {
   &__SidebarItem {
     display: flex;
+    flex-direction: row;
     align-items: center;
     color: inherit;
     gap: 5px;

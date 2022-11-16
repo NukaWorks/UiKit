@@ -4,6 +4,16 @@
 
 @import "colors";
 
+@keyframes closeAnim {
+  from {
+    transform: translateX(10px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .Base {
   &__Sidebar {
     display: flex;
@@ -20,6 +30,19 @@
     border: 1px solid rgba(0,0,0,.2);
     -webkit-user-select: none;
     user-select: none;
+
+    &--Closed {
+      min-width: auto;
+
+      .Base__SidebarItem {
+        width: fit-content;
+        animation: closeAnim 0.1s ease-in-out forwards;
+
+        &--Text {
+          display: none;
+        }
+      }
+    }
 
     &--MenuBtn {
       width: fit-content;
