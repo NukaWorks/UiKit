@@ -13,7 +13,10 @@ import { SidebarItem } from './Base/SidebarItem/SidebarItem'
 // Application Components
 import { AppHeader } from './Appl/AppHeader/AppHeader'
 import { UiApp } from './Appl/UiApp/UiApp'
-import { ContextContent } from './Appl/ContextContent/ContextContent'
+
+// Layouts Components
+import { VBox } from './Layouts/VBox/VBox'
+import { HBox } from './Layouts/HBox/HBox'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner/Spinner'
@@ -38,5 +41,6 @@ export {
   Separator,
   Sidebar,
   SidebarItem,
-  ContextContent
+  VBox,
+  HBox
 }
