@@ -16,16 +16,8 @@
     &--Activated {
       background-color: rgba(0, 0, 0, 0.050);
 
-      &:before {
-        content: '';
-        display: block;
-        background-color: #1EA7FD;
-        width: 4px;
-        height: 20px;
-        border-radius: 300px;
-        position: relative;
-        top: 0;
-        left: 0;
+      & .material-symbols-rounded {
+        font-variation-settings: 'FILL' 1;
       }
     }
 
