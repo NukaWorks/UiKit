@@ -24,7 +24,7 @@ import { Spinner } from './Misc/Spinner/Spinner'
 import { Separator } from './Misc/Separator/Separator'
 
 // Layouts
-import { AppActivity } from './Base/AppActivity/AppActivity'
+import { AppActivity } from './Appl/AppActivity/AppActivity'
 
 export {
   Button,
