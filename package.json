@@ -12,8 +12,8 @@
     "bung": "node büng/src/bung.js"
   },
   "dependencies": {
-    "react-detect-click-outside": "^1.1.7",
     "react": "^18.2.0",
+    "react-detect-click-outside": "^1.1.7",
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
@@ -49,6 +49,7 @@
     "prop-types": "^15.8.1",
     "sass": "1.50.1",
     "sass-loader": "10.2.1",
+    "storybook-dark-mode": "^1.1.2",
     "typescript": "^4.7.4",
     "vite": "^3.0.2",
     "vite-plugin-css-injected-by-js": "^2.0.2",

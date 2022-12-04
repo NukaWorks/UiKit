@@ -8,7 +8,8 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
     "@storybook/addon-postcss",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "storybook-dark-mode"
   ],
   "framework": "@storybook/react"
 }
