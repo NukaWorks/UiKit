@@ -21,7 +21,7 @@
     font-family: "Outfit", sans-serif;
     color: black;
     width: fit-content;
-    gap: 0.3em;
+    gap: 0.8em;
     min-width: 20em;
     margin: 10px;
     padding: 1em;
@@ -30,6 +30,12 @@
     border: 1px solid rgba(0,0,0,.2);
     -webkit-user-select: none;
     user-select: none;
+
+    &--Content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
 
     &--Closed {
       min-width: auto;
