@@ -2,49 +2,19 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="README.md" />
 
-# Introducing MouseUI for React
+# Introducing @powerws/uikit for React
 
 ## Component Template
 
-```jsx
-import React from 'react';
-import PropTypes, { InferProps } from 'prop-types'
+Please use the **Büng** Utility for manage components.
 
-export function HelloWorld({title, color} :InferProps<typeof HelloWorld.propTypes>) {
-    return (
-        <h1 color={color}>{{ title }}</h1>
-    );
-}
 
-HelloWorld.propTypes = {
-  title: PropTypes.string.isRequired,
-  color: PropTypes.string
-};
-
-HelloWorld.defaultProps = {
-  title: "HelloWorld !",
-  color: "blue"
-}
+#### Create a new component called 'Button'
+```sh
+yarn run bung add Button base
 ```
 
-# Component Stories Template
-```jsx
-import React from 'react';
-
-import { HelloWorld } from './HelloWorld';
-
-export default {
-  title: 'Misc/HelloWorld',
-  component: HelloWorld,
-  parameters: {
-    layout: 'fullscreen',
-  },
-};
-
-const Template = (args) => <HelloWorld {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  title: "Hello !"
-};
+#### Delete the component
+```sh
+yarn run bung delete Button base
 ```
