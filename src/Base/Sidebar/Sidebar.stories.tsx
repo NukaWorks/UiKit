@@ -5,14 +5,19 @@ import { SidebarItem } from '../SidebarItem'
 
 export default {
   title: 'Base/Sidebar',
-  component: Sidebar
+  component: Sidebar,
+  argTypes: {
+    closed: { control: 'boolean' }
+  }
 }
 
 const Template = (args :any) => <Sidebar {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore
-Default.args = {}
+Default.args = {
+  closed: false
+}
 
 const TestTemplate = (args :any) => <Sidebar {...args}>
     <SidebarItem icon={'home'} text={'Home'} />
@@ -24,4 +29,6 @@ const TestTemplate = (args :any) => <Sidebar {...args}>
 
 export const Tests = TestTemplate.bind({})
 // @ts-ignore
-Tests.args = {}
+Tests.args = {
+  closed: false
+}
