@@ -2,7 +2,7 @@
 import { Button } from './Base/Button/Button'
 import { Text } from './Base/Text'
 import { TextField } from './Base/TextField'
-import { MenuList } from './Base/MenuList/MenuList'
+import { MenuList } from './Base/MenuList'
 import { MenuItem } from './Base/MenuItem/MenuItem'
 import { MenuBar } from './Base/MenuBar/MenuBar'
 import { Menu } from './Base/Menu/Menu'

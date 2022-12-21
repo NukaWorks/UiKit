@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Menu } from '../Menu/Menu'
 import { MenuItem } from '../MenuItem/MenuItem'
-import { MenuList } from '../MenuList/MenuList'
+import { MenuList } from '../MenuList'
 
 export default {
   title: 'Base/Menu',
