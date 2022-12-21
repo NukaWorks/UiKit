@@ -3,26 +3,21 @@ import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 
 const UiAppElement = styled.div`
-  &__UiApp {
-    overflow: hidden;
-    background-color: #FFFEFE;
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-
-    &--Rounded {
-      border-radius: 20px;
-      margin: 10px;
-      padding-inline: 1em;
-    }
-  }
+  overflow: hidden;
+  background-color: #FFFEFE;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin: 10px;
+  padding-inline: 1em;
 `
 
-export function UiApp ({ children, className, rounded, ...props }: InferProps<typeof UiApp.propTypes>) {
+export function UiApp ({ children, className, ...props }: InferProps<typeof UiApp.propTypes>) {
   return (
     <UiAppElement
-        className={['Appl__UiApp', rounded ? 'Appl__UiApp--Rounded' : '', className].join(' ')}
+        className={['Appl__UiApp', className].join(' ')}
         {...props}
     >
       { children }
@@ -32,7 +27,6 @@ export function UiApp ({ children, className, rounded, ...props }: InferProps<ty
 
 UiApp.propTypes = {
   className: PropTypes.string,
-  rounded: PropTypes.bool,
   props: PropTypes.any,
   children: PropTypes.any
 }
