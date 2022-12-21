@@ -15,8 +15,7 @@ import { AppHeader } from './Appl/AppHeader'
 import { UiApp } from './Appl/UiApp'
 
 // Layouts Components
-import { VerticalBox } from './Layouts/VerticalBox'
-import { HorizontalBox } from './Layouts/HorizontalBox'
+import { StackLayout } from './Layouts/StackLayout'
 import { Layout } from './Layouts/Layout'
 
 // Miscellaneous Components
@@ -42,7 +41,6 @@ export {
   Separator,
   Sidebar,
   SidebarItem,
-  VerticalBox,
-  HorizontalBox,
+  StackLayout,
   Layout
 }
