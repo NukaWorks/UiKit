@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './HBox.scss'
-import { Box } from '../Box/Box'
+import { Layout } from './Layout'
 
-export function HBox ({ children, className, ...props }: InferProps<typeof HBox.propTypes>) {
+export function HorizontalBox ({ children, className, ...props }: InferProps<typeof HorizontalBox.propTypes>) {
   return (
-      <Box
+      <Layout
           className={['Layouts__HBox', className].join(' ')}
           {...props}
       >
         {children}
-      </Box>
+      </Layout>
   )
 }
 
-HBox.propTypes = {
+HorizontalBox.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   props: PropTypes.any

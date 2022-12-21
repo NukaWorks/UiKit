@@ -15,9 +15,9 @@ import { AppHeader } from './Appl/AppHeader'
 import { UiApp } from './Appl/UiApp'
 
 // Layouts Components
-import { VBox } from './Layouts/VBox/VBox'
-import { HBox } from './Layouts/HBox/HBox'
-import { Box } from './Layouts/Box/Box'
+import { VerticalBox } from './Layouts/VerticalBox'
+import { HorizontalBox } from './Layouts/HorizontalBox'
+import { Layout } from './Layouts/Layout'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
@@ -42,7 +42,7 @@ export {
   Separator,
   Sidebar,
   SidebarItem,
-  VBox,
-  HBox,
-  Box
+  VerticalBox,
+  HorizontalBox,
+  Layout
 }

@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './VBox.scss'
-import { Box } from '../Box/Box'
+import { Layout } from './Layout'
 
-export function VBox ({ children, className, ...props }: InferProps<typeof VBox.propTypes>) {
+export function VerticalBox ({ children, className, ...props }: InferProps<typeof VerticalBox.propTypes>) {
   return (
-    <Box
+    <Layout
       className={['Layouts__Vbox', className].join(' ')}
       {...props}
     >
       {children}
-    </Box>
+    </Layout>
   )
 }
 
-VBox.propTypes = {
+VerticalBox.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   props: PropTypes.any
