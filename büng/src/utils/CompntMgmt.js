@@ -15,9 +15,8 @@ function addComponent (name, category) {
     Array.from(dirs).forEach(dir => {
       if (!fs.existsSync(dir + `/${name}`)) {
         console.log(chalk.cyan(`${chalk.bold('[project]')} Creating ${chalk.bold(name)} on ${chalk.bold(category)}...`))
-        fs.mkdirSync(dir + `/${name}`, { recursive: true })
+        if (!fs.existsSync(dir)) fs.mkdirSync(dir)
         copySync(getTemplDir + '/jsx/', dir + `/${name}`)
-        copySync(getTemplDir + '/scss/', dir + `/${name}`)
 
         fs.readdir(dir + `/${name}`, (err, files) => {
           if (err) throw err
