@@ -9,7 +9,7 @@ import '../Common/Assets/Themes/index.scss'
 export function AppActivity ({ children, className, theme, ...props } :InferProps<typeof AppActivity.propTypes>) {
   return (
     <div
-        className={[`App__${theme}`, 'Appl__Application', className].join(' ')}
+        className={[`App__${theme}`, 'Appl__Application', 'AppActivity', className].join(' ')}
         {...props}
     >
         { children }

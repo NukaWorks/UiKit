@@ -39,7 +39,7 @@ export function Menu ({ children, className, title, ...props }: InferProps<typeo
 
   return (
     <MenuElement
-      className={['Base__Menu', className].join(' ')}
+      className={['Base__Menu', 'Menu', className].join(' ')}
       ref={ref}
       onClick={e => {
         setDisplayMenu(!displayMenu)

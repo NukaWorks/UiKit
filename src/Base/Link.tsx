@@ -57,7 +57,7 @@ export function Link ({
     return (
       <ThemeProvider theme={lightTheme}>
         <LinkElement
-          className={[`Base__Link${disable ? '--Disabled' : ''}`, className].join(' ')}
+          className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
           disabled={disable}
           {...props}
         >
@@ -69,7 +69,7 @@ export function Link ({
     return (
       <ThemeProvider theme={lightTheme}>
         <LinkElement
-          className={[`Base__Link${disable ? '--Disabled' : ''}`, className].join(' ')}
+          className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
           disabled={disable}
           href={href || ''}
           {...props}

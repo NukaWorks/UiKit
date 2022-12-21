@@ -22,7 +22,7 @@ export function Text ({ className, text, disabled, children, ...props } :InferPr
   // @ts-ignore
   return (
     <TextElement
-        className={['Base__Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
+        className={['Base__Text', 'Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
         disabled={disable}
         {...props}
     >

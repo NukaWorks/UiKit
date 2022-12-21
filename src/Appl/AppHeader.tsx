@@ -31,7 +31,7 @@ const ContentElement = styled.div`
 export function AppHeader ({ children, className, title, ...props }: InferProps<typeof AppHeader.propTypes>) {
   return (
     <HeaderElement
-        className={['Appl__Header', className].join(' ')}
+        className={['Appl__Header', 'AppHeader', className].join(' ')}
         {...props}
     >
         <TextElement className={'Appl__Header--Title'}>{ title }</TextElement>

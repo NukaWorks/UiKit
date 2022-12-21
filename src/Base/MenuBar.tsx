@@ -13,7 +13,7 @@ export function MenuBar ({ children, className, ...props }: InferProps<typeof Me
   return (
       <HoverContext.Provider value={'false'}>
         <MenuBarElement
-            className={['Base__MenuBar', className].join(' ')}
+            className={['Base__MenuBar', 'MenuBar', className].join(' ')}
             {...props}
         >
           { children }

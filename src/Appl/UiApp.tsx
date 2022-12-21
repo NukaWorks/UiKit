@@ -17,7 +17,7 @@ const UiAppElement = styled.div`
 export function UiApp ({ children, className, ...props }: InferProps<typeof UiApp.propTypes>) {
   return (
     <UiAppElement
-        className={['Appl__UiApp', className].join(' ')}
+        className={['Appl__UiApp', 'UiApp', className].join(' ')}
         {...props}
     >
       { children }

@@ -35,7 +35,7 @@ const MenuItemElement = styled.div`
 export function MenuItem ({ children, className, onClick, ...props }: InferProps<typeof MenuItem.propTypes>) {
   return (
     <MenuItemElement
-        className={['Base__MenuItem', className].join(' ')}
+        className={['Base__MenuItem', 'MenuItem', className].join(' ')}
         onClick={() => onClick ? onClick() : undefined}
         {...props}
     >
