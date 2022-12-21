@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './HBox.scss'
 import { Layout } from './Layout'
 
 export function StackLayout ({ children, className, ...props }: InferProps<typeof StackLayout.propTypes>) {
