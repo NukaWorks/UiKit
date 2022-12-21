@@ -11,7 +11,7 @@ import { Sidebar } from './Base/Sidebar/Sidebar'
 import { SidebarItem } from './Base/SidebarItem/SidebarItem'
 
 // Application Components
-import { AppHeader } from './Appl/AppHeader/AppHeader'
+import { AppHeader } from './Appl/AppHeader'
 import { UiApp } from './Appl/UiApp'
 
 // Layouts Components
