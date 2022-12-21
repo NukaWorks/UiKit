@@ -8,7 +8,7 @@ import { MenuBar } from './Base/MenuBar/MenuBar'
 import { Menu } from './Base/Menu/Menu'
 import { Link } from './Base/Link/Link'
 import { Sidebar } from './Base/Sidebar/Sidebar'
-import { SidebarItem } from './Base/SidebarItem/SidebarItem'
+import { SidebarItem } from './Base/SidebarItem'
 
 // Application Components
 import { AppHeader } from './Appl/AppHeader'

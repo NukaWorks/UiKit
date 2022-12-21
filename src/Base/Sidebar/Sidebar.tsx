@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import './Sidebar.scss'
 import '../../Common/Assets/Themes/index.scss'
-import { SidebarItem } from '../SidebarItem/SidebarItem'
+import { SidebarItem } from '../SidebarItem'
 import SidebarContext from './SidebarContext'
 
 export function Sidebar ({ children, className, ...props }: InferProps<typeof Sidebar.propTypes>) {
