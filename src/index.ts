@@ -6,7 +6,7 @@ import { MenuList } from './Base/MenuList/MenuList'
 import { MenuItem } from './Base/MenuItem/MenuItem'
 import { MenuBar } from './Base/MenuBar/MenuBar'
 import { Menu } from './Base/Menu/Menu'
-import { Link } from './Base/Link/Link'
+import { Link } from './Base/Link'
 import { Sidebar } from './Base/Sidebar/Sidebar'
 import { SidebarItem } from './Base/SidebarItem'
 
