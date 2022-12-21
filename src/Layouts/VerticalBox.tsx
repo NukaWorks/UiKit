@@ -6,7 +6,7 @@ import { Layout } from './Layout'
 export function VerticalBox ({ children, className, ...props }: InferProps<typeof VerticalBox.propTypes>) {
   return (
     <Layout
-      className={['Layouts__Vbox', className].join(' ')}
+      className={['Layouts__VerticalBox', 'VerticalBox', className].join(' ')}
       {...props}
     >
       {children}

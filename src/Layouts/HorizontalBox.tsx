@@ -6,7 +6,7 @@ import { Layout } from './Layout'
 export function HorizontalBox ({ children, className, ...props }: InferProps<typeof HorizontalBox.propTypes>) {
   return (
       <Layout
-          className={['Layouts__HBox', className].join(' ')}
+          className={['Layouts__HorizontalBox', 'HorizontalBox', className].join(' ')}
           {...props}
       >
         {children}
