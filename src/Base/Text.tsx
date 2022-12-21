@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, { useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'

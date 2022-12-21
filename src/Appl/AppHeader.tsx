@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import { Text } from '../Base/Text/Text'
+import { Text } from '../Base/Text'
 import styled from 'styled-components'
 
 const HeaderElement = styled.header`
