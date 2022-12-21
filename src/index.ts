@@ -12,7 +12,7 @@ import { SidebarItem } from './Base/SidebarItem/SidebarItem'
 
 // Application Components
 import { AppHeader } from './Appl/AppHeader/AppHeader'
-import { UiApp } from './Appl/UiApp/UiApp'
+import { UiApp } from './Appl/UiApp'
 
 // Layouts Components
 import { VBox } from './Layouts/VBox/VBox'
