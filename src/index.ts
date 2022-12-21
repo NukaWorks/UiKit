@@ -21,7 +21,7 @@ import { Box } from './Layouts/Box/Box'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner/Spinner'
-import { Separator } from './Misc/Separator/Separator'
+import { Separator } from './Misc/Separator'
 
 // Layouts
 import { AppActivity } from './Appl/AppActivity'

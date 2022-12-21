@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './Separator.scss'
+import styled from 'styled-components'
+
+const SeparatorElement = styled.div`
+  background-color: rgba(84, 84, 84, 0.2);
+  height: 2px;
+  border-radius: 300px;
+`
 
 export function Separator ({ className, ...props }: InferProps<typeof Separator.propTypes>) {
   return (
-    <div className={['Misc__Separator', className].join(' ')} {...props} />
+    <SeparatorElement className={['Misc__Separator', className].join(' ')} {...props} />
   )
 }
 
