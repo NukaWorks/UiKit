@@ -4,7 +4,7 @@ import PropTypes, { InferProps } from 'prop-types'
  * Only work on development mode
  * use "import '@powerws/uikit/styling'" to import css in production environment.
  */
-import '../Assets/Themes/index.scss'
+import '../Common/Assets/Themes/index.scss'
 
 export function AppActivity ({ children, className, theme, ...props } :InferProps<typeof AppActivity.propTypes>) {
   return (
