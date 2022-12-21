@@ -10,7 +10,7 @@ const SeparatorElement = styled.div`
 
 export function Separator ({ className, ...props }: InferProps<typeof Separator.propTypes>) {
   return (
-    <SeparatorElement className={['Misc__Separator', className].join(' ')} {...props} />
+    <SeparatorElement className={['Misc__Separator', 'Separator', className].join(' ')} {...props} />
   )
 }
 
