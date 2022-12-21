@@ -1,6 +1,4 @@
-const fs = require('fs')
-const YAML = require('yaml')
-const { cli } = require('./cli/cli')
+const { cli } = require('./Commands/MainCommand')
 
 function init () {
   cli()

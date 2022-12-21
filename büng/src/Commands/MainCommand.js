@@ -1,9 +1,9 @@
 const { Command } = require('commander')
 const { version } = require('../../package.json')
-const { addComponent, deleteComponent } = require('../utils/CompntMgmt')
+const { addComponent, deleteComponent } = require('../Utils/CompntMgmt')
 const program = new Command()
 
-function cli (argv) {
+function mainCommand (argv) {
   program
     .name('büng')
     .description('Büng, the component maker.')
@@ -21,4 +21,4 @@ function cli (argv) {
   program.parse(argv)
 }
 
-module.exports = { cli }
+module.exports = { mainCommand }
