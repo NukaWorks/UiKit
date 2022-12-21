@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Sidebar } from './Sidebar'
-import { SidebarItem } from '../SidebarItem'
+import { SidebarItem } from './SidebarItem'
 
 export default {
   title: 'Base/Sidebar',

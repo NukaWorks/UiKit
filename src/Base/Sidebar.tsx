@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import '../../Common/Assets/Themes/index.scss'
-import { SidebarItem } from '../SidebarItem'
+import '../Common/Assets/Themes/index.scss'
+import { SidebarItem } from './SidebarItem'
 import SidebarContext from './SidebarContext'
 import styled, { keyframes } from 'styled-components'
 
