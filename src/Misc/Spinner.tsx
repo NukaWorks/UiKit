@@ -1,14 +1,37 @@
+// @ts-nocheck
+
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './Spinner.scss'
+import styled, { keyframes } from 'styled-components'
+
+const spinAnim = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+`
+
+const SpinnerElement = styled.div`
+  display: inline-flex;
+  animation: ${spinAnim} 1.5s infinite linear;
+`
+
+const SvgElement = styled.svg`
+  ${({ size }) => size === 'Small' ? 'height: 15px' : size === 'Medium' ? 'height: 35px' : size === 'Large' ? 'height: 60px' : 'height: 35px'};
+  ${({ color }) => color === 'Default' ? 'filter: grayscale(1);' : ''}
+  width: auto;
+`
 
 export function Spinner ({ className, size, color, ...props }: InferProps<typeof Spinner.propTypes>) {
   return (
-      <div
+      <SpinnerElement
           className={['Misc__Spinner', `Misc__Spinner--${color}`, `Misc__Spinner--${size}`, className].join(' ')}
           {...props}
       >
-        <svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        <SvgElement size={size} color={color} width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg"
              xmlnsXlink="http://www.w3.org/1999/xlink">
           <defs>
             <linearGradient x1="93.0928096%" y1="52.7734375%" x2="68.5133398%" y2="119.326007%" id="linearGradient-1">
@@ -35,8 +58,8 @@ export function Spinner ({ className, size, color, ...props }: InferProps<typeof
                   fill="#0A84FF" mask="url(#mask-3)"></path>
             </g>
           </g>
-        </svg>
-      </div>
+        </SvgElement>
+      </SpinnerElement>
   )
 }
 

@@ -20,7 +20,7 @@ import { HBox } from './Layouts/HBox/HBox'
 import { Box } from './Layouts/Box/Box'
 
 // Miscellaneous Components
-import { Spinner } from './Misc/Spinner/Spinner'
+import { Spinner } from './Misc/Spinner'
 import { Separator } from './Misc/Separator'
 
 // Layouts
