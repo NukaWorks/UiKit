@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Menu } from '../Menu/Menu'
-import { MenuItem } from '../MenuItem'
-import { MenuList } from '../MenuList'
+import { Menu } from './Menu'
+import { MenuItem } from './MenuItem'
+import { MenuList } from './MenuList'
 
 export default {
   title: 'Base/Menu',

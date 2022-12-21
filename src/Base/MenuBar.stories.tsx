@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { MenuBar } from './MenuBar'
-import { Menu } from './Menu/Menu'
+import { Menu } from './Menu'
 import { MenuList } from './MenuList'
 import { MenuItem } from './MenuItem'
 
