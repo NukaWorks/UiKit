@@ -22,7 +22,7 @@ const TextFieldElement = styled.input`
   }
 `
 
-const theme = {
+const lightTheme = {
   borderColor: 'rgba(70, 70, 70, 0.5)',
   outlineColor: 'rgba(154, 152, 152, 0.5)',
   backgroundColor: 'rgb(255, 255, 255)'
@@ -32,7 +32,7 @@ const theme = {
 export const TextField :any = forwardRef<HTMLInputElement>((
   { type, placeholder, className, disabled, ...props } :InferProps<typeof TextField.propTypes>,
   ref) => (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightTheme}>
       <TextFieldElement
         type={type || ''}
         placeholder={placeholder || ''}
