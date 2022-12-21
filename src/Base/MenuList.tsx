@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import { MenuItem } from './MenuItem/MenuItem'
+import { MenuItem } from './MenuItem'
 import styled, { keyframes } from 'styled-components'
 
 const fadeAnim = keyframes`

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Menu } from '../Menu/Menu'
-import { MenuItem } from '../MenuItem/MenuItem'
+import { MenuItem } from '../MenuItem'
 import { MenuList } from '../MenuList'
 
 export default {
