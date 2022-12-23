@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { useDetectClickOutside } from 'react-detect-click-outside'
@@ -57,7 +57,7 @@ export function DialogOverlay ({
   }
 }
 
-DialogOverlay.close() = function close() {
+DialogOverlay.close() = function close () {
   document.getElementById('root').click()
 }
 
