@@ -57,6 +57,10 @@ export function DialogOverlay ({
   }
 }
 
+DialogOverlay.close() = function close() {
+  document.getElementById('root').click()
+}
+
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
