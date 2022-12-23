@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
@@ -24,17 +26,27 @@ const DialogContentElement = styled.div`
   padding: 1em;
 `
 
-export function DialogOverlay ({ children, active, className, ...props }: InferProps<typeof DialogOverlay.propTypes>) {
-  return (
-    <DialogElement
+export function DialogOverlay ({
+  children,
+  active,
+  className,
+  ...props
+}: InferProps<typeof DialogOverlay.propTypes>) {
+  if (!active) {
+    return null
+  } else {
+    return (
+      <DialogElement
+        active={active}
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
-    >
-      <DialogContentElement>
-        { children }
-      </DialogContentElement>
-    </DialogElement>
-  )
+      >
+        <DialogContentElement>
+          {children}
+        </DialogContentElement>
+      </DialogElement>
+    )
+  }
 }
 
 DialogOverlay.propTypes = {
