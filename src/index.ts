@@ -21,6 +21,7 @@ import { Layout } from './Layouts/Layout'
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
 import { Separator } from './Misc/Separator'
+import { DialogOverlay } from './Misc/DialogOverlay'
 
 // Layouts
 import { AppActivity } from './Appl/AppActivity'
@@ -29,6 +30,7 @@ export {
   Button,
   Text,
   TextField,
+  DialogOverlay,
   AppHeader,
   UiApp,
   Menu,
