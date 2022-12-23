@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
+import { useDetectClickOutside } from 'react-detect-click-outside'
 
 const DialogElement = styled.div`
   z-index: 1000;
@@ -32,12 +33,16 @@ export function DialogOverlay ({
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
+  const [displayDialog, setDisplayDialog] = React.useState(active)
+  const ref = useDetectClickOutside({ onTriggered: () => setDisplayDialog(false) })
+
   if (!active) {
     return null
   } else {
     return (
       <DialogElement
-        active={active}
+        active={displayDialog}
+        ref={ref}
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
       >
