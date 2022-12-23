@@ -31,6 +31,13 @@ export function FlexLayout ({
   return (
     <FlexLayoutElement
         className={['Misc__FlexLayout', 'FlexLayout', className].join(' ')}
+        spacing={spacing}
+        direction={direction}
+        alignItems={alignItems}
+        alignContent={alignContent}
+        justifyItems={justifyItems}
+        justifyContent={justifyContent}
+        wrap={wrap}
         {...props}
     >
       { children }
