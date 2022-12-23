@@ -36,7 +36,7 @@ export function DialogOverlay ({
   const [displayDialog, setDisplayDialog] = React.useState(active)
   const ref = useDetectClickOutside({ onTriggered: () => setDisplayDialog(false) })
 
-  if (!displayDialog) {
+  if (!displayDialog && !active) {
     return null
   } else {
     return (
