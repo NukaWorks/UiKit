@@ -19,6 +19,9 @@ const DialogContentElement = styled.div`
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 1em;
 `
 
 export function DialogOverlay ({ children, active, className, ...props }: InferProps<typeof DialogOverlay.propTypes>) {
