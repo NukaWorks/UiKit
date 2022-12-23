@@ -1,14 +1,19 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
+import styled from 'styled-components'
+
+const LayoutElement = styled.div`
+  display: block;
+`
 
 export function Layout ({ children, className, ...props }: InferProps<typeof Layout.propTypes>) {
   return (
-    <div
+    <LayoutElement
         className={['Layouts__Layout', 'Layout', className].join(' ')}
         {...props}
     >
       {children}
-    </div>
+    </LayoutElement>
   )
 }
 
