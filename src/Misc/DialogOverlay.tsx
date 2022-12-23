@@ -24,7 +24,7 @@ const DialogElement = styled.div`
   height: 100%;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${dialogAnim} 0.2s 0.2s ease-in-out ${({ active }) => active ? 'forwards' : 'reverse'};
+  animation: ${dialogAnim} 0.2s 0.2s ease-in-out forwards;
 `
 
 const DialogContentElement = styled.div`
@@ -53,9 +53,6 @@ export function DialogOverlay ({
   })
 
   if (!displayDialog) {
-    setTimeout(() => {
-
-    }, 300)
     return null
   } else {
     return (
