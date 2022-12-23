@@ -6,11 +6,11 @@ import styled, { keyframes } from 'styled-components'
 import { useDetectClickOutside } from 'react-detect-click-outside'
 
 const dialogAnim = keyframes`
-  to {
+  from {
     opacity: 0;
   }
   
-  from {
+  to {
     opacity: 1;
   }
 `
