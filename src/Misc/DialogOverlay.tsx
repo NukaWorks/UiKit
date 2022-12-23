@@ -33,7 +33,7 @@ export function DialogOverlay ({
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  const [displayDialog, setDisplayDialog] = React.useState(active)
+  const [displayDialog, setDisplayDialog] = React.useState(false)
   const ref = useDetectClickOutside({
     onTriggered: () => {
       setDisplayDialog(false)
