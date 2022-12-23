@@ -42,11 +42,10 @@ export function DialogOverlay ({
     return (
       <DialogElement
         active={displayDialog}
-        ref={ref}
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
       >
-        <DialogContentElement>
+        <DialogContentElement ref={ref}>
           {children}
         </DialogContentElement>
       </DialogElement>
