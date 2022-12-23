@@ -16,6 +16,7 @@ import { UiApp } from './Appl/UiApp'
 
 // Layouts Components
 import { StackLayout } from './Layouts/StackLayout'
+import { FlexLayout } from './Layouts/FlexLayout'
 import { Layout } from './Layouts/Layout'
 
 // Miscellaneous Components
@@ -31,6 +32,7 @@ export {
   Text,
   TextField,
   DialogOverlay,
+  FlexLayout,
   AppHeader,
   UiApp,
   Menu,
