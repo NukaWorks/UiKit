@@ -54,8 +54,9 @@ export function DialogOverlay ({
 
   if (!displayDialog) {
     setTimeout(() => {
-      return null
+
     }, 300)
+    return null
   } else {
     return (
       <DialogElement
