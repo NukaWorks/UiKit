@@ -1,7 +1,7 @@
-const { cli } = require('./Commands/MainCommand')
+const { mainCommand } = require('./Commands/MainCommand')
 
 function init () {
-  cli()
+  mainCommand(process.argv)
 }
 
 init()
