@@ -9,7 +9,7 @@ const Div = styled.div`
 export function Test ({ children, className, ...props }: InferProps<typeof Test.propTypes>) {
   return (
     <Div
-        className={['CATEGORY__test', className].join(' ')}
+        className={['CATEGORY__test', 'test', className].join(' ')}
         {...props}
     >
         Hello World !
