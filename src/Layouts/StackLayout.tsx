@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const StackLayoutElement = styled(Layout)`
   display: flex;
   flex-direction: ${({ direction }) => direction === 'Vertical' ? 'column' : 'row'};
-  gap: ${({ spacing }) => spacing}
+  gap: ${({ spacing }) => spacing + 'px'};
 `
 
 export function StackLayout ({ children, className, spacing, direction, ...props }: InferProps<typeof StackLayout.propTypes>) {
