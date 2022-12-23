@@ -2,8 +2,18 @@
 
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useDetectClickOutside } from 'react-detect-click-outside'
+
+const dialogAnim = keyframes`
+  to {
+    opacity: 0;
+  }
+  
+  from {
+    opacity: 1;
+  }
+`
 
 const DialogElement = styled.div`
   z-index: 1000;
@@ -13,6 +23,7 @@ const DialogElement = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  animation: ${dialogAnim} 0.2s 0.2s ease-in-out;
 `
 
 const DialogContentElement = styled.div`
