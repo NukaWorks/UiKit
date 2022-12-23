@@ -52,7 +52,7 @@ export function DialogOverlay ({
     }
   })
 
-  if (!displayDialog) {
+  if (!active || !displayDialog) {
     return null
   } else {
     return (
