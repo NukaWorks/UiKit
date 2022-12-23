@@ -57,7 +57,7 @@ export function DialogOverlay ({
   }
 }
 
-DialogOverlay.close() = function close () {
+export function closeDialogOverlay () {
   document.getElementById('root').click()
 }
 
