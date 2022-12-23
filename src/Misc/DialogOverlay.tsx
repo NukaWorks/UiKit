@@ -2,23 +2,35 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 
-const Div = styled.div`
+const DialogElement = styled.div`
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
+`
+
+const DialogContentElement = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 5px;
 `
 
 export function DialogOverlay ({ children, active, className, ...props }: InferProps<typeof DialogOverlay.propTypes>) {
   return (
-    <Div
+    <DialogElement
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
     >
-      { children }
-    </Div>
+      <DialogContentElement>
+        { children }
+      </DialogContentElement>
+    </DialogElement>
   )
 }
 
