@@ -24,7 +24,7 @@ const DialogElement = styled.div`
   height: 100%;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${dialogAnim} 0.2s 0.2s ease-in-out forwards;
+  animation: ${dialogAnim} 0.2s 0.2s ease-in-out ${displayDialog => displayDialog ? 'forwards' : 'reverse'};
 `
 
 const DialogContentElement = styled.div`
