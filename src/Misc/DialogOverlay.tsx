@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { useDetectClickOutside } from 'react-detect-click-outside'
@@ -39,6 +39,11 @@ export function DialogOverlay ({
       setDisplayDialog(false)
     }
   })
+
+  useEffect(() => {
+    if (active) setDisplayDialog(true)
+    else setDisplayDialog(false)
+  }, [active, displayDialog])
 
   if (!displayDialog) {
     return null
