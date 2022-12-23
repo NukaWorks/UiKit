@@ -13,7 +13,7 @@ const FlexLayoutElement = styled(StackLayout)`
     justify-content: ${({ justifyContent }) => justifyContent};
     justify-items: ${({ justifyItems }) => justifyItems};
     align-content: ${({ alignContent }) => alignContent};
-    flex-wrap: ${({ wrap }) => wrap ? 'wrap' : 'nowrap'};
+    flex-wrap: ${({ wrap }) => wrap};
 `
 
 export function FlexLayout ({
