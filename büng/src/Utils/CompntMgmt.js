@@ -2,7 +2,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const { getBungFile, getTemplDir } = require('./Config')
 const { stringUpperFirst } = require('@zerodep/string')
-const { copySync, removeSync } = require('fs-extra')
+const { copySync } = require('fs-extra')
 const bungDirs = new Map()
 const path = require('path')
 
@@ -15,35 +15,25 @@ function addComponent (name, category) {
     Array.from(dirs).forEach(dir => {
       if (!fs.existsSync(dir + `/${name}`)) {
         console.log(chalk.cyan(`${chalk.bold('[project]')} Creating ${chalk.bold(name)} on ${chalk.bold(category)}...`))
+        console.log(dir)
         if (!fs.existsSync(dir)) fs.mkdirSync(dir)
-        copySync(getTemplDir, dir + `/${name}`)
+        const files = Array.from(fs.readdirSync(getTemplDir))
 
-        fs.readdir(dir + `/${name}`, (err, files) => {
-          if (err) throw err
-          files.forEach(file => {
-            file = path.join(dir + `/${name}`, file)
-            regexFile(file, name, category)
-          })
+        copySync(getTemplDir, dir)
+        files.forEach(file => {
+          file = path.join(dir, file)
+          regexFile(file, name, category)
         })
+
+        // fs.readdir(dir + `/${name}`, (err, files) => {
+        //   if (err) throw err
+        //   files.forEach(file => {
+        //     file = path.join(dir + `/${name}`, file)
+        //     regexFile(file, name, category)
+        //   })
+        // })
       } else {
         console.log(chalk.red(`${chalk.bold('[project]')} ${chalk.bold(name)} already exists on ${chalk.bold(category)}`))
-      }
-    })
-  }
-}
-
-function deleteComponent (name, category) {
-  const dirs = searchCategory(category)
-  if (dirs) {
-    name = stringUpperFirst(name)
-    category = stringUpperFirst(category)
-
-    Array.from(dirs).forEach(dir => {
-      if (fs.existsSync(dir + `/${name}`)) {
-        console.log(chalk.red(`${chalk.bold('[project]')} Deleting ${chalk.bold(name)} on ${chalk.bold(category)}...`))
-        removeSync(dir + `/${name}`)
-      } else {
-        console.log(chalk.red(`${chalk.bold('[project]')} Component ${chalk.bold(name)} not found on ${chalk.bold(category)}`))
       }
     })
   }
@@ -82,4 +72,4 @@ function regexFile (file, name, category) {
   }
 }
 
-module.exports = { addComponent, deleteComponent }
+module.exports = { addComponent }
