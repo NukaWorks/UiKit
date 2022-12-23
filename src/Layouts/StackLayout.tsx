@@ -11,7 +11,13 @@ const StackLayoutElement = styled(Layout)`
   gap: ${({ spacing }) => spacing + 'px'};
 `
 
-export function StackLayout ({ children, className, spacing, direction, ...props }: InferProps<typeof StackLayout.propTypes>) {
+export function StackLayout ({
+  children,
+  className,
+  spacing,
+  direction,
+  ...props
+}: InferProps<typeof StackLayout.propTypes>) {
   return (
       <StackLayoutElement
           className={['Layouts__StackLayout', 'StackLayout', className].join(' ')}
