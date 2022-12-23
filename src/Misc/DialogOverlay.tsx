@@ -23,7 +23,7 @@ const DialogElement = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${dialogAnim} 0.2s 0.2s ease-in-out;
+  animation: ${dialogAnim} 0.2s 0.2s ease-in-out forwards;
 `
 
 const DialogContentElement = styled.div`
