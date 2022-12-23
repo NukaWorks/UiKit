@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import './Test.scss'
 import styled from 'styled-components'
 
 const Div = styled.div`
