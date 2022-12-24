@@ -74,7 +74,7 @@ export function closeDialogOverlay (context: DialogOverlayContextType) {
 export function openDialogOverlay (context: DialogOverlayContextType, name: string) {
   setTimeout(() => {
     context.setDisplayed(name)
-  }, 100)
+  }, 10)
 }
 
 DialogOverlay.propTypes = {
