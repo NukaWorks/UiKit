@@ -47,15 +47,10 @@ export function DialogOverlay ({
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  const context = React.useContext(DialogOverlayContext)
+  const { displayed } = React.useContext(DialogOverlayContext)
+  console.log(displayed, name)
 
-  useEffect(() => {
-    console.log(context)
-  }, [])
-
-  console.log(context.displayed, name)
-
-  if (context.displayed === name) {
+  if (displayed === name) {
     return (
       <DialogElement
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
