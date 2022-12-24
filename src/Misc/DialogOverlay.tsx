@@ -54,9 +54,13 @@ export function DialogOverlay ({
     }
   })
 
-  if (displayDialog.name === name) {
-    return (
-      <DialogOverlayContext.Provider value={{ displayDialog, setDisplayDialog }}>
+  return (
+    <DialogOverlayContext.Provider value={{
+      displayDialog,
+      setDisplayDialog
+    }}>
+      {displayDialog.name === name && (
+
         <DialogElement
           className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
           {...props}
@@ -65,11 +69,9 @@ export function DialogOverlay ({
             {children}
           </DialogContentElement>
         </DialogElement>
-      </DialogOverlayContext.Provider>
-    )
-  } else {
-    return null
-  }
+      )}
+    </DialogOverlayContext.Provider>
+  )
 }
 
 export function closeDialogOverlay () {
