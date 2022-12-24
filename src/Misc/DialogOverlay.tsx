@@ -53,6 +53,8 @@ export function DialogOverlay ({
     console.log(context)
   }, [])
 
+  console.log(context.displayed, name)
+
   if (context.displayed === name) {
     return (
       <DialogElement
