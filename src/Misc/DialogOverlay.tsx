@@ -53,7 +53,7 @@ export function DialogOverlay ({
 }: InferProps<typeof DialogOverlay.propTypes>) {
   const { displayed } = React.useContext(DialogOverlayContext)
 
-  if (displayed.displayed === name) {
+  if (displayed === name) {
     return (
       <DialogElement
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
