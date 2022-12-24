@@ -48,6 +48,7 @@ export function DialogOverlay ({
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
   const { displayed } = React.useContext(DialogOverlayContext)
+  console.log(displayed.toString())
   console.log(displayed.toString() === name)
 
   if (displayed.toString() === name) {
