@@ -42,7 +42,7 @@ export const DialogOverlayContext = React.createContext()
 
 export function DialogOverlay ({
   children,
-  ref,
+  contentRef,
   displayed,
   className,
   ...props
@@ -54,7 +54,7 @@ export function DialogOverlay ({
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
       >
-        <DialogContentElement ref={ref}>
+        <DialogContentElement ref={contentRef}>
           {children}
         </DialogContentElement>
       </DialogElement>
@@ -70,6 +70,7 @@ export function closeDialogOverlay () {
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
+  contentRef: PropTypes.any,
   displayed: PropTypes.bool,
   props: PropTypes.any
 }
