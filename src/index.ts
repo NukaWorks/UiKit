@@ -22,7 +22,7 @@ import { Layout } from './Layouts/Layout'
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
 import { Separator } from './Misc/Separator'
-import { DialogOverlay, closeDialogOverlay } from './Misc/DialogOverlay'
+import { DialogOverlay, closeDialogOverlay, DialogOverlayContext } from './Misc/DialogOverlay'
 
 // Layouts
 import { AppActivity } from './Appl/AppActivity'
@@ -47,5 +47,6 @@ export {
   SidebarItem,
   StackLayout,
   closeDialogOverlay,
+  DialogOverlayContext,
   Layout
 }
