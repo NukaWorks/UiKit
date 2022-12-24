@@ -47,14 +47,14 @@ export function DialogOverlay ({
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  const [displayDialog, setDisplayDialog] = React.useState({ name })
+  const [displayDialog, setDisplayDialog] = React.useState({ name, display: false })
   const ref = useDetectClickOutside({
     onTriggered: () => {
-      setDisplayDialog({})
+      setDisplayDialog({ name, display: false })
     }
   })
 
-  if (displayDialog.name === name) {
+  if (displayDialog.name === name && displayDialog.display) {
     return (
       <DialogOverlayContext.Provider value={{ displayDialog, setDisplayDialog }}>
         <DialogElement
