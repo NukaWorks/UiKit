@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 
@@ -48,6 +48,10 @@ export function DialogOverlay ({
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
   const context = React.useContext(DialogOverlayContext)
+
+  useEffect(() => {
+    console.log(context)
+  }, [])
 
   if (context.displayed === name) {
     return (
