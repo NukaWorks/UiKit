@@ -3,13 +3,14 @@ import PropTypes, { InferProps } from 'prop-types'
 import './Button.scss'
 
 // eslint-disable-next-line react/display-name
-export const Button: any = forwardRef<HTMLButtonElement>((
+export const Button: React.ForwardRefExoticComponent<React.PropsWithRef<any> & React.RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement>((
   {
     children,
     color,
     theme,
     size,
     disabled,
+    onClick,
     autofocus,
     label,
     ...props
@@ -28,6 +29,7 @@ export const Button: any = forwardRef<HTMLButtonElement>((
           className={[`App__${theme}`, 'Base__Button', 'Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
           ref={ref}
           autoFocus={autofocus}
+          onClick={onClick}
           disabled={disable}
           {...props}
       >
