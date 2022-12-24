@@ -38,7 +38,7 @@ const DialogContentElement = styled.div`
   padding: 1em;
 `
 
-export const DialogOverlayContext = React.createContext({ displayed: '' })
+export const DialogOverlayContext = React.createContext()
 
 export function DialogOverlay ({
   children,
