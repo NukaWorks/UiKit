@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 
@@ -50,7 +50,7 @@ export function DialogOverlay ({
   const { displayed } = React.useContext(DialogOverlayContext)
   console.log(displayed, name)
 
-  if (displayed === name) {
+  if (displayed.toString() === name) {
     return (
       <DialogElement
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
