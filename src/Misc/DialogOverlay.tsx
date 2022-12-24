@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import React from 'react'
-import PropTypes, { bool, InferProps } from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 
 const dialogAnim = keyframes`
@@ -47,9 +47,8 @@ export function DialogOverlay ({
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  return (
-    {
-      displayed: bool && (
+  if (displayed) {
+    return (
       <DialogElement
         className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
         {...props}
@@ -58,9 +57,8 @@ export function DialogOverlay ({
           {children}
         </DialogContentElement>
       </DialogElement>
-      )
-    }
-  )
+    )
+  }
 }
 
 export function closeDialogOverlay () {
