@@ -43,7 +43,7 @@ export const DialogOverlayContext = React.createContext()
 export function DialogOverlay ({
   children,
   contentRef,
-  displayed,
+  name,
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
@@ -71,6 +71,6 @@ DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
   contentRef: PropTypes.any,
-  displayed: PropTypes.string,
+  name: PropTypes.string,
   props: PropTypes.any
 }
