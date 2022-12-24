@@ -79,7 +79,7 @@ export function closeDialogOverlay () {
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   props: PropTypes.any
 }
 
