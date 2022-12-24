@@ -82,7 +82,3 @@ DialogOverlay.propTypes = {
   name: PropTypes.string.isRequired,
   props: PropTypes.any
 }
-
-DialogOverlay.defaultProps = {
-  active: false
-}
