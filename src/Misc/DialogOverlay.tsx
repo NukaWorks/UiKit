@@ -9,7 +9,7 @@ const dialogAnim = keyframes`
   from {
     opacity: 0;
   }
-  
+
   to {
     opacity: 1;
   }
@@ -43,31 +43,32 @@ export const DialogOverlayContext = React.createContext({})
 
 export function DialogOverlay ({
   children,
-  active,
+  name,
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  const [displayDialog, setDisplayDialog] = React.useState(active)
+  const [displayDialog, setDisplayDialog] = React.useState({ name })
   const ref = useDetectClickOutside({
     onTriggered: () => {
-      setDisplayDialog(false)
+      setDisplayDialog({ name })
     }
   })
 
-  if (!active || !displayDialog) {
-    return null
-  } else {
+  if (displayDialog.name === name) {
     return (
-      <DialogElement
-        active={displayDialog}
-        className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
-        {...props}
-      >
-        <DialogContentElement ref={ref}>
-          {children}
-        </DialogContentElement>
-      </DialogElement>
+      <DialogOverlayContext.Provider value={{ displayDialog, setDisplayDialog }}>
+        <DialogElement
+          className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
+          {...props}
+        >
+          <DialogContentElement ref={ref}>
+            {children}
+          </DialogContentElement>
+        </DialogElement>
+      </DialogOverlayContext.Provider>
     )
+  } else {
+    return null
   }
 }
 
@@ -78,7 +79,7 @@ export function closeDialogOverlay () {
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  active: PropTypes.bool,
+  name: PropTypes.string,
   props: PropTypes.any
 }
 
