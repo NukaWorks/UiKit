@@ -1,9 +1,8 @@
 // @ts-nocheck
 
 import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import PropTypes, { bool, InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import { useDetectClickOutside } from 'react-detect-click-outside'
 
 const dialogAnim = keyframes`
   from {
@@ -39,38 +38,28 @@ const DialogContentElement = styled.div`
   padding: 1em;
 `
 
-export const DialogOverlayContext = React.createContext({})
+export const DialogOverlayContext = React.createContext({ displayed: '' })
 
 export function DialogOverlay ({
   children,
-  name,
+  ref,
+  displayed,
   className,
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
-  const [displayDialog, setDisplayDialog] = React.useState({})
-  const ref = useDetectClickOutside({
-    onTriggered: () => {
-      setDisplayDialog({})
-    }
-  })
-
   return (
-    <DialogOverlayContext.Provider value={{
-      displayDialog,
-      setDisplayDialog
-    }}>
-      {displayDialog.name === name && (
-
-        <DialogElement
-          className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
-          {...props}
-        >
-          <DialogContentElement ref={ref}>
-            {children}
-          </DialogContentElement>
-        </DialogElement>
-      )}
-    </DialogOverlayContext.Provider>
+    {
+      displayed: bool && (
+      <DialogElement
+        className={['Misc__DialogOverlay', 'DialogOverlay', className].join(' ')}
+        {...props}
+      >
+        <DialogContentElement ref={ref}>
+          {children}
+        </DialogContentElement>
+      </DialogElement>
+      )
+    }
   )
 }
 
@@ -81,6 +70,6 @@ export function closeDialogOverlay () {
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
-  name: PropTypes.string.isRequired,
+  displayed: PropTypes.bool,
   props: PropTypes.any
 }
