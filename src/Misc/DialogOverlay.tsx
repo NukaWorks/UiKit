@@ -38,7 +38,7 @@ const DialogContentElement = styled.div`
   padding: 1em;
 `
 
-interface DialogOverlayContextType {
+export interface DialogOverlayContextType {
   displayed: string,
   setDisplayed: (displayed: string) => void
 }
@@ -67,8 +67,8 @@ export function DialogOverlay ({
   }
 }
 
-export function closeDialogOverlay () {
-  document.getElementById('root').click()
+export function closeDialogOverlay (context: DialogOverlayContextType) {
+  context.setDisplayed('')
 }
 
 DialogOverlay.propTypes = {
