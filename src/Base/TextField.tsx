@@ -16,7 +16,7 @@ const TextFieldElement = styled.input`
   background-color: ${props => props.theme.backgroundColor};
 
   :focus-within {
-    box-shadow: ${props => props.invalid ? 'rgba(255,60,60,0.5)' : props.theme.outlineColor} 0 0 0 0.2em;
+    box-shadow: ${props => props.invalid ? 'rgba(248,85,85,0.5)' : props.theme.outlineColor} 0 0 0 0.2em;
   }
 
   :disabled {
