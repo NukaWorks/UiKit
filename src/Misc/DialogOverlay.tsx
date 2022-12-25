@@ -77,6 +77,13 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
   }, 10)
 }
 
+export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
+  openDialogOverlay(context, name)
+  while (context.displayed !== name) {
+    callback()
+  }
+}
+
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
