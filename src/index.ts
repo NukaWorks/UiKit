@@ -22,7 +22,15 @@ import { Layout } from './Layouts/Layout'
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
 import { Separator } from './Misc/Separator'
-import { DialogOverlay, closeDialogOverlay, openDialogOverlayWithCallback, openDialogOverlay, DialogOverlayContext, DialogOverlayContextType } from './Misc/DialogOverlay'
+import {
+  closeDialogOverlay,
+  DialogEvent,
+  DialogOverlay,
+  DialogOverlayContext,
+  DialogOverlayContextType,
+  openDialogOverlay,
+  openDialogOverlayWithCallback
+} from './Misc/DialogOverlay'
 
 // Layouts
 import { AppActivity } from './Appl/AppActivity'
@@ -50,6 +58,7 @@ export {
   openDialogOverlayWithCallback,
   openDialogOverlay,
   DialogOverlayContext,
+  DialogEvent,
   Layout
 }
 
