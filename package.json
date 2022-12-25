@@ -12,6 +12,7 @@
     "bung": "node büng/src/bung.js"
   },
   "dependencies": {
+    "events": "^3.3.0",
     "react": "^18.2.0",
     "react-detect-click-outside": "^1.1.7",
     "react-dom": "^18.2.0",
