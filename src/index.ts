@@ -28,8 +28,7 @@ import {
   DialogOverlay,
   DialogOverlayContext,
   DialogOverlayContextType,
-  openDialogOverlay,
-  openDialogOverlayWithCallback
+  openDialogOverlay
 } from './Misc/DialogOverlay'
 
 // Layouts
@@ -55,7 +54,6 @@ export {
   SidebarItem,
   StackLayout,
   closeDialogOverlay,
-  openDialogOverlayWithCallback,
   openDialogOverlay,
   DialogOverlayContext,
   DialogEvent,

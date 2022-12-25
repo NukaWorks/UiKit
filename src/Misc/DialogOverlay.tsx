@@ -86,14 +86,6 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
   })
 }
 
-export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
-  DialogEvent.on('close', () => {
-    callback()
-  })
-
-  return openDialogOverlay(context, name)
-}
-
 DialogOverlay.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any,
