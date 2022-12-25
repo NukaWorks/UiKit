@@ -60,7 +60,7 @@ export function DialogOverlay ({
     DialogEvent.on('close', (context: DialogOverlayContextType) => {
       context.setDisplayed('')
     })
-}
+  }
 
   if (displayed === name) {
     return (
@@ -88,7 +88,7 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
   DialogEvent.emit('open')
   return new Promise(resolve => {
     console.log(DialogEvent.listeners('close'))
-    DialogEvent.on('close', resolve)
+    DialogEvent.once('close', resolve)
   })
 }
 
