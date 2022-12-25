@@ -73,8 +73,6 @@ export function DialogOverlay ({
 export function closeDialogOverlay (context: DialogOverlayContextType) {
   context.setDisplayed('')
   DialogEvent.emit('close')
-
-  return DialogEvent
 }
 
 export function openDialogOverlay (context: DialogOverlayContextType, name: string) {
@@ -82,7 +80,10 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
     context.setDisplayed(name)
   }, 10)
 
-  return DialogEvent
+  DialogEvent.emit('open')
+  return new Promise(resolve => {
+    DialogEvent.once('close', resolve)
+  })
 }
 
 export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
@@ -90,16 +91,7 @@ export function openDialogOverlayWithCallback (context: DialogOverlayContextType
     callback()
   })
 
-  openDialogOverlay(context, name)
-
-  return DialogEvent
-  // while (true) {
-  //   if (context.displayed !== name) {
-  //     console.log(context.displayed)
-  //     callback()
-  //     break
-  //   }
-  // }
+  return openDialogOverlay(context, name)
 }
 
 DialogOverlay.propTypes = {
