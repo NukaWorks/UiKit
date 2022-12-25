@@ -79,10 +79,8 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
 
 export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
   openDialogOverlay(context, name)
-  console.log(context.displayed)
-  while (context.displayed !== name) {
-    console.log('Waiting for dialog to open...')
-    callback()
+  while (context.displayed === name) {
+    if (context.displayed !== name) callback()
   }
 }
 
