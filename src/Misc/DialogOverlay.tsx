@@ -81,6 +81,7 @@ export function openDialogOverlayWithCallback (context: DialogOverlayContextType
   openDialogOverlay(context, name)
   while (true) {
     if (context.displayed !== name) {
+      console.log(context.displayed)
       callback()
       break
     }
