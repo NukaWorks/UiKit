@@ -3,6 +3,9 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import { EventEmitter } from 'events'
+
+export const DialogEvent = new EventEmitter()
 
 const dialogAnim = keyframes`
   from {
@@ -78,16 +81,19 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
 }
 
 export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
+  DialogEvent.on('close', () => {
+    callback()
+  })
+  DialogEvent.emit('close')
+
   openDialogOverlay(context, name)
-  setTimeout(() => {
-    while (true) {
-      if (context.displayed !== name) {
-        console.log(context.displayed)
-        callback()
-        break
-      }
+  while (true) {
+    if (context.displayed !== name) {
+      console.log(context.displayed)
+      callback()
+      break
     }
-  }, 10)
+  }
 }
 
 DialogOverlay.propTypes = {
