@@ -47,10 +47,6 @@ export const DialogOverlayContext = React.createContext<DialogOverlayContextType
 
 export const DialogEvent = new EventEmitter()
 
-DialogEvent.on('close', (context: DialogOverlayContextType) => {
-  context.setDisplayed('')
-})
-
 export function DialogOverlay ({
   children,
   contentRef,
@@ -59,6 +55,10 @@ export function DialogOverlay ({
   ...props
 }: InferProps<typeof DialogOverlay.propTypes>) {
   const { displayed } = React.useContext(DialogOverlayContext)
+
+  DialogEvent.on('close', (context: DialogOverlayContextType) => {
+    context.setDisplayed('')
+  })
 
   if (displayed === name) {
     return (
