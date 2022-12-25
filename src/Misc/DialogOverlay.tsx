@@ -72,21 +72,27 @@ export function DialogOverlay ({
 
 export function closeDialogOverlay (context: DialogOverlayContextType) {
   context.setDisplayed('')
+  DialogEvent.emit('close')
+
+  return DialogEvent
 }
 
 export function openDialogOverlay (context: DialogOverlayContextType, name: string) {
   setTimeout(() => {
     context.setDisplayed(name)
   }, 10)
+
+  return DialogEvent
 }
 
 export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
   DialogEvent.on('close', () => {
     callback()
   })
-  DialogEvent.emit('close')
 
   openDialogOverlay(context, name)
+
+  return DialogEvent
   // while (true) {
   //   if (context.displayed !== name) {
   //     console.log(context.displayed)
