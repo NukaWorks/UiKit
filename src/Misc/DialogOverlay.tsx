@@ -87,13 +87,13 @@ export function openDialogOverlayWithCallback (context: DialogOverlayContextType
   DialogEvent.emit('close')
 
   openDialogOverlay(context, name)
-  while (true) {
-    if (context.displayed !== name) {
-      console.log(context.displayed)
-      callback()
-      break
-    }
-  }
+  // while (true) {
+  //   if (context.displayed !== name) {
+  //     console.log(context.displayed)
+  //     callback()
+  //     break
+  //   }
+  // }
 }
 
 DialogOverlay.propTypes = {
