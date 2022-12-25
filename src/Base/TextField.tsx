@@ -11,7 +11,7 @@ const TextFieldElement = styled.input`
   font-family: "Outfit", sans-serif;
   font-weight: 400;
   font-size: 9pt;
-  border: ${props => props.invalid ? 'rgb(253,46,46)' : props.theme.borderColor} solid 1.3px;
+  border: ${props => props.invalid ? 'rgba(255,129,129,0.8)' : props.theme.borderColor} solid 1.3px;
   border-radius: 300px;
   background-color: ${props => props.theme.backgroundColor};
 
