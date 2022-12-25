@@ -5,8 +5,6 @@ import PropTypes, { InferProps } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { EventEmitter } from 'events'
 
-export const DialogEvent = new EventEmitter()
-
 const dialogAnim = keyframes`
   from {
     opacity: 0;
@@ -47,6 +45,12 @@ export interface DialogOverlayContextType {
 }
 export const DialogOverlayContext = React.createContext<DialogOverlayContextType>()
 
+export const DialogEvent = new EventEmitter()
+
+DialogEvent.on('close', (context: DialogOverlayContextType) => {
+  context.setDisplayed('')
+})
+
 export function DialogOverlay ({
   children,
   contentRef,
@@ -71,9 +75,7 @@ export function DialogOverlay ({
 }
 
 export function closeDialogOverlay (context: DialogOverlayContextType) {
-  context.setDisplayed('')
-  DialogEvent.emit('close')
-  DialogEvent.off('close')
+  DialogEvent.emit('close', context)
 }
 
 export function openDialogOverlay (context: DialogOverlayContextType, name: string) {
