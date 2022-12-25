@@ -57,8 +57,9 @@ export function DialogOverlay ({
   const { displayed } = React.useContext(DialogOverlayContext)
 
   if (DialogEvent.listenerCount('close') === 0) {
-    DialogEvent.on('close', (context: DialogOverlayContextType) => {
+    DialogEvent.on('close', ({ resolve, context }) => {
       context.setDisplayed('')
+      resolve()
     })
   }
 
@@ -88,8 +89,7 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
   DialogEvent.emit('open')
   return new Promise(resolve => {
     console.log(DialogEvent.listeners('close'))
-    DialogEvent.emit('close', context)
-    resolve()
+    DialogEvent.emit('close', { resolve, context })
     // DialogEvent.once('close', resolve)
   })
 }
