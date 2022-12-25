@@ -73,6 +73,7 @@ export function DialogOverlay ({
 export function closeDialogOverlay (context: DialogOverlayContextType) {
   context.setDisplayed('')
   DialogEvent.emit('close')
+  DialogEvent.setMaxListeners(1)
 }
 
 export function openDialogOverlay (context: DialogOverlayContextType, name: string) {
