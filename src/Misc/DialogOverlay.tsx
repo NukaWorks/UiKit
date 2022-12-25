@@ -79,13 +79,15 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
 
 export function openDialogOverlayWithCallback (context: DialogOverlayContextType, name: string, callback: () => void) {
   openDialogOverlay(context, name)
-  while (true) {
-    if (context.displayed !== name) {
-      console.log(context.displayed)
-      callback()
-      break
+  setTimeout(() => {
+    while (true) {
+      if (context.displayed !== name) {
+        console.log(context.displayed)
+        callback()
+        break
+      }
     }
-  }
+  }, 10)
 }
 
 DialogOverlay.propTypes = {
