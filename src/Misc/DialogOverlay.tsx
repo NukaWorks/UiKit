@@ -86,7 +86,6 @@ export function openDialogOverlay (context: DialogOverlayContextType, name: stri
   }, 10)
 
   DialogEvent.emit('open')
-  console.log(DialogEvent.listenerCount('close'))
   return new Promise(resolve => {
     if (DialogEvent.listenerCount('close') <= 2) {
       DialogEvent.once('close', resolve)
