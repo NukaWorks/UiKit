@@ -71,7 +71,7 @@ export function Link ({
         <LinkElement
           className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
           disabled={disable}
-          href={href || ''}
+          href={href || null}
           {...props}
         >
           {children}
