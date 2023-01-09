@@ -14,6 +14,12 @@ const FlexLayoutElement = styled(StackLayout)`
     justify-items: ${({ justifyItems }) => justifyItems};
     align-content: ${({ alignContent }) => alignContent};
     flex-wrap: ${({ wrap }) => wrap};
+    width: ${({ width }) => width + 'px'};
+    height: ${({ height }) => height + 'px'};
+    min-width: ${({ minWidth }) => minWidth + 'px'};
+    min-height: ${({ minHeight }) => minHeight + 'px'};
+    max-width: ${({ maxWidth }) => maxWidth + 'px'};
+    max-height: ${({ maxHeight }) => maxHeight + 'px'};;
 `
 
 export function FlexLayout ({
@@ -26,6 +32,12 @@ export function FlexLayout ({
   justifyItems,
   justifyContent,
   wrap,
+  width,
+  height,
+  minWidth,
+  minHeight,
+  maxWidth,
+  maxHeight,
   ...props
 }: InferProps<typeof FlexLayout.propTypes>) {
   return (
@@ -38,6 +50,12 @@ export function FlexLayout ({
         justifyItems={justifyItems}
         justifyContent={justifyContent}
         wrap={wrap}
+        width={width}
+        height={height}
+        minWidth={minWidth}
+        minHeight={minHeight}
+        maxWidth={maxWidth}
+        maxHeight={maxHeight}
         {...props}
     >
       { children }
@@ -55,5 +73,11 @@ FlexLayout.propTypes = {
   justifyItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
   justifyContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
   wrap: PropTypes.oneOf<string>(['wrap', 'nowrap']),
+  width: PropTypes.number,
+  height: PropTypes.number,
+  minWidth: PropTypes.number,
+  minHeight: PropTypes.number,
+  maxWidth: PropTypes.number,
+  maxHeight: PropTypes.number,
   props: PropTypes.any
 }
