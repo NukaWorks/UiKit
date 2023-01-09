@@ -14,6 +14,7 @@ const FlexLayoutElement = styled(StackLayout)`
     justify-items: ${({ justifyItems }) => justifyItems};
     align-content: ${({ alignContent }) => alignContent};
     flex-wrap: ${({ wrap }) => wrap};
+    flex: ${({ flex }) => flex};
     width: ${({ width }) => width + 'px'};
     height: ${({ height }) => height + 'px'};
     min-width: ${({ minWidth }) => minWidth + 'px'};
@@ -32,6 +33,7 @@ export function FlexLayout ({
   justifyItems,
   justifyContent,
   wrap,
+  flex,
   width,
   height,
   minWidth,
@@ -50,6 +52,7 @@ export function FlexLayout ({
         justifyItems={justifyItems}
         justifyContent={justifyContent}
         wrap={wrap}
+        flex={flex}
         width={width}
         height={height}
         minWidth={minWidth}
@@ -79,5 +82,6 @@ FlexLayout.propTypes = {
   minHeight: PropTypes.number,
   maxWidth: PropTypes.number,
   maxHeight: PropTypes.number,
+  flex: PropTypes.number,
   props: PropTypes.any
 }
