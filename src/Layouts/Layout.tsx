@@ -13,6 +13,7 @@ export function Layout ({ children, className, scrollable, ...props }: InferProp
   return (
     <LayoutElement
         className={['Layouts__Layout', 'Layout', className].join(' ')}
+        scrollable={scrollable}
         {...props}
     >
       {children}
