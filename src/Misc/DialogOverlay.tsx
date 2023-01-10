@@ -23,7 +23,6 @@ const DialogElement = styled.div`
   width: 100%;
   height: 100%;
   opacity: 0;
-  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   animation: ${dialogAnim} 0.2s 0.2s ease-in-out forwards;
 `
@@ -35,6 +34,7 @@ const DialogContentElement = styled.div`
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 5px;
+  overflow: hidden;
   border: 1px solid #ccc;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   padding: 1em;
