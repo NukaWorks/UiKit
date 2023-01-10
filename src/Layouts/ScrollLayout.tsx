@@ -8,7 +8,7 @@ const ScrollLayoutElement = styled(Layout)`
   display: block;
   overflow: scroll;
 `
-export default function ScrollLayout ({ children, className, ...props }): InferProps<typeof ScrollLayout.propTypes> {
+export function ScrollLayout ({ children, className, ...props }): InferProps<typeof ScrollLayout.propTypes> {
   return (
     <ScrollLayoutElement
       className={['Layouts__ScrollLayout', 'ScrollLayout', className].join(' ')}

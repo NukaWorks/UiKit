@@ -18,6 +18,7 @@ import { UiApp } from './Appl/UiApp'
 import { StackLayout } from './Layouts/StackLayout'
 import { FlexLayout } from './Layouts/FlexLayout'
 import { Layout } from './Layouts/Layout'
+import { ScrollLayout } from './Layouts/ScrollLayout'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
@@ -51,6 +52,7 @@ export {
   Spinner,
   Separator,
   Sidebar,
+  ScrollLayout,
   SidebarItem,
   StackLayout,
   closeDialogOverlay,
