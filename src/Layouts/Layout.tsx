@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 const LayoutElement = styled.div`
   display: block;
+  overflow: hidden;
 `
 
 export function Layout ({ children, className, ...props }: InferProps<typeof Layout.propTypes>) {
