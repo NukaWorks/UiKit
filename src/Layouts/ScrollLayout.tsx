@@ -12,6 +12,7 @@ export function ScrollLayout ({ children, className, ...props }): InferProps<typ
   return (
     <ScrollLayoutElement
       className={['Layouts__ScrollLayout', 'ScrollLayout', className].join(' ')}
+      {...props}
     >
       {children}
     </ScrollLayoutElement>
