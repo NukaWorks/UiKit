@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { ScrollLayout } from '../Layouts/ScrollLayout'
-import { Layout } from '../Layouts/Layout'
 
-const ListElement = styled(Layout)`
+const ListElement = styled(ScrollLayout)`
   display: block;
   background-color: grey;
 `
@@ -15,9 +14,7 @@ export function ListView ({ children, className, ...props }: InferProps<typeof L
         className={['Base__ListView', 'ListView', className].join(' ')}
         {...props}
     >
-      <ScrollLayout>
-        {children}
-      </ScrollLayout>
+      {children}
     </ListElement>
   )
 }
