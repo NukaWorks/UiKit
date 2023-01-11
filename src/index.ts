@@ -9,6 +9,7 @@ import { Menu } from './Base/Menu'
 import { Link } from './Base/Link'
 import { Sidebar } from './Base/Sidebar'
 import { SidebarItem } from './Base/SidebarItem'
+import { ListView } from './Base/ListView'
 
 // Application Components
 import { AppHeader } from './Appl/AppHeader'
@@ -46,6 +47,7 @@ export {
   Menu,
   MenuList,
   MenuItem,
+  ListView,
   MenuBar,
   Link,
   AppActivity,
