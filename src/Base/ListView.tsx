@@ -5,7 +5,10 @@ import { ScrollLayout } from '../Layouts/ScrollLayout'
 
 const ListElement = styled(ScrollLayout)`
   display: block;
-  background-color: grey;
+  
+  & * {
+    background-color: grey;
+  }
 `
 
 export function ListView ({ children, className, ...props }: InferProps<typeof ListView.propTypes>) {
