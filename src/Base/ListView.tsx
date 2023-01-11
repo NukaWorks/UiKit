@@ -6,8 +6,12 @@ import { ScrollLayout } from '../Layouts/ScrollLayout'
 const ListElement = styled(ScrollLayout)`
   display: block;
   
-  & > div:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  & > div {
+    border-radius: 5px;
+    
+    & :hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 `
 
