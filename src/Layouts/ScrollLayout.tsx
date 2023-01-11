@@ -1,14 +1,18 @@
-// @ts-nocheck
 import React from 'react'
+import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { Layout } from './Layout'
-import PropTypes, { InferProps } from 'prop-types'
 
 const ScrollLayoutElement = styled(Layout)`
   display: block;
   overflow: scroll;
 `
-export function ScrollLayout ({ children, className, ...props }): InferProps<typeof ScrollLayout.propTypes> {
+
+export function ScrollLayout ({
+  children,
+  className,
+  ...props
+}: InferProps<typeof ScrollLayout.propTypes>) {
   return (
     <ScrollLayoutElement
       className={['Layouts__ScrollLayout', 'ScrollLayout', className].join(' ')}
