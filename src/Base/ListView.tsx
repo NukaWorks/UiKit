@@ -6,7 +6,7 @@ import { ScrollLayout } from '../Layouts/ScrollLayout'
 const ListElement = styled(ScrollLayout)`
   display: block;
   
-  & div:hover {
+  & > div:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
 `
