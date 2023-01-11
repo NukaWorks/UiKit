@@ -8,10 +8,11 @@ const ListElement = styled(ScrollLayout)`
   
   & > div {
     border-radius: 5px;
-    
-    & :hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
+  }
+
+
+  & > div :hover {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `
 
