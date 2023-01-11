@@ -7,7 +7,7 @@ const ListElement = styled(ScrollLayout)`
   display: block;
   
   & div:hover {
-    background-color: grey;
+    background-color: #1EA7FD;
   }
 `
 
