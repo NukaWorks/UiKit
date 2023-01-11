@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { ScrollLayout } from '../Layouts/ScrollLayout'
+import { Layout } from '../Layouts/Layout'
 
-const ListElement = styled.div`
+const ListElement = styled(Layout)`
   display: block;
   background-color: grey;
 `
