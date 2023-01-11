@@ -8,9 +8,11 @@ import styled from 'styled-components'
 const TextElement = styled.div`
   font-family: "Outfit", sans-serif;
   font-size: ${({ size }) => size ? size + 'pt' : '9pt'};
-  color: ${props => (props.disabled ? '#bababa' : props.color || 'black')};`
+  color: ${props => (props.disabled ? '#bababa' : props.color || 'black')};
+  
+`
 
-export function Text ({ className, text, disabled, color, size, children, ...props } :InferProps<typeof Text.propTypes>) {
+export function Text ({ className, style, text, disabled, color, size, children, ...props } :InferProps<typeof Text.propTypes>) {
   const [disable, setDisable] = React.useState(false)
 
   useEffect(() => {
@@ -26,6 +28,7 @@ export function Text ({ className, text, disabled, color, size, children, ...pro
         disabled={disable}
         size={size}
         color={color}
+        style={style}
         {...props}
     >
         { text || children }
@@ -36,6 +39,7 @@ export function Text ({ className, text, disabled, color, size, children, ...pro
 Text.propTypes = {
   text: PropTypes.string,
   color: PropTypes.string,
+  style: PropTypes.any,
   size: PropTypes.number,
   disabled: PropTypes.bool,
   className: PropTypes.string,
