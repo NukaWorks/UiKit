@@ -9,6 +9,10 @@ function menuDrop (displayMenu: boolean, children: any) {
 
 const MenuElement = styled.div`
   font-family: "Outfit", sans-serif;
+
+  .active {
+    background-color: rgba(234, 234, 234, 0.4);
+  }
 `
 
 const MenuTitleElement = styled.div`
@@ -18,7 +22,7 @@ const MenuTitleElement = styled.div`
   -webkit-user-select: none;
   padding: 0.4em;
   width: fit-content;
-
+  
   :hover {
     background-color: rgba(234, 234, 234, 0.4);
   }
