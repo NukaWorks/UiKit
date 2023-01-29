@@ -26,6 +26,7 @@ const TextElement = styled(Text)`
 const ContentElement = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
   gap: 5px;`
 
 export function AppHeader ({ children, className, title, ...props }: InferProps<typeof AppHeader.propTypes>) {
