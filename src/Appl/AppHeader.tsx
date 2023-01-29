@@ -13,7 +13,7 @@ const HeaderElement = styled.header`
   gap: 10px;
   height: 2.5em;
   padding: 5px 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: ${({ displayBackground }) => displayBackground ? '1px solid rgba(0, 0, 0, 0.2)' : 'none'};
   z-index: 2;`
 
 const TextElement = styled(Text)`
