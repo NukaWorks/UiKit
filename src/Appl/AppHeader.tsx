@@ -53,5 +53,6 @@ AppHeader.propTypes = {
 }
 
 AppHeader.defaultProps = {
-  title: 'Hello World !'
+  title: 'Hello World !',
+  displayBackground: true
 }
