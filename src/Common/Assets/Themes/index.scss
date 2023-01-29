@@ -23,14 +23,6 @@ body {
            'opsz' 48
  }
 
-.Appl {
-  &__Application {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .App {
   &__Light {
     background-color: $default-light-bg;
