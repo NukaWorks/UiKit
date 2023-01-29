@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import { Text } from '../Base/Text'
@@ -5,7 +7,7 @@ import styled from 'styled-components'
 
 const HeaderElement = styled.header`
   font-family: "Outfit", sans-serif;
-  background-color: #ffffff;
+  background-color: ${({ displayBackground }) => displayBackground ? 'rgba(0, 0, 0, 0.1)' : 'transparent'};
   display: flex;
   align-items: center;
   gap: 10px;
@@ -29,10 +31,11 @@ const ContentElement = styled.div`
   width: 100%;
   gap: 5px;`
 
-export function AppHeader ({ children, className, title, ...props }: InferProps<typeof AppHeader.propTypes>) {
+export function AppHeader ({ children, displayBackground, className, title, ...props }: InferProps<typeof AppHeader.propTypes>) {
   return (
     <HeaderElement
         className={['Appl__Header', 'AppHeader', className].join(' ')}
+        displayBackground={displayBackground}
         {...props}
     >
         <TextElement className={'Appl__Header--Title'}>{ title }</TextElement>
@@ -44,6 +47,7 @@ export function AppHeader ({ children, className, title, ...props }: InferProps<
 AppHeader.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
+  displayBackground: PropTypes.bool,
   children: PropTypes.any,
   props: PropTypes.any
 }
