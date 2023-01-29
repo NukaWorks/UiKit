@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const LayoutElement = styled.div`
   display: block;
-  //overflow: hidden;
+  overflow: ${({ overflow }) => overflow};
   width: ${({ width }) => width + 'px'};
   height: ${({ height }) => height + 'px'};
   min-width: ${({ minWidth }) => minWidth + 'px'};
@@ -17,6 +17,7 @@ const LayoutElement = styled.div`
 
 export function Layout ({
   children,
+  overflow,
   width,
   height,
   minWidth,
@@ -29,6 +30,7 @@ export function Layout ({
   return (
     <LayoutElement
       className={['Layouts__Layout', 'Layout', className].join(' ')}
+      overflow={overflow}
       width={width}
       height={height}
       minWidth={minWidth}
@@ -44,6 +46,7 @@ export function Layout ({
 
 Layout.propTypes = {
   className: PropTypes.string,
+  overflow: PropTypes.oneOf<string>(['hidden', 'scroll']),
   children: PropTypes.any,
   scrollable: PropTypes.bool,
   props: PropTypes.any,
