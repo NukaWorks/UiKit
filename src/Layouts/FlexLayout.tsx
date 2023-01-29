@@ -55,8 +55,8 @@ FlexLayout.propTypes = {
   direction: PropTypes.oneOf<string>(['Vertical', 'Horizontal']),
   alignItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
   alignContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
-  justifyItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
-  justifyContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
+  justifyItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch', 'Space-Between', 'Space-Around', 'Space-Evenly']),
+  justifyContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch', 'Space-Between', 'Space-Around', 'Space-Evenly']),
   wrap: PropTypes.oneOf<string>(['wrap', 'nowrap']),
   flex: PropTypes.number,
   props: PropTypes.any
