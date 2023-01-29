@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const LayoutElement = styled.div`
   display: block;
-  overflow: hidden;
+  //overflow: hidden;
   width: ${({ width }) => width + 'px'};
   height: ${({ height }) => height + 'px'};
   min-width: ${({ minWidth }) => minWidth + 'px'};
