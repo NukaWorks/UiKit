@@ -6,15 +6,14 @@ const TabElement = styled.div`
   background-color: grey;
 `
 
-export function Tab ({
+export function TabPane ({
   className,
   tabKey,
   id,
   name,
   active,
   children
-}: InferProps<typeof Tab.propTypes>) {
-
+}: InferProps<typeof TabPane.propTypes>) {
   return (
     <TabElement
       id={id && `${id}-panel-${tabKey}`}
@@ -24,15 +23,12 @@ export function Tab ({
       aria-hidden={!active}
     >
 
-      <div>{ name }</div>
-      <div>
-        {(active) && children}
-      </div>
+      {(active) && children}
     </TabElement>
   )
 }
 
-Tab.propTypes = {
+TabPane.propTypes = {
   tabKey: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
