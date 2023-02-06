@@ -1,9 +1,8 @@
 // @ts-nocheck
 
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
-import { TabContext } from './TabPane'
 
 const TabbedLayoutElement = styled.div`
   // background-color: white;
@@ -17,7 +16,6 @@ export function TabbedLayout ({
   className,
   ...props
 }: InferProps<typeof TabbedLayout.propTypes>) {
-
   return (
       <TabbedLayoutElement
         className={['Layouts__TabbedLayout', 'TabbedLayout', className].join(' ')}
