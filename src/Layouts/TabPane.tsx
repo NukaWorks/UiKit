@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes, { InferProps } from 'prop-types'
 
@@ -6,21 +6,27 @@ const TabElement = styled.div`
   background-color: grey;
 `
 
+export const TabContext = createContext(new Map<string, object>())
+
 export function TabPane ({
   className,
   tabKey,
-  id,
   name,
   active,
   children
 }: InferProps<typeof TabPane.propTypes>) {
+  const tabs = useContext(TabContext)
+
+  useEffect(() => {
+    if (tabs && !tabs.has(tabKey)) tabs.set(tabKey, { name, id: tabKey })
+  }, [tabs, tabKey, name])
+
   return (
     <TabElement
-      id={id && `${id}-panel-${tabKey}`}
+      id={tabKey && `${tabKey}-panel-${name}`}
       role="tabpanel"
       tabIndex={active ? 0 : -1}
-      aria-labelledby={id && `${id}-tab-${tabKey}`}
-      aria-hidden={!active}
+      aria-labelledby={tabKey && `${tabKey}-tab-${name}`}
     >
 
       {(active) && children}
@@ -30,7 +36,6 @@ export function TabPane ({
 
 TabPane.propTypes = {
   tabKey: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   children: PropTypes.any,
   active: PropTypes.bool,

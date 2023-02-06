@@ -1,8 +1,9 @@
 // @ts-nocheck
 
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
+import { TabContext } from './TabPane'
 
 const TabbedLayoutElement = styled.div`
   // background-color: white;
@@ -12,27 +13,28 @@ const TabbedLayoutElement = styled.div`
 export function TabbedLayout ({
   children,
   onChange,
-  defaultActiveId,
+  defaultActiveKey,
   className,
   ...props
 }: InferProps<typeof TabbedLayout.propTypes>) {
-  return (
-    <TabbedLayoutElement
-      className={['Layouts__TabbedLayout', 'TabbedLayout', className].join(' ')}
-      defaultActiveId={defaultActiveId}
-      onChange={onChange}
-      {...props}
-    >
 
-      { children }
-    </TabbedLayoutElement>
+  return (
+      <TabbedLayoutElement
+        className={['Layouts__TabbedLayout', 'TabbedLayout', className].join(' ')}
+        defaultActiveId={defaultActiveKey}
+        onChange={onChange}
+        {...props}
+      >
+
+        { children }
+      </TabbedLayoutElement>
   )
 }
 
 TabbedLayout.propTypes = {
+  defaultActiveKey: PropTypes.string.isRequired,
   className: PropTypes.string,
   children: PropTypes.any,
   onChange: PropTypes.func,
-  defaultActiveId: PropTypes.string.isRequired,
   props: PropTypes.any
 }
