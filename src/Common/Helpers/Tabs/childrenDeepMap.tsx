@@ -23,7 +23,7 @@ export function deepMap (children, callback) {
       // Clone the child that has children and map them too
       return cloneElement(child, {
         ...child.props,
-        children: deepMap(child.props.children, callback),
+        children: deepMap(child.props.children, callback)
       })
     }
 
