@@ -5,7 +5,7 @@ import {
   onSelectPropType,
   selectedIndexPropType
 } from '../Common/Helpers/Tabs/propTypes'
-import UncontrolledTabs from './UncontrolledTabs'
+import { UncontrolledTabs } from './UncontrolledTabs'
 import { getTabsCount } from '../Common/Helpers/Tabs/count'
 
 const MODE_CONTROLLED = 0
