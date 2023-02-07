@@ -10,20 +10,21 @@ import { Link } from './Base/Link'
 import { Sidebar } from './Base/Sidebar'
 import { SidebarItem } from './Base/SidebarItem'
 import { ListView } from './Base/ListView'
-import { TabItem } from './Base/TabItem'
 
 // Application Components
 import { AppHeader } from './Appl/AppHeader'
 import { UiApp } from './Appl/UiApp'
-import { TabBar } from './Appl/TabBar'
 
 // Layouts Components
 import { StackLayout } from './Layouts/StackLayout'
 import { FlexLayout } from './Layouts/FlexLayout'
 import { Layout } from './Layouts/Layout'
 import { ScrollLayout } from './Layouts/ScrollLayout'
-import { TabbedLayout } from './Layouts/TabbedLayout'
-import { TabPane } from './Layouts/TabPane'
+import { Tabs } from './Layouts/Tabs'
+import { Tab } from './Layouts/Tab'
+import { TabPanel } from './Layouts/TabPanel'
+import { TabList } from './Layouts/TabList'
+import { UncontrolledTabs } from './Layouts/UncontrolledTabs'
 
 // Miscellaneous Components
 import { Spinner } from './Misc/Spinner'
@@ -65,10 +66,11 @@ export {
   openDialogOverlay,
   DialogOverlayContext,
   DialogEvent,
-  TabbedLayout,
-  TabPane,
-  TabItem,
-  TabBar,
+  UncontrolledTabs,
+  TabPanel,
+  TabList,
+  Tabs,
+  Tab,
   Layout
 }
 
