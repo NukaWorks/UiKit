@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
-import cx from 'clsx'
 
-const defaultProps = {
-  className: 'react-tabs__tab-list'
+TabList.tabsRole = 'TabList'
+export function TabList ({ children, className, ...props }): InferProps<typeof TabList.propTypes> {
+  return (
+    <ul {...props} className={['Layouts__TabList', 'TabList'].join(' ')} role="tablist">
+      {children}
+    </ul>
+  )
 }
-const propTypes = {
+
+TabList.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   className: PropTypes.oneOfType([
     PropTypes.string,
@@ -13,20 +18,7 @@ const propTypes = {
     PropTypes.object
   ])
 }
-export const TabList = (props) => {
-  const {
-    children,
-    className,
-    ...attributes
-  } = props
 
-  return (
-    <ul {...attributes} className={cx(className)} role="tablist">
-      {children}
-    </ul>
-  )
+TabList.defaultProps = {
+  className: 'react-tabs__tab-list'
 }
-
-TabList.tabsRole = 'TabList'
-TabList.propTypes = propTypes
-TabList.defaultProps = defaultProps
