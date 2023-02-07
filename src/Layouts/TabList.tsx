@@ -18,7 +18,3 @@ TabList.propTypes = {
     PropTypes.object
   ])
 }
-
-TabList.defaultProps = {
-  className: 'react-tabs__tab-list'
-}
