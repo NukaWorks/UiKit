@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import styled from 'styled-components'
 import { TabContext } from '../Layouts/TabPane'
@@ -26,6 +26,12 @@ export function TabBar ({
   ...props
 }: InferProps<typeof TabBar.propTypes>) {
   const tabs = useContext(TabContext)
+  const [, updateState] = React.useState()
+  const forceUpdate = React.useCallback(() => updateState(null), [])
+
+  useEffect(() => {
+    forceUpdate() // force update when tabs change
+  }, [tabs])
 
   return (
     <TabBarElement
