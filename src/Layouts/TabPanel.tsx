@@ -12,7 +12,7 @@ export function TabPanel ({
   return (
     <div
       {...props}
-      className={['Layouts__TabPanel', 'TabPanel', selected && 'Layouts__TabPanel--selected'].join(' ')}
+      className={['Layouts__TabPanel', 'TabPanel', selected ? 'Layouts__TabPanel--selected' : ''].join(' ')}
       role="tabpanel"
       id={`panel${id}`}
       aria-labelledby={`tab${id}`}
