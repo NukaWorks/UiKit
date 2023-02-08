@@ -9,7 +9,6 @@ export function TabPanel ({
   selected,
   ...props
 }): InferProps<typeof TabPanel.propTypes> {
-
   return (
     <div
       {...props}
