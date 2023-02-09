@@ -9,6 +9,15 @@ const TabElement = styled.li`
   padding: 0.5em;
   border-radius: 5px;
   background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.1)' : 'none'};
+  outline: none;
+  
+  :hover, :focus {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  :active {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 `
 
 export function Tab ({
