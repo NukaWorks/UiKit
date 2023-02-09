@@ -10,6 +10,7 @@ const TabElement = styled.li`
   border-radius: 5px;
   background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.1)' : 'none'};
   outline: none;
+  transition: background-color 0.1s ease-in-out;
   
   :hover, :focus {
     background-color: rgba(0, 0, 0, 0.2);
