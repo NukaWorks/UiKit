@@ -1,5 +1,16 @@
+// @ts-nocheck
+
 import PropTypes, { InferProps } from 'prop-types'
 import React, { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+
+const TabElement = styled.li`
+  display: inline-block;
+  padding: 0 1rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  background-color: ${({ selected }) => selected ? 'var(--color-primary)' : 'var(--color-background)'};
+`
 
 export function Tab ({
   children,
@@ -22,7 +33,7 @@ export function Tab ({
   }, [selected, focus])
 
   return (
-    <li
+    <TabElement
       {...props}
       className={['Layouts__Tab', 'Tab', selected ? 'Layouts__Tab--selected' : '', disabled ? 'Layouts__Tab--disabled' : ''].join(' ')}
       ref={(node) => {
@@ -32,6 +43,7 @@ export function Tab ({
       }}
       role="tab"
       id={`tab${id}`}
+      selected={selected}
       aria-selected={selected ? 'true' : 'false'}
       aria-disabled={disabled ? 'true' : 'false'}
       aria-controls={`panel${id}`}
@@ -39,7 +51,7 @@ export function Tab ({
       data-uitab
     >
       {children}
-    </li>
+    </TabElement>
   )
 }
 
