@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
-import cx from 'clsx'
 
 const DEFAULT_CLASS = 'react-tabs__tab'
 const defaultProps = {
   className: DEFAULT_CLASS,
-  disabledClassName: `${DEFAULT_CLASS}--disabled`,
   focus: false,
   id: null,
-  selected: false,
-  selectedClassName: `${DEFAULT_CLASS}--selected`
+  selected: false
 }
 
 const propTypes = {
@@ -24,11 +21,9 @@ const propTypes = {
     PropTypes.object
   ]),
   disabled: PropTypes.bool,
-  disabledClassName: PropTypes.string,
   focus: PropTypes.bool, // private
   id: PropTypes.string, // private
   selected: PropTypes.bool, // private
-  selectedClassName: PropTypes.string,
   tabIndex: PropTypes.string,
   tabRef: PropTypes.func // private
 }
@@ -39,11 +34,9 @@ export const Tab = (props) => {
     children,
     className,
     disabled,
-    disabledClassName,
     focus,
     id,
     selected,
-    selectedClassName,
     tabIndex,
     tabRef,
     ...attributes
@@ -59,10 +52,7 @@ export const Tab = (props) => {
   return (
     <li
       {...attributes}
-      className={cx(className, {
-        [selectedClassName]: selected,
-        [disabledClassName]: disabled
-      })}
+      className={['Layouts__Tab', 'Tab', selected ? 'Layouts__Tab--selected' : '', disabled ? 'Layouts__Tab--disabled' : ''].join(' ')}
       ref={(node) => {
         // @ts-ignore
         nodeRef.current = node
