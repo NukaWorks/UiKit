@@ -14,7 +14,7 @@ const TabElement = styled.li`
   cursor: default;
   transition: background-color 0.1s ease-in-out;
   
-  :hover, :focus {
+  :hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
   
