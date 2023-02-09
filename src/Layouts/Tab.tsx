@@ -6,8 +6,7 @@ import styled from 'styled-components'
 
 const TabElement = styled.li`
   display: inline-block;
-  padding: 0 1rem;
-  height: 2.5rem;
+  padding: 1em;
   border-radius: 5px;
   background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.3)' : 'none'};
 `
