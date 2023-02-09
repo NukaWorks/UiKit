@@ -7,8 +7,8 @@ TabList.tabsRole = 'TabList'
 const TabListElement = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
-  padding: 3px;
+  gap: 3px;
+  padding-block: 5px;
 `
 
 export function TabList ({ children, className, ...props }): InferProps<typeof TabList.propTypes> {
