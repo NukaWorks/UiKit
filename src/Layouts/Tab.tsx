@@ -36,7 +36,7 @@ export function Tab ({
       aria-disabled={disabled ? 'true' : 'false'}
       aria-controls={`panel${id}`}
       tabIndex={tabIndex || (selected ? '0' : null)}
-      data-rttab
+      data-uitab
     >
       {children}
     </li>

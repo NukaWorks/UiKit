@@ -12,7 +12,7 @@ function isNode (node) {
 
 // Determine if a node from event.target is a Tab element
 function isTabNode (node) {
-  return isNode(node) && node.getAttribute('data-rttab')
+  return isNode(node) && node.getAttribute('data-uitab')
 }
 
 // Determine if a tab node is disabled
@@ -359,7 +359,7 @@ export const UncontrolledTabs = (props) => {
     let nodeAncestor = node.parentElement
     do {
       if (nodeAncestor === ref.current) return true
-      if (nodeAncestor.getAttribute('data-rttabs')) break
+      if (nodeAncestor.getAttribute('data-uitabs')) break
 
       nodeAncestor = nodeAncestor.parentElement
     } while (nodeAncestor)
@@ -394,7 +394,7 @@ export const UncontrolledTabs = (props) => {
         ref.current = node
         if (domRef) domRef(node)
       }}
-      data-rttabs
+      data-uitabs
     >
       {getChildren()}
     </div>
