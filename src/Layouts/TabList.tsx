@@ -1,12 +1,21 @@
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 
 TabList.tabsRole = 'TabList'
+
+const TabListElement = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  padding: 3px;
+`
+
 export function TabList ({ children, className, ...props }): InferProps<typeof TabList.propTypes> {
   return (
-    <ul {...props} className={['Layouts__TabList', 'TabList'].join(' ')} role="tablist">
+    <TabListElement {...props} className={['Layouts__TabList', 'TabList'].join(' ')} role="tablist">
       {children}
-    </ul>
+    </TabListElement>
   )
 }
 
