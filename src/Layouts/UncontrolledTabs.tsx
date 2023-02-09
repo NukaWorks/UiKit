@@ -172,12 +172,9 @@ export const UncontrolledTabs = (props) => {
     let index = 0
     const {
       children,
-      disabledTabClassName,
       focus,
       forceRenderTabPanel,
       selectedIndex,
-      selectedTabClassName,
-      selectedTabPanelClassName,
       environment
     } = props
 
@@ -222,22 +219,12 @@ export const UncontrolledTabs = (props) => {
             const selected = selectedIndex === listIndex
 
             const props = {
-              selectedClassName: undefined,
-              disabledClassName: undefined,
-
               tabRef: (node) => {
                 tabNodes.current[key] = node
               },
               id: tabIds.current[listIndex],
               selected,
               focus: selected && (focus || wasTabFocused)
-            }
-
-            if (selectedTabClassName) {
-              props.selectedClassName = selectedTabClassName
-            }
-            if (disabledTabClassName) {
-              props.disabledClassName = disabledTabClassName
             }
 
             listIndex++
@@ -249,14 +236,10 @@ export const UncontrolledTabs = (props) => {
         const props = {
           id: tabIds.current[index],
           selected: selectedIndex === index,
-          forceRender: undefined,
-          selectedClassName: undefined
+          forceRender: undefined
         }
 
         if (forceRenderTabPanel) props.forceRender = forceRenderTabPanel
-        if (selectedTabPanelClassName) {
-          props.selectedClassName = selectedTabPanelClassName
-        }
 
         index++
 
