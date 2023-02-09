@@ -9,7 +9,7 @@ const TabElement = styled.li`
   padding: 0 1rem;
   height: 2.5rem;
   border-radius: 5px;
-  background-color: ${({ selected }) => selected ? 'var(--color-primary)' : 'var(--color-background)'};
+  background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.3)' : 'none'};
 `
 
 export function Tab ({
