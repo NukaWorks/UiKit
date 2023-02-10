@@ -5,5 +5,5 @@ const bungFile = YAML.parse(fs.readFileSync('./.bung.yml', 'utf-8'))
 const templDir = './büng/src/Templates'
 
 module.exports = {
-  getTemplDir: templDir, getBungFile: bungFile
+  getTemplateDir: templDir, getBungFile: bungFile
 }
