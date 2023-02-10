@@ -1,6 +1,6 @@
 {
   "name": "@powerws/uikit",
-  "version": "0.219.0",
+  "version": "0.220.0",
   "repository": "https://github.com/PowerWorkspace/UiKit",
   "license": "MIT",
   "scripts": {
@@ -12,6 +12,8 @@
     "bung": "node büng/src/bung.js"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.191",
+    "lodash-es": "^4.17.21",
     "react": "^18.x",
     "react-detect-click-outside": "^1.1.7",
     "react-dom": "^18.x",
