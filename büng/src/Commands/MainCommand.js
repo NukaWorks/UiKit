@@ -1,6 +1,9 @@
 const { Command } = require('commander')
 const { version } = require('../../package.json')
-const { addComponent } = require('../Utils/CompntMgmt')
+const {
+  makeComponent,
+  makeStory
+} = require('../Utils/CompntMgmt')
 const program = new Command()
 
 function mainCommand (argv) {
@@ -9,9 +12,14 @@ function mainCommand (argv) {
     .description('Büng, the component maker.')
     .version(version)
 
-  program.command('add <name> <category>').description('Add a component')
+  program.command('make-component <name> <category>').description('Make a new component with story.')
     .action((name, category) => {
-      addComponent(name, category)
+      makeComponent(name, category)
+    })
+
+  program.command('make-story <name> <category>').description('Make a new story.')
+    .action((name, category) => {
+      makeStory(name, category)
     })
 
   program.parse(argv)
