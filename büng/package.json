@@ -4,7 +4,7 @@
   "main": "src/bung.js",
   "license": "MIT",
   "dependencies": {
-    "@zerodep/string": "^1.1.0",
+    "lodash-es": "^4.17.21",
     "chalk": "^4.1.2",
     "commander": "^9.4.0",
     "fs-extra": "^10.1.0",
@@ -12,7 +12,7 @@
   },
   "exports": {
     ".": {
-      "require": "./src/bung.ts"
+      "require": "./src/bung.js"
     }
   }
 }
