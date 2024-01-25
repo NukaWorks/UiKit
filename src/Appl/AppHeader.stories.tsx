@@ -21,7 +21,6 @@ Default.args = {
   title: 'Hello World !'
 }
 
-
 const AppBarExample = (args :any) => (
   <AppHeader {...args}>
     <MenubarTest />
