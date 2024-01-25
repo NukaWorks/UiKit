@@ -1,57 +1,46 @@
-import React, { forwardRef, useEffect, useState } from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { forwardRef, ReactNode, useEffect, useState } from 'react'
 import './Button.scss'
 
-// eslint-disable-next-line react/display-name
-export const Button: React.ForwardRefExoticComponent<React.PropsWithRef<any> & React.RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement>((
+interface ButtonProps {
+  color?: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled'
+  theme?: 'Light' | 'Dark'
+  size?: 'Small' | 'Medium' | 'Large'
+  disabled?: boolean
+  autofocus?: boolean
+  label?: string
+  children?: ReactNode
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((
   {
     children,
-    color,
-    theme,
-    size,
+    color = 'Default',
+    theme = 'Light',
+    size = 'Small',
     disabled,
     onClick,
     autofocus,
     label,
     ...props
-  }: InferProps<typeof Button.propTypes>, ref) => {
+  }, ref) => {
   const [disable, setDisable] = useState(false)
 
   useEffect(() => {
-    if (disabled) {
-      setDisable(true)
-    } else setDisable(false)
+    setDisable(disabled || false)
   }, [disabled])
 
   return (
-      <button
-          type="button"
-          className={[`App__${theme}`, 'Base__Button', 'Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
-          ref={ref}
-          autoFocus={autofocus}
-          onClick={onClick}
-          disabled={disable}
-          {...props}
-      >
-        {label || children}
-      </button>
+    <button
+      type="button"
+      className={[`App__${theme}`, 'Base__Button', 'Button', `Base__Button--${size}`, `Base__Button--${disabled ? 'Disabled' : color}`].join(' ')}
+      ref={ref}
+      autoFocus={autofocus}
+      onClick={onClick}
+      disabled={disable}
+      {...props}
+    >
+      {label || children}
+    </button>
   )
 })
-
-Button.propTypes = {
-  color: PropTypes.oneOf(['Default', 'Primary', 'Success', 'Warning', 'Alert', 'Disabled']),
-  theme: PropTypes.oneOf(['Light', 'Dark']),
-  size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
-  disabled: PropTypes.bool,
-  autofocus: PropTypes.bool,
-  label: PropTypes.string,
-  props: PropTypes.any,
-  children: PropTypes.any,
-  onClick: PropTypes.func
-}
-
-Button.defaultProps = {
-  color: 'Default',
-  theme: 'Light',
-  size: 'Small'
-}

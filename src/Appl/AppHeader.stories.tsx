@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppHeader } from './AppHeader'
+import { AppHeader, AppHeaderProps } from './AppHeader'
 import { MenubarTest } from '../Base/MenuBar.stories'
 
 export default {
@@ -13,7 +13,7 @@ export default {
   }
 }
 
-const Template = (args :any) => <AppHeader {...args} />
+const Template = (args: AppHeaderProps) => <AppHeader {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore
@@ -21,9 +21,9 @@ Default.args = {
   title: 'Hello World !'
 }
 
-const AppBarExample = (args :any) => (
+const AppBarExample = (args: any) => (
   <AppHeader {...args}>
-    <MenubarTest />
+    <MenubarTest/>
   </AppHeader>
 )
 

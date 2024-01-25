@@ -1,31 +1,40 @@
-// @ts-nocheck
-
-import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
-const SidebarItemElement = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: inherit;
-  gap: 5px;
-  border-radius: 10px;
-  font-size: 13pt;
-  padding: 0.5em;
+interface SidebarItemProps {
+  text?: string
+  icon?: string
+  active?: boolean
+  disableText?: boolean
+  children?: ReactNode
+  onClick?: () => void
+  className?: string
+}
 
-  background-color: ${props => props.active ? 'rgba(0, 0, 0, 0.050' : 'transparent'};
+const SidebarItemElement = styled.div<{ active?: boolean }>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: inherit;
+    gap: 5px;
+    border-radius: 10px;
+    font-size: 13pt;
+    padding: 0.5em;
 
-  :hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+    background-color: ${props => props.active ? 'rgba(0, 0, 0, 0.050' : 'transparent'};
 
-  :active {
-    background-color: rgba(0, 0, 0, 0.2);
-  }`
+    :hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 
-const IconElement = styled.span`
-  font-variation-settings: ${props => props.active ? 'FILL 1' : 'FILL 0'};`
+    :active {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+`
+
+const IconElement = styled.span<{ active?: boolean }>`
+    font-variation-settings: ${props => props.active ? 'FILL 1' : 'FILL 0'};
+`
 
 export function SidebarItem (
   {
@@ -37,34 +46,22 @@ export function SidebarItem (
     className,
     onClick,
     ...props
-  }: InferProps<typeof SidebarItem.propTypes>) {
+  }: SidebarItemProps) {
   return (
-      <SidebarItemElement
-          className={['Base__SidebarItem', 'SidebarItem', active ? 'Base__SidebarItem--Activated SidebarItemActive' : '', className].join(' ')}
-          onClick={onClick}
-          {...props}
-      >
-
+    <SidebarItemElement
+      className={['Base__SidebarItem', 'SidebarItem', active ? 'Base__SidebarItem--Activated SidebarItemActive' : '', className].join(' ')}
+      onClick={onClick}
+      {...props}
+    >
       <IconElement className="material-symbols-rounded">
         {icon}
       </IconElement>
 
-        {disableText ||
-            (<div className={'Base__SidebarItem--Text'}>
-              {text || children}
-            </div>)
-        }
-      </SidebarItemElement>
+      {!disableText &&
+        (<div className={'Base__SidebarItem--Text'}>
+          {text || children}
+        </div>)
+      }
+    </SidebarItemElement>
   )
-}
-
-SidebarItem.propTypes = {
-  text: PropTypes.string,
-  icon: PropTypes.string,
-  active: PropTypes.bool,
-  children: PropTypes.any,
-  disableText: PropTypes.bool,
-  onClick: PropTypes.any,
-  className: PropTypes.string,
-  props: PropTypes.any
 }

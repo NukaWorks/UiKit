@@ -1,30 +1,34 @@
-// @ts-nocheck
-
-import React, { useEffect } from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { useEffect, useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
-const LinkElement = styled.a`
-  font-family: "Outfit", sans-serif;
-  font-weight: 500;
-  color: ${props => props.disabled ? props.theme.disabledColor : props.theme.color};
-  cursor: pointer;
-  padding-inline: 5px;
-  border-radius: 5px;
-  text-decoration: none;
+export interface LinkProps {
+  className?: string
+  children?: React.ReactNode
+  disabled?: boolean
+  href: string
+}
 
-  :hover {
-    background-color: ${props => props.disabled ? 'transparent' : props.theme.backgroundColor};
-    color: ${props => props.disabled ? props.theme.disabledColor : props.theme.hoverColor};
-    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
-  }
+const LinkElement = styled.a<LinkProps>`
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    color: ${props => props.disabled ? props.theme.disabledColor : props.theme.color};
+    cursor: pointer;
+    padding-inline: 5px;
+    border-radius: 5px;
+    text-decoration: none;
 
-  :active {
-    background-color: ${props => props.disabled ? 'initial' : props.theme.activeBackgroundColor};
-    color: ${props => props.disabled ? props.theme.disabledColor : props.theme.activeColor};
-    user-select: none;
-    -webkit-user-select: none;
-  }
+    :hover {
+        background-color: ${props => props.disabled ? 'transparent' : props.theme.backgroundColor};
+        color: ${props => props.disabled ? props.theme.disabledColor : props.theme.hoverColor};
+        cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    }
+
+    :active {
+        background-color: ${props => props.disabled ? 'initial' : props.theme.activeBackgroundColor};
+        color: ${props => props.disabled ? props.theme.disabledColor : props.theme.activeColor};
+        user-select: none;
+        -webkit-user-select: none;
+    }
 `
 
 const lightTheme = {
@@ -39,56 +43,26 @@ const lightTheme = {
 export function Link ({
   children,
   className,
-  disabled,
+  disabled = false,
   href,
   ...props
-}: InferProps<typeof Link.propTypes>) {
-  const [disable, setDisable] = React.useState(false)
+}: LinkProps) {
+  const [disable, setDisable] = useState(disabled)
 
   useEffect(() => {
-    if (disabled) {
-      setDisable(true)
-    } else {
-      setDisable(false)
-    }
-  }, [disabled, disable])
+    setDisable(disabled)
+  }, [disabled])
 
-  if (disable) {
-    return (
-      <ThemeProvider theme={lightTheme}>
-        <LinkElement
-          className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
-          disabled={disable}
-          {...props}
-        >
-          {children}
-        </LinkElement>
-      </ThemeProvider>
-    )
-  } else {
-    return (
-      <ThemeProvider theme={lightTheme}>
-        <LinkElement
-          className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
-          disabled={disable}
-          href={href || null}
-          {...props}
-        >
-          {children}
-        </LinkElement>
-      </ThemeProvider>
-    )
-  }
-}
-
-Link.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.any,
-  disabled: PropTypes.bool,
-  props: PropTypes.any,
-  href: PropTypes.string
-}
-
-Link.defaultProps = {
-  disabled: false
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <LinkElement
+        className={[`Base__Link${disable ? '--Disabled' : ''}`, 'Link', className].join(' ')}
+        disabled={disable}
+        href={!disable ? href : '#'}
+        {...props}
+      >
+        {children}
+      </LinkElement>
+    </ThemeProvider>
+  )
 }

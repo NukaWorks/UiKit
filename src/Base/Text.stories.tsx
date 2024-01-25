@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text } from './Text'
+import { Text, TextProps } from './Text'
 
 export default {
   title: 'Base/Text',
@@ -11,7 +11,7 @@ export default {
   }
 }
 
-const Template = (args :any) => <Text {...args} />
+const Template = (args: TextProps) => <Text {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore

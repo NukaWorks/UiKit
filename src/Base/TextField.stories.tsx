@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TextField } from './TextField'
+import { TextField, TextFieldProps } from './TextField'
 
 export default {
   title: 'Base/TextField',
@@ -16,7 +16,7 @@ export default {
   }
 }
 
-const Template = (args :any) => <TextField {...args} />
+const Template = (args: TextFieldProps) => <TextField {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore

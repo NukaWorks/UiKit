@@ -1,51 +1,51 @@
-// @ts-nocheck
-
-import React, { useEffect } from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { CSSProperties, ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-// @ts-ignore
-const TextElement = styled.div`
-  font-family: "Outfit", sans-serif;
-  font-size: ${({ size }) => size ? size + 'pt' : '9pt'};
-  color: ${props => (props.disabled ? '#bababa' : props.color || 'black')};
-  
+export interface TextProps {
+  className?: string
+  style?: CSSProperties
+  text?: string
+  disabled?: boolean
+  color?: string
+  size?: number
+  children?: ReactNode
+}
+
+const TextElement = styled.div<{ disabled?: boolean, color?: string, size?: number }>`
+    font-family: "Outfit", sans-serif;
+    font-size: ${({ size }) => size ? size + 'pt' : '9pt'};
+    color: ${({
+        disabled,
+        color
+    }) => disabled ? '#bababa' : color || 'black'};
 `
 
-export function Text ({ className, style, text, disabled, color, size, children, ...props } :InferProps<typeof Text.propTypes>) {
-  const [disable, setDisable] = React.useState(false)
+export function Text ({
+  className,
+  style,
+  text,
+  disabled = false,
+  color,
+  size,
+  children,
+  ...props
+}: TextProps) {
+  const [disable, setDisable] = useState(disabled)
 
   useEffect(() => {
-    if (disabled) {
-      setDisable(true)
-    } else setDisable(false)
+    setDisable(disabled)
   }, [disabled])
 
-  // @ts-ignore
   return (
     <TextElement
-        className={['Base__Text', 'Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
-        disabled={disable}
-        size={size}
-        color={color}
-        style={style}
-        {...props}
+      className={['Base__Text', 'Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
+      disabled={disable}
+      size={size}
+      color={color}
+      style={style}
+      {...props}
     >
-        { text || children }
+      {text || children}
     </TextElement>
   )
-}
-
-Text.propTypes = {
-  text: PropTypes.string,
-  color: PropTypes.string,
-  style: PropTypes.any,
-  size: PropTypes.number,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.any
-}
-
-Text.defaultProps = {
-  disabled: false
 }

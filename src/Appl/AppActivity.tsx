@@ -1,37 +1,33 @@
-import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
-/**
- * Only work on development mode
- * use "import '@powerws/uikit/styling'" to import css in production environment.
- */
-import '../Common/Assets/Themes/index.scss'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { FlexLayout } from '../Layouts/FlexLayout'
+import '../Common/Assets/Themes/index.scss'
 
-const AppActivityElement = styled(FlexLayout)`
-  min-height: 100vh;
+const AppActivityElement = styled(FlexLayout)<{ direction?: 'Vertical' | 'Horizontal' }>`
+    min-height: 100vh;
 `
 
-export function AppActivity ({ children, direction, className, theme, ...props } :InferProps<typeof AppActivity.propTypes>) {
+interface AppActivityProps {
+  className?: string
+  children?: ReactNode
+  direction?: 'Vertical' | 'Horizontal'
+  theme?: 'Light' | 'Dark'
+}
+
+export function AppActivity ({
+  children,
+  direction,
+  className,
+  theme = 'Light',
+  ...props
+}: AppActivityProps) {
   return (
     <AppActivityElement
-        className={[`App__${theme}`, 'Appl__AppActivity', 'AppActivity', className].join(' ')}
-        direction={direction}
-        {...props}
+      className={[`App__${theme}`, 'Appl__AppActivity', 'AppActivity', className].join(' ')}
+      direction={direction}
+      {...props}
     >
-        { children }
+      {children}
     </AppActivityElement>
   )
-}
-
-AppActivity.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.any,
-  direction: PropTypes.oneOf(['Vertical', 'Horizontal']),
-  theme: PropTypes.oneOf(['Light', 'Dark']),
-  props: PropTypes.any
-}
-
-AppActivity.defaultProps = {
-  theme: 'Light'
 }

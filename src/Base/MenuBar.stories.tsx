@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MenuBar } from './MenuBar'
+import { MenuBar, MenuBarProps } from './MenuBar'
 import { Menu } from './Menu'
 import { MenuList } from './MenuList'
 import { MenuItem } from './MenuItem'
@@ -10,7 +10,7 @@ export default {
   component: MenuBar
 }
 
-const Template = (args :any) => <MenuBar {...args}>
+const Template = (args: MenuBarProps) => <MenuBar {...args}>
   <Menu title={'File'}>
     <MenuList>
       <MenuItem>New File...</MenuItem>

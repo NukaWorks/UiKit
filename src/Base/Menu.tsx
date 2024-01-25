@@ -1,45 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react'
-import PropTypes, { InferProps } from 'prop-types'
-import { useDetectClickOutside } from 'react-detect-click-outside'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { useDetectClickOutside } from 'react-detect-click-outside'
 
-function menuDrop (displayMenu: boolean, children: any) {
+export interface MenuProps {
+  className?: string
+  title: ReactNode
+  children?: ReactNode
+}
+
+function menuDrop (displayMenu: boolean, children: ReactNode) {
   if (displayMenu) return children
 }
 
 const MenuElement = styled.div`
-  font-family: "Outfit", sans-serif;
+    font-family: "Outfit", sans-serif;
 
-  .active {
-    background-color: rgba(234, 234, 234, 0.4);
-  }
+    .active {
+        background-color: rgba(234, 234, 234, 0.4);
+    }
 `
 
 const MenuTitleElement = styled.div`
-  font-size: 10pt;
-  border-radius: 5px;
-  user-select: none;
-  -webkit-user-select: none;
-  padding: 0.4em;
-  width: fit-content;
-  
-  :hover {
-    background-color: rgba(234, 234, 234, 0.4);
-  }
+    font-size: 10pt;
+    border-radius: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+    padding: 0.4em;
+    width: fit-content;
+
+    :hover {
+        background-color: rgba(234, 234, 234, 0.4);
+    }
 `
 
-export function Menu ({ children, className, title, ...props }: InferProps<typeof Menu.propTypes>) {
+export function Menu ({
+  children,
+  className,
+  title,
+  ...props
+}: MenuProps) {
   const [displayMenu, setDisplayMenu] = useState(false)
   const ref = useDetectClickOutside({ onTriggered: () => setDisplayMenu(false) })
-  const menuTitle = useRef(null)
+  const menuTitle = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (displayMenu) { // @ts-ignore
-      menuTitle.current.classList.add('active')
-    } else { // @ts-ignore
-      menuTitle.current.classList.remove('active')
+    if (displayMenu) {
+      menuTitle.current?.classList.add('active')
+    } else {
+      menuTitle.current?.classList.remove('active')
     }
-  })
+  }, [displayMenu])
 
   return (
     <MenuElement
@@ -51,16 +61,8 @@ export function Menu ({ children, className, title, ...props }: InferProps<typeo
       }}
       {...props}
     >
-
-      <MenuTitleElement className={'Base__Menu--Title'} ref={menuTitle}>{ title }</MenuTitleElement>
-      { menuDrop(displayMenu, children) }
+      <MenuTitleElement className={'Base__Menu--Title'} ref={menuTitle}>{title}</MenuTitleElement>
+      {menuDrop(displayMenu, children)}
     </MenuElement>
   )
-}
-
-Menu.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.any.isRequired,
-  children: PropTypes.any,
-  props: PropTypes.any
 }

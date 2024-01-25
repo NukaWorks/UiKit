@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { ListView } from './ListView'
+import { ListView, ListViewProps } from './ListView'
 
 export default {
   title: 'Base/ListView',
   component: ListView
 }
 
-const Template = (args :any) => <ListView {...args} />
+const Template = (args: ListViewProps) => <ListView {...args} />
 
 export const Default = Template.bind({})
 // @ts-ignore

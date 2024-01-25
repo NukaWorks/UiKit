@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from './Link'
+import { Link, LinkProps } from './Link'
 
 export default {
   title: 'Base/Link',
@@ -11,7 +11,7 @@ export default {
   }
 }
 
-const Template = (args :any) => <Link {...args}>Hello World !</Link>
+const Template = (args: LinkProps) => <Link {...args}>Hello World !</Link>
 
 export const Default = Template.bind({})
 // @ts-ignore

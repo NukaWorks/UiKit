@@ -1,5 +1,14 @@
 import React from 'react'
+import { Meta, Story } from '@storybook/react'
 import { Button } from './Button'
+
+interface ButtonProps {
+  color: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled';
+  size: 'Small' | 'Medium' | 'Large';
+  theme: 'Light' | 'Dark';
+  label: string;
+  disabled: boolean;
+}
 
 export default {
   title: 'Base/Button',
@@ -17,15 +26,14 @@ export default {
       options: ['Light', 'Dark'],
       control: { type: 'radio' }
     },
-    label: { type: 'string' },
-    disabled: { type: 'boolean' }
+    label: { control: 'text' },
+    disabled: { control: 'boolean' }
   }
-}
+} as Meta
 
-const Template = (args :any) => <Button {...args} />
+const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
-// @ts-ignore
 Default.args = {
   color: 'Default',
   theme: 'Light',
@@ -35,7 +43,6 @@ Default.args = {
 }
 
 export const Primary = Template.bind({})
-// @ts-ignore
 Primary.args = {
   color: 'Primary',
   theme: 'Light',
@@ -45,7 +52,6 @@ Primary.args = {
 }
 
 export const Success = Template.bind({})
-// @ts-ignore
 Success.args = {
   color: 'Success',
   theme: 'Light',
@@ -55,7 +61,6 @@ Success.args = {
 }
 
 export const Warning = Template.bind({})
-// @ts-ignore
 Warning.args = {
   color: 'Warning',
   theme: 'Light',
@@ -65,7 +70,6 @@ Warning.args = {
 }
 
 export const Alert = Template.bind({})
-// @ts-ignore
 Alert.args = {
   color: 'Alert',
   theme: 'Light',
@@ -75,7 +79,6 @@ Alert.args = {
 }
 
 export const Disabled = Template.bind({})
-// @ts-ignore
 Disabled.args = {
   color: 'Disabled',
   theme: 'Light',
