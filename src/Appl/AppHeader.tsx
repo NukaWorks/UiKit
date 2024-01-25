@@ -22,6 +22,7 @@ const TextElement = styled(Text)`
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
+  white-space: nowrap;
   display: inline-block;
   vertical-align: top;`
 

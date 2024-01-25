@@ -42,6 +42,6 @@ const Template = (args :any) => <MenuBar {...args}>
   </Menu>
 </MenuBar>
 
-export const Default = Template.bind({})
+export const MenubarTest = Template.bind({})
 // @ts-ignore
-Default.args = {}
+MenubarTest.args = {}
