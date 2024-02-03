@@ -7,8 +7,8 @@ export interface MenuBarProps {
 }
 
 const MenuBarElement = styled.div`
-    display: flex
-    gap: 1px
+    display: flex;
+    gap: 1px;
 `
 
 export const HoverContext = createContext('false')
