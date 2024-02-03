@@ -1,14 +1,20 @@
-// @ts-nocheck
-
-import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from 'styled-components'
 import { StackLayout } from './StackLayout'
 
-const FlexLayoutElement = styled(StackLayout)`
+const FlexLayoutElement = styled(StackLayout)<{
+  direction: 'Vertical' | 'Horizontal';
+  alignItems: 'Start' | 'Center' | 'End' | 'Stretch';
+  alignContent: 'Start' | 'Center' | 'End' | 'Stretch';
+  justifyItems: 'Start' | 'Center' | 'End' | 'Stretch' | 'Space-Between' | 'Space-Around' | 'Space-Evenly';
+  justifyContent: 'Start' | 'Center' | 'End' | 'Stretch' | 'Space-Between' | 'Space-Around' | 'Space-Evenly';
+  wrap: 'wrap' | 'nowrap';
+  flex: number;
+  spacing: number;
+}>`
     display: flex;
     flex-direction: ${({ direction }) => direction === 'Vertical' ? 'column' : 'row'};
-    gap: ${({ spacing }) => spacing + 'px'};
+    gap: ${({ spacing }) => `${spacing}px`};
     align-items: ${({ alignItems }) => alignItems};
     justify-content: ${({ justifyContent }) => justifyContent};
     justify-items: ${({ justifyItems }) => justifyItems};
@@ -17,7 +23,20 @@ const FlexLayoutElement = styled(StackLayout)`
     flex: ${({ flex }) => flex};
 `
 
-export function FlexLayout ({
+interface FlexLayoutProps {
+  children: ReactNode;
+  className?: string;
+  spacing: number;
+  direction: 'Vertical' | 'Horizontal';
+  alignItems: 'Start' | 'Center' | 'End' | 'Stretch';
+  alignContent: 'Start' | 'Center' | 'End' | 'Stretch';
+  justifyItems: 'Start' | 'Center' | 'End' | 'Stretch' | 'Space-Between' | 'Space-Around' | 'Space-Evenly';
+  justifyContent: 'Start' | 'Center' | 'End' | 'Stretch' | 'Space-Between' | 'Space-Around' | 'Space-Evenly';
+  wrap: 'wrap' | 'nowrap';
+  flex: number;
+}
+
+export const FlexLayout: FunctionComponent<FlexLayoutProps> = ({
   children,
   className,
   spacing,
@@ -29,35 +48,21 @@ export function FlexLayout ({
   wrap,
   flex,
   ...props
-}: InferProps<typeof FlexLayout.propTypes>) {
+}) => {
   return (
     <FlexLayoutElement
-        className={['Misc__FlexLayout', 'FlexLayout', className].join(' ')}
-        spacing={spacing}
-        direction={direction}
-        alignItems={alignItems}
-        alignContent={alignContent}
-        justifyItems={justifyItems}
-        justifyContent={justifyContent}
-        wrap={wrap}
-        flex={flex}
-        {...props}
+      className={['Misc__FlexLayout', 'FlexLayout', className].join(' ')}
+      spacing={spacing}
+      direction={direction}
+      alignItems={alignItems}
+      alignContent={alignContent}
+      justifyItems={justifyItems}
+      justifyContent={justifyContent}
+      wrap={wrap}
+      flex={flex}
+      {...props}
     >
-      { children }
+      {children}
     </FlexLayoutElement>
   )
-}
-
-FlexLayout.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.any,
-  spacing: PropTypes.number,
-  direction: PropTypes.oneOf<string>(['Vertical', 'Horizontal']),
-  alignItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
-  alignContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch']),
-  justifyItems: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch', 'Space-Between', 'Space-Around', 'Space-Evenly']),
-  justifyContent: PropTypes.oneOf<string>(['Start', 'Center', 'End', 'Stretch', 'Space-Between', 'Space-Around', 'Space-Evenly']),
-  wrap: PropTypes.oneOf<string>(['wrap', 'nowrap']),
-  flex: PropTypes.number,
-  props: PropTypes.any
 }

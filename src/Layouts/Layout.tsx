@@ -1,21 +1,38 @@
-// @ts-nocheck
-
-import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from 'styled-components'
 
-const LayoutElement = styled.div`
-  display: block;
-  overflow: ${({ overflow }) => overflow};
-  width: ${({ width }) => width + 'px'};
-  height: ${({ height }) => height + 'px'};
-  min-width: ${({ minWidth }) => minWidth + 'px'};
-  min-height: ${({ minHeight }) => minHeight + 'px'};
-  max-width: ${({ maxWidth }) => maxWidth + 'px'};
-  max-height: ${({ maxHeight }) => maxHeight + 'px'};;
+const LayoutElement = styled.div<{
+  overflow?: string;
+  width?: number;
+  height?: number;
+  minWidth?: number;
+  minHeight?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+}>`
+    display: block;
+    overflow: ${({ overflow }) => overflow};
+    width: ${({ width }) => width ? width + 'px' : 'auto'};
+    height: ${({ height }) => height ? height + 'px' : 'auto'};
+    min-width: ${({ minWidth }) => minWidth ? minWidth + 'px' : 'auto'};
+    min-height: ${({ minHeight }) => minHeight ? minHeight + 'px' : 'auto'};
+    max-width: ${({ maxWidth }) => maxWidth ? maxWidth + 'px' : 'auto'};
+    max-height: ${({ maxHeight }) => maxHeight ? maxHeight + 'px' : 'auto'};
 `
 
-export function Layout ({
+interface LayoutProps {
+  children: ReactNode;
+  className?: string;
+  overflow?: 'hidden' | 'scroll';
+  width?: number;
+  height?: number;
+  minWidth?: number;
+  minHeight?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+}
+
+export const Layout: FunctionComponent<LayoutProps> = ({
   children,
   overflow,
   width,
@@ -26,7 +43,7 @@ export function Layout ({
   maxHeight,
   className,
   ...props
-}: InferProps<typeof Layout.propTypes>) {
+}) => {
   return (
     <LayoutElement
       className={['Layouts__Layout', 'Layout', className].join(' ')}
@@ -42,18 +59,4 @@ export function Layout ({
       {children}
     </LayoutElement>
   )
-}
-
-Layout.propTypes = {
-  className: PropTypes.string,
-  overflow: PropTypes.oneOf<string>(['hidden', 'scroll']),
-  children: PropTypes.any,
-  scrollable: PropTypes.bool,
-  props: PropTypes.any,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  minWidth: PropTypes.number,
-  minHeight: PropTypes.number,
-  maxWidth: PropTypes.number,
-  maxHeight: PropTypes.number
 }

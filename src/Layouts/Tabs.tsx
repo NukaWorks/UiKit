@@ -1,21 +1,34 @@
-import PropTypes, { InferProps } from 'prop-types'
-import React, { useEffect, useState } from 'react'
-import {
-  childrenPropType,
-  onSelectPropType,
-  selectedIndexPropType
-} from '../Common/Helpers/Tabs/propTypes'
+import React, { FunctionComponent, ReactNode, useEffect, useState } from 'react'
 import { UncontrolledTabs } from './UncontrolledTabs'
 import { getTabsCount } from '../Common/Helpers/Tabs/count'
 
 const MODE_CONTROLLED = 0
 const MODE_UNCONTROLLED = 1
 
-const getModeFromProps = (props) => {
+interface TabsProps {
+  children: ReactNode;
+  className?: string | string[] | object;
+  defaultFocus?: boolean;
+  defaultIndex?: number;
+  direction?: 'rtl' | 'ltr';
+  disabledTabClassName?: string;
+  disableUpDownKeys?: boolean;
+  disableLeftRightKeys?: boolean;
+  domRef?: (node: HTMLElement) => void;
+  environment?: object;
+  focusTabOnClick?: boolean;
+  forceRenderTabPanel?: boolean;
+  onSelect?: (index: number, last: number, event: Event) => boolean | void;
+  selectedIndex?: number | null;
+  selectedTabClassName?: string;
+  selectedTabPanelClassName?: string;
+}
+
+const getModeFromProps = (props: Omit<TabsProps, 'focusTabOnClick' | 'defaultFocus' | 'defaultIndex' | 'children' | 'onSelect'>) => {
   return props.selectedIndex === null ? MODE_UNCONTROLLED : MODE_CONTROLLED
 }
 
-const checkForIllegalModeChange = (props, mode) => {
+const checkForIllegalModeChange = (props: Omit<TabsProps, 'focusTabOnClick' | 'defaultFocus' | 'defaultIndex' | 'children' | 'onSelect'>, mode: number) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     mode !== undefined &&
@@ -28,30 +41,22 @@ For more information about controlled and uncontrolled mode of react-tabs see ht
   }
 }
 
-/**
- * State:
- *   mode: Initialized only once from props and never changes
- *   selectedIndex: null if controlled mode, otherwise initialized with prop defaultIndex, changed on selection of tabs, has effect to ensure it never gets out of bound
- *   focus: Because we never remove focus from the Tabs this state is only used to indicate that we should focus the current tab.
- *          It is initialized from the prop defaultFocus, and after the first render it is reset back to false. Later it can become true again when using keys to navigate the tabs.
- */
-export function Tabs ({
+export const Tabs: FunctionComponent<TabsProps> = ({
   children,
-  defaultFocus,
-  defaultIndex,
-  focusTabOnClick,
+  defaultFocus = false,
+  defaultIndex = null,
+  focusTabOnClick = true,
   onSelect,
   ...props
-}): InferProps<typeof Tabs.propTypes> {
+}) => {
   const [focus, setFocus] = useState(defaultFocus)
   const [mode] = useState(getModeFromProps(props))
-  const [selectedIndex, setSelectedIndex] = useState(
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(
     mode === MODE_UNCONTROLLED ? defaultIndex || 0 : null
   )
 
   useEffect(() => {
-    // Reset focus after initial render, see comment above
-    setFocus(false)
+    setFocus(false) // Reset focus after initial render, see comment above
   }, [])
 
   if (mode === MODE_UNCONTROLLED) {
@@ -67,7 +72,7 @@ export function Tabs ({
 
   checkForIllegalModeChange(props, mode)
 
-  const handleSelected = (index, last, event) => {
+  const handleSelected = (index: number, last: number, event: Event) => {
     // Call change event handler
     if (typeof onSelect === 'function') {
       // Check if the change event handler cancels the tab change
@@ -85,51 +90,16 @@ export function Tabs ({
     }
   }
 
-  const subProps = { ...props }
-
-  subProps.focus = focus
-  subProps.onSelect = handleSelected
-
-  if (selectedIndex != null) {
-    subProps.selectedIndex = selectedIndex
+  const subProps = {
+    ...props,
+    focus,
+    onSelect: handleSelected,
+    ...(selectedIndex != null ? { selectedIndex } : {})
   }
-  delete subProps.defaultFocus
-  delete subProps.defaultIndex
-  delete subProps.focusTabOnClick
+
+  // @ts-ignore
   return <UncontrolledTabs {...subProps}>{children}</UncontrolledTabs>
 }
 
+// @ts-ignore
 Tabs.tabsRole = 'Tabs'
-
-Tabs.propTypes = {
-  children: childrenPropType,
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  defaultFocus: PropTypes.bool,
-  defaultIndex: PropTypes.number,
-  direction: PropTypes.oneOf(['rtl', 'ltr']),
-  disabledTabClassName: PropTypes.string,
-  disableUpDownKeys: PropTypes.bool,
-  disableLeftRightKeys: PropTypes.bool,
-  domRef: PropTypes.func,
-  environment: PropTypes.object,
-  focusTabOnClick: PropTypes.bool,
-  forceRenderTabPanel: PropTypes.bool,
-  onSelect: onSelectPropType,
-  selectedIndex: selectedIndexPropType,
-  selectedTabClassName: PropTypes.string,
-  selectedTabPanelClassName: PropTypes.string
-}
-Tabs.defaultProps = {
-  defaultFocus: false,
-  focusTabOnClick: true,
-  forceRenderTabPanel: false,
-  selectedIndex: null,
-  defaultIndex: null,
-  environment: null,
-  disableUpDownKeys: false,
-  disableLeftRightKeys: false
-}

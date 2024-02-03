@@ -1,44 +1,51 @@
-// @ts-nocheck
-
-import PropTypes, { InferProps } from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import React, { FunctionComponent, ReactNode, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
-const TabElement = styled.li`
-  display: inline-block;
-  padding: 0.5em;
-  border-radius: 5px;
-  background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.1)' : 'none'};
-  outline: none;
-  user-select: none;
-  cursor: default;
-  transition: background-color 0.1s ease-in-out;
-  
-  :hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  
-  :active {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+const TabElement = styled.li<{ selected: boolean }>`
+    display: inline-block;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: ${({ selected }) => selected ? 'rgba(0, 0, 0, 0.1)' : 'none'};
+    outline: none;
+    user-select: none;
+    cursor: default;
+    transition: background-color 0.1s ease-in-out;
+
+    :hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    :active {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 `
 
-export function Tab ({
+interface TabProps {
+  children: ReactNode;
+  className?: string | string[] | object;
+  disabled?: boolean;
+  focus?: boolean; // marked as private in PropTypes
+  id: string; // marked as private in PropTypes
+  selected?: boolean; // marked as private in PropTypes
+  tabIndex?: string;
+  tabRef?: (node: HTMLElement | null) => void; // marked as private in PropTypes
+}
+
+export const Tab: FunctionComponent<TabProps> = ({
   children,
   className,
   disabled,
-  focus,
+  focus = false,
   id,
-  selected,
+  selected = false,
   tabIndex,
   tabRef,
   ...props
-}): InferProps<typeof Tab.propTypes> {
-  const nodeRef = useRef()
+}) => {
+  const nodeRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    if (selected && focus) {
-      // @ts-ignore
+    if (selected && focus && nodeRef.current) {
       nodeRef.current.focus()
     }
   }, [selected, focus])
@@ -58,7 +65,8 @@ export function Tab ({
       aria-selected={selected ? 'true' : 'false'}
       aria-disabled={disabled ? 'true' : 'false'}
       aria-controls={`panel${id}`}
-      tabIndex={tabIndex || (selected ? '0' : null)}
+      // @ts-ignore
+      tabIndex={tabIndex || (selected ? '0' : '-1')}
       data-uitab
     >
       {children}
@@ -66,29 +74,5 @@ export function Tab ({
   )
 }
 
+// @ts-ignore
 Tab.tabsRole = 'Tab'
-
-Tab.defaultProps = {
-  focus: false,
-  id: null,
-  selected: false
-}
-
-Tab.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-    PropTypes.string
-  ]),
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  disabled: PropTypes.bool,
-  focus: PropTypes.bool, // private
-  id: PropTypes.string, // private
-  selected: PropTypes.bool, // private
-  tabIndex: PropTypes.string,
-  tabRef: PropTypes.func // private
-}

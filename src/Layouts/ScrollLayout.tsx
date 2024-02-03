@@ -1,18 +1,22 @@
-import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from 'styled-components'
 import { Layout } from './Layout'
 
 const ScrollLayoutElement = styled(Layout)`
-  display: block;
-  overflow: scroll;
+    display: block;
+    overflow: scroll;
 `
 
-export function ScrollLayout ({
+interface ScrollLayoutProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export const ScrollLayout: FunctionComponent<ScrollLayoutProps> = ({
   children,
   className,
   ...props
-}: InferProps<typeof ScrollLayout.propTypes>) {
+}) => {
   return (
     <ScrollLayoutElement
       className={['Layouts__ScrollLayout', 'ScrollLayout', className].join(' ')}
@@ -21,10 +25,4 @@ export function ScrollLayout ({
       {children}
     </ScrollLayoutElement>
   )
-}
-
-ScrollLayout.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.any,
-  props: PropTypes.any
 }

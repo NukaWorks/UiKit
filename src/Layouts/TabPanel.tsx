@@ -1,14 +1,21 @@
-import PropTypes, { InferProps } from 'prop-types'
-import React from 'react'
+import React, { ReactNode } from 'react'
+
+interface TabPanelProps {
+  children: ReactNode;
+  className?: string | string[] | object;
+  forceRender?: boolean;
+  id: string;
+  selected?: boolean;
+}
 
 export function TabPanel ({
   children,
   className,
-  forceRender,
+  forceRender = false,
   id,
   selected,
   ...props
-}): InferProps<typeof TabPanel.propTypes> {
+}: TabPanelProps) {
   return (
     <div
       {...props}
@@ -23,18 +30,3 @@ export function TabPanel ({
 }
 
 TabPanel.tabsRole = 'TabPanel'
-
-TabPanel.defaultProps = {
-  forceRender: false
-}
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
-  forceRender: PropTypes.bool,
-  id: PropTypes.string, // private
-  selected: PropTypes.bool // private
-}
