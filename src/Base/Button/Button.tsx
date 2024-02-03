@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, useEffect, useState } from 'react'
 import './Button.scss'
 
-interface ButtonProps {
+export interface ButtonProps {
   color?: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled'
   theme?: 'Light' | 'Dark'
   size?: 'Small' | 'Medium' | 'Large'

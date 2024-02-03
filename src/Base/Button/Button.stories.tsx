@@ -1,16 +1,7 @@
-import React from 'react'
-import { Meta, Story } from '@storybook/react'
-import { Button } from './Button'
+import { Meta, StoryObj } from '@storybook/react'
+import { Button, ButtonProps } from './Button'
 
-interface ButtonProps {
-  color: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled';
-  size: 'Small' | 'Medium' | 'Large';
-  theme: 'Light' | 'Dark';
-  label: string;
-  disabled: boolean;
-}
-
-export default {
+const meta: Meta<ButtonProps> = {
   title: 'Base/Button',
   component: Button,
   argTypes: {
@@ -29,60 +20,67 @@ export default {
     label: { control: 'text' },
     disabled: { control: 'boolean' }
   }
-} as Meta
-
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
-
-export const Default = Template.bind({})
-Default.args = {
-  color: 'Default',
-  theme: 'Light',
-  label: 'Default',
-  disabled: false,
-  size: 'Small'
 }
 
-export const Primary = Template.bind({})
-Primary.args = {
-  color: 'Primary',
-  theme: 'Light',
-  label: 'Primary',
-  disabled: false,
-  size: 'Small'
-}
+type Story = StoryObj<typeof meta>
+export const Default = {
+  args: {
+    color: 'Default',
+    theme: 'Light',
+    label: 'Default',
+    disabled: false,
+    size: 'Small'
+  }
+} satisfies Story
 
-export const Success = Template.bind({})
-Success.args = {
-  color: 'Success',
-  theme: 'Light',
-  label: 'Success',
-  disabled: false,
-  size: 'Small'
-}
+export const Primary = {
+  args: {
+    color: 'Primary',
+    theme: 'Light',
+    label: 'Primary',
+    disabled: false,
+    size: 'Small'
+  }
+} satisfies Story
 
-export const Warning = Template.bind({})
-Warning.args = {
-  color: 'Warning',
-  theme: 'Light',
-  label: 'Warning',
-  disabled: false,
-  size: 'Small'
-}
+export const Success = {
+  args: {
+    color: 'Success',
+    theme: 'Light',
+    label: 'Success',
+    disabled: false,
+    size: 'Small'
+  }
+} satisfies Story
 
-export const Alert = Template.bind({})
-Alert.args = {
-  color: 'Alert',
-  theme: 'Light',
-  label: 'Alert',
-  disabled: false,
-  size: 'Small'
-}
+export const Warning = {
+  args: {
+    color: 'Warning',
+    theme: 'Light',
+    label: 'Warning',
+    disabled: false,
+    size: 'Small'
+  }
+} satisfies Story
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-  color: 'Disabled',
-  theme: 'Light',
-  label: 'Disabled',
-  disabled: true,
-  size: 'Small'
-}
+export const Alert = {
+  args: {
+    color: 'Alert',
+    theme: 'Light',
+    label: 'Alert',
+    disabled: false,
+    size: 'Small'
+  }
+} satisfies Story
+
+export const Disabled = {
+  args: {
+    color: 'Default',
+    theme: 'Light',
+    label: 'Disabled',
+    disabled: true,
+    size: 'Small'
+  }
+} satisfies Story
+
+export default meta
