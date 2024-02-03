@@ -1,12 +1,19 @@
+import React from 'react'
+
+// Assuming these functions are correctly typed
 import { deepForEach } from './childrenDeepMap'
 import { isTab, isTabList, isTabPanel } from './elementTypes'
 
-export function childrenPropType (props, propName, componentName) {
-  let error
+export function childrenPropType (
+  props: { [key: string]: any },
+  propName: string,
+  componentName: string
+): Error | null {
+  let error: Error | null = null
   let tabsCount = 0
   let panelsCount = 0
   let tabListFound = false
-  const listTabs = []
+  const listTabs: React.ReactElement[] = []
   const children = props[propName]
 
   deepForEach(children, (child) => {
@@ -52,15 +59,15 @@ export function childrenPropType (props, propName, componentName) {
 }
 
 export function onSelectPropType (
-  props,
-  propName,
-  componentName,
-  location,
-  propFullName
-) {
+  props: { [key: string]: any },
+  propName: string,
+  componentName: string,
+  location: string,
+  propFullName?: string
+): Error | null {
   const prop = props[propName]
   const name = propFullName || propName
-  let error = null
+  let error: Error | null = null
 
   if (prop && typeof prop !== 'function') {
     error = new Error(
@@ -74,7 +81,7 @@ export function onSelectPropType (
       '`onSelect` is required when `selectedIndex` is also set. Not doing so will ' +
       'make the tabs not do anything, as `selectedIndex` indicates that you want to ' +
       'handle the selected tab yourself.\n' +
-      'If you only want to set the inital tab replace `selectedIndex` with `defaultIndex`.'
+      'If you only want to set the initial tab replace `selectedIndex` with `defaultIndex`.'
     )
   }
 
@@ -82,15 +89,15 @@ export function onSelectPropType (
 }
 
 export function selectedIndexPropType (
-  props,
-  propName,
-  componentName,
-  location,
-  propFullName
-) {
+  props: { [key: string]: any },
+  propName: string,
+  componentName: string,
+  location: string,
+  propFullName?: string
+): Error | null {
   const prop = props[propName]
   const name = propFullName || propName
-  let error = null
+  let error: Error | null = null
 
   if (prop != null && typeof prop !== 'number') {
     error = new Error(
@@ -98,7 +105,7 @@ export function selectedIndexPropType (
       `\`${componentName}\`, expected \`number\`.`
     )
   } else if (props.defaultIndex != null && prop != null) {
-    return new Error(
+    error = new Error(
       `The ${location} \`${name}\` cannot be used together with \`defaultIndex\` ` +
       `in \`${componentName}\`.\n` +
       `Either remove \`${name}\` to let \`${componentName}\` handle the selected ` +

@@ -185,6 +185,7 @@ export const UncontrolledTabs: FunctionComponent<TabProps> = (props) => {
         const env = environment || (typeof window !== 'undefined' ? window : undefined)
         if (canUseActiveElement && env) {
           wasTabFocused = React.Children.toArray(child.props.children)
+            // @ts-ignore
             .filter(isTab)
             .some((tab, i) => env.document.activeElement === getTab(i))
         }

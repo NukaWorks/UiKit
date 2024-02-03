@@ -22,6 +22,7 @@ export function AppActivity ({
   ...props
 }: AppActivityProps) {
   return (
+    // @ts-ignore
     <AppActivityElement
       className={[`App__${theme}`, 'Appl__AppActivity', 'AppActivity', className].join(' ')}
       direction={direction}

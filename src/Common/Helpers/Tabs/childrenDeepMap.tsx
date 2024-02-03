@@ -1,11 +1,12 @@
 import { Children, cloneElement } from 'react'
-import { isTabPanel, isTab, isTabList } from './elementTypes'
+import { isTab, isTabList, isTabPanel } from './elementTypes'
 
-function isTabChild (child) {
+function isTabChild (child: any) {
   return isTab(child) || isTabList(child) || isTabPanel(child)
 }
 
-export function deepMap (children, callback) {
+// @ts-ignore
+export function deepMap (children: any, callback: any) {
   return Children.map(children, (child) => {
     // null happens when conditionally rendering TabPanel/Tab
     // see https://github.com/reactjs/react-tabs/issues/37
@@ -31,7 +32,7 @@ export function deepMap (children, callback) {
   })
 }
 
-export function deepForEach (children, callback) {
+export function deepForEach (children: any, callback: (child: any) => void) {
   return Children.forEach(children, (child) => {
     // null happens when conditionally rendering TabPanel/Tab
     // see https://github.com/reactjs/react-tabs/issues/37
