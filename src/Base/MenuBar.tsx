@@ -11,7 +11,7 @@ const MenuBarElement = styled.div`
     gap: 1px;
 `
 
-export const HoverContext = createContext('false')
+export const HoverContext = createContext(false)
 
 export function MenuBar ({
   children,
@@ -19,7 +19,7 @@ export function MenuBar ({
   ...props
 }: MenuBarProps) {
   return (
-    <HoverContext.Provider value={'false'}>
+    <HoverContext.Provider value={false}>
       <MenuBarElement
         className={['Base__MenuBar', 'MenuBar', className].join(' ')}
         {...props}

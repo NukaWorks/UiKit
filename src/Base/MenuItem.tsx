@@ -26,14 +26,15 @@ const MenuItemElement = styled.div`
     border-radius: 5px;
     white-space: nowrap;
 
-    :hover {
+    &:hover {
         background-color: #1EA7FD;
         color: white;
     }
 
-    :active {
+    &:active {
         background-color: #1c9ae8;
         animation: ${blinkAnim} 0.030s;
+        color: white;
     }
 `
 

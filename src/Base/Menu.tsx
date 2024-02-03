@@ -28,7 +28,7 @@ const MenuTitleElement = styled.div`
     padding: 0.4em;
     width: fit-content;
 
-    :hover {
+    &:hover {
         background-color: rgba(234, 234, 234, 0.4);
     }
 `
