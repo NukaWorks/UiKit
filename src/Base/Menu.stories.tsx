@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import { Menu, MenuProps } from './Menu'
-import { MenuItem } from './MenuItem'
-import { MenuList } from './MenuList'
+import { Menu, MenuProps } from "./Menu";
+import { MenuItem } from "./MenuItem";
+import { MenuList } from "./MenuList";
 
 export default {
-  title: 'Base/Menu',
-  component: Menu
-}
+  title: "Base/Menu",
+  component: Menu,
+};
 
-const Template = (args: MenuProps) =>
+const Template = (args: MenuProps) => (
   <Menu {...args}>
     <MenuList>
       <MenuItem>About This Mac</MenuItem>
@@ -27,9 +27,10 @@ const Template = (args: MenuProps) =>
       <MenuItem>Log Out...</MenuItem>
     </MenuList>
   </Menu>
+);
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
-  title: 'Apple Logo'
-}
+  title: "Apple Logo",
+};

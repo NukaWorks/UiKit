@@ -1,8 +1,8 @@
 // Import fonts here
 // Using Google Fonts CDN
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
-@import 'colors';
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded");
+@import "colors";
 
 // Default config
 body {
@@ -14,14 +14,16 @@ body {
   font-size: 9pt;
 }
 
- .material-symbols-rounded {
-   font-family: Material Symbols Rounded, sans-serif;
-   font-variation-settings:
-           'FILL' 0,
-           'wght' 500,
-           'GRAD' 0,
-           'opsz' 48
- }
+.material-symbols-rounded {
+  font-family:
+    Material Symbols Rounded,
+    sans-serif;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
 
 .App {
   &__Light {

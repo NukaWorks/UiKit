@@ -1,11 +1,11 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import styled from 'styled-components'
-import { Layout } from './Layout'
+import React, { FunctionComponent, ReactNode } from "react";
+import styled from "styled-components";
+import { Layout } from "./Layout";
 
 const ScrollLayoutElement = styled(Layout)`
-    display: block;
-    overflow: scroll;
-`
+  display: block;
+  overflow: scroll;
+`;
 
 interface ScrollLayoutProps {
   children: ReactNode;
@@ -19,10 +19,10 @@ export const ScrollLayout: FunctionComponent<ScrollLayoutProps> = ({
 }) => {
   return (
     <ScrollLayoutElement
-      className={['Layouts__ScrollLayout', 'ScrollLayout', className].join(' ')}
+      className={["Layouts__ScrollLayout", "ScrollLayout", className].join(" ")}
       {...props}
     >
       {children}
     </ScrollLayoutElement>
-  )
-}
+  );
+};

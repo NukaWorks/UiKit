@@ -1,68 +1,67 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import styled from 'styled-components'
-import { useDetectClickOutside } from 'react-detect-click-outside'
+import React, { ReactNode, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
 export interface MenuProps {
-  className?: string
-  title: ReactNode
-  children?: ReactNode
+  className?: string;
+  title: ReactNode;
+  children?: ReactNode;
 }
 
-function menuDrop (displayMenu: boolean, children: ReactNode) {
-  if (displayMenu) return children
+function menuDrop(displayMenu: boolean, children: ReactNode) {
+  if (displayMenu) return children;
 }
 
 const MenuElement = styled.div`
-    font-family: "Outfit", sans-serif;
+  font-family: "Outfit", sans-serif;
 
-    .active {
-        background-color: rgba(234, 234, 234, 0.4);
-    }
-`
+  .active {
+    background-color: rgba(234, 234, 234, 0.4);
+  }
+`;
 
 const MenuTitleElement = styled.div`
-    font-size: 10pt;
-    border-radius: 5px;
-    user-select: none;
-    -webkit-user-select: none;
-    padding: 0.4em;
-    width: fit-content;
+  font-size: 10pt;
+  border-radius: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 0.4em;
+  width: fit-content;
 
-    &:hover {
-        background-color: rgba(234, 234, 234, 0.4);
-    }
-`
+  &:hover {
+    background-color: rgba(234, 234, 234, 0.4);
+  }
+`;
 
-export function Menu ({
-  children,
-  className,
-  title,
-  ...props
-}: MenuProps) {
-  const [displayMenu, setDisplayMenu] = useState(false)
-  const ref = useDetectClickOutside({ onTriggered: () => setDisplayMenu(false) })
-  const menuTitle = useRef<HTMLDivElement>(null)
+export function Menu({ children, className, title, ...props }: MenuProps) {
+  const [displayMenu, setDisplayMenu] = useState(false);
+  const ref = useDetectClickOutside({
+    onTriggered: () => setDisplayMenu(false),
+  });
+  const menuTitle = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (displayMenu) {
-      menuTitle.current?.classList.add('active')
+      menuTitle.current?.classList.add("active");
     } else {
-      menuTitle.current?.classList.remove('active')
+      menuTitle.current?.classList.remove("active");
     }
-  }, [displayMenu])
+  }, [displayMenu]);
 
   return (
     <MenuElement
-      className={['Base__Menu', 'Menu', className].join(' ')}
+      className={["Base__Menu", "Menu", className].join(" ")}
       ref={ref}
-      onClick={e => {
-        setDisplayMenu(!displayMenu)
-        e.preventDefault()
+      onClick={(e) => {
+        setDisplayMenu(!displayMenu);
+        e.preventDefault();
       }}
       {...props}
     >
-      <MenuTitleElement className={'Base__Menu--Title'} ref={menuTitle}>{title}</MenuTitleElement>
+      <MenuTitleElement className={"Base__Menu--Title"} ref={menuTitle}>
+        {title}
+      </MenuTitleElement>
       {menuDrop(displayMenu, children)}
     </MenuElement>
-  )
+  );
 }

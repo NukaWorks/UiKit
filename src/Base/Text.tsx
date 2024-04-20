@@ -1,26 +1,27 @@
-import React, { CSSProperties, ReactNode, useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React, { CSSProperties, ReactNode, useEffect, useState } from "react";
+import styled from "styled-components";
 
 export interface TextProps {
-  className?: string
-  style?: CSSProperties
-  text?: string
-  disabled?: boolean
-  color?: string
-  size?: number
-  children?: ReactNode
+  className?: string;
+  style?: CSSProperties;
+  text?: string;
+  disabled?: boolean;
+  color?: string;
+  size?: number;
+  children?: ReactNode;
 }
 
-const TextElement = styled.div<{ disabled?: boolean, color?: string, size?: number }>`
-    font-family: "Outfit", sans-serif;
-    font-size: ${({ size }) => size ? size + 'pt' : '9pt'};
-    color: ${({
-        disabled,
-        color
-    }) => disabled ? '#bababa' : color || 'black'};
-`
+const TextElement = styled.div<{
+  disabled?: boolean;
+  color?: string;
+  size?: number;
+}>`
+  font-family: "Outfit", sans-serif;
+  font-size: ${({ size }) => (size ? size + "pt" : "9pt")};
+  color: ${({ disabled, color }) => (disabled ? "#bababa" : color || "black")};
+`;
 
-export function Text ({
+export function Text({
   className,
   style,
   text,
@@ -30,15 +31,20 @@ export function Text ({
   children,
   ...props
 }: TextProps) {
-  const [disable, setDisable] = useState(disabled)
+  const [disable, setDisable] = useState(disabled);
 
   useEffect(() => {
-    setDisable(disabled)
-  }, [disabled])
+    setDisable(disabled);
+  }, [disabled]);
 
   return (
     <TextElement
-      className={['Base__Text', 'Text', disable ? 'Base__Text--Disabled' : '', className].join(' ')}
+      className={[
+        "Base__Text",
+        "Text",
+        disable ? "Base__Text--Disabled" : "",
+        className,
+      ].join(" ")}
       disabled={disable}
       size={size}
       color={color}
@@ -47,5 +53,5 @@ export function Text ({
     >
       {text || children}
     </TextElement>
-  )
+  );
 }

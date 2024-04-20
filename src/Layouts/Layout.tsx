@@ -1,5 +1,5 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import styled from 'styled-components'
+import React, { FunctionComponent, ReactNode } from "react";
+import styled from "styled-components";
 
 const LayoutElement = styled.div<{
   overflow?: string;
@@ -10,20 +10,20 @@ const LayoutElement = styled.div<{
   maxWidth?: number;
   maxHeight?: number;
 }>`
-    display: block;
-    overflow: ${({ overflow }) => overflow};
-    width: ${({ width }) => width ? width + 'px' : 'auto'};
-    height: ${({ height }) => height ? height + 'px' : 'auto'};
-    min-width: ${({ minWidth }) => minWidth ? minWidth + 'px' : 'auto'};
-    min-height: ${({ minHeight }) => minHeight ? minHeight + 'px' : 'auto'};
-    max-width: ${({ maxWidth }) => maxWidth ? maxWidth + 'px' : 'auto'};
-    max-height: ${({ maxHeight }) => maxHeight ? maxHeight + 'px' : 'auto'};
-`
+  display: block;
+  overflow: ${({ overflow }) => overflow};
+  width: ${({ width }) => (width ? width + "px" : "auto")};
+  height: ${({ height }) => (height ? height + "px" : "auto")};
+  min-width: ${({ minWidth }) => (minWidth ? minWidth + "px" : "auto")};
+  min-height: ${({ minHeight }) => (minHeight ? minHeight + "px" : "auto")};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth + "px" : "auto")};
+  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight + "px" : "auto")};
+`;
 
 interface LayoutProps {
   children: ReactNode;
   className?: string;
-  overflow?: 'hidden' | 'scroll';
+  overflow?: "hidden" | "scroll";
   width?: number;
   height?: number;
   minWidth?: number;
@@ -46,7 +46,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   return (
     <LayoutElement
-      className={['Layouts__Layout', 'Layout', className].join(' ')}
+      className={["Layouts__Layout", "Layout", className].join(" ")}
       overflow={overflow}
       width={width}
       height={height}
@@ -58,5 +58,5 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     >
       {children}
     </LayoutElement>
-  )
-}
+  );
+};

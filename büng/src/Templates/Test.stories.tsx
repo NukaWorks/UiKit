@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import { Test } from './Test'
+import { Test } from "./Test";
 
 export default {
-  title: 'Category/Test',
-  component: Test
-}
+  title: "Category/Test",
+  component: Test,
+};
 
-const Template = (args :any) => <Test {...args} />
+const Template = (args: any) => <Test {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 // @ts-ignore
-Default.args = {}
+Default.args = {};

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
 interface TabPanelProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface TabPanelProps {
   selected?: boolean;
 }
 
-export function TabPanel ({
+export function TabPanel({
   children,
   className,
   forceRender = false,
@@ -19,14 +19,18 @@ export function TabPanel ({
   return (
     <div
       {...props}
-      className={['Layouts__TabPanel', 'TabPanel', selected ? 'Layouts__TabPanel--selected' : ''].join(' ')}
+      className={[
+        "Layouts__TabPanel",
+        "TabPanel",
+        selected ? "Layouts__TabPanel--selected" : "",
+      ].join(" ")}
       role="tabpanel"
       id={`panel${id}`}
       aria-labelledby={`tab${id}`}
     >
       {forceRender || selected ? children : null}
     </div>
-  )
+  );
 }
 
-TabPanel.tabsRole = 'TabPanel'
+TabPanel.tabsRole = "TabPanel";

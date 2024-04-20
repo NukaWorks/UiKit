@@ -1,34 +1,34 @@
-import React from 'react'
+import React from "react";
 
-import { Spinner } from './Spinner'
+import { Spinner } from "./Spinner";
 
 export default {
-  title: 'Misc/Spinner',
+  title: "Misc/Spinner",
   component: Spinner,
   argTypes: {
     color: {
-      options: ['Default', 'Blue'],
-      control: { type: 'select' }
+      options: ["Default", "Blue"],
+      control: { type: "select" },
     },
     size: {
-      options: ['Small', 'Medium', 'Large'],
-      control: { type: 'select' }
-    }
-  }
-}
+      options: ["Small", "Medium", "Large"],
+      control: { type: "select" },
+    },
+  },
+};
 
-const Template = (args :any) => <Spinner {...args} />
+const Template = (args: any) => <Spinner {...args} />;
 
-export const Default = Template.bind({})
+export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
-  size: 'Medium',
-  color: 'Default'
-}
+  size: "Medium",
+  color: "Default",
+};
 
-export const Blue = Template.bind({})
+export const Blue = Template.bind({});
 // @ts-ignore
 Blue.args = {
-  size: 'Medium',
-  color: 'Blue'
-}
+  size: "Medium",
+  color: "Blue",
+};
