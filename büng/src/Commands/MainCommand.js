@@ -1,29 +1,29 @@
-const { Command } = require('commander')
-const { version } = require('../../package.json')
-const { makeComponent, makeStory } = require('../Utils/CompntMgmt')
-const program = new Command()
+const { Command } = require("commander");
+const { version } = require("../../package.json");
+const { makeComponent, makeStory } = require("../Utils/CompntMgmt");
+const program = new Command();
 
-function mainCommand (argv) {
+function mainCommand(argv) {
   program
-    .name('büng')
-    .description('Büng, the component maker.')
-    .version(version)
+    .name("büng")
+    .description("Büng, the component maker.")
+    .version(version);
 
   program
-    .command('make-component <name> <category>')
-    .description('Make a new component with story.')
+    .command("make-component <name> <category>")
+    .description("Make a new component with story.")
     .action((name, category) => {
-      makeComponent(name, category)
-    })
+      makeComponent(name, category);
+    });
 
   program
-    .command('make-story <name> <category>')
-    .description('Make a new story.')
+    .command("make-story <name> <category>")
+    .description("Make a new story.")
     .action((name, category) => {
-      makeStory(name, category)
-    })
+      makeStory(name, category);
+    });
 
-  program.parse(argv)
+  program.parse(argv);
 }
 
-module.exports = { mainCommand }
+module.exports = { mainCommand };

@@ -1,7 +1,7 @@
-const { mainCommand } = require('./Commands/MainCommand')
+const { mainCommand } = require("./Commands/MainCommand");
 
-function init () {
-  mainCommand(process.argv)
+function init() {
+  mainCommand(process.argv);
 }
 
-init()
+init();
