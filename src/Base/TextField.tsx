@@ -22,13 +22,13 @@ const TextFieldElement = styled.input<{ invalid?: boolean }>`
   border-radius: 300px;
   background-color: ${(props) => props.theme.backgroundColor};
 
-  :focus-within {
+  &:focus-within {
     box-shadow: ${(props) =>
         props.invalid ? "rgba(248,85,85,0.5)" : props.theme.outlineColor}
       0 0 0 0.2em;
   }
 
-  :disabled {
+  &:disabled {
     opacity: 0.6;
   }
 `;
