@@ -14,6 +14,7 @@ import { ListView } from "./Base/ListView";
 // Application Components
 import { AppHeader } from "./App/AppHeader";
 import { UiApp } from "./App/UiApp";
+import { Dialog } from "./App/Dialog";
 
 // Layouts Components
 import { StackLayout } from "./Layouts/StackLayout";
@@ -59,4 +60,5 @@ export {
   Tabs,
   Tab,
   Layout,
+  Dialog,
 };
