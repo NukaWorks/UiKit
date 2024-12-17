@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 export interface LinkProps {
@@ -13,20 +13,19 @@ const LinkElement = styled.a<LinkProps>`
   font-weight: 500;
   color: ${(props) =>
     props.disabled ? props.theme.disabledColor : props.theme.color};
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   padding-inline: 5px;
   border-radius: 5px;
   text-decoration: none;
 
-  :hover {
+  &:hover {
     background-color: ${(props) =>
       props.disabled ? "transparent" : props.theme.backgroundColor};
     color: ${(props) =>
       props.disabled ? props.theme.disabledColor : props.theme.hoverColor};
-    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   }
 
-  :active {
+  &:active {
     background-color: ${(props) =>
       props.disabled ? "initial" : props.theme.activeBackgroundColor};
     color: ${(props) =>
@@ -52,22 +51,16 @@ export function Link({
   href,
   ...props
 }: LinkProps) {
-  const [disable, setDisable] = useState(disabled);
-
-  useEffect(() => {
-    setDisable(disabled);
-  }, [disabled]);
-
   return (
     <ThemeProvider theme={lightTheme}>
       <LinkElement
         className={[
-          `Base__Link${disable ? "--Disabled" : ""}`,
+          `Base__Link${disabled ? "--Disabled" : ""}`,
           "Link",
           className,
         ].join(" ")}
-        disabled={disable}
-        href={!disable ? href : "#"}
+        disabled={disabled}
+        href={disabled ? "#" : href}
         {...props}
       >
         {children}
