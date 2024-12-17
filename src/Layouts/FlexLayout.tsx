@@ -69,7 +69,7 @@ export function FlexLayout({
   children,
   className,
   spacing = 0,
-  direction = "Horizontal",
+  direction = "Vertical",
   alignItems = "Start",
   alignContent = "Start",
   justifyItems = "Start",

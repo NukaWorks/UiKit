@@ -23,7 +23,7 @@ export const StackLayout: FunctionComponent<StackLayoutProps> = ({
   children,
   className,
   spacing = 0,
-  direction = "Horizontal",
+  direction = "Vertical",
   ...props
 }) => {
   return (
