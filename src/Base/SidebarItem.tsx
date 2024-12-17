@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 interface SidebarItemProps {
@@ -22,10 +22,20 @@ const SidebarItemElement = styled.div<{ active?: boolean }>`
   padding: 0.5em;
 
   background-color: ${(props) =>
-    props.active ? "rgba(0, 0, 0, 0.050" : "transparent"};
+    props.active ? "rgba(0, 0, 0, 0.05)" : "transparent"};
 
-  :hover {
+  &:hover {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  & > * {
+    pointer-events: none;
+  }
+
+  & > a,
+  & > button,
+  & > input {
+    pointer-events: auto;
   }
 
   :active {
