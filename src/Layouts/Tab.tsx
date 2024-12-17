@@ -12,11 +12,11 @@ const TabElement = styled.li<{ selected: boolean }>`
   cursor: default;
   transition: background-color 0.1s ease-in-out;
 
-  :hover {
+  &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
 
-  :active {
+  &:active {
     background-color: rgba(0, 0, 0, 0.3);
   }
 `;
