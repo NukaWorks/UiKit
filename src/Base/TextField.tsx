@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-export interface TextFieldProps {
+export interface TextFieldProps extends Partial<HTMLInputElement> {
   type?: "text" | "password" | "email" | "number" | "tel" | "url";
   placeholder?: string;
   invalid?: boolean;
@@ -39,16 +39,15 @@ const lightTheme = {
   backgroundColor: "rgb(255, 255, 255)",
 };
 
-const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => (
-  <ThemeProvider theme={lightTheme}>
-    <TextFieldElement
-      {...props}
-      ref={ref}
-      className={["Base__TextField", "TextField", props.className].join(" ")}
-    />
-  </ThemeProvider>
-));
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+  (props, ref) => (
+    <ThemeProvider theme={lightTheme}>
+      <TextFieldElement
+        ref={ref}
+        className={["Base__TextField", "TextField", props.className].join(" ")}
+      />
+    </ThemeProvider>
+  )
+);
 
 TextField.displayName = "TextField";
-
-export { TextField };
