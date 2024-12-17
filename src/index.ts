@@ -12,8 +12,8 @@ import { SidebarItem } from "./Base/SidebarItem";
 import { ListView } from "./Base/ListView";
 
 // Application Components
-import { AppHeader } from "./Appl/AppHeader";
-import { UiApp } from "./Appl/UiApp";
+import { AppHeader } from "./App/AppHeader";
+import { UiApp } from "./App/UiApp";
 
 // Layouts Components
 import { StackLayout } from "./Layouts/StackLayout";
@@ -31,7 +31,7 @@ import { Spinner } from "./Misc/Spinner";
 import { Separator } from "./Misc/Separator";
 
 // Layouts
-import { AppActivity } from "./Appl/AppActivity";
+import { AppActivity } from "./App/AppActivity";
 
 export {
   Button,
