@@ -1,16 +1,6 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import { Layout } from "./Layout";
 import styled from "styled-components";
-
-const StackLayoutElement = styled(Layout)<{
-  direction: string;
-  spacing: number;
-}>`
-  display: flex;
-  flex-direction: ${({ direction }) =>
-    direction === "Vertical" ? "column" : "row"};
-  gap: ${({ spacing }) => `${spacing}px`};
-`;
 
 interface StackLayoutProps {
   children: ReactNode;
@@ -18,6 +8,13 @@ interface StackLayoutProps {
   spacing?: number;
   direction?: "Vertical" | "Horizontal";
 }
+
+const StackLayoutElement = styled(Layout)<StackLayoutProps>`
+  display: flex;
+  flex-direction: ${({ direction }) =>
+    direction === "Vertical" ? "column" : "row"};
+  gap: ${({ spacing }) => `${spacing}px`};
+`;
 
 export const StackLayout: FunctionComponent<StackLayoutProps> = ({
   children,
