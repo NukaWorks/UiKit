@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from "react";
+import React, { FunctionComponent, ReactNode } from "react";
 import { Layout } from "./Layout";
 import styled from "styled-components";
 
@@ -7,6 +7,7 @@ interface StackLayoutProps {
   className?: string;
   spacing?: number;
   direction?: "Vertical" | "Horizontal";
+  style?: React.CSSProperties;
 }
 
 const StackLayoutElement = styled(Layout)<StackLayoutProps>`
@@ -21,14 +22,14 @@ export const StackLayout: FunctionComponent<StackLayoutProps> = ({
   className,
   spacing = 0,
   direction = "Vertical",
-  ...props
+  style = {},
 }) => {
   return (
     <StackLayoutElement
       className={["Layouts__StackLayout", "StackLayout", className].join(" ")}
       spacing={spacing}
       direction={direction}
-      {...props}
+      style={style}
     >
       {children}
     </StackLayoutElement>

@@ -11,6 +11,7 @@ interface LayoutProps {
   minHeight?: number;
   maxWidth?: number;
   maxHeight?: number;
+  style?: React.CSSProperties;
 }
 
 const LayoutElement = styled.div<LayoutProps>`
@@ -34,7 +35,7 @@ export function Layout({
   maxWidth,
   maxHeight,
   className,
-  ...props
+  style = {},
 }: Readonly<LayoutProps>) {
   return (
     <LayoutElement
@@ -46,7 +47,7 @@ export function Layout({
       minHeight={minHeight}
       maxWidth={maxWidth}
       maxHeight={maxHeight}
-      {...props}
+      style={style}
     >
       {children}
     </LayoutElement>

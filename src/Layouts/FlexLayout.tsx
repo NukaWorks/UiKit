@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { StackLayout } from "./StackLayout";
 
@@ -29,6 +29,7 @@ interface FlexLayoutProps {
     | "Unset";
   wrap?: "wrap" | "nowrap";
   flex?: number;
+  style?: React.CSSProperties;
 }
 
 const FlexLayoutElement = styled(StackLayout)<Required<FlexLayoutProps>>`
@@ -55,6 +56,7 @@ export function FlexLayout({
   justifyContent = "Unset",
   wrap = "wrap",
   flex = 0,
+  style = {},
 }: Readonly<FlexLayoutProps>) {
   return (
     <FlexLayoutElement
@@ -67,6 +69,7 @@ export function FlexLayout({
       justifyContent={justifyContent}
       wrap={wrap}
       flex={flex}
+      style={style}
     >
       {children}
     </FlexLayoutElement>
