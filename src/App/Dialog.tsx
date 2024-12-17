@@ -1,28 +1,37 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import { createPortal } from "react-dom";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
-const dialogAnim = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 `;
 
-const DialogElement = styled.div`
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
+const DialogElement = styled.div<{ closing: boolean }>`
   z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${dialogAnim} 0.2s 0.2s ease-in-out forwards;
+  ${({ closing }) => css`
+    animation: ${closing ? fadeOut : fadeIn} 0.3s ease-in-out forwards;
+  `}
 `;
 
 const DialogContentElement = styled.div`
@@ -39,7 +48,8 @@ const DialogContentElement = styled.div`
 `;
 
 interface DialogProps {
-  onClose: () => {};
+  open: boolean;
+  onClose: () => void;
   className?: string;
   children?: ReactNode;
 }
@@ -47,22 +57,45 @@ interface DialogProps {
 export function Dialog({
   children,
   className,
+  open,
   onClose,
   ...props
 }: Readonly<DialogProps>) {
+  const [visible, setVisible] = useState(open);
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+      setClosing(false);
+    } else {
+      setClosing(true);
+    }
+  }, [open]);
+
+  function handleAnimationEnd() {
+    if (closing) {
+      setVisible(false);
+      setClosing(false);
+    }
+  }
+
   const ref = useDetectClickOutside({
     onTriggered: () => {
       onClose?.();
     },
   });
 
+  if (!visible) return null;
+
   return createPortal(
     <DialogElement
-      ref={ref}
       className={["Appl__Dialog", "Dialog", className].join(" ")}
+      closing={closing}
+      onAnimationEnd={handleAnimationEnd} // Déclenché à la fin de l'animation
       {...props}
     >
-      <DialogContentElement>{children}</DialogContentElement>
+      <DialogContentElement ref={ref}>{children}</DialogContentElement>
     </DialogElement>,
     document.body
   );

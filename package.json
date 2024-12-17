@@ -62,7 +62,7 @@
     "sass": "^1.70.0",
     "storybook": "^8.4.7",
     "storybook-dark-mode": "^4.0.2",
-    "typescript": "*",
+    "typescript": "^5.7.2",
     "vite": "^5.0.12",
     "vite-plugin-dts": "^3.7.2"
   },
