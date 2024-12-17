@@ -1,7 +1,11 @@
 import React, { forwardRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-export interface TextFieldProps extends Partial<HTMLInputElement> {
+export interface TextFieldProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   type?: "text" | "password" | "email" | "number" | "tel" | "url";
   placeholder?: string;
   invalid?: boolean;
@@ -45,6 +49,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       <TextFieldElement
         ref={ref}
         className={["Base__TextField", "TextField", props.className].join(" ")}
+        {...props}
       />
     </ThemeProvider>
   )

@@ -1,7 +1,13 @@
 import React, { CSSProperties, ReactNode, useEffect, useState } from "react";
 import styled from "styled-components";
+import { BaseObject } from "styled-components/dist/types";
 
-export interface TextProps {
+export interface TextProps
+  extends React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLParagraphElement>,
+      HTMLParagraphElement
+    >,
+    BaseObject {
   className?: string;
   style?: CSSProperties;
   text?: string;
@@ -11,7 +17,7 @@ export interface TextProps {
   children?: ReactNode;
 }
 
-const TextElement = styled.div<{
+const TextElement = styled.p<{
   disabled?: boolean;
   color?: string;
   size?: number;
@@ -19,6 +25,8 @@ const TextElement = styled.div<{
   font-family: "Outfit", sans-serif;
   font-size: ${({ size }) => (size ? size + "pt" : "9pt")};
   color: ${({ disabled, color }) => (disabled ? "#bababa" : color || "black")};
+  padding: 0;
+  margin: 0;
 `;
 
 export function Text({
@@ -29,6 +37,7 @@ export function Text({
   color,
   size,
   children,
+  ...props
 }: TextProps) {
   const [disable, setDisable] = useState(disabled);
 
@@ -48,6 +57,7 @@ export function Text({
       size={size}
       color={color}
       style={style}
+      {...props}
     >
       {text || children}
     </TextElement>
