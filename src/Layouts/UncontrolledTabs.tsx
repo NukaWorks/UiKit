@@ -3,6 +3,7 @@ import React, {
   FunctionComponent,
   KeyboardEvent,
   MouseEvent,
+  ReactElement,
   ReactNode,
   useId,
   useRef,
@@ -167,7 +168,7 @@ export const UncontrolledTabs: FunctionComponent<TabProps> = (props) => {
     }
 
     // Map children to dynamically setup refs
-    return deepMap(children, (child: any) => {
+    return deepMap(children as ReactElement, (child: any) => {
       let result = child;
 
       // Clone TabList and Tab components to have refs
