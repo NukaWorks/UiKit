@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 import { StackLayout } from "./StackLayout";
 
@@ -41,11 +41,11 @@ const FlexLayoutElement = styled(StackLayout)<{
 interface FlexLayoutProps {
   children: ReactNode;
   className?: string;
-  spacing: number;
-  direction: "Vertical" | "Horizontal";
-  alignItems: "Start" | "Center" | "End" | "Stretch";
-  alignContent: "Start" | "Center" | "End" | "Stretch";
-  justifyItems:
+  spacing?: number;
+  direction?: "Vertical" | "Horizontal";
+  alignItems?: "Start" | "Center" | "End" | "Stretch";
+  alignContent?: "Start" | "Center" | "End" | "Stretch";
+  justifyItems?:
     | "Start"
     | "Center"
     | "End"
@@ -53,7 +53,7 @@ interface FlexLayoutProps {
     | "Space-Between"
     | "Space-Around"
     | "Space-Evenly";
-  justifyContent:
+  justifyContent?:
     | "Start"
     | "Center"
     | "End"
@@ -61,23 +61,22 @@ interface FlexLayoutProps {
     | "Space-Between"
     | "Space-Around"
     | "Space-Evenly";
-  wrap: "wrap" | "nowrap";
-  flex: number;
+  wrap?: "wrap" | "nowrap";
+  flex?: number;
 }
 
-export const FlexLayout: FunctionComponent<FlexLayoutProps> = ({
+export function FlexLayout({
   children,
   className,
-  spacing,
-  direction,
-  alignItems,
-  alignContent,
-  justifyItems,
-  justifyContent,
-  wrap,
-  flex,
-  ...props
-}) => {
+  spacing = 0,
+  direction = "Horizontal",
+  alignItems = "Start",
+  alignContent = "Start",
+  justifyItems = "Start",
+  justifyContent = "Start",
+  wrap = "wrap",
+  flex = 0,
+}: Readonly<FlexLayoutProps>) {
   return (
     <FlexLayoutElement
       className={["Misc__FlexLayout", "FlexLayout", className].join(" ")}
@@ -89,9 +88,8 @@ export const FlexLayout: FunctionComponent<FlexLayoutProps> = ({
       justifyContent={justifyContent}
       wrap={wrap}
       flex={flex}
-      {...props}
     >
       {children}
     </FlexLayoutElement>
   );
-};
+}

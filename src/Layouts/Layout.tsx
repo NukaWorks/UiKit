@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from "react";
 import styled from "styled-components";
 
 const LayoutElement = styled.div<{
@@ -32,7 +32,7 @@ interface LayoutProps {
   maxHeight?: number;
 }
 
-export const Layout: FunctionComponent<LayoutProps> = ({
+export function Layout({
   children,
   overflow,
   width,
@@ -43,7 +43,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   maxHeight,
   className,
   ...props
-}) => {
+}: Readonly<LayoutProps>) {
   return (
     <LayoutElement
       className={["Layouts__Layout", "Layout", className].join(" ")}
@@ -59,4 +59,4 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       {children}
     </LayoutElement>
   );
-};
+}

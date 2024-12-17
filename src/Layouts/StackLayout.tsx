@@ -15,15 +15,15 @@ const StackLayoutElement = styled(Layout)<{
 interface StackLayoutProps {
   children: ReactNode;
   className?: string;
-  spacing: number;
-  direction: "Vertical" | "Horizontal";
+  spacing?: number;
+  direction?: "Vertical" | "Horizontal";
 }
 
 export const StackLayout: FunctionComponent<StackLayoutProps> = ({
   children,
   className,
-  spacing,
-  direction,
+  spacing = 0,
+  direction = "Horizontal",
   ...props
 }) => {
   return (
