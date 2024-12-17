@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ ",
     "build": "rm -rf dist/ && mkdir dist/ && tsc && vite build",
-    "deploy": "npm version minor --force && npm run build && npm publish --access public",
+    "deploy": "npm version patch --force && npm run build && npm publish --access public",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "prettier --write . && eslint . --fix",
