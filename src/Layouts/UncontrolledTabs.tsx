@@ -8,7 +8,6 @@ import React, {
   useId,
   useRef,
 } from "react";
-// @ts-ignore
 import cx from "clsx";
 import { getTabsCount as getTabsCountHelper } from "../Common/Helpers/Tabs/count";
 import { deepMap } from "../Common/Helpers/Tabs/childrenDeepMap";

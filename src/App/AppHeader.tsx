@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 import styled from "styled-components";
 import { Text } from "../Base/Text";
 
@@ -39,6 +39,7 @@ export interface AppHeaderProps {
   title?: string;
   displayBackground?: boolean;
   children?: ReactNode;
+  style?: CSSProperties;
 }
 
 export function AppHeader({

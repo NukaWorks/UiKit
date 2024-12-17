@@ -29,7 +29,6 @@ export function Text({
   color,
   size,
   children,
-  ...props
 }: TextProps) {
   const [disable, setDisable] = useState(disabled);
 
@@ -49,7 +48,6 @@ export function Text({
       size={size}
       color={color}
       style={style}
-      {...props}
     >
       {text || children}
     </TextElement>
