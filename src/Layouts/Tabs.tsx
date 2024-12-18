@@ -1,9 +1,4 @@
-import React, {
-  FunctionComponent,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { FunctionComponent, ReactNode, useEffect, useState } from "react";
 import { UncontrolledTabs } from "./UncontrolledTabs";
 import { getTabsCount } from "../Common/Helpers/Tabs/count";
 
@@ -37,7 +32,7 @@ const getModeFromProps = (
     | "defaultIndex"
     | "children"
     | "onSelect"
-  >,
+  >
 ) => {
   return props.selectedIndex === null ? MODE_UNCONTROLLED : MODE_CONTROLLED;
 };
@@ -51,7 +46,7 @@ const checkForIllegalModeChange = (
     | "children"
     | "onSelect"
   >,
-  mode: number,
+  mode: number
 ) => {
   if (
     process.env.NODE_ENV !== "production" &&
@@ -60,7 +55,7 @@ const checkForIllegalModeChange = (
   ) {
     throw new Error(
       `Switching between controlled mode (by using \`selectedIndex\`) and uncontrolled mode is not supported in \`Tabs\`.
-For more information about controlled and uncontrolled mode of react-tabs see https://github.com/reactjs/react-tabs#controlled-vs-uncontrolled-mode.`,
+For more information about controlled and uncontrolled mode of react-tabs see https://github.com/reactjs/react-tabs#controlled-vs-uncontrolled-mode.`
     );
   }
 };
@@ -76,7 +71,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({
   const [focus, setFocus] = useState(defaultFocus);
   const [mode] = useState(getModeFromProps(props));
   const [selectedIndex, setSelectedIndex] = useState<number | null>(
-    mode === MODE_UNCONTROLLED ? defaultIndex || 0 : null,
+    mode === MODE_UNCONTROLLED ? defaultIndex || 0 : null
   );
 
   useEffect(() => {
