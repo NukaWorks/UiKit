@@ -2,6 +2,7 @@ import React from "react";
 
 import { Sidebar, SidebarProps } from "./Sidebar";
 import { SidebarItem } from "./SidebarItem";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/Sidebar",

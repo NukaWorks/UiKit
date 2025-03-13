@@ -1,3 +1,6 @@
+// Styling
+import './Common/fonts.scss'
+
 // Base Components
 import { Button } from "./Base/Button/Button";
 import { Text } from "./Base/Text";

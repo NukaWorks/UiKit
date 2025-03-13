@@ -3,6 +3,7 @@ import React from "react";
 import { Menu, MenuProps } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { MenuList } from "./MenuList";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/Menu",

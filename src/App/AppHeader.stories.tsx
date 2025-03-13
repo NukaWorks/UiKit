@@ -1,6 +1,7 @@
 import React from "react";
 import { AppHeader, AppHeaderProps } from "./AppHeader";
 import { MenubarTest } from "../Base/MenuBar.stories";
+import '../Common/fonts.scss';
 
 export default {
   title: "Appl/AppHeader",

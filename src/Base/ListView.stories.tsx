@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ListView, ListViewProps } from "./ListView";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/ListView",

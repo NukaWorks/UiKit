@@ -1,6 +1,7 @@
 import React from "react";
 
 import { TextField, TextFieldProps } from "./TextField";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/TextField",

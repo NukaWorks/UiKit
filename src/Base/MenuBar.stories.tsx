@@ -4,6 +4,7 @@ import { MenuBar, MenuBarProps } from "./MenuBar";
 import { Menu } from "./Menu";
 import { MenuList } from "./MenuList";
 import { MenuItem } from "./MenuItem";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/MenuBar",

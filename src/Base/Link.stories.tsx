@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link, LinkProps } from "./Link";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/Link",

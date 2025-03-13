@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Text, TextProps } from "./Text";
+import '../Common/fonts.scss';
 
 export default {
   title: "Base/Text",
