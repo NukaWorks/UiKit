@@ -1,6 +1,6 @@
 {
   "name": "@nwrks/uikit",
-  "version": "0.225.11",
+  "version": "kit",
   "type": "module",
   "repository": "https://github.com/PowerWorkspace/UiKit",
   "license": "MIT",
@@ -18,9 +18,7 @@
     "@types/lodash": "^4.14.202",
     "clsx": "^2.1.0",
     "lodash-es": "^4.17.21",
-    "react": "^18.x",
     "react-detect-click-outside": "^1.1.7",
-    "react-dom": "^18.x",
     "styled-components": "^6.1.8"
   },
   "peerDependencies": {
@@ -28,6 +26,8 @@
     "react-dom": "^18.x"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@babel/core": "^7.23.9",
     "@chromatic-com/storybook": "^3.2.2",
     "@eslint/eslintrc": "^3.0.2",
