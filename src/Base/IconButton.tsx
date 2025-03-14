@@ -19,7 +19,7 @@ const StyledIconButton = styled.button<ButtonBaseProps>`
     }
 
     &:focus-within {
-        box-shadow: rgba(220, 220, 220, 0.6) 0 0 0 0.3em;
+        box-shadow: rgba(220, 220, 220, 0.3) 0 0 0 0.3em;
     }
 `;
 
