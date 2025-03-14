@@ -1,7 +1,6 @@
 import styled, {css} from 'styled-components';
 import React, {forwardRef, useEffect, useState} from 'react';
-import {Size} from "../Common/Interfaces/CommonTypes";
-import {ButtonBaseProps} from "../Common/Interfaces/ButtonBaseProps";
+import {ButtonBaseProps, CommonTypes} from "../Common/Interfaces";
 import {buttonBaseStyling} from "../Common/Styling/buttonBaseStyling";
 
 const buttonStyles = css`
@@ -134,7 +133,7 @@ const ButtonBase = styled.button<ButtonProps>`
 
 export interface ButtonProps extends ButtonBaseProps {
     color?: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled';
-    size?: Size;
+    size?: CommonTypes.Size;
     label?: string;
 }
 

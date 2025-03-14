@@ -38,6 +38,9 @@ import {Separator} from "./Misc/Separator";
 // Layouts
 import {AppActivity} from "./App/AppActivity";
 
+// Types
+import {ButtonBaseProps, CommonTypes} from "./Common/Interfaces";
+
 export {
     Button,
     IconButton,
@@ -66,4 +69,9 @@ export {
     Tab,
     Layout,
     Dialog,
+};
+
+export type {
+    CommonTypes,
+    ButtonBaseProps,
 };
