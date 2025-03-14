@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
-import '../../Common/fonts.scss';
+import '../Common/fonts.scss';
 
 const meta: Meta<ButtonProps> = {
   title: "Base/Button",

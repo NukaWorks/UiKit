@@ -1,17 +1,17 @@
 import React from "react";
-import { AppHeader, AppHeaderProps } from "./AppHeader";
-import { MenubarTest } from "../Base/MenuBar.stories";
+import {AppHeader, AppHeaderProps} from "./AppHeader";
+import {MenubarTest} from "../Base/MenuBar.stories";
 import '../Common/fonts.scss';
 
 export default {
-  title: "Appl/AppHeader",
-  component: AppHeader,
-  parameters: {
-    layout: "fullscreen",
-  },
-  argTypes: {
-    title: { type: "string" },
-  },
+    title: "Appl/AppHeader",
+    component: AppHeader,
+    parameters: {
+        layout: "fullscreen",
+    },
+    argTypes: {
+        title: {type: "string"},
+    },
 };
 
 const Template = (args: AppHeaderProps) => <AppHeader {...args} />;
@@ -19,17 +19,21 @@ const Template = (args: AppHeaderProps) => <AppHeader {...args} />;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
-  title: "Hello World !",
+    title: "Hello World !",
 };
 
 const AppBarExample = (args: any) => (
-  <AppHeader {...args}>
-    <MenubarTest />
-  </AppHeader>
+    <AppHeader {...args}>
+        <MenubarTest/>
+    </AppHeader>
 );
 
 export const AppBar = AppBarExample.bind({});
 // @ts-ignore
 AppBar.args = {
-  title: "Storybook",
+    title: "Storybook",
 };
+
+export const AppBarNoTitle = AppBarExample.bind({});
+// @ts-ignore
+AppBarNoTitle.args = {};

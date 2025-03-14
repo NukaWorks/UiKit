@@ -2,7 +2,7 @@
 import './Common/fonts.scss'
 
 // Base Components
-import { Button } from "./Base/Button/Button";
+import { Button } from "./Base/Button";
 import { Text } from "./Base/Text";
 import { TextField } from "./Base/TextField";
 import { MenuList } from "./Base/MenuList";
