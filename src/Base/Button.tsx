@@ -46,7 +46,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(220, 220, 220, 0.3) 0 0 0 0.3em;
+            box-shadow: rgba(220, 220, 220, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({color, theme}) => color === 'Default' && theme === 'Dark' && css`
@@ -61,7 +61,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(154, 152, 152, 0.3) 0 0 0 0.3em;
+            box-shadow: rgba(154, 152, 152, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({color}) => color === 'Primary' && css`
@@ -76,7 +76,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(30, 167, 253, 0.5) 0 0 0 0.3em;
+            box-shadow: rgba(30, 167, 253, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({color}) => color === 'Success' && css`
@@ -91,7 +91,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(73, 252, 89, 0.5) 0 0 0 0.3em;
+            box-shadow: rgba(73, 252, 89, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({color}) => color === 'Warning' && css`
@@ -106,7 +106,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(243, 197, 44, 0.5) 0 0 0 0.3em;
+            box-shadow: rgba(243, 197, 44, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({color}) => color === 'Alert' && css`
@@ -121,7 +121,7 @@ const ButtonBase = styled.button<ButtonProps>`
         }
 
         &:focus-within {
-            box-shadow: rgba(255, 120, 79, 0.5) 0 0 0 0.3em;
+            box-shadow: rgba(255, 120, 79, 0.6) 0 0 0 0.3em;
         }
     `}
     ${({disabled}) => disabled && css`

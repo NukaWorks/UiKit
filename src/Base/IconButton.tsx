@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {forwardRef} from "react";
-import {ButtonBaseProps} from "../Common/Interfaces/ButtonBaseProps";
+import {ButtonBaseProps} from "../Common/Interfaces";
 import {buttonBaseStyling} from "../Common/Styling/buttonBaseStyling";
 
 const StyledIconButton = styled.button<ButtonBaseProps>`
@@ -19,7 +19,7 @@ const StyledIconButton = styled.button<ButtonBaseProps>`
     }
 
     &:focus-within {
-        box-shadow: rgba(220, 220, 220, 0.3) 0 0 0 0.3em;
+        box-shadow: rgba(220, 220, 220, 0.6) 0 0 0 0.3em;
     }
 `;
 
