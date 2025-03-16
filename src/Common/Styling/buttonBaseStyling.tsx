@@ -2,6 +2,7 @@ import {css} from "styled-components";
 
 export const buttonBaseStyling = css`
     width: fit-content;
+    height: fit-content;
     outline: none;
     user-select: none;
     padding: 5px 10px;

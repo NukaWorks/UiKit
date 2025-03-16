@@ -16,6 +16,7 @@ export interface TextFieldProps
 
 const TextFieldElement = styled.input<{ invalid?: boolean }>`
     ${baseStyling};
+    height: auto;
     border-radius: ${({theme}) => theme.Base.borderRadius};
     outline: none;
     padding: 5px 10px;
