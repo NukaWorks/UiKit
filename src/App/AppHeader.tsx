@@ -12,6 +12,17 @@ const HeaderElement = styled(FlexLayout)<AppHeaderProps>`
     border-bottom: ${({displayBackground, theme}) =>
             displayBackground ? theme.AppHeader.border : "none"};
     z-index: 999;
+
+    // Enable fixed mode
+    ${({enableFixedPosition}) => enableFixedPosition && `
+        position: fixed;
+        width: 100%;
+    `};
+
+    // Enable blur mode
+    ${({enableBackdropBlur}) => enableBackdropBlur && `
+        backdrop-filter: blur(15px);
+    `};
 `;
 
 const TextElement = styled(Text)`
@@ -28,11 +39,15 @@ const TextElement = styled(Text)`
 export interface AppHeaderProps extends ComponentBaseProps {
     title?: string;
     displayBackground?: boolean;
+    enableBackdropBlur?: boolean;
+    enableFixedPosition?: boolean;
 }
 
 export function AppHeader(
     {
         displayBackground = true,
+        enableFixedPosition = false,
+        enableBackdropBlur = false,
         children,
         className,
         title,
@@ -45,6 +60,8 @@ export function AppHeader(
             direction={'Horizontal'}
             className={["Appl__Header", "AppHeader", className].join(" ")}
             displayBackground={displayBackground}
+            enableFixedPosition={enableFixedPosition}
+            enableBackdropBlur={enableBackdropBlur}
             {...props}
         >
             {title && <TextElement className="Appl__Header--Title">{title}</TextElement>}

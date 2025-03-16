@@ -9,13 +9,15 @@ import {useState} from "react";
 import {Link} from "../../Base/Link";
 import {Spinner} from "../../Misc/Spinner";
 import {Text} from "../../Base/Text";
-import {SidebarFolder} from "../../App/SidebarFolder";
+import {StackLayout} from "../../Layouts/StackLayout";
+import {BubbleContainer} from "../../Base/BubbleContainer";
+import {ScrollLayout} from "../../Layouts/ScrollLayout";
 
 export function SimpleApp() {
     const [isTestingDialogOpened, setIsTestingDialogOpened] = useState(false);
     return (
         <AppActivity theme={'Light'} direction={'Vertical'}>
-            <AppHeader>
+            <AppHeader enableBackdropBlur enableFixedPosition>
                 <FlexLayout
                     className={'AppHeaderLayout'}
                     justifyContent={'Space-Between'}
@@ -39,21 +41,71 @@ export function SimpleApp() {
 
 
             <FlexLayout direction={"Horizontal"} flex={1}>
-                <SidebarFolder/>
-                <UiApp>
+                <ScrollLayout hideScrollbar={true}>
+                    <StackLayout direction={'Vertical'} spacing={8} style={{padding: '4em 1em'}}>
+                        <BubbleContainer>TEADDDD</BubbleContainer>
+                        <BubbleContainer>GA</BubbleContainer>
+                        <BubbleContainer>SU</BubbleContainer>
+                        <BubbleContainer>XD</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TDE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                        <BubbleContainer>TE</BubbleContainer>
+                    </StackLayout>
+                </ScrollLayout>
+
+
+                <UiApp style={{marginTop: '4em'}}>
                     <Button color={'Primary'} onClick={() => setIsTestingDialogOpened(true)}>
                         Open Testing Dialog
                     </Button>
 
                     <Dialog open={isTestingDialogOpened} onClose={() => setIsTestingDialogOpened(false)}>
                         <FlexLayout direction={'Horizontal'} spacing={5}>
-                            <FlexLayout direction={'Vertical'} spacing={3}>
+                            <FlexLayout direction={'Vertical'} spacing={8}>
                                 <Button>Neutral</Button>
                                 <Button color={'Primary'}>Primary</Button>
                                 <Button color={'Warning'}>Warning</Button>
                                 <Button color={'Alert'} size={'Small'}>Danger</Button>
                                 <Button color={'Success'} size={'Medium'}>Success</Button>
-                                <Button color={'Disabled'} size={'Large'}>Disabled</Button>
+                                <Button disabled={true} color={'Success'} size={'Large'}>Disabled</Button>
                             </FlexLayout>
 
                             <FlexLayout direction={'Horizontal'} spacing={3}>
