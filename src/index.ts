@@ -39,7 +39,7 @@ import {Separator} from "./Misc/Separator";
 import {AppActivity} from "./App/AppActivity";
 
 // Types
-import {ButtonBaseProps, CommonTypes} from "./Common/Interfaces";
+import {CommonTypes, ComponentBaseProps} from "./Common/Interfaces";
 
 export {
     Button,
@@ -73,5 +73,5 @@ export {
 
 export type {
     CommonTypes,
-    ButtonBaseProps,
+    ComponentBaseProps,
 };
