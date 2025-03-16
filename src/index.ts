@@ -21,7 +21,6 @@ import {Avatar} from "./Base/Avatar"
 import {AppHeader} from "./App/AppHeader";
 import {UiApp} from "./App/UiApp";
 import {Dialog} from "./App/Dialog";
-import {SidebarFolder} from "./App/SidebarFolder";
 
 // Layouts Components
 import {StackLayout} from "./Layouts/StackLayout";
@@ -74,7 +73,6 @@ export {
     Dialog,
     Avatar,
     BubbleContainer,
-    SidebarFolder,
 };
 
 export type {

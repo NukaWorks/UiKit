@@ -6,9 +6,10 @@ const StyledBubble = styled.div`
     ${baseStyling};
     display: grid;
     place-items: center;
+    overflow: hidden;
     width: 3.5rem;
     height: 3.5rem;
-    background-color: ${({theme}) => theme.Base.defaultBackgroundColor ?? 'transparent'};
+    background-color: ${({theme}) => theme.Bubbles.backgroundColor ?? 'transparent'};
     border-radius: 100%;
     transition: all 0.3s linear;
     cursor: pointer;
