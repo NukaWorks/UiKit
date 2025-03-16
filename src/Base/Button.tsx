@@ -16,14 +16,7 @@ const buttonStyles = css`
 const ButtonBase = styled.button<ButtonProps>`
     ${buttonStyles};
     border-radius: ${({theme}) => theme.Base.borderRadius};
-    ${({theme}) => theme === 'Light' && css`
-        box-shadow: rgba(110, 110, 110, 0.25) 0 1px 0;
-        color: black;
-    `}
-    ${({theme}) => theme === 'Dark' && css`
-        box-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
-        color: whitesmoke;
-    `}
+
     ${({size}) => size === 'Small' && css`
         padding: 5px 10px;
         font-size: 9pt;
@@ -35,101 +28,30 @@ const ButtonBase = styled.button<ButtonProps>`
     ${({size}) => size === 'Large' && css`
         padding: 8px 20px;
         font-size: 20pt;
-    `} // TODO: Export shadow
-    ${({color, theme}) => color === 'Default' && theme === 'Light' && css`
-        background-color: #f0f0f0;
+    `}
+
+    ${({color}) => color !== 'Disabled' && css`
+        background-color: ${({theme}) => theme.Button[color!].backgroundColor ?? 'transparent'};
+        border-bottom: 3px solid ${({theme}) => theme.Button[color!].borderColor ?? 'transparent'};
 
         &:hover {
-            background-color: #d8d7d7;
+            background-color: ${({theme}) => theme.Button[color!].hoverBackgroundColor ?? 'transparent'};
         }
 
         &:active {
-            background-color: #bebebe;
+            background-color: ${({theme}) => theme.Button[color!].activeBackgroundColor ?? 'transparent'};
         }
 
         &:focus-within {
-            box-shadow: rgba(220, 220, 220, 0.3) 0 0 0 0.3em;
+            box-shadow: ${({theme}) => theme.Button[color!].shadowColor ?? 'transparent'} 0 0 0 0.3em;
+            border-bottom: 3px solid ${({theme}) => theme.Button[color!].activeBackgroundColor ?? 'transparent'};
         }
     `}
-    ${({color, theme}) => color === 'Default' && theme === 'Dark' && css`
-        background-color: #2f2f33;
 
-        &:hover {
-            background-color: #1f1f21;
-        }
-
-        &:active {
-            background-color: #000000;
-        }
-
-        &:focus-within {
-            box-shadow: rgba(154, 152, 152, 0.3) 0 0 0 0.3em;
-        }
-    `}
-    ${({color}) => color === 'Primary' && css`
-        background-color: #1ea7fd;
-
-        &:hover {
-            background-color: #1c9ae8;
-        }
-
-        &:active {
-            background-color: #1b91da;
-        }
-
-        &:focus-within {
-            box-shadow: rgba(30, 167, 253, 0.3) 0 0 0 0.3em;
-        }
-    `}
-    ${({color}) => color === 'Success' && css`
-        background-color: #12c421;
-
-        &:hover {
-            background-color: #10b01d;
-        }
-
-        &:active {
-            background-color: #1fa82b;
-        }
-
-        &:focus-within {
-            box-shadow: rgba(73, 252, 89, 0.3) 0 0 0 0.3em;
-        }
-    `}
-    ${({color}) => color === 'Warning' && css`
-        background-color: #eab403;
-
-        &:hover {
-            background-color: #d2a203;
-        }
-
-        &:active {
-            background-color: #bb9002;
-        }
-
-        &:focus-within {
-            box-shadow: rgba(243, 197, 44, 0.3) 0 0 0 0.3em;
-        }
-    `}
-    ${({color}) => color === 'Alert' && css`
-        background-color: #ff5724;
-
-        &:hover {
-            background-color: #d0491c;
-        }
-
-        &:active {
-            background-color: #b63b17;
-        }
-
-        &:focus-within {
-            box-shadow: rgba(255, 120, 79, 0.3) 0 0 0 0.3em;
-        }
-    `}
     ${({disabled}) => disabled && css`
-        background-color: #f0f0f0;
-        color: #bfbfbf;
+        opacity: 0.4 !important;
         text-shadow: none !important;
+        pointer-events: none;
     `}
 `;
 
