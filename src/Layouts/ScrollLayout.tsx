@@ -1,28 +1,41 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, {FunctionComponent, ReactNode} from "react";
 import styled from "styled-components";
-import { Layout } from "./Layout";
-
-const ScrollLayoutElement = styled(Layout)`
-  display: block;
-  overflow: scroll;
-`;
+import {Layout} from "./Layout";
 
 interface ScrollLayoutProps {
-  children: ReactNode;
-  className?: string;
+    children?: ReactNode;
+    className?: string;
+    hideScrollbar?: boolean;
 }
 
-export const ScrollLayout: FunctionComponent<ScrollLayoutProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <ScrollLayoutElement
-      className={["Layouts__ScrollLayout", "ScrollLayout", className].join(" ")}
-      {...props}
-    >
-      {children}
-    </ScrollLayoutElement>
-  );
+const ScrollLayoutElement = styled(Layout)<ScrollLayoutProps>`
+    display: block;
+    overflow: auto;
+    height: 100%;
+    max-height: 100vh;
+
+    ${({hideScrollbar}) => hideScrollbar && `
+        &::-webkit-scrollbar {
+            width: 0px;
+            background-color: transparent;
+        }
+    `};
+`;
+
+export const ScrollLayout: FunctionComponent<ScrollLayoutProps> = (
+    {
+        children,
+        className,
+        hideScrollbar,
+        ...props
+    }) => {
+    return (
+        <ScrollLayoutElement
+            className={["Layouts__ScrollLayout", "ScrollLayout", className].join(" ")}
+            hideScrollbar={hideScrollbar}
+            {...props}
+        >
+            {children}
+        </ScrollLayoutElement>
+    );
 };
