@@ -1,22 +1,22 @@
 import {StackLayout} from "../Layouts/StackLayout";
-import {Avatar} from "../Base/Avatar";
+import {BubbleContainer} from "../Base/BubbleContainer";
 
 export function SidebarFolder() {
     return (
         <StackLayout direction={'Vertical'} spacing={8} style={{padding: '1em'}}>
-            <Avatar>TE</Avatar>
-            <Avatar>GA</Avatar>
-            <Avatar>SU</Avatar>
-            <Avatar>XD</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
-            <Avatar>TE</Avatar>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>GA</BubbleContainer>
+            <BubbleContainer>SU</BubbleContainer>
+            <BubbleContainer>XD</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
+            <BubbleContainer>TE</BubbleContainer>
         </StackLayout>
     );
 }

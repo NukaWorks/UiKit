@@ -14,11 +14,14 @@ import {Link} from "./Base/Link";
 import {Sidebar} from "./Base/Sidebar";
 import {SidebarItem} from "./Base/SidebarItem";
 import {ListView} from "./Base/ListView";
+import {BubbleContainer} from "./Base/BubbleContainer"
+import {Avatar} from "./Base/Avatar"
 
 // Application Components
 import {AppHeader} from "./App/AppHeader";
 import {UiApp} from "./App/UiApp";
 import {Dialog} from "./App/Dialog";
+import {SidebarFolder} from "./App/SidebarFolder";
 
 // Layouts Components
 import {StackLayout} from "./Layouts/StackLayout";
@@ -69,6 +72,9 @@ export {
     Tab,
     Layout,
     Dialog,
+    Avatar,
+    BubbleContainer,
+    SidebarFolder,
 };
 
 export type {
