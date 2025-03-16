@@ -1,19 +1,21 @@
 import styled, {css} from 'styled-components';
 import React, {forwardRef, useEffect, useState} from 'react';
-import {ButtonBaseProps, CommonTypes} from "../Common/Interfaces";
+import {ComponentBaseProps} from "../Common/Interfaces";
 import {buttonBaseStyling} from "../Common/Styling/buttonBaseStyling";
+import {baseStyling} from "../Common/Styling/baseStyling";
+import {DefaultLight} from "../Common/Themes/DefaultLight";
 
 const buttonStyles = css`
+    ${baseStyling};
     ${buttonBaseStyling};
-    border-radius: 300px;
     transition: all 0.1s ease-in-out;
     text-shadow: rgba(0, 0, 0, 0.5) 0 1px 5px;
-    padding: 5px 10px;
     font-size: 9pt;
 `;
 
 const ButtonBase = styled.button<ButtonProps>`
-    ${buttonStyles}
+    ${buttonStyles};
+    border-radius: ${({theme}) => theme.Base.borderRadius};
     ${({theme}) => theme === 'Light' && css`
         box-shadow: rgba(110, 110, 110, 0.25) 0 1px 0;
         color: black;
@@ -131,9 +133,8 @@ const ButtonBase = styled.button<ButtonProps>`
     `}
 `;
 
-export interface ButtonProps extends ButtonBaseProps {
+export interface ButtonProps extends ComponentBaseProps {
     color?: 'Default' | 'Primary' | 'Success' | 'Warning' | 'Alert' | 'Disabled';
-    size?: CommonTypes.Size;
     label?: string;
 }
 
@@ -159,7 +160,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         return (
             <ButtonBase
-                theme={theme}
+                theme={theme === 'Light' ? DefaultLight : DefaultLight}
                 size={size}
                 color={color}
                 disabled={disable}

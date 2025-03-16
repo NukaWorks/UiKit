@@ -1,4 +1,4 @@
-import { ButtonBaseProps } from './ButtonBaseProps'
-import { CommonTypes } from './CommonTypes'
+import {ComponentBaseProps} from './ComponentBaseProps'
+import {CommonTypes} from './CommonTypes'
 
-export type { ButtonBaseProps, CommonTypes }
+export type {ComponentBaseProps, CommonTypes}

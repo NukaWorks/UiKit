@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {IconButton} from "./IconButton";
 import '../Common/fonts.scss';
-import {ButtonBaseProps} from "../Common/Interfaces/ButtonBaseProps";
+import {ComponentBaseProps} from "../Common/Interfaces/ComponentBaseProps";
 
-const meta: Meta<ButtonBaseProps> = {
+const meta: Meta<ComponentBaseProps> = {
     title: "Base/IconButton",
     component: IconButton,
     argTypes: {

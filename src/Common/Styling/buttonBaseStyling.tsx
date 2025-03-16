@@ -4,6 +4,7 @@ export const buttonBaseStyling = css`
     width: fit-content;
     outline: none;
     user-select: none;
+    padding: 5px 10px;
     -webkit-user-select: none;
     font-family: Outfit, sans-serif;
     text-align: center;

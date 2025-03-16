@@ -1,19 +1,17 @@
-import {CSSProperties, ReactNode} from "react";
 import styled from "styled-components";
 import {Text} from "../Base/Text";
+import {FlexLayout} from "../Layouts/FlexLayout";
+import {ComponentBaseProps} from "../Common/Interfaces";
 
-const HeaderElement = styled.header<AppHeaderProps>`
-    font-family: "Outfit", sans-serif;
-    background-color: ${({displayBackground}) =>
-            displayBackground ? "rgba(225,225,225,0.3)" : "transparent"};
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    height: 2.5em;
+const HeaderElement = styled(FlexLayout)<AppHeaderProps>`
+    background-color: ${({displayBackground, theme}) =>
+            displayBackground ? theme.AppHeader.backgroundColor : "transparent"};
+    min-height: 2.5em;
     padding: 5px 10px;
-    border-bottom: ${({displayBackground}) =>
-            displayBackground ? "1px solid rgba(225,225,225,0.5)" : "none"};
-    z-index: 2;
+    margin: 0;
+    border-bottom: ${({displayBackground, theme}) =>
+            displayBackground ? theme.AppHeader.border : "none"};
+    z-index: 999;
 `;
 
 const TextElement = styled(Text)`
@@ -27,38 +25,32 @@ const TextElement = styled(Text)`
     vertical-align: top;
 `;
 
-const ContentElement = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 5px;
-`;
-
-export interface AppHeaderProps {
-    className?: string;
+export interface AppHeaderProps extends ComponentBaseProps {
     title?: string;
     displayBackground?: boolean;
-    children?: ReactNode;
-    style?: CSSProperties;
 }
 
-export function AppHeader({
-                              children,
-                              displayBackground = true,
-                              className,
-                              title,
-                              ...props
-                          }: AppHeaderProps) {
+export function AppHeader(
+    {
+        displayBackground = true,
+        children,
+        className,
+        title,
+        ...props
+    }: AppHeaderProps) {
     return (
         <HeaderElement
+            spacing={10}
+            alignItems={'Center'}
+            direction={'Horizontal'}
             className={["Appl__Header", "AppHeader", className].join(" ")}
             displayBackground={displayBackground}
             {...props}
         >
             {title && <TextElement className="Appl__Header--Title">{title}</TextElement>}
-            <ContentElement className="Appl__Header--Content">
+            <FlexLayout direction={'Horizontal'} flex={1} spacing={5} className="Appl__Header--Content">
                 {children}
-            </ContentElement>
+            </FlexLayout>
         </HeaderElement>
     );
 }

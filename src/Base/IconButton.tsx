@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import {forwardRef} from "react";
-import {ButtonBaseProps} from "../Common/Interfaces";
+import {ComponentBaseProps} from "../Common/Interfaces";
 import {buttonBaseStyling} from "../Common/Styling/buttonBaseStyling";
+import {baseStyling} from "../Common/Styling/baseStyling";
 
-const StyledIconButton = styled.button<ButtonBaseProps>`
+const StyledIconButton = styled.button<ComponentBaseProps>`
+    ${baseStyling};
     ${buttonBaseStyling};
     background: none;
     color: ${({theme}) => theme === 'Dark' ? 'white' : 'black'};
@@ -23,7 +25,7 @@ const StyledIconButton = styled.button<ButtonBaseProps>`
     }
 `;
 
-export const IconButton = forwardRef<HTMLButtonElement, ButtonBaseProps>(({...props}, ref) => {
+export const IconButton = forwardRef<HTMLButtonElement, ComponentBaseProps>(({...props}, ref) => {
     return (
         <StyledIconButton {...props} ref={ref}>
             {props.children ?? 'X'}
