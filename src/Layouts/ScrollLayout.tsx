@@ -1,16 +1,13 @@
-import React, {FunctionComponent, ReactNode} from "react";
+import React, {FunctionComponent} from "react";
 import styled from "styled-components";
-import {Layout} from "./Layout";
+import {Layout, LayoutProps} from "./Layout";
 
-interface ScrollLayoutProps {
-    children?: ReactNode;
-    className?: string;
+interface ScrollLayoutProps extends LayoutProps {
     hideScrollbar?: boolean;
 }
 
 const ScrollLayoutElement = styled(Layout)<ScrollLayoutProps>`
     display: block;
-    overflow: auto;
     height: 100%;
     max-height: 100vh;
 
@@ -27,12 +24,14 @@ export const ScrollLayout: FunctionComponent<ScrollLayoutProps> = (
         children,
         className,
         hideScrollbar,
+        overflow = "Scroll",
         ...props
     }) => {
     return (
         <ScrollLayoutElement
             className={["Layouts__ScrollLayout", "ScrollLayout", className].join(" ")}
             hideScrollbar={hideScrollbar}
+            overflow={overflow}
             {...props}
         >
             {children}

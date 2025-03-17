@@ -1,8 +1,8 @@
-import React, {CSSProperties, ReactNode} from "react";
+import React, {CSSProperties} from "react";
 import {CommonTypes} from "./CommonTypes";
+import {LayoutProps} from "../../Layouts/Layout";
 
-export interface ComponentBaseProps {
-    children?: ReactNode;
+export interface ComponentBaseProps extends LayoutProps {
     className?: string;
     style?: CSSProperties;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

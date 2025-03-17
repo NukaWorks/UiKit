@@ -26,6 +26,9 @@
     "react-dom": "^18.x"
   },
   "devDependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^6.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@babel/core": "^7.23.9",

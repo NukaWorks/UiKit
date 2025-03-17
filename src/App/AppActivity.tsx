@@ -1,11 +1,15 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import styled, {ThemeProvider} from "styled-components";
 import {FlexLayout} from "../Layouts/FlexLayout";
 import {DefaultLight} from "../Common/Themes/DefaultLight";
+import {LayoutProps} from "../Layouts/Layout";
 
-const AppActivityElement = styled(FlexLayout)<{
+interface AppActivityProps extends LayoutProps {
     direction?: "Vertical" | "Horizontal";
-}>`
+    theme?: "Light" | "Dark";
+}
+
+const AppActivityElement = styled(FlexLayout)<AppActivityProps>`
     @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded");
 
@@ -34,16 +38,9 @@ const AppActivityElement = styled(FlexLayout)<{
 
 `;
 
-interface AppActivityProps {
-    className?: string;
-    children?: ReactNode;
-    direction?: "Vertical" | "Horizontal";
-    theme?: "Light" | "Dark";
-}
-
 export function AppActivity({
                                 children,
-                                direction,
+                                direction = "Horizontal",
                                 className,
                                 theme = "Light",
                                 ...props

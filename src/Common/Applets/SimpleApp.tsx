@@ -13,30 +13,41 @@ import {StackLayout} from "../../Layouts/StackLayout";
 import {BubbleContainer} from "../../Base/BubbleContainer";
 import {ScrollLayout} from "../../Layouts/ScrollLayout";
 
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import InboxIcon from '@mui/icons-material/Inbox';
+import {IconButton} from "../../Base/IconButton";
+
 export function SimpleApp() {
     const [isTestingDialogOpened, setIsTestingDialogOpened] = useState(false);
     return (
         <AppActivity theme={'Light'} direction={'Vertical'}>
             <AppHeader enableBackdropBlur enableFixedPosition>
-                <FlexLayout
-                    className={'AppHeaderLayout'}
-                    justifyContent={'Space-Between'}
-                    justifyItems={"Center"}
-                    flex={1}
-                >
-                    <FlexLayout flex={1}>
-                        <FlexLayout spacing={5} className={'AppHeaderLayout--HistoryBtns'} flex={1}>
-                            <Button color={'Primary'}>
-                                Test
-                            </Button>
-                            <Button color={'Primary'}>
-                                Primary
-                            </Button>
-                        </FlexLayout>
-
-                        <TextField placeholder={"Search everything or on this community"} style={{width: "55%"}}/>
-                    </FlexLayout>
+                <FlexLayout direction={'Horizontal'} wrap={'nowrap'} spacing={3}>
+                    <IconButton>
+                        <ArrowBackIosNewIcon/>
+                    </IconButton>
+                    <IconButton>
+                        <ArrowForwardIosIcon/>
+                    </IconButton>
                 </FlexLayout>
+
+                <IconButton className={'AppHeaderLayout--History'}>
+                    <ScheduleIcon/>
+                </IconButton>
+
+                <TextField placeholder={"Search everything or on this community"} style={{width: "50%"}}/>
+
+                <StackLayout spacing={3}>
+                    <IconButton>
+                        <InboxIcon/>
+                    </IconButton>
+                    <IconButton>
+                        <HelpOutlineIcon/>
+                    </IconButton>
+                </StackLayout>
             </AppHeader>
 
 

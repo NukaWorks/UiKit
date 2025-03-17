@@ -7,9 +7,11 @@ import {baseStyling} from "../Common/Styling/baseStyling";
 const StyledIconButton = styled.button<ComponentBaseProps>`
     ${baseStyling};
     ${buttonBaseStyling};
+    display: grid;
+    place-items: center;
     background: none;
     color: ${({theme}) => theme === 'Dark' ? 'white' : 'black'};
-    padding: 8px 12px;
+    padding: 5px 8px;
     border-radius: 3px;
 
     &:hover {

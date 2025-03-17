@@ -65,9 +65,7 @@ export function AppHeader(
             {...props}
         >
             {title && <TextElement className="Appl__Header--Title">{title}</TextElement>}
-            <FlexLayout direction={'Horizontal'} flex={1} spacing={5} className="Appl__Header--Content">
-                {children}
-            </FlexLayout>
+            {children}
         </HeaderElement>
     );
 }

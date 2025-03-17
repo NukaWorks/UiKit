@@ -1,13 +1,10 @@
-import React, {FunctionComponent, ReactNode} from "react";
-import {Layout} from "./Layout";
+import React from "react";
+import {Layout, LayoutProps} from "./Layout";
 import styled from "styled-components";
 
-interface StackLayoutProps {
-    children: ReactNode;
-    className?: string;
+export interface StackLayoutProps extends LayoutProps {
     spacing?: number;
     direction?: "Horizontal" | "Vertical";
-    style?: React.CSSProperties;
 }
 
 const StackLayoutElement = styled(Layout)<StackLayoutProps>`
@@ -17,21 +14,24 @@ const StackLayoutElement = styled(Layout)<StackLayoutProps>`
     gap: ${({spacing}) => `${spacing}px`};
 `;
 
-export const StackLayout: FunctionComponent<StackLayoutProps> = ({
-                                                                     children,
-                                                                     className,
-                                                                     spacing = 0,
-                                                                     direction = "Horizontal",
-                                                                     style = {},
-                                                                 }) => {
+export function StackLayout({
+                                children,
+                                className,
+                                spacing = 0,
+                                direction = "Horizontal",
+                                style = {},
+                                ...props
+                            }
+                            : StackLayoutProps) {
     return (
         <StackLayoutElement
             className={["Layouts__StackLayout", "StackLayout", className].join(" ")}
             spacing={spacing}
             direction={direction}
             style={style}
+            {...props}
         >
             {children}
         </StackLayoutElement>
     );
-};
+}

@@ -1,8 +1,8 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
-import {StackLayout} from "./StackLayout";
+import {StackLayout, StackLayoutProps} from "./StackLayout";
 
-interface FlexLayoutProps {
+interface FlexLayoutProps extends StackLayoutProps {
     children: ReactNode;
     className?: string;
     spacing?: number;
@@ -32,17 +32,18 @@ interface FlexLayoutProps {
     style?: React.CSSProperties;
 }
 
-const FlexLayoutElement = styled(StackLayout)<Required<FlexLayoutProps>>`
+const FlexLayoutElement = styled(StackLayout)<FlexLayoutProps>`
     display: flex;
     flex-direction: ${({direction}) =>
             direction === "Vertical" ? "column" : "row"};
     gap: ${({spacing}) => `${spacing}px`};
-    align-items: ${({alignItems}) => alignItems.toLowerCase()};
-    justify-content: ${({justifyContent}) => justifyContent.toLowerCase()};
-    justify-items: ${({justifyItems}) => justifyItems.toLowerCase()};
-    align-content: ${({alignContent}) => alignContent.toLowerCase()};
-    flex-wrap: ${({wrap}) => wrap.toLowerCase()};
+    align-items: ${({alignItems}) => alignItems!.toLowerCase()};
+    justify-content: ${({justifyContent}) => justifyContent!.toLowerCase()};
+    justify-items: ${({justifyItems}) => justifyItems!.toLowerCase()};
+    align-content: ${({alignContent}) => alignContent!.toLowerCase()};
+    flex-wrap: ${({wrap}) => wrap!.toLowerCase()};
     flex: ${({flex}) => flex};
+    overflow: ${({overflow}) => overflow!.toLowerCase()};
 `;
 
 export function FlexLayout({
@@ -57,6 +58,8 @@ export function FlexLayout({
                                wrap = "wrap",
                                flex = 0,
                                style = {},
+                               overflow = "Unset",
+                               ...props
                            }: Readonly<FlexLayoutProps>) {
     return (
         <FlexLayoutElement
@@ -70,6 +73,8 @@ export function FlexLayout({
             wrap={wrap}
             flex={flex}
             style={style}
+            overflow={overflow}
+            {...props}
         >
             {children}
         </FlexLayoutElement>

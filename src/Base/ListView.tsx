@@ -1,12 +1,8 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import styled from "styled-components";
 import {ScrollLayout} from "../Layouts/ScrollLayout";
 import {baseStyling} from "../Common/Styling/baseStyling";
-
-export interface ListViewProps {
-    className?: string;
-    children?: ReactNode;
-}
+import {LayoutProps} from "../Layouts/Layout";
 
 const ListElement = styled(ScrollLayout)`
     ${baseStyling};
@@ -18,7 +14,7 @@ const ListElement = styled(ScrollLayout)`
     }
 `;
 
-export function ListView({children, className, ...props}: ListViewProps) {
+export function ListView({children, className, ...props}: LayoutProps) {
     return (
         <ListElement
             className={["Base__ListView", "ListView", className].join(" ")}

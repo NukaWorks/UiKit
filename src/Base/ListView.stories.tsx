@@ -1,14 +1,16 @@
 import React from "react";
 
-import { ListView, ListViewProps } from "./ListView";
+import {ListView} from "./ListView";
+import {LayoutProps} from "../Layouts/Layout";
+
 import '../Common/fonts.scss';
 
 export default {
-  title: "Base/ListView",
-  component: ListView,
+    title: "Base/ListView",
+    component: ListView,
 };
 
-const Template = (args: ListViewProps) => <ListView {...args} />;
+const Template = (args: LayoutProps) => <ListView {...args} />;
 
 export const Default = Template.bind({});
 // @ts-ignore

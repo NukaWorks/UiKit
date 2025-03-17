@@ -1,22 +1,23 @@
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
 import styled from "styled-components";
+import {CommonTypes} from "../Common/Interfaces";
 
-interface LayoutProps {
-    children: ReactNode;
+export interface LayoutProps {
+    children?: ReactNode;
+    width?: CommonTypes.CSSSize;
+    height?: CommonTypes.CSSSize;
     className?: string;
-    overflow?: "hidden" | "scroll";
-    width?: number;
-    height?: number;
-    minWidth?: number;
-    minHeight?: number;
-    maxWidth?: number;
-    maxHeight?: number;
+    overflow?: "Unset" | "Hidden" | "Scroll" | "Auto";
+    minWidth?: CommonTypes.CSSSize;
+    minHeight?: CommonTypes.CSSSize;
+    maxWidth?: CommonTypes.CSSSize;
+    maxHeight?: CommonTypes.CSSSize;
     style?: React.CSSProperties;
 }
 
 const LayoutElement = styled.div<LayoutProps>`
     display: block;
-    overflow: ${({overflow}) => overflow};
+    overflow: ${({overflow}) => overflow?.toLowerCase()};
     width: ${({width}) => (width ? width + "px" : "auto")};
     height: ${({height}) => (height ? height + "px" : "auto")};
     min-width: ${({minWidth}) => (minWidth ? minWidth + "px" : "auto")};
@@ -27,13 +28,13 @@ const LayoutElement = styled.div<LayoutProps>`
 
 export function Layout({
                            children,
-                           overflow,
-                           width,
-                           height,
-                           minWidth,
-                           minHeight,
-                           maxWidth,
-                           maxHeight,
+                           overflow = "Unset",
+                           width = "Unset",
+                           height = "Fit-Content",
+                           minWidth = "Unset",
+                           minHeight = "Unset",
+                           maxWidth = "Unset",
+                           maxHeight = "Unset",
                            className,
                            style = {},
                        }: Readonly<LayoutProps>) {
