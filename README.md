@@ -64,6 +64,6 @@ submit a pull request.
 
 ### Need more?
 
-Go on our **[developer documentation center](https://developer.nuka.works/)** and checkout UiKit, you can find more
+Go on our **[developer documentation center](https://developer.nuka.works/)** and checkout **UiKit**, you can find more
 documentation, code example and support.
 
