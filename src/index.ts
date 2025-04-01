@@ -3,7 +3,7 @@ import "./Common/fonts.scss";
 
 // Base Components
 import { Button } from "./Base/Button";
-import { IconButton } from "./Base/IconButton";
+import { IconButton, GroupIconButtons } from "./Base/IconButton";
 import { Text } from "./Base/Text";
 import { TextField } from "./Base/TextField";
 import { MenuList } from "./Base/MenuList";
@@ -48,6 +48,7 @@ import { CommonTypes, ComponentBaseProps } from "./Common/Interfaces";
 export {
   Button,
   IconButton,
+  GroupIconButtons,
   Text,
   TextField,
   FlexLayout,
