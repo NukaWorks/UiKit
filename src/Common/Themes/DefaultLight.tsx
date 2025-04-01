@@ -97,4 +97,29 @@ export const DefaultLight = {
       opacity: 0.4,
     },
   },
+  RadioButton: {
+    borderWidth: "2px",
+    gap: "8px",
+    transition: "all 0.2s ease-in-out",
+    sizes: {
+      Small: {
+        width: "16px",
+        height: "16px",
+        fontSize: "12px",
+      },
+      Medium: {
+        width: "20px",
+        height: "20px",
+        fontSize: "14px",
+      },
+      Large: {
+        width: "24px",
+        height: "24px",
+        fontSize: "16px",
+      },
+    },
+    disabled: {
+      opacity: 0.4,
+    },
+  },
 };
