@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 import styled from "styled-components";
 import { Button } from "../Base/Button";
 
@@ -63,8 +69,10 @@ export const Tabs: React.FC<TabsProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState(defaultTab);
 
+  const value = useMemo(() => ({ activeTab, setActiveTab }), [activeTab]);
+
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
+    <TabsContext.Provider value={value}>
       <TabsContainer className={className}>{children}</TabsContainer>
     </TabsContext.Provider>
   );

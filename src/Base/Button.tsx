@@ -125,7 +125,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         {...props}
       >
-        {label || props.children}
+        {label ?? props.children}
       </ButtonBase>
     );
   }
