@@ -20,12 +20,15 @@ const StyledIconButton = styled.button<IconButtonProps>`
   display: grid;
   place-items: center;
   background: none;
-  color: ${({ theme }) => (theme === "Dark" ? "white" : "black")};
-  padding: 5px 8px;
-  border-radius: ${({ isGrouped, isFirst, isLast }) => {
-    if (!isGrouped) return "3px";
-    if (isFirst) return "3px 0 0 3px";
-    if (isLast) return "0 3px 3px 0";
+  color: ${({ theme }) =>
+    theme.IconButton.color[theme === "Dark" ? "dark" : "light"]};
+  padding: ${({ theme }) => theme.IconButton.padding};
+  border-radius: ${({ theme, isGrouped, isFirst, isLast }) => {
+    if (!isGrouped) return theme.IconButton.borderRadius;
+    if (isFirst)
+      return `${theme.IconButton.borderRadius} 0 0 ${theme.IconButton.borderRadius}`;
+    if (isLast)
+      return `0 ${theme.IconButton.borderRadius} ${theme.IconButton.borderRadius} 0`;
     return "0";
   }};
 
@@ -41,15 +44,16 @@ const StyledIconButton = styled.button<IconButtonProps>`
     `}
 
   &:hover {
-    background-color: rgba(166, 164, 164, 0.29);
+    background-color: ${({ theme }) => theme.IconButton.hover.backgroundColor};
   }
 
   &:active {
-    background-color: #bebebe;
+    background-color: ${({ theme }) => theme.IconButton.active.backgroundColor};
   }
 
   &:focus-within {
-    box-shadow: rgba(220, 220, 220, 0.3) 0 0 0 0.3em;
+    box-shadow: ${({ theme }) =>
+      `${theme.IconButton.focus.shadowColor} 0 0 0 0.3em`};
   }
 `;
 

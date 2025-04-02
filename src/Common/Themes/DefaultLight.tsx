@@ -122,4 +122,21 @@ export const DefaultLight = {
       opacity: 0.4,
     },
   },
+  IconButton: {
+    color: {
+      light: "#1a1a1a",
+      dark: "#ffffff",
+    },
+    hover: {
+      backgroundColor: "rgba(0, 0, 0, 0.1)",
+    },
+    active: {
+      backgroundColor: "rgba(0, 0, 0, 0.2)",
+    },
+    focus: {
+      shadowColor: "rgba(0, 0, 0, 0.2)",
+    },
+    borderRadius: "3px",
+    padding: "5px 8px",
+  },
 };
