@@ -1,124 +1,128 @@
-import { FunctionComponent, ReactNode, useEffect, useState } from "react";
-import { UncontrolledTabs } from "./UncontrolledTabs";
-import { getTabsCount } from "../Common/Helpers/Tabs/count";
+import React, { createContext, useContext, useState, ReactNode } from "react";
+import styled from "styled-components";
+import { Button } from "../Base/Button";
 
-const MODE_CONTROLLED = 0;
-const MODE_UNCONTROLLED = 1;
+// Types and Interfaces
+interface TabsContextType {
+  activeTab: number;
+  setActiveTab: (index: number) => void;
+}
 
 interface TabsProps {
   children: ReactNode;
-  className?: string | string[] | object;
-  defaultFocus?: boolean;
-  defaultIndex?: number;
-  direction?: "rtl" | "ltr";
-  disabledTabClassName?: string;
-  disableUpDownKeys?: boolean;
-  disableLeftRightKeys?: boolean;
-  domRef?: (node: HTMLElement) => void;
-  environment?: object;
-  focusTabOnClick?: boolean;
-  forceRenderTabPanel?: boolean;
-  onSelect?: (index: number, last: number, event: Event) => boolean | void;
-  selectedIndex?: number | null;
-  selectedTabClassName?: string;
-  selectedTabPanelClassName?: string;
+  defaultTab?: number;
+  className?: string;
 }
 
-const getModeFromProps = (
-  props: Omit<
-    TabsProps,
-    | "focusTabOnClick"
-    | "defaultFocus"
-    | "defaultIndex"
-    | "children"
-    | "onSelect"
-  >
-) => {
-  return props.selectedIndex === null ? MODE_UNCONTROLLED : MODE_CONTROLLED;
-};
+interface TabProps {
+  children: ReactNode;
+  index: number;
+  disabled?: boolean;
+  className?: string;
+}
 
-const checkForIllegalModeChange = (
-  props: Omit<
-    TabsProps,
-    | "focusTabOnClick"
-    | "defaultFocus"
-    | "defaultIndex"
-    | "children"
-    | "onSelect"
-  >,
-  mode: number
-) => {
-  if (
-    process.env.NODE_ENV !== "production" &&
-    mode !== undefined &&
-    mode !== getModeFromProps(props)
-  ) {
-    throw new Error(
-      `Switching between controlled mode (by using \`selectedIndex\`) and uncontrolled mode is not supported in \`Tabs\`.
-For more information about controlled and uncontrolled mode of react-tabs see https://github.com/reactjs/react-tabs#controlled-vs-uncontrolled-mode.`
-    );
+interface TabPanelProps {
+  children: ReactNode;
+  index: number;
+  className?: string;
+}
+
+// Styled Components
+const TabsContainer = styled.div`
+  width: 100%;
+`;
+
+const TabList = styled.div`
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+`;
+
+const TabPanelContainer = styled.div`
+  padding: 1rem 0;
+`;
+
+// Context
+const TabsContext = createContext<TabsContextType | undefined>(undefined);
+
+// Hook
+const useTabs = () => {
+  const context = useContext(TabsContext);
+  if (!context) {
+    throw new Error("Tabs components must be used within a Tabs component");
   }
+  return context;
 };
 
-export const Tabs: FunctionComponent<TabsProps> = ({
+// Components
+export const Tabs: React.FC<TabsProps> = ({
   children,
-  defaultFocus = false,
-  defaultIndex = null,
-  focusTabOnClick = true,
-  onSelect,
-  ...props
+  defaultTab = 0,
+  className,
 }) => {
-  const [focus, setFocus] = useState(defaultFocus);
-  const [mode] = useState(getModeFromProps(props));
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(
-    mode === MODE_UNCONTROLLED ? defaultIndex || 0 : null
+  const [activeTab, setActiveTab] = useState(defaultTab);
+
+  return (
+    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
+      <TabsContainer className={className}>{children}</TabsContainer>
+    </TabsContext.Provider>
   );
-
-  useEffect(() => {
-    setFocus(false); // Reset focus after initial render, see comment above
-  }, []);
-
-  if (mode === MODE_UNCONTROLLED) {
-    // Ensure that we handle removed tabs and don't let selectedIndex get out of bounds
-    const tabsCount = getTabsCount(children);
-    useEffect(() => {
-      if (selectedIndex != null) {
-        const maxTabIndex = Math.max(0, tabsCount - 1);
-        setSelectedIndex(Math.min(selectedIndex, maxTabIndex));
-      }
-    }, [tabsCount]);
-  }
-
-  checkForIllegalModeChange(props, mode);
-
-  const handleSelected = (index: number, last: number, event: Event) => {
-    // Call change event handler
-    if (typeof onSelect === "function") {
-      // Check if the change event handler cancels the tab change
-      if (onSelect(index, last, event) === false) return;
-    }
-
-    // Always set focus on tabs unless it is disabled
-    if (focusTabOnClick) {
-      setFocus(true);
-    }
-
-    if (mode === MODE_UNCONTROLLED) {
-      // Update selected index
-      setSelectedIndex(index);
-    }
-  };
-
-  const subProps = {
-    ...props,
-    focus,
-    onSelect: handleSelected,
-    ...(selectedIndex != null ? { selectedIndex } : {}),
-  };
-
-  // @ts-ignore
-  return <UncontrolledTabs {...subProps}>{children}</UncontrolledTabs>;
 };
 
-// @ts-ignore
-Tabs.tabsRole = "Tabs";
+export const Tab: React.FC<TabProps> = ({
+  children,
+  index,
+  disabled = false,
+  className,
+}) => {
+  const { activeTab, setActiveTab } = useTabs();
+
+  const handleClick = () => {
+    if (!disabled) {
+      setActiveTab(index);
+    }
+  };
+
+  return (
+    <Button
+      onClick={handleClick}
+      disabled={disabled}
+      className={className}
+      color={activeTab === index ? "TabButtonActive" : "TabButton"}
+      size="Small"
+      {...{
+        "data-tab": true,
+        "aria-selected": activeTab === index,
+        "aria-disabled": disabled,
+        role: "tab",
+      }}
+    >
+      {children}
+    </Button>
+  );
+};
+
+export const TabPanel: React.FC<TabPanelProps> = ({
+  children,
+  index,
+  className,
+}) => {
+  const { activeTab } = useTabs();
+
+  if (activeTab !== index) {
+    return null;
+  }
+
+  return (
+    <TabPanelContainer
+      className={className}
+      role="tabpanel"
+      aria-hidden={activeTab !== index}
+    >
+      {children}
+    </TabPanelContainer>
+  );
+};
+
+export { TabList };

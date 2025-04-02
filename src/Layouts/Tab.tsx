@@ -72,7 +72,7 @@ export const Tab: FunctionComponent<TabProps> = ({
       aria-disabled={disabled ? "true" : "false"}
       aria-controls={`panel${id}`}
       // @ts-ignore
-      tabIndex={tabIndex || (selected ? "0" : "-1")}
+      tabIndex={tabIndex ?? (selected ? "0" : "-1")}
       data-uitab
     >
       {children}

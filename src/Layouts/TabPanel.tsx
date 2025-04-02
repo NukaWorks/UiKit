@@ -15,7 +15,7 @@ export function TabPanel({
   id,
   selected,
   ...props
-}: TabPanelProps) {
+}: Readonly<TabPanelProps>) {
   return (
     <div
       {...props}

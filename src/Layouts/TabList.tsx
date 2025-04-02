@@ -15,7 +15,11 @@ interface TabListProps {
   className?: string | string[] | object;
 }
 
-export function TabList({ children, className, ...props }: TabListProps) {
+export function TabList({
+  children,
+  className,
+  ...props
+}: Readonly<TabListProps>) {
   return (
     <TabListElement
       {...props}
