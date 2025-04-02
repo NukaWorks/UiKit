@@ -34,6 +34,22 @@ export const DefaultLight = {
       activeBackgroundColor: "#7a7a7a",
       shadowColor: "rgba(122, 122, 122, 0.5)",
     },
+    TabButton: {
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      hoverBackgroundColor: "rgba(0, 0, 0, 0.05)",
+      activeBackgroundColor: "rgba(0, 0, 0, 0.1)",
+      shadowColor: "rgba(0, 0, 0, 0.1)",
+      textColor: "#666666",
+    },
+    TabButtonActive: {
+      backgroundColor: "rgba(0, 0, 0, 0.05)",
+      borderColor: "rgba(0, 0, 0, 0.05)",
+      hoverBackgroundColor: "rgba(0, 0, 0, 0.08)",
+      activeBackgroundColor: "rgba(0, 0, 0, 0.1)",
+      shadowColor: "rgba(0, 0, 0, 0.1)",
+      textColor: "#000000",
+    },
     Primary: {
       backgroundColor: "#1ea7fd",
       borderColor: "#198ffc",
