@@ -15,18 +15,23 @@ export interface TextProps
   color?: string;
   size?: number;
   children?: ReactNode;
+  wordWrap?: boolean;
 }
 
 const TextElement = styled.p<{
   disabled?: boolean;
   color?: string;
   size?: number;
+  wordWrap?: boolean;
 }>`
   font-family: "Outfit", sans-serif;
   font-size: ${({ size }) => (size ? size + "pt" : "9pt")};
   color: ${({ disabled, color }) => (disabled ? "#bababa" : color || "black")};
   padding: 0;
   margin: 0;
+  white-space: ${({ wordWrap }) => (wordWrap ? "normal" : "nowrap")};
+  overflow: ${({ wordWrap }) => (wordWrap ? "auto" : "hidden")};
+  text-overflow: ${({ wordWrap }) => (wordWrap ? "clip" : "ellipsis")};
 `;
 
 export function Text({
@@ -37,6 +42,7 @@ export function Text({
   color,
   size,
   children,
+  wordWrap = true,
   ...props
 }: TextProps) {
   const [disable, setDisable] = useState(disabled);
@@ -56,6 +62,7 @@ export function Text({
       disabled={disable}
       size={size}
       color={color}
+      wordWrap={wordWrap}
       style={style}
       {...props}
     >

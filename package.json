@@ -14,10 +14,12 @@
     "bung": "node büng/src/bung.js"
   },
   "dependencies": {
+    "@mui/material": "^7.0.1",
     "@storybook/test": "^8.6.4",
     "@types/lodash": "^4.14.202",
     "clsx": "^2.1.0",
     "lodash-es": "^4.17.21",
+    "lucide-react": "^0.486.0",
     "react-detect-click-outside": "^1.1.7",
     "styled-components": "^6.1.8"
   },
@@ -26,15 +28,13 @@
     "react-dom": "^18.x"
   },
   "devDependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^6.4.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@babel/core": "^7.23.9",
     "@chromatic-com/storybook": "^3.2.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@eslint/eslintrc": "^3.0.2",
     "@eslint/js": "^9.1.1",
+    "@mui/icons-material": "^6.4.10",
     "@storybook/addon-actions": "^8.6.4",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",
@@ -62,6 +62,8 @@
     "globals": "^15.0.0",
     "prettier": "^3.2.4",
     "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.70.0",
     "storybook": "^8.6.4",
     "storybook-dark-mode": "^4.0.2",
