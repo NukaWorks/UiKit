@@ -44,6 +44,17 @@ const fadeIn = keyframes`
   }
 `;
 
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+`;
+
 const Container = styled.div`
   position: relative;
   display: inline-block;
@@ -135,13 +146,22 @@ const Content = styled.div<{
   opacity: 0;
   pointer-events: none;
   transform-origin: center;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 
   ${({ show }) =>
-    show &&
-    css`
-      opacity: 1;
-      animation: ${fadeIn} 0.2s ease forwards;
-    `}
+    show
+      ? css`
+          opacity: 1;
+          transform: scale(1);
+          animation: ${fadeIn} 0.2s ease forwards;
+        `
+      : css`
+          opacity: 0;
+          transform: scale(0.95);
+          animation: ${fadeOut} 0.2s ease forwards;
+        `}
 
   ${({ $coords }) =>
     $coords &&
