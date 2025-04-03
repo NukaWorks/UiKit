@@ -1,0 +1,390 @@
+import { Meta } from "@storybook/blocks";
+import { UiApp } from "../../../App/UiApp";
+import { AppActivity } from "../../../App/AppActivity";
+import { Button } from "../../../Base/Button";
+import { Text } from "../../../Base/Text";
+
+<Meta title="Guides/Theming" />
+
+# Theming Guide
+
+The UI Kit provides a powerful and flexible theming system that allows you to customize the look and feel of your application.
+
+## Theme Structure
+
+The theme is structured into several key areas:
+
+```typescript
+interface Theme {
+  colors: ColorTokens;
+  typography: TypographyTokens;
+  spacing: SpacingTokens;
+  borderRadius: BorderRadiusTokens;
+  shadows: ShadowTokens;
+  breakpoints: BreakpointTokens;
+}
+```
+
+### Color Tokens
+
+```typescript
+interface ColorTokens {
+  // Brand colors
+  primary: string;
+  secondary: string;
+  
+  // Background colors
+  background: string;
+  surface: string;
+  surfaceHover: string;
+  
+  // Text colors
+  text: string;
+  textSecondary: string;
+  textDisabled: string;
+  
+  // Border colors
+  border: string;
+  borderHover: string;
+  
+  // Status colors
+  success: string;
+  warning: string;
+  error: string;
+  info: string;
+  
+  // Component-specific colors
+  buttonPrimary: string;
+  buttonPrimaryHover: string;
+  buttonSecondary: string;
+  buttonSecondaryHover: string;
+}
+```
+
+## Using the Theme
+
+### Basic Theme Customization
+
+```tsx live
+function BasicThemeExample() {
+  const theme = {
+    colors: {
+      primary: '#0ea5e9',
+      secondary: '#6366f1',
+      background: '#ffffff',
+      text: '#0f172a',
+    },
+  };
+
+  return (
+    <UiApp theme={theme}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+          <Button color="Primary">Primary Button</Button>
+          <Button>Secondary Button</Button>
+          <Text>Themed text content</Text>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+### Creating a Dark Theme
+
+```tsx live
+function DarkThemeExample() {
+  const darkTheme = {
+    colors: {
+      primary: '#60a5fa',
+      secondary: '#818cf8',
+      background: '#1e293b',
+      surface: '#334155',
+      text: '#f8fafc',
+      textSecondary: '#cbd5e1',
+      border: '#475569',
+    },
+  };
+
+  return (
+    <UiApp theme={darkTheme}>
+      <AppActivity>
+        <div style={{ 
+          display: 'flex', 
+          gap: '16px', 
+          flexDirection: 'column',
+          padding: '24px',
+          borderRadius: '8px',
+          backgroundColor: darkTheme.colors.surface,
+        }}>
+          <Text variant="h2">Dark Theme</Text>
+          <Text>Content in dark mode</Text>
+          <Button color="Primary">Action</Button>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+## Theme Tokens
+
+### Typography
+
+```typescript
+interface TypographyTokens {
+  fontFamily: {
+    sans: string;
+    mono: string;
+  };
+  fontSize: {
+    xs: string;
+    sm: string;
+    base: string;
+    lg: string;
+    xl: string;
+    '2xl': string;
+    '3xl': string;
+  };
+  fontWeight: {
+    normal: number;
+    medium: number;
+    semibold: number;
+    bold: number;
+  };
+  lineHeight: {
+    none: number;
+    tight: number;
+    normal: number;
+    relaxed: number;
+  };
+}
+```
+
+### Spacing
+
+```typescript
+interface SpacingTokens {
+  px: string;
+  '0': string;
+  '0.5': string;
+  '1': string;
+  '2': string;
+  '3': string;
+  '4': string;
+  '5': string;
+  '6': string;
+  '8': string;
+  '10': string;
+  '12': string;
+  '16': string;
+  '20': string;
+  '24': string;
+  '32': string;
+}
+```
+
+## Component Theming
+
+### Button Variants
+
+```tsx live
+function ButtonThemeExample() {
+  const theme = {
+    colors: {
+      buttonPrimary: '#0ea5e9',
+      buttonPrimaryHover: '#0284c7',
+      buttonSecondary: '#6366f1',
+      buttonSecondaryHover: '#4f46e5',
+    },
+  };
+
+  return (
+    <UiApp theme={theme}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <Button color="Primary">Primary</Button>
+          <Button>Secondary</Button>
+          <Button variant="outline">Outline</Button>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+### Custom Component Styles
+
+```tsx live
+function CustomStylesExample() {
+  const theme = {
+    borderRadius: {
+      sm: '4px',
+      md: '6px',
+      lg: '8px',
+      full: '9999px',
+    },
+    shadows: {
+      sm: '0 1px 2px rgba(0,0,0,0.05)',
+      md: '0 4px 6px rgba(0,0,0,0.05)',
+      lg: '0 10px 15px rgba(0,0,0,0.05)',
+    },
+  };
+
+  return (
+    <UiApp theme={theme}>
+      <AppActivity>
+        <div style={{ 
+          display: 'grid', 
+          gap: '16px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        }}>
+          <div style={{ 
+            padding: '16px',
+            borderRadius: theme.borderRadius.lg,
+            boxShadow: theme.shadows.sm,
+            border: '1px solid #e5e7eb',
+          }}>
+            <Text variant="h3">Small Shadow</Text>
+            <Text>With large border radius</Text>
+          </div>
+          <div style={{ 
+            padding: '16px',
+            borderRadius: theme.borderRadius.md,
+            boxShadow: theme.shadows.md,
+            border: '1px solid #e5e7eb',
+          }}>
+            <Text variant="h3">Medium Shadow</Text>
+            <Text>With medium border radius</Text>
+          </div>
+          <div style={{ 
+            padding: '16px',
+            borderRadius: theme.borderRadius.sm,
+            boxShadow: theme.shadows.lg,
+            border: '1px solid #e5e7eb',
+          }}>
+            <Text variant="h3">Large Shadow</Text>
+            <Text>With small border radius</Text>
+          </div>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+## Best Practices
+
+### Theme Organization
+
+1. **Token Consistency**
+   - Use semantic token names
+   - Maintain a clear token hierarchy
+   - Document token usage and purpose
+
+2. **Color Management**
+   - Define base colors first
+   - Create semantic color tokens
+   - Include hover and active states
+   - Consider light and dark modes
+
+3. **Responsive Design**
+   - Define breakpoint tokens
+   - Use relative units when possible
+   - Test themes across screen sizes
+
+4. **Accessibility**
+   - Ensure sufficient color contrast
+   - Provide focus indicators
+   - Support reduced motion preferences
+
+### Theme Extension
+
+```typescript
+import { defaultTheme } from '@uikit/theme';
+
+const customTheme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme.colors,
+    primary: '#0ea5e9',
+    secondary: '#6366f1',
+  },
+  // Override or extend other tokens
+};
+```
+
+## Dynamic Theming
+
+### Theme Switching
+
+```tsx live
+function ThemeSwitcherExample() {
+  const [themeMode, setThemeMode] = React.useState('light');
+  
+  const themes = {
+    light: {
+      colors: {
+        background: '#ffffff',
+        surface: '#f3f4f6',
+        text: '#1f2937',
+        border: '#e5e7eb',
+      },
+    },
+    dark: {
+      colors: {
+        background: '#1f2937',
+        surface: '#374151',
+        text: '#f3f4f6',
+        border: '#4b5563',
+      },
+    },
+    brand: {
+      colors: {
+        background: '#f0f9ff',
+        surface: '#e0f2fe',
+        text: '#0c4a6e',
+        border: '#bae6fd',
+      },
+    },
+  };
+
+  return (
+    <UiApp theme={themes[themeMode]}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <Button 
+              onClick={() => setThemeMode('light')}
+              color={themeMode === 'light' ? 'Primary' : undefined}
+            >
+              Light
+            </Button>
+            <Button 
+              onClick={() => setThemeMode('dark')}
+              color={themeMode === 'dark' ? 'Primary' : undefined}
+            >
+              Dark
+            </Button>
+            <Button 
+              onClick={() => setThemeMode('brand')}
+              color={themeMode === 'brand' ? 'Primary' : undefined}
+            >
+              Brand
+            </Button>
+          </div>
+          <div style={{ 
+            padding: '24px',
+            borderRadius: '8px',
+            backgroundColor: themes[themeMode].colors.surface,
+            border: `1px solid ${themes[themeMode].colors.border}`,
+          }}>
+            <Text variant="h2">Theme: {themeMode}</Text>
+            <Text>Content with dynamic theme</Text>
+          </div>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+``` 

@@ -1,0 +1,195 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Button } from "../../../Base/Button";
+
+<Meta title="Components/Base/Button" component={Button} />
+
+# Button
+
+A versatile button component that supports different variants, sizes, and states.
+
+## Interactive Demo
+
+<Canvas>
+  <Story name="Interactive">
+    {() => {
+      const [clicked, setClicked] = React.useState(false);
+      return (
+        <Button
+          color="Primary"
+          onClick={() => {
+            setClicked(true);
+            setTimeout(() => setClicked(false), 1000);
+          }}
+        >
+          {clicked ? "Clicked!" : "Click me"}
+        </Button>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Variants
+
+<Canvas>
+  <Story name="Variants">
+    <div style={{ display: "flex", gap: "8px" }}>
+      <Button>Default</Button>
+      <Button color="Primary">Primary</Button>
+      <Button color="TabButton">Tab</Button>
+    </div>
+  </Story>
+</Canvas>
+
+## Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+      <Button size="small">Small</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="large">Large</Button>
+    </div>
+  </Story>
+</Canvas>
+
+## States
+
+<Canvas>
+  <Story name="States">
+    <div style={{ display: "flex", gap: "8px", flexDirection: "column" }}>
+      <div>
+        <Button>Normal</Button>
+        <Button disabled>Disabled</Button>
+      </div>
+      <div>
+        <Button color="Primary">Normal Primary</Button>
+        <Button color="Primary" disabled>
+          Disabled Primary
+        </Button>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+## With Icons
+
+<Canvas>
+  <Story name="Icons">
+    <div style={{ display: "flex", gap: "8px" }}>
+      <Button startIcon="→">Start Icon</Button>
+      <Button endIcon="←">End Icon</Button>
+    </div>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Props
+
+| Prop        | Type                                    | Default     | Description         |
+| ----------- | --------------------------------------- | ----------- | ------------------- |
+| `children`  | `ReactNode`                             | -           | Button content      |
+| `color`     | `"Default" \| "Primary" \| "TabButton"` | `"Default"` | Button variant      |
+| `disabled`  | `boolean`                               | `false`     | Disables the button |
+| `startIcon` | `ReactNode`                             | -           | Icon before text    |
+| `endIcon`   | `ReactNode`                             | -           | Icon after text     |
+| `onClick`   | `(event: MouseEvent) => void`           | -           | Click handler       |
+| `size`      | `"small" \| "medium" \| "large"`        | `"medium"`  | Button size         |
+
+### CSS API
+
+The Button component uses the following theme tokens:
+
+```tsx
+{
+  backgroundColor: string;
+  textColor: string;
+  borderColor: string;
+  hoverBackgroundColor: string;
+  activeBackgroundColor: string;
+  shadowColor: string;
+}
+```
+
+## Accessibility
+
+The Button component follows WAI-ARIA guidelines:
+
+```tsx live
+<div style={{ display: "flex", gap: "8px", flexDirection: "column" }}>
+  <Button aria-label="Add to cart">Add to cart</Button>
+  <Button aria-label="Delete item" aria-describedby="delete-description">
+    Delete
+  </Button>
+  <span id="delete-description" style={{ fontSize: "14px", color: "gray" }}>
+    This action cannot be undone
+  </span>
+</div>
+```
+
+## Best Practices
+
+### Do's
+
+- Use Primary buttons for main actions
+- Keep button text concise and action-oriented
+- Use consistent sizing within the same view
+- Include loading states for async actions
+
+### Don'ts
+
+- Don't use too many Primary buttons in one view
+- Avoid long button text that might wrap
+- Don't use buttons when links are more appropriate
+- Avoid disabled buttons without explanation
+
+## Examples
+
+### Form Submit Button
+
+```tsx live
+function SubmitExample() {
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSubmit = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 1000);
+  };
+
+  return (
+    <Button color="Primary" onClick={handleSubmit} disabled={loading}>
+      {loading ? "Submitting..." : "Submit Form"}
+    </Button>
+  );
+}
+```
+
+### Button Group
+
+```tsx live
+<div
+  style={{
+    display: "flex",
+    gap: "1px",
+    background: "#e0e0e0",
+    padding: "1px",
+    borderRadius: "8px",
+    width: "fit-content",
+  }}
+>
+  <Button>Left</Button>
+  <Button>Middle</Button>
+  <Button>Right</Button>
+</div>
+```
+
+### Responsive Buttons
+
+```tsx live
+<div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+  <Button color="Primary" style={{ flex: 1 }}>
+    Responsive
+  </Button>
+  <Button style={{ flex: 1 }}>Buttons</Button>
+</div>
+```

@@ -1,0 +1,181 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { UiApp } from "../../../App/UiApp";
+import { AppActivity } from "../../../App/AppActivity";
+import { Button } from "../../../Base/Button";
+import { Text } from "../../../Base/Text";
+
+<Meta title="App/UiApp" component={UiApp} />
+
+# UiApp
+
+The `UiApp` component is the root provider for the UI Kit. It provides theming, styling, and context for all other components.
+
+## Basic Usage
+
+```tsx
+import { UiApp } from '@uikit/app';
+
+function App() {
+  return (
+    <UiApp>
+      {/* Your application content */}
+    </UiApp>
+  );
+}
+```
+
+## With Custom Theme
+
+```tsx live
+function CustomThemeExample() {
+  const customTheme = {
+    colors: {
+      primary: '#6366f1',
+      secondary: '#4f46e5',
+      background: '#ffffff',
+      text: '#1f2937',
+    },
+    // ... other theme values
+  };
+
+  return (
+    <UiApp theme={customTheme}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+          <Button color="Primary">Themed Button</Button>
+          <Text>Themed Text</Text>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+## API Reference
+
+### UiApp Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Application content |
+| `theme` | `Theme` | `defaultTheme` | Custom theme object |
+| `defaultColorMode` | `"light" \| "dark"` | `"light"` | Initial color mode |
+
+### Theme Configuration
+
+The theme object structure:
+
+```typescript
+interface Theme {
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    surface: string;
+    text: string;
+    textSecondary: string;
+    border: string;
+    // ... other color tokens
+  };
+  typography: {
+    fontFamily: string;
+    fontSize: {
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      // ... other size tokens
+    };
+    fontWeight: {
+      normal: number;
+      medium: number;
+      bold: number;
+    };
+  };
+  spacing: {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+  };
+  borderRadius: {
+    sm: string;
+    md: string;
+    lg: string;
+    full: string;
+  };
+  shadows: {
+    sm: string;
+    md: string;
+    lg: string;
+  };
+}
+```
+
+## Examples
+
+### With Dark Mode Toggle
+
+```tsx live
+function DarkModeExample() {
+  const [isDark, setIsDark] = React.useState(false);
+  
+  const theme = {
+    colors: isDark ? {
+      background: '#1f2937',
+      surface: '#374151',
+      text: '#f3f4f6',
+      border: '#4b5563',
+    } : {
+      background: '#ffffff',
+      surface: '#f3f4f6',
+      text: '#1f2937',
+      border: '#e5e7eb',
+    },
+  };
+
+  return (
+    <UiApp theme={theme}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+          <Button
+            onClick={() => setIsDark(!isDark)}
+            color="Primary"
+          >
+            Toggle {isDark ? 'Light' : 'Dark'} Mode
+          </Button>
+          <Text>Content with dynamic theme</Text>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+```
+
+### With Responsive Design
+
+```tsx live
+function ResponsiveExample() {
+  const theme = {
+    breakpoints: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
+  };
+
+  return (
+    <UiApp theme={theme}>
+      <AppActivity>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <Button style={{ flex: '1 1 auto' }}>Responsive</Button>
+          <Button style={{ flex: '1 1 auto' }}>Layout</Button>
+        </div>
+      </AppActivity>
+    </UiApp>
+  );
+}
+``` 

@@ -1,0 +1,229 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Menu, MenuItem, MenuDivider } from "../../../Base/Menu";
+import { Button } from "../../../Base/Button";
+import { AppActivity } from "../../../App/AppActivity";
+
+<Meta title="Components/Base/Menu" component={Menu} />
+
+# Menu
+
+A flexible menu component that provides dropdown functionality with keyboard navigation and accessibility features.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <Menu>
+        <Button>Open Menu</Button>
+        <Menu.Items>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Settings</MenuItem>
+          <MenuDivider />
+          <MenuItem>Sign out</MenuItem>
+        </Menu.Items>
+      </Menu>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+### With Icons
+
+<Canvas>
+  <Story name="WithIcons">
+    <AppActivity>
+      <Menu>
+        <Button>Actions</Button>
+        <Menu.Items>
+          <MenuItem icon="👤">View Profile</MenuItem>
+          <MenuItem icon="⚙️">Settings</MenuItem>
+          <MenuDivider />
+          <MenuItem icon="📤">Export Data</MenuItem>
+          <MenuItem icon="🚪" variant="danger">Sign out</MenuItem>
+        </Menu.Items>
+      </Menu>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+### Nested Menus
+
+<Canvas>
+  <Story name="Nested">
+    <AppActivity>
+      <Menu>
+        <Button>File</Button>
+        <Menu.Items>
+          <MenuItem>New File</MenuItem>
+          <Menu>
+            <MenuItem>Open Recent</MenuItem>
+            <Menu.Items>
+              <MenuItem>Document 1</MenuItem>
+              <MenuItem>Document 2</MenuItem>
+            </Menu.Items>
+          </Menu>
+          <MenuDivider />
+          <MenuItem>Save</MenuItem>
+          <MenuItem>Save As...</MenuItem>
+        </Menu.Items>
+      </Menu>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Menu Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Trigger element and Menu.Items |
+| `placement` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | Menu placement |
+| `offset` | `number` | `4` | Distance from trigger |
+| `onOpen` | `() => void` | - | Called when menu opens |
+| `onClose` | `() => void` | - | Called when menu closes |
+
+### MenuItem Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Item content |
+| `icon` | `ReactNode` | - | Icon element |
+| `disabled` | `boolean` | `false` | Disables the item |
+| `variant` | `"default" \| "danger"` | `"default"` | Item style variant |
+| `onClick` | `() => void` | - | Click handler |
+
+## Accessibility
+
+The Menu component follows WAI-ARIA guidelines:
+
+```tsx live
+<AppActivity>
+  <Menu>
+    <Button aria-label="User menu">
+      User Options
+    </Button>
+    <Menu.Items aria-label="User menu items">
+      <MenuItem role="menuitem">Profile Settings</MenuItem>
+      <MenuItem role="menuitem">Account Security</MenuItem>
+      <MenuDivider role="separator" />
+      <MenuItem role="menuitem">Sign Out</MenuItem>
+    </Menu.Items>
+  </Menu>
+</AppActivity>
+```
+
+### Keyboard Navigation
+
+- `Enter` or `Space`: Open menu / Select item
+- `Escape`: Close menu
+- `↑/↓`: Navigate between items
+- `→`: Open submenu
+- `←`: Close submenu
+- `Home/End`: Jump to first/last item
+
+## Best Practices
+
+### Do's
+- Keep menu items concise and clear
+- Group related items together
+- Use icons consistently
+- Provide keyboard shortcuts for common actions
+
+### Don'ts
+- Don't nest menus too deeply
+- Avoid too many items in a single menu
+- Don't use menus for primary actions
+- Avoid disabled items without explanation
+
+## Examples
+
+### Context Menu
+
+```tsx live
+function ContextMenuExample() {
+  return (
+    <AppActivity>
+      <div
+        style={{
+          padding: "24px",
+          border: "1px dashed #ccc",
+          borderRadius: "4px",
+        }}
+        onContextMenu={(e) => e.preventDefault()}
+      >
+        <Menu>
+          <div>Right click here</div>
+          <Menu.Items>
+            <MenuItem icon="✂️">Cut</MenuItem>
+            <MenuItem icon="📋">Copy</MenuItem>
+            <MenuItem icon="📌">Paste</MenuItem>
+            <MenuDivider />
+            <MenuItem icon="🗑️" variant="danger">Delete</MenuItem>
+          </Menu.Items>
+        </Menu>
+      </div>
+    </AppActivity>
+  );
+}
+```
+
+### With Keyboard Shortcuts
+
+```tsx live
+<AppActivity>
+  <Menu>
+    <Button>Edit</Button>
+    <Menu.Items>
+      <MenuItem>
+        <div style={{ display: "flex", justifyContent: "space-between", width: "200px" }}>
+          <span>Undo</span>
+          <span style={{ color: "gray" }}>⌘Z</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div style={{ display: "flex", justifyContent: "space-between", width: "200px" }}>
+          <span>Redo</span>
+          <span style={{ color: "gray" }}>⌘⇧Z</span>
+        </div>
+      </MenuItem>
+    </Menu.Items>
+  </Menu>
+</AppActivity>
+```
+
+### Custom Styling
+
+```tsx live
+<AppActivity>
+  <Menu>
+    <Button>Custom Menu</Button>
+    <Menu.Items
+      style={{
+        background: "linear-gradient(to bottom, #ffffff, #f5f5f5)",
+        borderRadius: "8px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+      }}
+    >
+      <MenuItem
+        style={{
+          padding: "12px 16px",
+          fontSize: "14px",
+          fontWeight: 500,
+        }}
+      >
+        Custom Item 1
+      </MenuItem>
+      <MenuItem
+        style={{
+          padding: "12px 16px",
+          fontSize: "14px",
+          fontWeight: 500,
+        }}
+      >
+        Custom Item 2
+      </MenuItem>
+    </Menu.Items>
+  </Menu>
+</AppActivity>
+``` 

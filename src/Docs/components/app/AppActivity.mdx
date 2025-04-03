@@ -1,0 +1,150 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { AppActivity } from "../../../App/AppActivity";
+import { Button } from "../../../Base/Button";
+import { Text } from "../../../Base/Text";
+
+<Meta title="App/AppActivity" component={AppActivity} />
+
+# AppActivity
+
+The `AppActivity` component provides a consistent layout container for application content. It handles spacing, background colors, and ensures proper context for child components.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <Text>Content inside AppActivity</Text>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+### With Multiple Components
+
+<Canvas>
+  <Story name="MultipleComponents">
+    <AppActivity>
+      <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+        <Text variant="h1">Main Title</Text>
+        <Text>Some description text</Text>
+        <Button color="Primary">Action Button</Button>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### AppActivity Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Content to render |
+| `className` | `string` | - | Additional CSS classes |
+| `style` | `CSSProperties` | - | Custom styles |
+
+## Usage Guidelines
+
+### When to Use AppActivity
+
+- As a container for main content areas
+- When you need consistent spacing and background
+- To ensure proper theme context
+- For sections that require specific layout rules
+
+### Best Practices
+
+- Place at the root of your main content areas
+- Use for logical grouping of related components
+- Maintain consistent padding and spacing
+- Don't nest AppActivity components unnecessarily
+
+## Examples
+
+### With Custom Styling
+
+```tsx live
+<AppActivity style={{ backgroundColor: '#f8fafc', padding: '24px', borderRadius: '8px' }}>
+  <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+    <Text variant="h2">Custom Styled Activity</Text>
+    <Text>Content with custom background and padding</Text>
+    <Button>Action</Button>
+  </div>
+</AppActivity>
+```
+
+### As a Card Container
+
+```tsx live
+<div style={{ display: 'flex', gap: '16px' }}>
+  <AppActivity style={{ 
+    flex: 1,
+    padding: '16px',
+    borderRadius: '8px',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+  }}>
+    <Text variant="h3">Card 1</Text>
+    <Text>First card content</Text>
+  </AppActivity>
+  
+  <AppActivity style={{ 
+    flex: 1,
+    padding: '16px',
+    borderRadius: '8px',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+  }}>
+    <Text variant="h3">Card 2</Text>
+    <Text>Second card content</Text>
+  </AppActivity>
+</div>
+```
+
+### With Responsive Layout
+
+```tsx live
+<AppActivity>
+  <div style={{ 
+    display: 'grid',
+    gap: '16px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  }}>
+    <div>
+      <Text variant="h3">Section 1</Text>
+      <Text>Responsive grid layout</Text>
+    </div>
+    <div>
+      <Text variant="h3">Section 2</Text>
+      <Text>Adjusts to screen size</Text>
+    </div>
+    <div>
+      <Text variant="h3">Section 3</Text>
+      <Text>Maintains consistent spacing</Text>
+    </div>
+  </div>
+</AppActivity>
+```
+
+### With Nested Content
+
+```tsx live
+<AppActivity>
+  <div style={{ display: 'flex', gap: '24px', flexDirection: 'column' }}>
+    <div>
+      <Text variant="h2">Main Section</Text>
+      <Text>Primary content area</Text>
+    </div>
+    
+    <div style={{ 
+      backgroundColor: '#f3f4f6',
+      padding: '16px',
+      borderRadius: '8px',
+    }}>
+      <Text variant="h3">Subsection</Text>
+      <Text>Secondary content with different background</Text>
+      <Button style={{ marginTop: '12px' }}>
+        Action
+      </Button>
+    </div>
+  </div>
+</AppActivity>
+``` 
