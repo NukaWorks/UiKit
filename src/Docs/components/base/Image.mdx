@@ -1,0 +1,225 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Image } from "../../../Base/Image";
+import { AppActivity } from "../../../App/AppActivity";
+
+<Meta title="Components/Base/Image" component={Image} />
+
+# Image
+
+A versatile image component that supports lazy loading, fallback handling, and various aspect ratios.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <Image
+        src="https://picsum.photos/400/300"
+        alt="Sample image"
+        width={400}
+        height={300}
+      />
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Aspect Ratios
+
+<Canvas>
+  <Story name="AspectRatios">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Image
+          src="https://picsum.photos/400/400"
+          alt="Square image"
+          aspectRatio="1:1"
+          width={200}
+        />
+        <Image
+          src="https://picsum.photos/400/300"
+          alt="16:9 image"
+          aspectRatio="16:9"
+          width={400}
+        />
+        <Image
+          src="https://picsum.photos/300/400"
+          alt="Portrait image"
+          aspectRatio="3:4"
+          width={300}
+        />
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Loading States
+
+<Canvas>
+  <Story name="LoadingStates">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Image
+          src="https://picsum.photos/400/300"
+          alt="Image with loading state"
+          width={400}
+          height={300}
+          loading="lazy"
+          showLoadingState
+        />
+        <Image
+          src="invalid-url"
+          alt="Image with fallback"
+          width={400}
+          height={300}
+          fallback={<div>Failed to load image</div>}
+        />
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `src` | `string` | - | Image source URL |
+| `alt` | `string` | - | Alternative text for accessibility |
+| `width` | `number` | - | Image width in pixels |
+| `height` | `number` | - | Image height in pixels |
+| `aspectRatio` | `string` | - | Aspect ratio (e.g., "16:9", "4:3", "1:1") |
+| `objectFit` | `"contain" \| "cover" \| "fill" \| "none" \| "scale-down"` | `"cover"` | Image fitting behavior |
+| `loading` | `"eager" \| "lazy"` | `"eager"` | Image loading behavior |
+| `fallback` | `ReactNode` | - | Fallback content for loading failures |
+| `showLoadingState` | `boolean` | `false` | Show loading skeleton |
+| `className` | `string` | - | Additional CSS class names |
+
+### CSS API
+
+The Image component uses the following theme tokens:
+
+```typescript
+interface ImageTokens {
+  borderRadius: string;
+  backgroundColor: string;
+  loadingBackgroundColor: string;
+  errorBackgroundColor: string;
+  transition: string;
+}
+```
+
+## Accessibility
+
+The Image component follows accessibility best practices:
+
+```tsx live
+<AppActivity>
+  <Image
+    src="https://picsum.photos/400/300"
+    alt="A detailed description of the image content for screen readers"
+    width={400}
+    height={300}
+    loading="lazy"
+    role="img"
+    aria-label="Scenic landscape photograph"
+  />
+</AppActivity>
+```
+
+## Best Practices
+
+### Do's
+- Always provide meaningful alt text
+- Use appropriate aspect ratios
+- Implement lazy loading for performance
+- Handle loading and error states
+
+### Don'ts
+- Don't skip alt text for content images
+- Avoid stretching or squishing images
+- Don't use unnecessarily large images
+- Avoid loading multiple high-res images at once
+
+## Examples
+
+### Responsive Image Gallery
+
+```tsx live
+<AppActivity>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '16px',
+    padding: '16px'
+  }}>
+    {[1, 2, 3, 4].map((id) => (
+      <Image
+        key={id}
+        src={`https://picsum.photos/400/400?random=${id}`}
+        alt={`Gallery image ${id}`}
+        aspectRatio="1:1"
+        loading="lazy"
+        showLoadingState
+        style={{ borderRadius: '8px' }}
+      />
+    ))}
+  </div>
+</AppActivity>
+```
+
+### Image Card
+
+```tsx live
+<AppActivity>
+  <div style={{
+    maxWidth: '300px',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <Image
+      src="https://picsum.photos/400/300"
+      alt="Card header image"
+      aspectRatio="4:3"
+      width={300}
+      loading="lazy"
+      showLoadingState
+    />
+    <div style={{ padding: '16px' }}>
+      <h3 style={{ margin: '0 0 8px' }}>Card Title</h3>
+      <p style={{ margin: '0', color: 'gray' }}>
+        Card description with some sample text.
+      </p>
+    </div>
+  </div>
+</AppActivity>
+```
+
+### Avatar with Fallback
+
+```tsx live
+<AppActivity>
+  <Image
+    src="invalid-url"
+    alt="User avatar"
+    width={64}
+    height={64}
+    style={{ borderRadius: '50%' }}
+    fallback={
+      <div style={{
+        width: '64px',
+        height: '64px',
+        borderRadius: '50%',
+        backgroundColor: '#e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#666'
+      }}>
+        JD
+      </div>
+    }
+  />
+</AppActivity>
+``` 

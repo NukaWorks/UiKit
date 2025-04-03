@@ -1,0 +1,265 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Tooltip } from "../../../Base/Tooltip";
+import { AppActivity } from "../../../App/AppActivity";
+import { Button } from "../../../Base/Button";
+import { Text } from "../../../Base/Text";
+
+<Meta title="Components/Base/Tooltip" component={Tooltip} />
+
+# Tooltip
+
+A flexible tooltip component that provides additional information or context when hovering over or focusing on an element.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <div style={{ padding: '32px', display: 'flex', gap: '16px' }}>
+        <Tooltip content="Basic tooltip">
+          <Button>Hover me</Button>
+        </Tooltip>
+        <Tooltip content="Disabled button tooltip">
+          <Button disabled>Disabled</Button>
+        </Tooltip>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Positions
+
+<Canvas>
+  <Story name="Positions">
+    <AppActivity>
+      <div style={{ 
+        padding: '64px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '32px',
+        placeItems: 'center'
+      }}>
+        <Tooltip content="Top start" position="top-start">
+          <Button>Top Start</Button>
+        </Tooltip>
+        <Tooltip content="Top" position="top">
+          <Button>Top</Button>
+        </Tooltip>
+        <Tooltip content="Top end" position="top-end">
+          <Button>Top End</Button>
+        </Tooltip>
+        
+        <Tooltip content="Left" position="left">
+          <Button>Left</Button>
+        </Tooltip>
+        <div>Center</div>
+        <Tooltip content="Right" position="right">
+          <Button>Right</Button>
+        </Tooltip>
+        
+        <Tooltip content="Bottom start" position="bottom-start">
+          <Button>Bottom Start</Button>
+        </Tooltip>
+        <Tooltip content="Bottom" position="bottom">
+          <Button>Bottom</Button>
+        </Tooltip>
+        <Tooltip content="Bottom end" position="bottom-end">
+          <Button>Bottom End</Button>
+        </Tooltip>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Variants
+
+<Canvas>
+  <Story name="Variants">
+    <AppActivity>
+      <div style={{ padding: '32px', display: 'flex', gap: '16px' }}>
+        <Tooltip content="Default tooltip" variant="default">
+          <Button>Default</Button>
+        </Tooltip>
+        <Tooltip content="Primary tooltip" variant="primary">
+          <Button>Primary</Button>
+        </Tooltip>
+        <Tooltip content="Success tooltip" variant="success">
+          <Button>Success</Button>
+        </Tooltip>
+        <Tooltip content="Warning tooltip" variant="warning">
+          <Button>Warning</Button>
+        </Tooltip>
+        <Tooltip content="Alert tooltip" variant="alert">
+          <Button>Alert</Button>
+        </Tooltip>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `content` | `ReactNode` | - | Tooltip content |
+| `children` | `ReactNode` | - | Element that triggers the tooltip |
+| `position` | `"top" \| "top-start" \| "top-end" \| "right" \| "right-start" \| "right-end" \| "bottom" \| "bottom-start" \| "bottom-end" \| "left" \| "left-start" \| "left-end"` | `"top"` | Tooltip position |
+| `variant` | `"default" \| "primary" \| "success" \| "warning" \| "alert"` | `"default"` | Visual variant |
+| `delay` | `number` | `200` | Show delay in milliseconds |
+| `offset` | `number` | `8` | Distance from trigger element |
+| `maxWidth` | `number \| string` | `320` | Maximum width of tooltip |
+| `disabled` | `boolean` | `false` | Disables the tooltip |
+| `showArrow` | `boolean` | `true` | Show arrow pointer |
+
+### CSS API
+
+The Tooltip component uses the following theme tokens:
+
+```typescript
+interface TooltipTokens {
+  backgroundColor: string;
+  textColor: string;
+  borderRadius: string;
+  padding: string;
+  fontSize: string;
+  boxShadow: string;
+  zIndex: number;
+  variants: {
+    default: TooltipVariant;
+    primary: TooltipVariant;
+    success: TooltipVariant;
+    warning: TooltipVariant;
+    alert: TooltipVariant;
+  };
+  arrow: {
+    size: string;
+    offset: string;
+  };
+}
+
+interface TooltipVariant {
+  backgroundColor: string;
+  textColor: string;
+}
+```
+
+## Accessibility
+
+The Tooltip component follows WAI-ARIA guidelines:
+
+```tsx live
+<AppActivity>
+  <Tooltip
+    content="Detailed information about this action"
+    role="tooltip"
+    aria-label="More information"
+  >
+    <Button
+      aria-describedby="tooltip"
+      aria-label="Help"
+    >
+      ?
+    </Button>
+  </Tooltip>
+</AppActivity>
+```
+
+## Best Practices
+
+### Do's
+- Keep tooltip content concise
+- Use for additional context
+- Position tooltips logically
+- Ensure sufficient contrast
+
+### Don'ts
+- Don't use for essential information
+- Avoid long blocks of text
+- Don't nest tooltips
+- Don't use for obvious information
+
+## Examples
+
+### Rich Content Tooltip
+
+```tsx live
+<AppActivity>
+  <Tooltip
+    content={
+      <div style={{ padding: '8px' }}>
+        <Text size={14} weight="semibold">
+          Feature Details
+        </Text>
+        <Text size={12} color="gray">
+          This feature allows you to:
+        </Text>
+        <ul style={{ 
+          margin: '8px 0 0',
+          paddingLeft: '16px',
+          fontSize: '12px'
+        }}>
+          <li>Customize settings</li>
+          <li>Export data</li>
+          <li>Share with team</li>
+        </ul>
+      </div>
+    }
+    maxWidth={240}
+  >
+    <Button>Feature Info</Button>
+  </Tooltip>
+</AppActivity>
+```
+
+### Interactive Tooltip
+
+```tsx live
+function InteractiveTooltipExample() {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <AppActivity>
+      <Tooltip
+        content={
+          <div style={{ padding: '8px' }}>
+            <Text size={14}>
+              Click the button below to close
+            </Text>
+            <Button
+              size="Small"
+              variant="Primary"
+              style={{ marginTop: '8px' }}
+              onClick={() => setIsOpen(false)}
+            >
+              Close Tooltip
+            </Button>
+          </div>
+        }
+        open={isOpen}
+      >
+        <Button onClick={() => setIsOpen(true)}>
+          Click to Show
+        </Button>
+      </Tooltip>
+    </AppActivity>
+  );
+}
+```
+
+### Tooltip with Custom Animation
+
+```tsx live
+<AppActivity>
+  <Tooltip
+    content="Custom animated tooltip"
+    style={{
+      '--tooltip-animation-duration': '0.3s',
+      '--tooltip-animation-timing': 'cubic-bezier(0.4, 0, 0.2, 1)'
+    }}
+  >
+    <Button>Hover for Animation</Button>
+  </Tooltip>
+</AppActivity>
+``` 

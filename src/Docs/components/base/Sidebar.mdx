@@ -1,0 +1,333 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Sidebar } from "../../../Base/Sidebar";
+import { AppActivity } from "../../../App/AppActivity";
+import { Text } from "../../../Base/Text";
+import { Button } from "../../../Base/Button";
+
+<Meta title="Components/Base/Sidebar" component={Sidebar} />
+
+# Sidebar
+
+A flexible sidebar component that provides navigation and content organization with collapsible states and responsive behavior.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <div style={{ height: '400px', display: 'flex' }}>
+        <Sidebar>
+          <Sidebar.Header>
+            <Text size={20} weight="semibold">App Name</Text>
+          </Sidebar.Header>
+          <Sidebar.Content>
+            <Sidebar.Item active>Dashboard</Sidebar.Item>
+            <Sidebar.Item>Profile</Sidebar.Item>
+            <Sidebar.Item>Settings</Sidebar.Item>
+          </Sidebar.Content>
+          <Sidebar.Footer>
+            <Button variant="Primary" fullWidth>Log Out</Button>
+          </Sidebar.Footer>
+        </Sidebar>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Collapsible State
+
+<Canvas>
+  <Story name="Collapsible">
+    <AppActivity>
+      <div style={{ height: '400px', display: 'flex' }}>
+        <Sidebar collapsed>
+          <Sidebar.Header>
+            <Text size={20}>AN</Text>
+          </Sidebar.Header>
+          <Sidebar.Content>
+            <Sidebar.Item icon="dashboard">
+              <Text>Dashboard</Text>
+            </Sidebar.Item>
+            <Sidebar.Item icon="person">
+              <Text>Profile</Text>
+            </Sidebar.Item>
+            <Sidebar.Item icon="settings">
+              <Text>Settings</Text>
+            </Sidebar.Item>
+          </Sidebar.Content>
+        </Sidebar>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## With Groups
+
+<Canvas>
+  <Story name="Groups">
+    <AppActivity>
+      <div style={{ height: '400px', display: 'flex' }}>
+        <Sidebar>
+          <Sidebar.Header>
+            <Text size={20} weight="semibold">Navigation</Text>
+          </Sidebar.Header>
+          <Sidebar.Content>
+            <Sidebar.Group title="Main">
+              <Sidebar.Item active>Home</Sidebar.Item>
+              <Sidebar.Item>Dashboard</Sidebar.Item>
+            </Sidebar.Group>
+            <Sidebar.Group title="Account">
+              <Sidebar.Item>Profile</Sidebar.Item>
+              <Sidebar.Item>Settings</Sidebar.Item>
+            </Sidebar.Group>
+            <Sidebar.Group title="Help">
+              <Sidebar.Item>Documentation</Sidebar.Item>
+              <Sidebar.Item>Support</Sidebar.Item>
+            </Sidebar.Group>
+          </Sidebar.Content>
+        </Sidebar>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Sidebar Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `collapsed` | `boolean` | `false` | Controls the collapsed state |
+| `width` | `number \| string` | `240` | Width of expanded sidebar |
+| `collapsedWidth` | `number \| string` | `64` | Width of collapsed sidebar |
+| `position` | `"left" \| "right"` | `"left"` | Sidebar position |
+| `onCollapsedChange` | `(collapsed: boolean) => void` | - | Collapse state change handler |
+| `children` | `ReactNode` | - | Sidebar content |
+
+### Sidebar.Item Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `false` | Active state |
+| `icon` | `ReactNode \| string` | - | Item icon |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `onClick` | `() => void` | - | Click handler |
+| `children` | `ReactNode` | - | Item content |
+
+### Sidebar.Group Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | - | Group title |
+| `collapsible` | `boolean` | `false` | Enable group collapse |
+| `defaultExpanded` | `boolean` | `true` | Default expanded state |
+| `children` | `ReactNode` | - | Group items |
+
+### CSS API
+
+The Sidebar component uses the following theme tokens:
+
+```typescript
+interface SidebarTokens {
+  backgroundColor: string;
+  textColor: string;
+  borderColor: string;
+  width: string;
+  collapsedWidth: string;
+  transition: string;
+  item: {
+    height: string;
+    padding: string;
+    hoverBackgroundColor: string;
+    activeBackgroundColor: string;
+    activeTextColor: string;
+    disabledOpacity: number;
+  };
+  group: {
+    titleColor: string;
+    titleSize: string;
+    titlePadding: string;
+    gap: string;
+  };
+}
+```
+
+## Accessibility
+
+The Sidebar component follows WAI-ARIA guidelines:
+
+```tsx live
+<AppActivity>
+  <Sidebar
+    role="navigation"
+    aria-label="Main navigation"
+  >
+    <Sidebar.Content>
+      <Sidebar.Group
+        title="Navigation"
+        role="group"
+        aria-label="Main navigation group"
+      >
+        <Sidebar.Item
+          role="menuitem"
+          aria-current="page"
+          active
+        >
+          Home
+        </Sidebar.Item>
+        <Sidebar.Item
+          role="menuitem"
+        >
+          Settings
+        </Sidebar.Item>
+      </Sidebar.Group>
+    </Sidebar.Content>
+  </Sidebar>
+</AppActivity>
+```
+
+## Best Practices
+
+### Do's
+- Use consistent icons and labels
+- Group related items together
+- Provide clear visual hierarchy
+- Implement keyboard navigation
+- Consider mobile responsiveness
+
+### Don'ts
+- Don't nest groups too deeply
+- Avoid long item labels
+- Don't overload with too many items
+- Don't hide critical navigation in collapsed state
+
+## Examples
+
+### Responsive Sidebar
+
+```tsx live
+function ResponsiveSidebarExample() {
+  const [collapsed, setCollapsed] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <AppActivity>
+      <div style={{ height: '400px', display: 'flex' }}>
+        <Sidebar
+          collapsed={isMobile || collapsed}
+          onCollapsedChange={setCollapsed}
+        >
+          <Sidebar.Header>
+            <Text size={20} weight="semibold">
+              {collapsed ? 'AN' : 'App Name'}
+            </Text>
+          </Sidebar.Header>
+          <Sidebar.Content>
+            <Sidebar.Group title="Navigation">
+              <Sidebar.Item icon="home" active>
+                Home
+              </Sidebar.Item>
+              <Sidebar.Item icon="dashboard">
+                Dashboard
+              </Sidebar.Item>
+              <Sidebar.Item icon="settings">
+                Settings
+              </Sidebar.Item>
+            </Sidebar.Group>
+          </Sidebar.Content>
+          <Sidebar.Footer>
+            {!collapsed && (
+              <Button
+                variant="Primary"
+                fullWidth
+                onClick={() => setCollapsed(!collapsed)}
+              >
+                {collapsed ? 'Expand' : 'Collapse'}
+              </Button>
+            )}
+          </Sidebar.Footer>
+        </Sidebar>
+      </div>
+    </AppActivity>
+  );
+}
+```
+
+### With Nested Groups
+
+```tsx live
+<AppActivity>
+  <div style={{ height: '400px', display: 'flex' }}>
+    <Sidebar>
+      <Sidebar.Content>
+        <Sidebar.Group title="Main" collapsible defaultExpanded>
+          <Sidebar.Item icon="home" active>
+            Home
+          </Sidebar.Item>
+          <Sidebar.Item icon="dashboard">
+            Dashboard
+          </Sidebar.Item>
+          <Sidebar.Group title="Analytics" collapsible>
+            <Sidebar.Item icon="chart">
+              Overview
+            </Sidebar.Item>
+            <Sidebar.Item icon="report">
+              Reports
+            </Sidebar.Item>
+          </Sidebar.Group>
+        </Sidebar.Group>
+        <Sidebar.Group title="Settings" collapsible>
+          <Sidebar.Item icon="person">
+            Profile
+          </Sidebar.Item>
+          <Sidebar.Item icon="settings">
+            Preferences
+          </Sidebar.Item>
+        </Sidebar.Group>
+      </Sidebar.Content>
+    </Sidebar>
+  </div>
+</AppActivity>
+```
+
+### With Custom Styling
+
+```tsx live
+<AppActivity>
+  <div style={{ height: '400px', display: 'flex' }}>
+    <Sidebar
+      style={{
+        '--sidebar-background-color': 'var(--color-primary-50)',
+        '--sidebar-border-color': 'var(--color-primary-100)',
+        '--sidebar-item-active-background': 'var(--color-primary-100)',
+        '--sidebar-item-hover-background': 'var(--color-primary-75)'
+      }}
+    >
+      <Sidebar.Header>
+        <Text size={20} weight="semibold" color="primary">
+          Custom Theme
+        </Text>
+      </Sidebar.Header>
+      <Sidebar.Content>
+        <Sidebar.Item active>
+          <Text color="primary">Active Item</Text>
+        </Sidebar.Item>
+        <Sidebar.Item>
+          <Text>Regular Item</Text>
+        </Sidebar.Item>
+      </Sidebar.Content>
+    </Sidebar>
+  </div>
+</AppActivity>
+``` 

@@ -1,0 +1,270 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { ListView } from "../../../Base/ListView";
+import { AppActivity } from "../../../App/AppActivity";
+import { Text } from "../../../Base/Text";
+import { Button } from "../../../Base/Button";
+
+<Meta title="Components/Base/ListView" component={ListView} />
+
+# ListView
+
+A flexible list view component that supports various item layouts, selection modes, and virtualization for large datasets.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <ListView>
+        {[1, 2, 3, 4, 5].map((item) => (
+          <ListView.Item key={item}>
+            <Text>List Item {item}</Text>
+          </ListView.Item>
+        ))}
+      </ListView>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Selection Modes
+
+<Canvas>
+  <Story name="Selection">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <ListView selectionMode="single">
+          {[1, 2, 3].map((item) => (
+            <ListView.Item key={item} value={`item-${item}`}>
+              <Text>Single Selection Item {item}</Text>
+            </ListView.Item>
+          ))}
+        </ListView>
+        
+        <ListView selectionMode="multiple">
+          {[1, 2, 3].map((item) => (
+            <ListView.Item key={item} value={`item-${item}`}>
+              <Text>Multiple Selection Item {item}</Text>
+            </ListView.Item>
+          ))}
+        </ListView>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Item Variants
+
+<Canvas>
+  <Story name="Variants">
+    <AppActivity>
+      <ListView>
+        <ListView.Item variant="default">
+          <Text>Default Item</Text>
+        </ListView.Item>
+        <ListView.Item variant="active">
+          <Text>Active Item</Text>
+        </ListView.Item>
+        <ListView.Item variant="disabled" disabled>
+          <Text>Disabled Item</Text>
+        </ListView.Item>
+        <ListView.Item variant="success">
+          <Text>Success Item</Text>
+        </ListView.Item>
+        <ListView.Item variant="warning">
+          <Text>Warning Item</Text>
+        </ListView.Item>
+        <ListView.Item variant="alert">
+          <Text>Alert Item</Text>
+        </ListView.Item>
+      </ListView>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### ListView Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `selectionMode` | `"none" \| "single" \| "multiple"` | `"none"` | Selection mode for list items |
+| `selectedValues` | `string[]` | `[]` | Selected item values (controlled) |
+| `onSelectionChange` | `(values: string[]) => void` | - | Selection change handler |
+| `virtualized` | `boolean` | `false` | Enable virtualization for large lists |
+| `itemHeight` | `number` | `48` | Height of each list item (for virtualization) |
+| `children` | `ReactNode` | - | List items |
+
+### ListView.Item Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Unique value for selection |
+| `variant` | `"default" \| "active" \| "disabled" \| "success" \| "warning" \| "alert"` | `"default"` | Visual variant |
+| `disabled` | `boolean` | `false` | Disables the item |
+| `selected` | `boolean` | `false` | Selected state |
+| `children` | `ReactNode` | - | Item content |
+
+### CSS API
+
+The ListView component uses the following theme tokens:
+
+```typescript
+interface ListViewTokens {
+  backgroundColor: string;
+  borderRadius: string;
+  itemPadding: string;
+  itemGap: string;
+  variants: {
+    default: ListViewVariant;
+    active: ListViewVariant;
+    disabled: ListViewVariant;
+    success: ListViewVariant;
+    warning: ListViewVariant;
+    alert: ListViewVariant;
+  };
+}
+
+interface ListViewVariant {
+  backgroundColor: string;
+  hoverBackgroundColor: string;
+  textColor: string;
+  borderColor: string;
+}
+```
+
+## Accessibility
+
+The ListView component follows WAI-ARIA guidelines:
+
+```tsx live
+<AppActivity>
+  <ListView
+    role="listbox"
+    aria-label="Options list"
+    selectionMode="single"
+  >
+    <ListView.Item
+      value="option1"
+      role="option"
+      aria-selected={false}
+    >
+      <Text>Option 1</Text>
+    </ListView.Item>
+    <ListView.Item
+      value="option2"
+      role="option"
+      aria-selected={true}
+    >
+      <Text>Option 2</Text>
+    </ListView.Item>
+  </ListView>
+</AppActivity>
+```
+
+## Best Practices
+
+### Do's
+- Use consistent item layouts
+- Implement keyboard navigation
+- Provide clear selection feedback
+- Use virtualization for large lists
+
+### Don'ts
+- Don't mix different item heights in virtualized lists
+- Avoid nesting lists deeply
+- Don't use for very complex item layouts
+- Avoid using without proper ARIA attributes
+
+## Examples
+
+### Controlled Selection
+
+```tsx live
+function ControlledListExample() {
+  const [selected, setSelected] = React.useState<string[]>([]);
+
+  return (
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <ListView
+          selectionMode="multiple"
+          selectedValues={selected}
+          onSelectionChange={setSelected}
+        >
+          {[1, 2, 3].map((item) => (
+            <ListView.Item key={item} value={`item-${item}`}>
+              <Text>Item {item}</Text>
+            </ListView.Item>
+          ))}
+        </ListView>
+        <Text size={14} color="gray">
+          Selected: {selected.join(', ')}
+        </Text>
+      </div>
+    </AppActivity>
+  );
+}
+```
+
+### Complex Item Layout
+
+```tsx live
+<AppActivity>
+  <ListView>
+    {[1, 2, 3].map((item) => (
+      <ListView.Item
+        key={item}
+        value={`item-${item}`}
+        style={{ padding: '12px' }}
+      >
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            <Text size={16} weight="semibold">
+              Item Title {item}
+            </Text>
+            <Text size={14} color="gray">
+              Subtitle description
+            </Text>
+          </div>
+          <Button size="Small" variant="Primary">
+            Action
+          </Button>
+        </div>
+      </ListView.Item>
+    ))}
+  </ListView>
+</AppActivity>
+```
+
+### Virtualized List
+
+```tsx live
+function VirtualizedListExample() {
+  const items = Array.from({ length: 1000 }, (_, i) => i + 1);
+
+  return (
+    <AppActivity>
+      <div style={{ height: '400px' }}>
+        <ListView
+          virtualized
+          itemHeight={48}
+          style={{ height: '100%' }}
+        >
+          {items.map((item) => (
+            <ListView.Item
+              key={item}
+              value={`item-${item}`}
+            >
+              <Text>Item {item}</Text>
+            </ListView.Item>
+          ))}
+        </ListView>
+      </div>
+    </AppActivity>
+  );
+}
+``` 

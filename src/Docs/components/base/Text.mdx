@@ -1,0 +1,210 @@
+import { Meta, Story, Canvas } from "@storybook/blocks";
+import { Text } from "../../../Base/Text";
+import { AppActivity } from "../../../App/AppActivity";
+
+<Meta title="Components/Base/Text" component={Text} />
+
+# Text
+
+A versatile typography component that supports different sizes, weights, and styles for consistent text rendering.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Text size={24} weight="bold">Heading 1</Text>
+        <Text size={20} weight="semibold">Heading 2</Text>
+        <Text size={16}>Regular text</Text>
+        <Text size={14} color="gray">Secondary text</Text>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Text Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Text size={32}>Size 32</Text>
+        <Text size={24}>Size 24</Text>
+        <Text size={20}>Size 20</Text>
+        <Text size={16}>Size 16</Text>
+        <Text size={14}>Size 14</Text>
+        <Text size={12}>Size 12</Text>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Font Weights
+
+<Canvas>
+  <Story name="Weights">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Text weight="light">Light Text</Text>
+        <Text weight="regular">Regular Text</Text>
+        <Text weight="medium">Medium Text</Text>
+        <Text weight="semibold">Semibold Text</Text>
+        <Text weight="bold">Bold Text</Text>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## Colors
+
+<Canvas>
+  <Story name="Colors">
+    <AppActivity>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <Text color="primary">Primary Color</Text>
+        <Text color="secondary">Secondary Color</Text>
+        <Text color="success">Success Color</Text>
+        <Text color="warning">Warning Color</Text>
+        <Text color="error">Error Color</Text>
+        <Text color="gray">Gray Color</Text>
+      </div>
+    </AppActivity>
+  </Story>
+</Canvas>
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `number` | `16` | Font size in pixels |
+| `weight` | `"light" \| "regular" \| "medium" \| "semibold" \| "bold"` | `"regular"` | Font weight |
+| `color` | `string` | - | Text color |
+| `align` | `"left" \| "center" \| "right"` | `"left"` | Text alignment |
+| `truncate` | `boolean` | `false` | Enable text truncation |
+| `children` | `ReactNode` | - | Text content |
+
+### CSS API
+
+The Text component uses the following theme tokens:
+
+```typescript
+interface TextTokens {
+  fontFamily: string;
+  weights: {
+    light: number;
+    regular: number;
+    medium: number;
+    semibold: number;
+    bold: number;
+  };
+  colors: {
+    primary: string;
+    secondary: string;
+    success: string;
+    warning: string;
+    error: string;
+    gray: string;
+  };
+}
+```
+
+## Accessibility
+
+The Text component follows typography best practices:
+
+```tsx live
+<AppActivity>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <Text size={24} weight="bold" role="heading" aria-level={1}>
+      Main Heading
+    </Text>
+    <Text size={20} weight="semibold" role="heading" aria-level={2}>
+      Subheading
+    </Text>
+    <Text size={16}>
+      Regular paragraph text with proper contrast and readability.
+    </Text>
+  </div>
+</AppActivity>
+```
+
+## Best Practices
+
+### Do's
+- Use consistent text sizes for hierarchy
+- Maintain proper contrast ratios
+- Use appropriate weights for emphasis
+- Keep text readable and accessible
+
+### Don'ts
+- Don't mix too many sizes in one view
+- Avoid using extreme font weights
+- Don't rely solely on color for meaning
+- Avoid long lines of text without proper spacing
+
+## Examples
+
+### Article Layout
+
+```tsx live
+<AppActivity>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
+    <Text size={32} weight="bold">
+      Article Title
+    </Text>
+    <Text size={16} color="gray">
+      Published on January 1, 2024
+    </Text>
+    <Text size={18} weight="medium">
+      Introduction paragraph with slightly larger text for better readability
+      and visual hierarchy.
+    </Text>
+    <Text size={16}>
+      Regular paragraph text that maintains a comfortable reading size and
+      line height. The content should be easy to read and well-spaced.
+    </Text>
+  </div>
+</AppActivity>
+```
+
+### Card Component
+
+```tsx live
+<AppActivity>
+  <div style={{ 
+    padding: '16px',
+    borderRadius: '8px',
+    backgroundColor: '#f8f9fa',
+    maxWidth: '300px'
+  }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <Text size={20} weight="semibold">
+        Card Title
+      </Text>
+      <Text size={14} color="gray">
+        Supporting text with additional details
+      </Text>
+      <Text size={16}>
+        Main content area with regular-sized text that might span multiple
+        lines in a card layout.
+      </Text>
+    </div>
+  </div>
+</AppActivity>
+```
+
+### Truncated Text
+
+```tsx live
+<AppActivity>
+  <div style={{ width: '200px' }}>
+    <Text truncate>
+      This is a very long text that will be truncated when it exceeds the
+      container width with an ellipsis at the end.
+    </Text>
+  </div>
+</AppActivity>
+``` 
