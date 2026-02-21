@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<label th:fragment="checkbox(name, label, checked, disabled)"
+       th:class="|uikit-checkbox ${disabled ? 'disabled' : ''}|">
+    <input type="checkbox"
+           th:name="${name}"
+           th:checked="${checked}"
+           th:disabled="${disabled}" />
+    <span class="uikit-checkbox-mark"></span>
+    <span class="uikit-checkbox-label" th:text="${label}"></span>
+</label>
+
+<label th:fragment="radio(name, label, value, checked, disabled)"
+       th:class="|uikit-radio ${disabled ? 'disabled' : ''}|">
+    <input type="radio"
+           th:name="${name}"
+           th:value="${value}"
+           th:checked="${checked}"
+           th:disabled="${disabled}" />
+    <span class="uikit-radio-mark"></span>
+    <span class="uikit-radio-label" th:text="${label}"></span>
+</label>
+
+<label th:fragment="switch(name, label, checked, disabled)"
+       th:class="|uikit-switch ${disabled ? 'disabled' : ''}|">
+    <input type="checkbox"
+           th:name="${name}"
+           th:checked="${checked}"
+           th:disabled="${disabled}" />
+    <span class="uikit-switch-track"></span>
+    <span class="uikit-switch-label" th:text="${label}"></span>
+</label>
+
+</body>
+</html>
+

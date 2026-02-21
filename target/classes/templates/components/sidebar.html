@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- Sidebar Component -->
+<div th:fragment="sidebar(id, content)"
+     th:id="${id ?: 'uikit-sidebar'}"
+     class="uikit-sidebar">
+
+    <div class="uikit-sidebar-item" onclick="this.parentElement.classList.toggle('closed')">
+        <i class="material-icons">menu</i>
+    </div>
+    <div class="uikit-sidebar-content">
+        <th:block th:replace="${content}" />
+    </div>
+</div>
+
+<!-- Sidebar Item Component -->
+<a th:fragment="sidebar-item(icon, text, href, active)"
+   th:href="${href ?: '#'}"
+   th:class="|uikit-sidebar-item ${active ? 'active' : ''}|">
+    <i class="material-icons" th:text="${icon}"></i>
+    <span class="uikit-sidebar-text" th:text="${text}"></span>
+</a>
+
+</body>
+</html>
+
+

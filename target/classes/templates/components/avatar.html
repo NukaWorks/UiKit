@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="avatar(src, alt, initials, size)"
+     th:class="|uikit-avatar uikit-avatar-${size ?: 'md'}|">
+    <img th:if="${src != null}" th:src="${src}" th:alt="${alt ?: ''}" />
+    <span th:if="${src == null}" th:text="${initials ?: '?'}"></span>
+</div>
+
+</body>
+</html>
+
+

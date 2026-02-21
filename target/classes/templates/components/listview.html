@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="listview(content)" class="uikit-listview">
+    <th:block th:replace="${content}" />
+</div>
+
+<div th:fragment="listview-item(label, icon, href)"
+     class="uikit-listview-item">
+    <a th:if="${href != null}" th:href="${href}" class="uikit-listview-link">
+        <i th:if="${icon != null}" class="material-icons" th:text="${icon}"></i>
+        <span th:text="${label}"></span>
+    </a>
+    <span th:if="${href == null}">
+        <i th:if="${icon != null}" class="material-icons" th:text="${icon}"></i>
+        <span th:text="${label}"></span>
+    </span>
+</div>
+
+</body>
+</html>
+
+
+

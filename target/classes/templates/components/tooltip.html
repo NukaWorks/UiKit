@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<span th:fragment="tooltip(tip, position)"
+      th:class="|uikit-tooltip uikit-tooltip-${position ?: 'top'}|"
+      th:data-tip="${tip}">
+</span>
+
+</body>
+</html>

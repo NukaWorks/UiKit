@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<img th:fragment="image(src, alt, width, height)"
+     th:src="${src}"
+     th:alt="${alt ?: ''}"
+     th:width="${width}"
+     th:height="${height}"
+     class="uikit-image" />
+
+</body>
+</html>
+
