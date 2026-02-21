@@ -1,4 +1,4 @@
-# NukaWorks UiKit — Thymeleaf
+# NukaWorks UiKit
 
 A server-side UI component library for Java/Spring Boot using Thymeleaf fragments.
 
