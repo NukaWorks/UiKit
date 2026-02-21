@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="textfield(name, value, placeholder, type, label)" class="uikit-textfield-wrapper">
+    <label th:if="${label != null}" th:text="${label}" class="uikit-textfield-label"></label>
+    <input th:type="${type ?: 'text'}"
+           th:name="${name}"
+           th:value="${value}"
+           th:placeholder="${placeholder}"
+           class="uikit-input" />
+</div>
+
+</body>
+</html>
+
+
+

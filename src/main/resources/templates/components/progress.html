@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="progress(value, max, color)"
+     th:class="|uikit-progress uikit-progress-${color ?: 'primary'}|"
+     role="progressbar"
+     th:attr="aria-valuenow=${value ?: 0}, aria-valuemax=${max ?: 100}">
+    <div class="uikit-progress-bar"
+         th:style="'width: ' + (${value ?: 0}) + '%'">
+    </div>
+</div>
+
+<div th:fragment="spinner(size)"
+     th:class="|uikit-spinner uikit-spinner-${size ?: 'md'}|"
+     role="status">
+</div>
+
+</body>
+</html>

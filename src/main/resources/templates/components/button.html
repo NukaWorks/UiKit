@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<button th:fragment="button(label, color, size, type)"
+        th:class="|uikit-btn uikit-btn-${color ?: 'default'} uikit-btn-${size ?: 'sm'}|"
+        th:type="${type ?: 'button'}"
+        th:text="${label}">
+</button>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav th:fragment="menubar(content)"
+     class="uikit-menubar">
+    <th:block th:replace="${content}" />
+</nav>
+
+<ul th:fragment="menu(id, content)"
+    th:id="${id}"
+    class="uikit-menu">
+    <th:block th:replace="${content}" />
+</ul>
+
+<li th:fragment="menu-item(label, href, icon, disabled)"
+    th:class="|uikit-menu-item ${disabled ? 'disabled' : ''}|">
+    <a th:href="${href ?: '#'}"
+       th:class="|uikit-menu-link ${disabled ? 'disabled' : ''}|">
+        <i th:if="${icon != null}" class="material-icons" th:text="${icon}"></i>
+        <span th:text="${label}"></span>
+    </a>
+</li>
+
+<li th:fragment="menu-separator" class="uikit-menu-separator"></li>
+
+</body>
+</html>
+
+
+

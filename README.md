@@ -1,69 +1,136 @@
-# @nwrks/uikit
+# NukaWorks UiKit — Thymeleaf
 
-### A simple, harmonized React.js components toolkit for building powerful apps.
+A server-side UI component library for Java/Spring Boot using Thymeleaf fragments.
 
-## Installation
+## Setup
 
-Install via npm:
-
-```bash
-npm i --save @nwrks/uikit
+Add to `pom.xml`:
+```xml
+<dependency>
+    <groupId>com.nwrks</groupId>
+    <artifactId>uikit</artifactId>
+    <version>1.0.12</version>
+</dependency>
 ```
 
-Check the latest version on [NPM](https://www.npmjs.com/package/@nwrks/uikit).
-
-## Usage
-
-Wrap your main React component with **AppActivity**:
-
-```jsx
-import React from 'react';
-import { AppActivity } from '@nwrks/uikit';
-
-function App () {
-  return (
-    <AppActivity theme={'Light'}>
-      {/*  Your components goes here */}
-    </AppActivity>
-  );
-}
-
-export default App;
+Include in your layout template:
+```html
+<link rel="stylesheet" th:href="@{/css/uikit.css}" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
-## Example
+---
 
-```jsx
-import React from 'react';
+## Components
 
-import { Button, AppActivity } from '@nwrks/uikit';
+### Button
+```html
+<div th:replace="~{components/button :: button('Save', 'primary', 'md', 'submit', null)}"></div>
+```
+Colors: `default` `primary` `success` `warning` `alert` `disabled`  
+Sizes: `sm` `md` `lg`
 
-function App () {
-  return (
-    <AppActivity theme={'Light'}>
-      <Button color="Primary">Click Me</Button>
-    </AppActivity>
-  );
-}
+---
 
-export default App;
+### TextField
+```html
+<div th:replace="~{components/textfield :: textfield('email', null, 'Enter email', 'email', 'Email')}"></div>
 ```
 
-## Storybook
+---
 
-Launch **Storybook** to view and test components:
-
-```bash
-npm run storybook
+### Checkbox / Radio / Switch
+```html
+<label th:replace="~{components/checkbox :: checkbox('agree', 'I agree', false, false)}"></label>
+<label th:replace="~{components/checkbox :: radio('plan', 'Free plan', 'free', true, false)}"></label>
+<label th:replace="~{components/checkbox :: switch('notify', 'Notifications', true, false)}"></label>
 ```
 
-## Contributing
+---
 
-Fork the repo at **[nukaworks/toolkits/UiKit](https://git.nuka.works/nukaworks/toolkits/UiKit)**, create a branch, and
-submit a pull request.
+### Text / Link
+```html
+<span th:replace="~{components/text :: text('Hello world', 'lg', 'semibold')}"></span>
+<a th:replace="~{components/text :: link('Visit site', 'https://example.com', true)}"></a>
+```
+Sizes: `sm` `md` `lg` `xl` — Weights: `normal` `medium` `semibold` `bold`
 
-### Need more?
+---
 
-Go on our **[developer documentation center](https://developer.nuka.works/)** and checkout **UiKit**, you can find more
-documentation, code example and support.
+### Avatar
+```html
+<div th:replace="~{components/avatar :: avatar(null, null, 'JD', 'md')}"></div>
+<div th:replace="~{components/avatar :: avatar('/img/user.png', 'Jane', null, 'lg')}"></div>
+```
+Sizes: `sm` `md` `lg`
+
+---
+
+### Image
+```html
+<img th:replace="~{components/image :: image('/img/photo.jpg', 'A photo', null, null)}" />
+```
+
+---
+
+### ProgressBar / Spinner
+```html
+<div th:replace="~{components/progress :: progress(65, 100, 'primary')}"></div>
+<div th:replace="~{components/progress :: spinner('md')}"></div>
+```
+Colors: `primary` `success` `warning` `alert`  
+Spinner sizes: `sm` `md` `lg`
+
+---
+
+### ListView
+```html
+<div th:replace="~{components/listview :: listview(~{::items})}">
+    <th:block th:fragment="items">
+        <div th:replace="~{components/listview :: listview-item('Home', 'home', '/')}"></div>
+        <div th:replace="~{components/listview :: listview-item('Settings', 'settings', '/settings')}"></div>
+    </th:block>
+</div>
+```
+
+---
+
+### Menu
+```html
+<ul th:replace="~{components/menu :: menu('main-menu', ~{::menuItems})}">
+    <th:block th:fragment="menuItems">
+        <li th:replace="~{components/menu :: menu-item('Profile', '/profile', 'person', false)}"></li>
+        <li th:replace="~{components/menu :: menu-separator}"></li>
+        <li th:replace="~{components/menu :: menu-item('Logout', '/logout', 'logout', false)}"></li>
+    </th:block>
+</ul>
+```
+
+---
+
+### Sidebar
+```html
+<div th:replace="~{components/sidebar :: sidebar('app-nav', ~{::navItems})}">
+    <th:block th:fragment="navItems">
+        <a th:replace="~{components/sidebar :: sidebar-item('home', 'Home', '/', true)}"></a>
+        <a th:replace="~{components/sidebar :: sidebar-item('settings', 'Settings', '/settings', false)}"></a>
+    </th:block>
+</div>
+```
+
+---
+
+### Tooltip
+```html
+<span th:replace="~{components/tooltip :: tooltip('Helpful hint', 'top')}"></span>
+```
+Positions: `top` `bottom` `left` `right`
+
+Wrap your trigger element and apply the tooltip class directly on it in your page template:
+```html
+<button class="uikit-btn uikit-btn-default uikit-btn-sm uikit-tooltip uikit-tooltip-top" data-tip="Helpful hint">
+    Hover me
+</button>
+```
 

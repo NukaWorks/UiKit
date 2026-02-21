@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<span th:fragment="text(content, size, weight)"
+      th:class="|uikit-text uikit-text-${size ?: 'md'} uikit-text-${weight ?: 'normal'}|"
+      th:text="${content}">
+</span>
+
+<a th:fragment="link(label, href, external)"
+   th:href="${href ?: '#'}"
+   th:attr="target=${external ? '_blank' : '_self'}"
+   class="uikit-link"
+   th:text="${label}">
+</a>
+
+</body>
+</html>
