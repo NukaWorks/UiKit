@@ -26,3 +26,4 @@ dist-ssr
 /büng/.yarn/
 /.npmrc
 target/
+.buildconfig-pom.xml
