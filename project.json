@@ -3,7 +3,7 @@
   "groupId": "works.nuka",
   "artifactId": "UiKit",
   "version": "0.0.1-SNAPSHOT",
-  "type": "application",
+  "type": "library",
   "description": "UiKit",
   "build": {
     "strip_gpg_unless_release": false,
