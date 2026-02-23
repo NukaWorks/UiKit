@@ -1,0 +1,14 @@
+{
+  "name": "UiKit",
+  "groupId": "works.nuka",
+  "artifactId": "UiKit",
+  "version": "0.0.1-SNAPSHOT",
+  "type": "application",
+  "description": "UiKit",
+  "build": {
+    "strip_gpg_unless_release": false,
+    "nightly_suffix_on_devel": false
+  },
+  "workspace_dependencies": [
+  ]
+}
