@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!--
+  uikit-modal -- dialog / confirmation component
+
+  Fragments:
+    modal(id, title, size, content)
+      size: sm | md | lg | xl
+    modal-footer(content)  - button row inside modal
+    modal-section(content) - padded body section
+
+  Open:  UiKitModal.open('my-modal')
+  Close: UiKitModal.close('my-modal')
+
+  Usage:
+
+    <button onclick="UiKitModal.open('confirm-delete')">Delete</button>
+
+    <div th:replace="~{components/modal :: modal('confirm-delete',
+                       'Delete Instance', 'sm', ~{::md-body})}">
+      <th:block th:fragment="md-body">
+        <div th:replace="~{components/modal :: modal-section(~{::ms})}">
+          <th:block th:fragment="ms">
+            <p>Are you sure you want to delete <strong>web-prod-01</strong>?
+               This action cannot be undone.</p>
+          </th:block>
+        </div>
+        <div th:replace="~{components/modal :: modal-footer(~{::mf})}">
+          <th:block th:fragment="mf">
+            <button class="uikit-btn uikit-btn-default uikit-btn-sm"
+                    onclick="UiKitModal.close('confirm-delete')">Cancel</button>
+            <button class="uikit-btn uikit-btn-alert uikit-btn-sm">Delete</button>
+          </th:block>
+        </div>
+      </th:block>
+    </div>
+-->
+
+<!-- ── Modal root ───────────────────────────────────────────────────────── -->
+<div th:fragment="modal(id, title, size, content)"
+     th:id="${id}"
+     th:class="|uikit-modal-backdrop|"
+     th:attr="aria-hidden=true"
+     onclick="if(event.target===this) UiKitModal.close(this.id)">
+
+    <div th:class="|uikit-modal uikit-modal-${size ?: 'md'}|"
+         role="dialog"
+         th:attr="aria-label=${title}"
+         aria-modal="true">
+
+        <!-- Header -->
+        <div class="uikit-modal-header">
+            <span class="uikit-modal-title" th:text="${title}"></span>
+            <button class="uikit-modal-close"
+                    th:attr="onclick='UiKitModal.close(\'' + ${id} + '\')'">
+                <i class="material-icons">close</i>
+            </button>
+        </div>
+
+        <!-- Slot -->
+        <th:block th:replace="${content}" />
+    </div>
+</div>
+
+<!-- ── Modal body section ────────────────────────────────────────────────── -->
+<div th:fragment="modal-section(content)" class="uikit-modal-body">
+    <th:block th:replace="${content}" />
+</div>
+
+<!-- ── Modal form section (no padding-bottom) ───────────────────────────── -->
+<div th:fragment="modal-form(content)" class="uikit-modal-body uikit-modal-form">
+    <th:block th:replace="${content}" />
+</div>
+
+<!-- ── Modal footer (button row) ─────────────────────────────────────────── -->
+<div th:fragment="modal-footer(content)" class="uikit-modal-footer">
+    <th:block th:replace="${content}" />
+</div>
+
+</body>
+</html>
+
+

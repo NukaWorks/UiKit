@@ -170,3 +170,63 @@
 .uikit-tooltip-left::after   { right: calc(100% + 6px);  top: 50%;  transform: translateY(-50%); }
 .uikit-tooltip-right::after  { left: calc(100% + 6px);   top: 50%;  transform: translateY(-50%); }
 .uikit-tooltip:hover::after  { opacity: 1; }
+
+/* ── Table ──────────────────────────────────────────────────────────────── */
+.uikit-table-wrap { width: 100%; }
+.uikit-table-toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.uikit-table-search-wrap { position: relative; display: flex; align-items: center; }
+.uikit-table-search-wrap i { position: absolute; left: 8px; font-size: 1rem; color: var(--uikit-text-muted); pointer-events: none; }
+.uikit-table-search-wrap .uikit-input { padding-left: 30px; width: 210px; }
+.uikit-table-filter { font-family: var(--uikit-font-family); font-size: 9pt; padding: 5px 10px; border-radius: var(--uikit-border-radius); border: 1px solid var(--uikit-input-border); background: var(--uikit-input-bg); color: var(--uikit-text-color); outline: none; cursor: pointer; transition: box-shadow 0.1s; }
+.uikit-table-filter:focus { box-shadow: var(--uikit-input-outline) 0 0 0 0.3em; }
+.uikit-table { width: 100%; border-collapse: collapse; font-family: var(--uikit-font-family); font-size: 9pt; }
+.uikit-th { text-align: left; padding: 8px 12px; color: var(--uikit-text-muted); font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid var(--uikit-border-color); background: var(--uikit-bg-page); white-space: nowrap; }
+.uikit-th-sortable { cursor: pointer; user-select: none; }
+.uikit-th-sortable:hover { color: var(--uikit-text-color); background: rgba(128,128,128,0.06); }
+.uikit-th-sortable .uikit-th-arrow { display: inline-flex; vertical-align: middle; margin-left: 2px; opacity: 0.4; transition: opacity 0.1s; }
+.uikit-th-sortable .uikit-th-arrow i { font-size: 0.95rem; }
+.uikit-th-sortable:hover .uikit-th-arrow { opacity: 0.8; }
+.uikit-th-sortable[data-sort-dir="asc"]  .uikit-th-arrow i { content: ""; }
+.uikit-th-sortable[data-sort-dir="asc"]  .uikit-th-arrow { opacity: 1; color: var(--uikit-color-primary); }
+.uikit-th-sortable[data-sort-dir="desc"] .uikit-th-arrow { opacity: 1; color: var(--uikit-color-primary); }
+.uikit-table td { padding: 10px 12px; border-bottom: 1px solid var(--uikit-border-color); vertical-align: middle; color: var(--uikit-text-color); }
+.uikit-table tbody tr:last-child td { border-bottom: none; }
+.uikit-table tbody tr { transition: background 0.08s; }
+.uikit-table tbody tr:hover td { background: rgba(128,128,128,0.04); }
+.uikit-table tbody tr[data-hidden] { display: none; }
+.uikit-table-empty { text-align: center; padding: 36px 12px !important; color: var(--uikit-text-muted); }
+.uikit-table-empty i { display: block; font-size: 2rem; margin-bottom: 6px; opacity: 0.35; }
+.uikit-table-row-count { font-family: var(--uikit-font-family); font-size: 8.5pt; color: var(--uikit-text-muted); margin-left: auto; }
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+.uikit-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.18s ease; }
+.uikit-modal-backdrop.open { opacity: 1; pointer-events: all; }
+.uikit-modal-backdrop.open .uikit-modal { transform: translateY(0) scale(1); opacity: 1; }
+.uikit-modal { background: var(--uikit-bg-surface); border-radius: 12px; border: 1px solid var(--uikit-border-color); box-shadow: 0 20px 60px rgba(0,0,0,0.18); display: flex; flex-direction: column; max-height: 90vh; overflow: hidden; transform: translateY(-12px) scale(0.98); opacity: 0; transition: transform 0.18s ease, opacity 0.18s ease; }
+.uikit-modal-sm { width: 360px; }
+.uikit-modal-md { width: 520px; }
+.uikit-modal-lg { width: 720px; }
+.uikit-modal-xl { width: 960px; }
+@media (max-width: 600px) { .uikit-modal-sm, .uikit-modal-md, .uikit-modal-lg, .uikit-modal-xl { width: calc(100vw - 32px); } }
+.uikit-modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--uikit-border-color); flex-shrink: 0; }
+.uikit-modal-title { font-family: var(--uikit-font-family); font-size: 11pt; font-weight: 600; color: var(--uikit-text-color); }
+.uikit-modal-close { background: none; border: none; cursor: pointer; color: var(--uikit-text-muted); display: flex; align-items: center; padding: 4px; border-radius: 4px; transition: background 0.1s, color 0.1s; }
+.uikit-modal-close:hover { background: rgba(128,128,128,0.12); color: var(--uikit-text-color); }
+.uikit-modal-close i { font-size: 1.1rem; }
+.uikit-modal-body { padding: 20px; overflow-y: auto; flex: 1; font-family: var(--uikit-font-family); font-size: 9.5pt; color: var(--uikit-text-color); line-height: 1.6; }
+.uikit-modal-form { padding-bottom: 8px; }
+.uikit-modal-footer { display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 14px 20px; border-top: 1px solid var(--uikit-border-color); flex-shrink: 0; }
+
+/* ── Dropdown ────────────────────────────────────────────────────────────── */
+.uikit-dropdown { position: relative; display: inline-flex; }
+.uikit-dropdown-trigger { display: inline-flex; align-items: center; justify-content: center; padding: 4px 7px !important; }
+.uikit-dropdown-menu { position: absolute; right: 0; top: calc(100% + 4px); z-index: 200; min-width: 170px; display: none; }
+.uikit-dropdown-menu.open { display: block; animation: uikit-dropdown-in 0.12s ease; }
+@keyframes uikit-dropdown-in { from { opacity: 0; transform: translateY(-4px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.uikit-dropdown-item-alert .uikit-menu-link  { color: var(--uikit-color-alert); }
+.uikit-dropdown-item-alert .uikit-menu-link i { color: var(--uikit-color-alert); }
+.uikit-dropdown-item-alert .uikit-menu-link:hover { background: rgba(255,87,36,0.07); }
+.uikit-dropdown-item-warning .uikit-menu-link  { color: var(--uikit-color-warning); }
+.uikit-dropdown-item-warning .uikit-menu-link i { color: var(--uikit-color-warning); }
+.uikit-dropdown-item-warning .uikit-menu-link:hover { background: rgba(234,180,3,0.07); }
+

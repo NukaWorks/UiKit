@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!--
+  uikit-table -- sortable, filterable data table
+
+  Fragments:
+    table(id, content)       - wrapper shell
+    table-toolbar(content)   - search/filter bar slot
+    table-head(content)      - thead row slot
+    table-body(content)      - tbody slot
+    table-th(label, key)     - sortable header cell
+    table-th-plain(label)    - non-sortable header cell
+    table-empty(colspan,msg) - empty-state row
+
+  Usage in a page:
+
+    <div th:replace="~{components/table :: table('my-table', ~{::tbl})}">
+      <th:block th:fragment="tbl">
+
+        <div th:replace="~{components/table :: table-toolbar(~{::tb})}">
+          <th:block th:fragment="tb">
+            <div th:replace="~{components/table :: table-search('my-table')}"></div>
+            <select class="uikit-table-filter" data-table="my-table" data-col="2">
+              <option value="">All statuses</option>
+              <option value="Running">Running</option>
+            </select>
+          </th:block>
+        </div>
+
+        <div th:replace="~{components/table :: table-head(~{::th-row})}">
+          <th:block th:fragment="th-row">
+            <th th:replace="~{components/table :: table-th('Name',   'name')}"></th>
+            <th th:replace="~{components/table :: table-th('Status', 'status')}"></th>
+            <th th:replace="~{components/table :: table-th-plain('Actions')}"></th>
+          </th:block>
+        </div>
+
+        <div th:replace="~{components/table :: table-body(~{::tb-rows})}">
+          <th:block th:fragment="tb-rows">
+            <tr>...</tr>
+          </th:block>
+        </div>
+
+      </th:block>
+    </div>
+-->
+
+<!-- ── Table shell ──────────────────────────────────────────────────────── -->
+<div th:fragment="table(id, content)"
+     th:id="${id}"
+     class="uikit-table-wrap">
+    <th:block th:replace="${content}" />
+</div>
+
+<!-- ── Toolbar (search + filters slot) ─────────────────────────────────── -->
+<div th:fragment="table-toolbar(content)" class="uikit-table-toolbar">
+    <th:block th:replace="${content}" />
+</div>
+
+<!-- ── Search input (wired to a table by id) ────────────────────────────── -->
+<div th:fragment="table-search(tableId)" class="uikit-table-search-wrap">
+    <i class="material-icons">search</i>
+    <input type="text"
+           class="uikit-input uikit-table-search"
+           th:attr="data-table=${tableId}"
+           placeholder="Search…"
+           autocomplete="off" />
+</div>
+
+<!-- ── Filter select (wired to a table + column index) ──────────────────── -->
+<!-- Use directly in toolbar with: data-table="id" data-col="N"             -->
+<!-- (col index is 0-based, matching the visible TD column)                 -->
+
+<!-- ── Table head row wrapper ───────────────────────────────────────────── -->
+<table th:fragment="table-head(content)" class="uikit-table" style="display:contents">
+    <thead><tr th:replace="${content}" /></thead>
+</table>
+
+<!-- ── Sortable header cell ─────────────────────────────────────────────── -->
+<th th:fragment="table-th(label, key)"
+    class="uikit-th uikit-th-sortable"
+    th:attr="data-sort-key=${key}"
+    onclick="UiKitTable.sortByHeader(this)">
+    <span th:text="${label}"></span>
+    <span class="uikit-th-arrow">
+        <i class="material-icons">unfold_more</i>
+    </span>
+</th>
+
+<!-- ── Non-sortable header cell ─────────────────────────────────────────── -->
+<th th:fragment="table-th-plain(label)"
+    class="uikit-th"
+    th:text="${label}">
+</th>
+
+<!-- ── Table body wrapper ───────────────────────────────────────────────── -->
+<table th:fragment="table-body(content)" class="uikit-table" style="display:contents">
+    <tbody th:replace="${content}" />
+</table>
+
+<!-- ── Empty state row ──────────────────────────────────────────────────── -->
+<tr th:fragment="table-empty(colspan, msg)">
+    <td th:attr="colspan=${colspan ?: 1}" class="uikit-table-empty">
+        <i class="material-icons">table_rows</i>
+        <span th:text="${msg ?: 'No results found'}"></span>
+    </td>
+</tr>
+
+</body>
+</html>
+
+

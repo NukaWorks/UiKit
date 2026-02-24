@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!--
+  uikit-dropdown -- action menu triggered by a button
+
+  Fragments:
+    dropdown(id, content)    - wrapper + trigger button
+    dropdown-item(label, icon, onclick, variant)
+      variant: default | alert | warning
+    dropdown-separator       - divider line
+
+  Usage (inside a table TD):
+
+    <td>
+      <div th:replace="~{components/dropdown :: dropdown('row-1-menu', ~{::dd})}">
+        <th:block th:fragment="dd">
+          <li th:replace="~{components/dropdown :: dropdown-item(
+                'Start', 'play_arrow', 'startInstance(1)', 'default')}"></li>
+          <li th:replace="~{components/dropdown :: dropdown-item(
+                'Console', 'terminal', 'openConsole(1)', 'default')}"></li>
+          <li th:replace="~{components/dropdown :: dropdown-separator}"></li>
+          <li th:replace="~{components/dropdown :: dropdown-item(
+                'Delete', 'delete', 'confirmDelete(1)', 'alert')}"></li>
+        </th:block>
+      </div>
+    </td>
+-->
+
+<!-- ── Dropdown wrapper ──────────────────────────────────────────────────── -->
+<div th:fragment="dropdown(id, content)"
+     th:id="${id}"
+     class="uikit-dropdown">
+
+    <!-- Trigger button -->
+    <button class="uikit-dropdown-trigger uikit-btn uikit-btn-default uikit-btn-sm"
+            type="button"
+            th:attr="onclick='UiKitDropdown.toggle(\'' + ${id} + '\')'">
+        <i class="material-icons" style="font-size:1rem;vertical-align:middle;">more_vert</i>
+    </button>
+
+    <!-- Menu panel -->
+    <ul class="uikit-dropdown-menu uikit-menu" role="menu">
+        <th:block th:replace="${content}" />
+    </ul>
+</div>
+
+<!-- ── Dropdown item ─────────────────────────────────────────────────────── -->
+<li th:fragment="dropdown-item(label, icon, onclick, variant)"
+    th:class="|uikit-menu-item uikit-dropdown-item-${variant ?: 'default'}|"
+    role="menuitem">
+    <a href="#"
+       class="uikit-menu-link"
+       th:attr="onclick=${onclick != null ? onclick + '; UiKitDropdown.closeAll(); return false;' : 'return false;'}">
+        <i th:if="${icon != null}" class="material-icons" th:text="${icon}"></i>
+        <span th:text="${label}"></span>
+    </a>
+</li>
+
+<!-- ── Dropdown separator ───────────────────────────────────────────────── -->
+<li th:fragment="dropdown-separator"
+    class="uikit-menu-separator"
+    role="separator">
+</li>
+
+</body>
+</html>
+
+
