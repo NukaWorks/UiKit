@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!--
+  uikit-appheader — top masthead bar
+
+  Fragments:
+    appheader(brand, activeOrg, orgs, user, role)
+      brand     - brand name string (e.g. 'Islands')
+      activeOrg - currently selected org name (e.g. 'Acme Corp')
+      orgs      - comma-separated org names  (e.g. 'Acme Corp,Beta Org')
+                  pass null/'' to hide org selector
+      user      - display name (e.g. 'John Doe')
+      role      - role label  (e.g. 'Administrator')
+
+  Usage:
+    <div th:replace="~{components/appheader :: appheader('Islands','Acme Corp','Acme Corp,Beta Org','John Doe','Administrator')}"></div>
+
+  The component reads the current theme from localStorage via theme.js (already loaded in <head>).
+-->
+
+<!-- ── App Header ──────────────────────────────────────────────────────────── -->
+<header th:fragment="appheader(brand, activeOrg, orgs, user, role)"
+        class="uikit-appheader"
+        role="banner">
+
+    <!-- LEFT: brand -->
+    <div class="uikit-appheader-brand">
+        <i class="material-icons" style="font-size:1.3rem;color:var(--uikit-color-primary);">language</i>
+        <span class="uikit-appheader-brand-name" th:text="${brand ?: 'Islands'}">Islands</span>
+    </div>
+
+    <!-- CENTER: org selector (shown only when orgs is provided) -->
+    <div class="uikit-appheader-center" th:if="${activeOrg != null and activeOrg != ''}">
+        <div id="appheader-org-dropdown" class="uikit-dropdown uikit-appheader-org-dropdown">
+            <button class="uikit-appheader-org-trigger"
+                    type="button"
+                    onclick="UiKitDropdown.toggle('appheader-org-dropdown')"
+                    aria-label="Switch organization">
+                <!-- Org avatar -->
+                <span class="uikit-appheader-org-avatar" th:text="${#strings.substring(activeOrg,0,1).toUpperCase()}">A</span>
+                <span class="uikit-appheader-org-name" th:text="${activeOrg}">Acme Corp</span>
+                <i class="material-icons uikit-appheader-chevron">expand_more</i>
+            </button>
+            <ul class="uikit-dropdown-menu uikit-menu uikit-appheader-org-menu" role="menu">
+                <li class="uikit-appheader-org-menu-header">Switch organization</li>
+                <!-- Render each org as a menu item. Comma-split done client-side via JS. -->
+                <th:block th:if="${orgs != null and orgs != ''}">
+                    <th:block th:each="org : ${#strings.arraySplit(orgs, ',')}">
+                        <li class="uikit-menu-item" role="menuitem">
+                            <a href="#" class="uikit-menu-link uikit-appheader-org-item"
+                               th:classappend="${#strings.trim(org) == activeOrg ? ' active' : ''}"
+                               th:attr="onclick='UiKitAppHeader.switchOrg(this); return false;'"
+                               th:text="${#strings.trim(org)}">Acme Corp</a>
+                        </li>
+                    </th:block>
+                </th:block>
+                <li class="uikit-menu-separator"></li>
+                <li class="uikit-menu-item" role="menuitem">
+                    <a href="#" class="uikit-menu-link" style="color:var(--uikit-color-primary);"
+                       onclick="UiKitDropdown.closeAll(); return false;">
+                        <i class="material-icons" style="font-size:1rem;">add</i>
+                        <span>New organization</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Empty center spacer when no org selector -->
+    <div class="uikit-appheader-center" th:unless="${activeOrg != null and activeOrg != ''}"></div>
+
+    <!-- RIGHT: actions -->
+    <div class="uikit-appheader-right">
+
+        <!-- Theme toggle -->
+        <button class="uikit-appheader-icon-btn"
+                type="button"
+                id="appheader-theme-btn"
+                onclick="UiKitAppHeader.cycleTheme()"
+                title="Toggle theme">
+            <i class="material-icons" id="appheader-theme-icon">light_mode</i>
+        </button>
+
+        <!-- Notifications bell -->
+        <button class="uikit-appheader-icon-btn"
+                type="button"
+                title="Notifications">
+            <i class="material-icons">notifications_none</i>
+            <span class="uikit-appheader-badge">2</span>
+        </button>
+
+        <!-- User profile dropdown -->
+        <div id="appheader-user-dropdown" class="uikit-dropdown">
+            <button class="uikit-appheader-user-trigger"
+                    type="button"
+                    onclick="UiKitDropdown.toggle('appheader-user-dropdown')"
+                    aria-label="User menu">
+                <!-- Avatar initials -->
+                <span class="uikit-appheader-user-avatar"
+                      th:text="${user != null ? #strings.substring(user,0,1).toUpperCase() : 'U'}">J</span>
+                <div class="uikit-appheader-user-info">
+                    <span class="uikit-appheader-user-name" th:text="${user ?: 'User'}">John Doe</span>
+                    <span class="uikit-appheader-user-role" th:text="${role ?: 'User'}">Administrator</span>
+                </div>
+                <i class="material-icons uikit-appheader-chevron">expand_more</i>
+            </button>
+
+            <ul class="uikit-dropdown-menu uikit-menu uikit-appheader-user-menu" role="menu">
+                <!-- User info header -->
+                <li class="uikit-appheader-user-menu-header">
+                    <span class="uikit-appheader-user-menu-avatar"
+                          th:text="${user != null ? #strings.substring(user,0,1).toUpperCase() : 'U'}">J</span>
+                    <div>
+                        <div style="font-weight:600;font-size:9.5pt;" th:text="${user ?: 'User'}">John Doe</div>
+                        <div style="font-size:8pt;color:var(--uikit-text-muted);" th:text="${role ?: 'User'}">Administrator</div>
+                    </div>
+                </li>
+                <li class="uikit-menu-separator"></li>
+                <li class="uikit-menu-item" role="menuitem">
+                    <a href="/settings/profile" class="uikit-menu-link" onclick="UiKitDropdown.closeAll()">
+                        <i class="material-icons">person</i><span>Profile</span>
+                    </a>
+                </li>
+                <li class="uikit-menu-item" role="menuitem">
+                    <a href="/settings" class="uikit-menu-link" onclick="UiKitDropdown.closeAll()">
+                        <i class="material-icons">settings</i><span>Settings</span>
+                    </a>
+                </li>
+                <li class="uikit-menu-separator"></li>
+                <li class="uikit-menu-item uikit-dropdown-item-alert" role="menuitem">
+                    <a href="/logout" class="uikit-menu-link">
+                        <i class="material-icons">logout</i><span>Sign out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+
+</body>
+</html>
+
